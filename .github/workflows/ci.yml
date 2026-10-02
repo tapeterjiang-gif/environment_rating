@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  c-and-cpp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build -j2
+      - name: Test
+        run: ctest --test-dir build --output-on-failure
+
+  apple:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test Swift package
+        run: swift test
+      - name: Build for iOS Simulator
+        run: >-
+          xcodebuild -scheme EnvironmentRating
+          -destination 'generic/platform=iOS Simulator'
+          -derivedDataPath "$RUNNER_TEMP/environment-rating-ios"
+          CODE_SIGNING_ALLOWED=NO build

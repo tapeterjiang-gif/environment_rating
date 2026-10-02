@@ -1,8 +1,8 @@
 # environment_rating
 
-环境评级库的需求、评级标准与使用指南。面向 ESP32（RTOS）与 RK3506（Linux），采用可重入 C99 实现，兼容 C++。三个模块独立输出，均无需初始化、动态内存或历史状态。
+环境评级库的需求、评级标准与使用指南。面向 ESP32（RTOS）、RK3506（Linux）和 iOS，核心采用可重入 C99 实现，兼容 C++ 和 Swift。三个模块独立输出，均无需初始化、动态内存或历史状态。
 
-版本：v0.37。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
+版本：v0.38。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
 
 - [1. 空气质量](#1-空气质量)：CO₂、PM、甲醛及整体评级。
 - [2. 热舒适度](#2-热舒适度)：PMV、PPD、冷热与湿度提示。
@@ -33,7 +33,7 @@ PMV 的其他输入（平均辐射温度、相对风速、代谢率、衣着热�
 
 ### 构建与验证
 
-需要 CMake 3.16 或更新版本，以及 C99、C++11 编译器（C++ 用于链接测试）。在项目根目录执行：
+通用 C 版本需要 CMake 3.16 或更新版本，以及 C99、C++11 编译器（C++ 用于链接测试）。在项目根目录执行：
 
 ```sh
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
@@ -43,14 +43,52 @@ ctest --test-dir build --output-on-failure
 
 本机测试覆盖三个模块的分档边界、相邻浮点值、异常输入、PMV/PPD 参考值及 C++ 链接。ESP32、RK3506 的 SDK 交叉构建和实机验证待完成。
 
+macOS 上还可验证 Swift Package：
+
+```sh
+swift test
+xcodebuild -scheme EnvironmentRating \
+  -destination 'generic/platform=iOS Simulator' \
+  CODE_SIGNING_ALLOWED=NO build
+```
+
 ### 平台集成
 
 按需将上表中模块的 `.c` 文件加入工程，把根目录加入头文件搜索路径，包含对应 `.h` 即可调用。接口和参数说明以头文件注释为准；空气质量分档速查见 [rating.md](rating.md)。
 
 - **ESP-IDF**：将项目放入 `components/environment_rating`，在调用组件中添加 `REQUIRES environment_rating`，会编译全部三个模块。
 - **Linux**：使用本项目 CMake，按需链接 `air_quality_rating`、`thermal_comfort`、`sound_light_rating`；也可直接编译所需源文件，使用热舒适度模块时链接数学库 `-lm`。只构建库可设置 `-DBUILD_TESTING=OFF`，无需 C++ 编译器。
+- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.38.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
 
 源文件按 C99 编译，支持 C++ 调用。不要开启 `-ffast-math` 或 `-ffinite-math-only`，以保证 NaN 和无穷大检查有效。传感器读取、校准、有效性判断和通信由上层负责。
+
+### iOS / Swift 使用示例
+
+Swift 包装层使用可选参数表示缺失数据，并将 C 层的 Unknown 映射为 Swift 枚举、无效 PMV 映射为 `nil`。核心阈值和计算仍全部来自根目录 C 源码。
+
+```swift
+import EnvironmentRating
+
+let overall = AirRating.overall(
+    co2: 1_200,
+    pm25: 18,
+    pm10: nil,
+    formaldehyde: 0.06
+)
+
+let comfort = ThermalComfort.evaluate(
+    temperature: 25,
+    humidity: 50,
+    radiantTemperature: 25,
+    airSpeed: 0.1
+) // 默认 met=1.1、clo=0.7；无效输入返回 nil
+
+let humidity = ThermalComfort.rateHumidity(55) // 默认 UBA
+let noise = SoundLightRating.noise(38, scene: .home)
+let light = SoundLightRating.illuminance(300)
+```
+
+Swift API 位于 `apple/Sources/EnvironmentRating`。需要直接调用 C 接口的 Apple 平台工程也可以选择 `CEnvironmentRating` 产品并导入同名模块。Swift 包不依赖 Apple Matter Framework；Matter 配网、读取 Cluster 和订阅属性应由 App 层负责，设备已经上报 `AirQuality` 时应优先使用设备结果。
 
 ## 1. 空气质量
 
