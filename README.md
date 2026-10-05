@@ -2,7 +2,7 @@
 
 环境评级库的需求、评级标准与使用指南。面向 ESP32（RTOS）、RK3506（Linux）和 iOS，核心采用可重入 C99 实现，兼容 C++ 和 Swift。三个模块独立输出，均无需初始化、动态内存或历史状态。
 
-版本：v0.38。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
+版本：v0.39。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
 
 - [1. 空气质量](#1-空气质量)：CO₂、PM、甲醛及整体评级。
 - [2. 热舒适度](#2-热舒适度)：PMV、PPD、冷热与湿度提示。
@@ -58,7 +58,7 @@ xcodebuild -scheme EnvironmentRating \
 
 - **ESP-IDF**：将项目放入 `components/environment_rating`，在调用组件中添加 `REQUIRES environment_rating`，会编译全部三个模块。
 - **Linux**：使用本项目 CMake，按需链接 `air_quality_rating`、`thermal_comfort`、`sound_light_rating`；也可直接编译所需源文件，使用热舒适度模块时链接数学库 `-lm`。只构建库可设置 `-DBUILD_TESTING=OFF`，无需 C++ 编译器。
-- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.38.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
+- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.39.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
 
 源文件按 C99 编译，支持 C++ 调用。不要开启 `-ffast-math` 或 `-ffinite-math-only`，以保证 NaN 和无穷大检查有效。传感器读取、校准、有效性判断和通信由上层负责。
 
@@ -309,7 +309,7 @@ thermal_sensation_t sensation = thermal_rate(pmv);
 | 代谢率 met | met | 0.8～4 |
 | 有效衣着热阻 clo | clo | 0～2 |
 
-相对风速包含人体运动影响；有效衣着热阻应与实际条件相符，由调用方提供。函数不默认辐射温度等于气温，也不内置衣着或活动假设。没有实际信息时，产品建议使用 `met=1.1`、`clo=0.7` 作为全年默认估计；调用方掌握实际活动和衣着时应传入实际值。全部输入须有限，结果只接受 −2 ≤ PMV ≤ 2；无效输入、不收敛或结果超范围返回 `NAN`，不钳制到边界。瞬时计算不表示环境已满足模型的稳态假设，初始化、快速变化及数据可信度由上层处理。
+相对风速包含人体运动影响；有效衣着热阻应与实际条件相符，由调用方提供。函数不默认辐射温度等于气温，也不内置衣着或活动假设。没有实际信息时，产品建议使用 `met=1.1`、`clo=0.7` 作为全年默认估计；调用方掌握实际活动和衣着时应传入实际值。全部输入须有限；无效输入或计算不收敛返回 `NAN`。计算结果超出 ASHRAE 七点热感觉标尺时饱和为 −3 或 +3。瞬时计算不表示环境已满足模型的稳态假设，初始化、快速变化及数据可信度由上层处理。
 
 ### 2.3 PMV 与 PPD
 
@@ -317,7 +317,7 @@ PMV 为负表示偏冷，为正表示偏热。PPD 为预测不满意人数百分
 
 `PPD = 100 − 95 × exp(−0.03353 × PMV⁴ − 0.2179 × PMV²)`。
 
-PMV 为 0 时 PPD 仍为 5%；PPD 不是测量误差或置信度。两个接口均限定 PMV 在 −2～+2，结果不取整，显示格式由界面处理。
+PMV 为 0 时 PPD 仍为 5%；PMV 为 ±3 时 PPD 约为 99.1%。PPD 不是测量误差或置信度。`thermal_ppd()` 接受 −3～+3，越界返回 `NAN`；结果不取整，显示格式由界面处理。
 
 ### 2.4 冷热提示
 
@@ -325,14 +325,16 @@ PMV 为 0 时 PPD 仍为 5%；PPD 不是测量误差或置信度。两个接口�
 
 | 有效 PMV 区间 | 提示 | 枚举 |
 | --- | --- | --- |
-| −2 ≤ PMV < −1.5 | 凉 | `THERMAL_COOL` |
+| −3 ≤ PMV < −2.5 | 冷 | `THERMAL_COLD` |
+| −2.5 ≤ PMV < −1.5 | 凉 | `THERMAL_COOL` |
 | −1.5 ≤ PMV < −0.5 | 稍凉 | `THERMAL_SLIGHTLY_COOL` |
 | −0.5 ≤ PMV ≤ +0.5 | 中性 | `THERMAL_NEUTRAL` |
 | +0.5 < PMV ≤ +1.5 | 稍暖 | `THERMAL_SLIGHTLY_WARM` |
-| +1.5 < PMV ≤ +2 | 暖 | `THERMAL_WARM` |
-| 无效或超出 −2～+2 | 未知 | `THERMAL_UNKNOWN` |
+| +1.5 < PMV ≤ +2.5 | 暖 | `THERMAL_WARM` |
+| +2.5 < PMV ≤ +3 | 热 | `THERMAL_HOT` |
+| 无效或超出 −3～+3 | 未知 | `THERMAL_UNKNOWN` |
 
-`THERMAL_COLD`、`THERMAL_HOT` 为保留枚举，当前有效范围内不会输出。中性不代表所有人满意或局部不适条件合格。
+`thermal_pmv()` 会把超出标尺的有限计算结果饱和到 −3 或 +3；`thermal_rate()` 不接受调用方直接传入的越界值。中性不代表所有人满意或局部不适条件合格。
 
 来源：[ISO 7730:2025](https://www.iso.org/standard/85803.html)、[ASHRAE 七点热感觉标尺（PDF 第 17 页）](https://www.ashrae.org/file%20library/technical%20resources/standards%20and%20guidelines/standards%20addenda/55_2017_d_20200731.pdf#page=17)、[CBE PMV/PPD 参考实现及适用范围](https://github.com/CenterForTheBuiltEnvironment/pythermalcomfort/blob/master/pythermalcomfort/models/pmv_ppd_iso.py)。
 

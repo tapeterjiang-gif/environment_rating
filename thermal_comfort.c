@@ -74,23 +74,26 @@ double thermal_pmv(double temperature, double humidity,
              0.000017 * metabolism * (5867.0 - vapour) +
              0.0014 * metabolism * (34.0 - temperature) + dry;
     pmv = (0.303 * exp(-0.036 * metabolism) + 0.028) * (metabolism - losses);
-    return in_range(pmv, -2, 2) ? pmv : NAN;
+    if (!isfinite(pmv)) return NAN;
+    return fmax(-3.0, fmin(3.0, pmv));
 }
 
 double thermal_ppd(double pmv)
 {
-    if (!in_range(pmv, -2, 2)) return NAN;
+    if (!in_range(pmv, -3, 3)) return NAN;
     return 100.0 - 95.0 * exp(-0.03353 * fourth(pmv) - 0.2179 * pmv * pmv);
 }
 
 thermal_sensation_t thermal_rate(double pmv)
 {
-    if (!in_range(pmv, -2, 2)) return THERMAL_UNKNOWN;
+    if (!in_range(pmv, -3, 3)) return THERMAL_UNKNOWN;
+    if (pmv < -2.5) return THERMAL_COLD;
     if (pmv < -1.5) return THERMAL_COOL;
     if (pmv < -0.5) return THERMAL_SLIGHTLY_COOL;
     if (pmv <= 0.5) return THERMAL_NEUTRAL;
     if (pmv <= 1.5) return THERMAL_SLIGHTLY_WARM;
-    return THERMAL_WARM;
+    if (pmv <= 2.5) return THERMAL_WARM;
+    return THERMAL_HOT;
 }
 
 thermal_humidity_t thermal_rate_humidity(thermal_humidity_std_t standard,

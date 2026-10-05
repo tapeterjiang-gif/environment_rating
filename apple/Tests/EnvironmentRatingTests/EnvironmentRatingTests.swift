@@ -34,6 +34,28 @@ final class EnvironmentRatingTests: XCTestCase {
         XCTAssertTrue(result!.pmv.isFinite)
         XCTAssertGreaterThanOrEqual(result!.ppd, 5)
 
+        let cold = ThermalComfort.evaluate(
+            temperature: 10,
+            humidity: 50,
+            radiantTemperature: 10,
+            airSpeed: 1,
+            met: 0.8,
+            clo: 0
+        )
+        XCTAssertEqual(cold?.pmv, -3)
+        XCTAssertEqual(cold?.sensation, .cold)
+
+        let hot = ThermalComfort.evaluate(
+            temperature: 30,
+            humidity: 0,
+            radiantTemperature: 40,
+            airSpeed: 0,
+            met: 4,
+            clo: 2
+        )
+        XCTAssertEqual(hot?.pmv, 3)
+        XCTAssertEqual(hot?.sensation, .hot)
+
         XCTAssertNil(ThermalComfort.evaluate(
             temperature: .nan,
             humidity: 50,

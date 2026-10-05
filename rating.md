@@ -110,14 +110,16 @@ CO₂ 只有三个有效档位，不输出 Critical；1000、2000 均归入 Medi
 
 | 有效 PMV 区间 | 冷热提示 | 返回枚举 |
 | --- | --- | --- |
-| −2 ≤ PMV < −1.5 | 凉 | `THERMAL_COOL` |
+| −3 ≤ PMV < −2.5 | 冷 | `THERMAL_COLD` |
+| −2.5 ≤ PMV < −1.5 | 凉 | `THERMAL_COOL` |
 | −1.5 ≤ PMV < −0.5 | 稍凉 | `THERMAL_SLIGHTLY_COOL` |
 | −0.5 ≤ PMV ≤ +0.5 | 中性 | `THERMAL_NEUTRAL` |
 | +0.5 < PMV ≤ +1.5 | 稍暖 | `THERMAL_SLIGHTLY_WARM` |
-| +1.5 < PMV ≤ +2 | 暖 | `THERMAL_WARM` |
-| 无效或超出 −2～+2 | 未知 | `THERMAL_UNKNOWN` |
+| +1.5 < PMV ≤ +2.5 | 暖 | `THERMAL_WARM` |
+| +2.5 < PMV ≤ +3 | 热 | `THERMAL_HOT` |
+| 无效或超出 −3～+3 | 未知 | `THERMAL_UNKNOWN` |
 
-PMV 为 0 时 PPD 为 5%；PMV 为 ±0.5、±1、±2 时，PPD 分别约为 10.2%、26.1%、76.8%。`THERMAL_COLD` 和 `THERMAL_HOT` 为保留枚举，当前有效范围内不会返回。没有实际人员信息时，产品建议使用 `met=1.1`、`clo=0.7` 作全年估计；实际值已知时应由调用方传入。
+PMV 为 0 时 PPD 为 5%；PMV 为 ±0.5、±1、±2、±3 时，PPD 分别约为 10.2%、26.1%、76.8%、99.1%。`thermal_pmv()` 将超出 ASHRAE 七点标尺的有限计算结果饱和到 −3 或 +3；直接传给 `thermal_ppd()` 或 `thermal_rate()` 的值须在 −3～+3。没有实际人员信息时，产品建议使用 `met=1.1`、`clo=0.7` 作全年估计；实际值已知时应由调用方传入。
 
 ### 2.2 湿度提示
 

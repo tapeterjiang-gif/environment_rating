@@ -7,7 +7,6 @@ extern "C" {
 
 /* ASHRAE seven-point thermal sensation labels; enum values are internal,
  * not Matter values. Continuous bands are product rules (see README.md).
- * COLD/HOT are reserved: strict ISO PMV validity [-2, 2] cannot reach them.
  * Sources:
  * https://www.iso.org/standard/85803.html
  * https://www.ashrae.org/file%20library/technical%20resources/standards%20and%20guidelines/standards%20addenda/55_2017_d_20200731.pdf#page=17
@@ -62,23 +61,25 @@ thermal_humidity_t thermal_rate_humidity(thermal_humidity_std_t standard,
  * met: metabolic rate in met, [0.8, 4].
  * clo: effective clothing insulation in clo, [0, 2].
  * Bounds are inclusive; water vapour partial pressure must be <= 2700 Pa.
- * Returns NAN for nonfinite/out-of-range inputs, failed convergence or a PMV
- * outside [-2, 2]. No rounding, clamping, hidden defaults or activity/clothing
- * corrections. Caller supplies relative speed and appropriate insulation.
+ * Returns NAN for nonfinite/out-of-range inputs or failed convergence. A
+ * finite result beyond the ASHRAE sensation scale is saturated to -3 or +3;
+ * there is no rounding, hidden default or activity/clothing correction.
+ * Caller supplies relative speed and appropriate insulation.
  * Assumed inputs yield an estimate, not a measured personal comfort result.
  */
 double thermal_pmv(double temperature, double humidity,
                    double radiant_temperature, double air_speed,
                    double met, double clo);
 
-/* Predicted percentage dissatisfied, in percent [5, about 77].
- * Returns NAN unless pmv is finite and within [-2, 2].
+/* Predicted percentage dissatisfied, in percent [5, about 99].
+ * Returns NAN unless pmv is finite and within [-3, 3].
  */
 double thermal_ppd(double pmv);
 
-/* Product bands: [-2,-1.5) Cool; [-1.5,-0.5) SlightlyCool;
- * [-0.5,0.5] Neutral; (0.5,1.5] SlightlyWarm; (1.5,2] Warm.
- * Invalid or out-of-model PMV returns UNKNOWN. Neutral is not a certificate
+/* Product bands: [-3,-2.5) Cold; [-2.5,-1.5) Cool;
+ * [-1.5,-0.5) SlightlyCool; [-0.5,0.5] Neutral;
+ * (0.5,1.5] SlightlyWarm; (1.5,2.5] Warm; (2.5,3] Hot.
+ * Invalid or out-of-scale PMV returns UNKNOWN. Neutral is not a certificate
  * of overall comfort; local discomfort is not evaluated.
  */
 thermal_sensation_t thermal_rate(double pmv);

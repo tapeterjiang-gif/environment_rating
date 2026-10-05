@@ -81,6 +81,7 @@ int main(void)
     CHECK(fabs(thermal_ppd(0.5)-10.22502455) < 1e-7);
     CHECK(fabs(thermal_ppd(1)-26.11965008) < 1e-7);
     CHECK(fabs(thermal_ppd(2)-76.761813) < 1e-5);
+    CHECK(fabs(thermal_ppd(3)-99.11587172) < 1e-7);
     for (i=0; i<sizeof(bad)/sizeof(bad[0]); ++i) {
         CHECK(isnan(thermal_ppd(bad[i])));
         CHECK(thermal_rate(bad[i]) == THERMAL_UNKNOWN);
@@ -100,11 +101,14 @@ int main(void)
         CHECK(isnan(thermal_pmv(a[0],a[1],a[2],a[3],a[4],a[5])));
     }
     CHECK(isnan(thermal_pmv(30,100,30,0.1,1.1,0.5))); /* vapour > 2700 Pa */
-    CHECK(isnan(thermal_pmv(10,50,10,1,0.8,0))); /* PMV outside validity */
-    CHECK(isnan(thermal_ppd(nextafter(2,INFINITY))));
-    CHECK(isnan(thermal_ppd(nextafter(-2,-INFINITY))));
-    CHECK(thermal_rate(-2) == THERMAL_COOL);
-    CHECK(thermal_rate(nextafter(-2,-INFINITY)) == THERMAL_UNKNOWN);
+    CHECK(thermal_pmv(10,50,10,1,0.8,0) == -3); /* Saturated scale endpoint. */
+    CHECK(thermal_pmv(30,0,40,0,4,2) == 3);      /* Saturated scale endpoint. */
+    CHECK(isnan(thermal_ppd(nextafter(3,INFINITY))));
+    CHECK(isnan(thermal_ppd(nextafter(-3,-INFINITY))));
+    CHECK(thermal_rate(-3) == THERMAL_COLD);
+    CHECK(thermal_rate(nextafter(-3,-INFINITY)) == THERMAL_UNKNOWN);
+    CHECK(thermal_rate(nextafter(-2.5,-INFINITY)) == THERMAL_COLD);
+    CHECK(thermal_rate(-2.5) == THERMAL_COOL);
     CHECK(thermal_rate(nextafter(-1.5,-INFINITY)) == THERMAL_COOL);
     CHECK(thermal_rate(-1.5) == THERMAL_SLIGHTLY_COOL);
     CHECK(thermal_rate(nextafter(-0.5,-INFINITY)) == THERMAL_SLIGHTLY_COOL);
@@ -113,9 +117,11 @@ int main(void)
     CHECK(thermal_rate(nextafter(0.5,INFINITY)) == THERMAL_SLIGHTLY_WARM);
     CHECK(thermal_rate(1.5) == THERMAL_SLIGHTLY_WARM);
     CHECK(thermal_rate(nextafter(1.5,INFINITY)) == THERMAL_WARM);
-    CHECK(thermal_rate(2) == THERMAL_WARM);
-    CHECK(thermal_rate(nextafter(2,INFINITY)) == THERMAL_UNKNOWN);
-    for(i=0;i<=200;++i) {
+    CHECK(thermal_rate(2.5) == THERMAL_WARM);
+    CHECK(thermal_rate(nextafter(2.5,INFINITY)) == THERMAL_HOT);
+    CHECK(thermal_rate(3) == THERMAL_HOT);
+    CHECK(thermal_rate(nextafter(3,INFINITY)) == THERMAL_UNKNOWN);
+    for(i=0;i<=300;++i) {
         double p=i/100.0;
         CHECK(thermal_ppd(p)==thermal_ppd(-p));
         CHECK(thermal_ppd(p)>=5 && thermal_ppd(p)<=100);
