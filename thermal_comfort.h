@@ -54,13 +54,15 @@ thermal_humidity_t thermal_rate_humidity(thermal_humidity_std_t standard,
                                          double humidity);
 
 /* Fanger PMV, referencing ISO 7730:2025. External mechanical work is zero.
- * temperature: air temperature, degrees C, [10, 30].
+ * temperature: air temperature, degrees C, [-40, 125].
  * humidity: relative humidity, percent, [0, 100].
- * radiant_temperature: mean radiant temperature, degrees C, [10, 40].
+ * radiant_temperature: mean radiant temperature, degrees C, [-40, 125].
  * air_speed: relative air speed at the body, m/s, [0, 1].
  * met: metabolic rate in met, [0.8, 4].
  * clo: effective clothing insulation in clo, [0, 2].
- * Bounds are inclusive; water vapour partial pressure must be <= 2700 Pa.
+ * Bounds are inclusive. The temperature range accepts the declared sensor
+ * range; values outside ordinary indoor comfort conditions are indicative
+ * product output, not an ISO 7730 or ASHRAE 55 conformity assessment.
  * Returns NAN for nonfinite/out-of-range inputs or failed convergence. A
  * finite result beyond the ASHRAE sensation scale is saturated to -3 or +3;
  * there is no rounding, hidden default or activity/clothing correction.

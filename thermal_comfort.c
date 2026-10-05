@@ -38,13 +38,13 @@ double thermal_pmv(double temperature, double humidity,
     double vapour, metabolism, insulation, area, forced, skin;
     double low, high, clothing, dry, losses, pmv;
     int iteration;
-    if (!in_range(temperature, 10, 30) || !in_range(humidity, 0, 100) ||
-        !in_range(radiant_temperature, 10, 40) || !in_range(air_speed, 0, 1) ||
+    if (!in_range(temperature, -40, 125) || !in_range(humidity, 0, 100) ||
+        !in_range(radiant_temperature, -40, 125) || !in_range(air_speed, 0, 1) ||
         !in_range(met, 0.8, 4) || !in_range(clo, 0, 2)) {
         return NAN;
     }
     vapour = humidity * 10.0 * exp(16.6536 - 4030.183 / (temperature + 235.0));
-    if (!in_range(vapour, 0, 2700)) return NAN;
+    if (!isfinite(vapour) || vapour < 0) return NAN;
     metabolism = 58.15 * met;
     insulation = 0.155 * clo;
     area = insulation <= 0.078 ? 1.0 + 1.29 * insulation :

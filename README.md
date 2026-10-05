@@ -2,7 +2,7 @@
 
 环境评级库的需求、评级标准与使用指南。面向 ESP32（RTOS）、RK3506（Linux）和 iOS，核心采用可重入 C99 实现，兼容 C++ 和 Swift。三个模块独立输出，均无需初始化、动态内存或历史状态。
 
-版本：v0.39。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
+版本：v0.40。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
 
 - [1. 空气质量](#1-空气质量)：CO₂、PM、甲醛及整体评级。
 - [2. 热舒适度](#2-热舒适度)：PMV、PPD、冷热与湿度提示。
@@ -58,7 +58,7 @@ xcodebuild -scheme EnvironmentRating \
 
 - **ESP-IDF**：将项目放入 `components/environment_rating`，在调用组件中添加 `REQUIRES environment_rating`，会编译全部三个模块。
 - **Linux**：使用本项目 CMake，按需链接 `air_quality_rating`、`thermal_comfort`、`sound_light_rating`；也可直接编译所需源文件，使用热舒适度模块时链接数学库 `-lm`。只构建库可设置 `-DBUILD_TESTING=OFF`，无需 C++ 编译器。
-- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.39.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
+- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.40.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
 
 源文件按 C99 编译，支持 C++ 调用。不要开启 `-ffast-math` 或 `-ffinite-math-only`，以保证 NaN 和无穷大检查有效。传感器读取、校准、有效性判断和通信由上层负责。
 
@@ -302,14 +302,14 @@ thermal_sensation_t sensation = thermal_rate(pmv);
 
 | 输入 | 单位 | 接受范围（含边界） |
 | --- | --- | --- |
-| 空气温度 temperature | °C | 10～30 |
-| 相对湿度 humidity | %RH | 0～100，且水蒸气分压力不超过 2700 Pa |
-| 平均辐射温度 radiant_temperature | °C | 10～40 |
+| 空气温度 temperature | °C | −40～+125 |
+| 相对湿度 humidity | %RH | 0～100 |
+| 平均辐射温度 radiant_temperature | °C | −40～+125 |
 | 人体相对风速 air_speed | m/s | 0～1 |
 | 代谢率 met | met | 0.8～4 |
 | 有效衣着热阻 clo | clo | 0～2 |
 
-相对风速包含人体运动影响；有效衣着热阻应与实际条件相符，由调用方提供。函数不默认辐射温度等于气温，也不内置衣着或活动假设。没有实际信息时，产品建议使用 `met=1.1`、`clo=0.7` 作为全年默认估计；调用方掌握实际活动和衣着时应传入实际值。全部输入须有限；无效输入或计算不收敛返回 `NAN`。计算结果超出 ASHRAE 七点热感觉标尺时饱和为 −3 或 +3。瞬时计算不表示环境已满足模型的稳态假设，初始化、快速变化及数据可信度由上层处理。
+相对风速包含人体运动影响；有效衣着热阻应与实际条件相符，由调用方提供。函数不默认辐射温度等于气温，也不内置衣着或活动假设。没有实际信息时，产品建议使用 `met=1.1`、`clo=0.7` 作为全年默认估计；调用方掌握实际活动和衣着时应传入实际值。全部输入须有限；无效输入或计算不收敛返回 `NAN`。温度扩展范围用于完整接收设备量程；超出常规室内热舒适条件时，结果仅用于冷热提示，不表示符合 ISO 7730 或 ASHRAE 55 的适用条件。计算结果超出七点热感觉标尺时饱和为 −3 或 +3。瞬时计算不表示环境已满足模型的稳态假设，初始化、快速变化及数据可信度由上层处理。
 
 ### 2.3 PMV 与 PPD
 
