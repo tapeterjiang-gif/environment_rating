@@ -46,9 +46,9 @@ final class EnvironmentRatingTests: XCTestCase {
         XCTAssertEqual(cold?.sensation, .cold)
 
         let hot = ThermalComfort.evaluate(
-            temperature: 125,
+            temperature: 80,
             humidity: 100,
-            radiantTemperature: 125,
+            radiantTemperature: 80,
             airSpeed: 0,
             met: 4,
             clo: 2

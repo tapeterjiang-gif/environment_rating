@@ -53,7 +53,7 @@ static void test_humidity(void)
 int main(void)
 {
     const double bad[] = {NAN, INFINITY, -INFINITY, DBL_MAX, -DBL_MAX};
-    const double bounds[6][2] = {{-40,125},{0,100},{-40,125},{0,1},{0.8,4},{0,2}};
+    const double bounds[6][2] = {{-40,80},{0,100},{-40,80},{0,1},{0.8,4},{0,2}};
     const double inputs[] = {25,50,25,0.1,1.1,0.5};
     size_t i, j;
     /* CBE reference heat-balance iteration, external work=0, convergence
@@ -102,7 +102,7 @@ int main(void)
     }
     CHECK(isfinite(thermal_pmv(30,100,30,0.1,1.1,0.5)));
     CHECK(thermal_pmv(-40,100,-40,1,0.8,0) == -3);
-    CHECK(thermal_pmv(125,100,125,0,4,2) == 3);
+    CHECK(thermal_pmv(80,100,80,0,4,2) == 3);
     CHECK(thermal_pmv(10,50,10,1,0.8,0) == -3); /* Saturated scale endpoint. */
     CHECK(thermal_pmv(30,0,40,0,4,2) == 3);      /* Saturated scale endpoint. */
     CHECK(isnan(thermal_ppd(nextafter(3,INFINITY))));

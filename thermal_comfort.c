@@ -38,8 +38,8 @@ double thermal_pmv(double temperature, double humidity,
     double vapour, metabolism, insulation, area, forced, skin;
     double low, high, clothing, dry, losses, pmv;
     int iteration;
-    if (!in_range(temperature, -40, 125) || !in_range(humidity, 0, 100) ||
-        !in_range(radiant_temperature, -40, 125) || !in_range(air_speed, 0, 1) ||
+    if (!in_range(temperature, -40, 80) || !in_range(humidity, 0, 100) ||
+        !in_range(radiant_temperature, -40, 80) || !in_range(air_speed, 0, 1) ||
         !in_range(met, 0.8, 4) || !in_range(clo, 0, 2)) {
         return NAN;
     }

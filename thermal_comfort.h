@@ -54,9 +54,9 @@ thermal_humidity_t thermal_rate_humidity(thermal_humidity_std_t standard,
                                          double humidity);
 
 /* Fanger PMV, referencing ISO 7730:2025. External mechanical work is zero.
- * temperature: air temperature, degrees C, [-40, 125].
+ * temperature: air temperature, degrees C, [-40, 80].
  * humidity: relative humidity, percent, [0, 100].
- * radiant_temperature: mean radiant temperature, degrees C, [-40, 125].
+ * radiant_temperature: mean radiant temperature, degrees C, [-40, 80].
  * air_speed: relative air speed at the body, m/s, [0, 1].
  * met: metabolic rate in met, [0.8, 4].
  * clo: effective clothing insulation in clo, [0, 2].
