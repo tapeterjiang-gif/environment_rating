@@ -11,6 +11,7 @@ final class EnvironmentRatingTests: XCTestCase {
         XCTAssertEqual(AirRating.pm25(5.1), .fair)
         XCTAssertEqual(AirRating.pm10(55, standard: .epaAQI2026), .fair)
         XCTAssertEqual(AirRating.formaldehyde(0.1), .moderate)
+        XCTAssertEqual(AirRating.formaldehydeLevel(0.04), .low)
         XCTAssertEqual(AirRating.formaldehydeLevel(0.101), .high)
 
         XCTAssertEqual(

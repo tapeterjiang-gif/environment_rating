@@ -152,7 +152,9 @@ air_level_t air_level_pm10(air_pm_std_t standard, double pm10)
 
 air_level_t air_level_hcho(air_hcho_std_t standard, double hcho)
 {
-    return quality_to_level(air_rate_hcho(standard, hcho));
+    air_quality_t quality = air_rate_hcho(standard, hcho);
+    if (quality == AIR_FAIR) return AIR_LEVEL_LOW;
+    return quality_to_level(quality);
 }
 
 air_quality_t air_rate_all(air_pm_std_t pm_std, air_hcho_std_t hcho_std,

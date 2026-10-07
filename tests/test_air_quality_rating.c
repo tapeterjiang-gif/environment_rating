@@ -19,6 +19,10 @@ static const air_level_t expected_levels[] = {
     AIR_LEVEL_LOW, AIR_LEVEL_MEDIUM, AIR_LEVEL_MEDIUM,
     AIR_LEVEL_HIGH, AIR_LEVEL_HIGH, AIR_LEVEL_CRITICAL
 };
+static const air_level_t expected_hcho_levels[] = {
+    AIR_LEVEL_LOW, AIR_LEVEL_LOW, AIR_LEVEL_MEDIUM,
+    AIR_LEVEL_HIGH, AIR_LEVEL_HIGH, AIR_LEVEL_CRITICAL
+};
 
 static void test_boundaries(void)
 {
@@ -94,10 +98,10 @@ static void test_boundaries(void)
             for (i = 0; i < 5; ++i) {
                 double b = boundaries[standard][i];
                 CHECK(air_level_hcho((air_hcho_std_t)standard,
-                                     nextafter(b, -INFINITY)) == expected_levels[i]);
-                CHECK(air_level_hcho((air_hcho_std_t)standard, b) == expected_levels[i]);
+                                     nextafter(b, -INFINITY)) == expected_hcho_levels[i]);
+                CHECK(air_level_hcho((air_hcho_std_t)standard, b) == expected_hcho_levels[i]);
                 CHECK(air_level_hcho((air_hcho_std_t)standard,
-                                     nextafter(b, INFINITY)) == expected_levels[i + 1]);
+                                     nextafter(b, INFINITY)) == expected_hcho_levels[i + 1]);
                 CHECK(air_rate_hcho((air_hcho_std_t)standard,
                                     nextafter(b, -INFINITY)) ==
                       (air_quality_t)(i + 1));
