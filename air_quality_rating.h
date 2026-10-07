@@ -87,10 +87,9 @@ typedef enum {
 } air_level_t;
 
 /* Units: CO2 in ppm; PM in ug/m3; HCHO in mg/m3.
- * Reuse the corresponding air_rate_* rules, then apply product mappings.
- * CO2/PM: Good -> Low; Fair/Moderate -> Medium; Poor/VeryPoor -> High;
- * ExtremelyPoor -> Critical. HCHO: Good/Fair -> Low; Moderate -> Medium;
- * Poor/VeryPoor -> High; ExtremelyPoor -> Critical. Unknown -> Unknown.
+ * Reuse the corresponding air_rate_* rules, then apply this product mapping:
+ * Good/Fair -> Low; Moderate -> Medium; Poor/VeryPoor -> High;
+ * ExtremelyPoor -> Critical; Unknown -> Unknown.
  * Invalid concentrations or standards return AIR_LEVEL_UNKNOWN.
  * CO2 retains its three bands and never returns CRITICAL.
  * These results are for LevelValue only, not overall AirQuality aggregation.

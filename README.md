@@ -2,7 +2,7 @@
 
 环境评级库的需求、评级标准与使用指南。面向 ESP32（RTOS）、RK3506（Linux）和 iOS，核心采用可重入 C99 实现，兼容 C++ 和 Swift。三个模块独立输出，均无需初始化、动态内存或历史状态。
 
-版本：v0.42。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
+版本：v0.43。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
 
 - [1. 空气质量](#1-空气质量)：CO₂、PM、甲醛及整体评级。
 - [2. 热舒适度](#2-热舒适度)：PMV、PPD、冷热与湿度提示。
@@ -58,7 +58,7 @@ xcodebuild -scheme EnvironmentRating \
 
 - **ESP-IDF**：将项目放入 `components/environment_rating`，在调用组件中添加 `REQUIRES environment_rating`，会编译全部三个模块。
 - **Linux**：使用本项目 CMake，按需链接 `air_quality_rating`、`thermal_comfort`、`sound_light_rating`；也可直接编译所需源文件，使用热舒适度模块时链接数学库 `-lm`。只构建库可设置 `-DBUILD_TESTING=OFF`，无需 C++ 编译器。
-- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.42.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
+- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.43.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
 
 源文件按 C99 编译，支持 C++ 调用。不要开启 `-ffast-math` 或 `-ffinite-math-only`，以保证 NaN 和无穷大检查有效。传感器读取、校准、有效性判断和通信由上层负责。
 
@@ -204,7 +204,7 @@ Unknown 不参与优劣比较。Unknown、Good、Poor 为基础枚举；完整�
 
 甲醛标准独立于 PM 标准。各标准提供一个参考浓度 L；Matter 六档采用统一产品倍数 0.25L、0.5L、L、2L、5L。标准本身没有规定六档，因此该倍数映射不得标称为标准官方分档。C 为有效瞬时浓度，单位 mg/m³。
 
-甲醛的 `LevelValue` 产品映射为：Good/Fair → Low、Moderate → Medium、Poor/VeryPoor → High、ExtremelyPoor → Critical。该映射不影响 PM 和 CO₂。
+PM 和甲醛的 `LevelValue` 产品映射均为：Good/Fair → Low、Moderate → Medium、Poor/VeryPoor → High、ExtremelyPoor → Critical。CO₂ 保持 Low/Medium/High 三档。
 
 | 甲醛标准 | 参考浓度 L | 原标准时间口径 |
 | --- | ---: | --- |
