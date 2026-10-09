@@ -2,7 +2,7 @@
 
 环境评级库的需求、评级标准与使用指南。面向 ESP32（RTOS）、RK3506（Linux）和 iOS，核心采用可重入 C99 实现，兼容 C++ 和 Swift。三个模块独立输出，均无需初始化、动态内存或历史状态。
 
-版本：v0.43。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
+版本：v0.44。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
 
 - [1. 空气质量](#1-空气质量)：CO₂、PM、甲醛及整体评级。
 - [2. 热舒适度](#2-热舒适度)：PMV、PPD、冷热与湿度提示。
@@ -13,6 +13,8 @@
 | 空气质量 | [air_quality_rating.h](air_quality_rating.h) / [air_quality_rating.c](air_quality_rating.c) |
 | 热舒适度 | [thermal_comfort.h](thermal_comfort.h) / [thermal_comfort.c](thermal_comfort.c) |
 | 声光 | [sound_light_rating.h](sound_light_rating.h) / [sound_light_rating.c](sound_light_rating.c) |
+
+界面参数识别色、等级状态色和可访问性规则见 [COLOR_STANDARD.md](COLOR_STANDARD.md)。
 
 ### 通用输入单位
 
@@ -58,7 +60,7 @@ xcodebuild -scheme EnvironmentRating \
 
 - **ESP-IDF**：将项目放入 `components/environment_rating`，在调用组件中添加 `REQUIRES environment_rating`，会编译全部三个模块。
 - **Linux**：使用本项目 CMake，按需链接 `air_quality_rating`、`thermal_comfort`、`sound_light_rating`；也可直接编译所需源文件，使用热舒适度模块时链接数学库 `-lm`。只构建库可设置 `-DBUILD_TESTING=OFF`，无需 C++ 编译器。
-- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.43.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
+- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.44.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
 
 源文件按 C99 编译，支持 C++ 调用。不要开启 `-ffast-math` 或 `-ffinite-math-only`，以保证 NaN 和无穷大检查有效。传感器读取、校准、有效性判断和通信由上层负责。
 
