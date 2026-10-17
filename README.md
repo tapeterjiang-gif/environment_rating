@@ -1,8 +1,8 @@
 # environment_rating
 
-环境评级库的需求、评级标准与使用指南。面向 ESP32（RTOS）、RK3506（Linux）、iOS 和 Web，核心采用可重入 C99 实现，兼容 C++、Swift 和 TypeScript。三个评级模块独立输出，颜色模块把评级结果映射为统一界面配色；所有模块均无需初始化、动态内存或历史状态。
+环境评级库的需求、评级标准与使用指南。面向 ESP32（RTOS）、RK3506（Linux）、iOS、Android 和 Web，核心采用可重入 C99 实现，兼容 C++、Swift、Kotlin/Java 和 TypeScript。三个评级模块独立输出，颜色模块把评级结果映射为统一界面配色；所有模块均无需初始化、动态内存或历史状态。
 
-版本：v0.57。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
+版本：v0.58。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
 
 - [1. 热舒适度](#1-热舒适度)：PMV、PPD、冷热与湿度提示。
 - [2. 空气质量](#2-空气质量)：CO₂、PM、甲醛及整体评级。
@@ -23,6 +23,7 @@
 | [普通用户网页（备用地址）](https://environment-rating-guide.violetgleam9.chatgpt.site) | 与 GitHub Pages 展示相同的静态内容 |
 | [环境评级标准](rating.md) | 热舒适度、空气质量和声光的评级依据与分级表 |
 | [环境指标颜色说明](COLOR_STANDARD.md) | 参数识别色、等级状态色、实际色样和可访问性规则 |
+| [Android 使用指南](android/README.md) | Android AAR、Kotlin/Java、JNI 与 NDK/CMake 接入方法 |
 | [Web 使用指南](web/README.md) | 浏览器、Web Worker 和 Node.js 的 Wasm/TypeScript 接入方法 |
 
 ### 通用输入单位
@@ -73,13 +74,22 @@ npm test
 npm run test:browser
 ```
 
+Android AAR 使用固定版本的 Gradle、NDK 和 CMake，可在 `android` 目录构建：
+
+```sh
+cd android
+./gradlew :environment-rating:assembleRelease
+./gradlew :environment-rating:testDebugUnitTest
+```
+
 ### 平台集成
 
 按需将上表中模块的 `.c` 文件加入工程，把根目录加入头文件搜索路径，包含对应 `.h` 即可调用。接口和参数说明以头文件注释为准。
 
 - **ESP-IDF**：将项目放入 `components/environment_rating`，在调用组件中添加 `REQUIRES environment_rating`，会编译三个评级模块和颜色模块。
 - **Linux**：使用本项目 CMake，按需链接 `air_quality_rating`、`thermal_comfort`、`sound_light_rating`、`environment_color`；也可直接编译所需源文件，使用热舒适度模块时链接数学库 `-lm`。只构建库可设置 `-DBUILD_TESTING=OFF`，无需 C++ 编译器。
-- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.57.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
+- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.58.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
+- **Android / Kotlin/Java**：使用 `android/environment-rating` 构建 AAR。最低 Android 5.0（API 21），提供 `arm64-v8a`、`armeabi-v7a` 和 `x86_64`，Kotlin/Java 通过 JNI 调用同一套 C 源码；完整示例见 [Android 使用指南](android/README.md)。
 - **Web / TypeScript**：使用 `web/dist` 中的 ES Module 和 Wasm，先异步调用 `createEnvironmentRating()`，再复用返回的无状态 API。支持浏览器、Web Worker 和 Node.js 18 及以上，完整示例见 [Web 使用指南](web/README.md)。
 
 源文件按 C99 编译，支持 C++ 调用。不要开启 `-ffast-math` 或 `-ffinite-math-only`，以保证 NaN 和无穷大检查有效。传感器读取、校准、有效性判断和通信由上层负责。
@@ -115,6 +125,34 @@ let pmColors = EnvironmentColors.air(.pm25, quality: pmQuality)
 ```
 
 Swift API 位于 `apple/Sources/EnvironmentRating`。需要直接调用 C 接口的 Apple 平台工程也可以选择 `CEnvironmentRating` 产品并导入同名模块。Swift 包不依赖 Apple Matter Framework；Matter 配网、读取 Cluster 和订阅属性应由 App 层负责，设备已经上报 `AirQuality` 时应优先使用设备结果。
+
+### Android / Kotlin 使用示例
+
+Android AAR 的 Kotlin API 与 Swift 包装层保持一致。缺失的空气质量参数使用可空 `Double?`，无效 PMV 返回 `null`，不支持的颜色组合也返回 `null`。
+
+```kotlin
+import com.qingping.environmentrating.*
+
+val overall = AirRating.overall(
+    co2 = 1_200.0,
+    pm25 = 18.0,
+    pm10 = null,
+    formaldehyde = 0.06
+)
+
+val comfort = ThermalComfort.evaluate(
+    temperature = 25.0,
+    humidity = 50.0,
+    radiantTemperature = 25.0,
+    airSpeed = 0.1
+)
+
+val pmQuality = AirRating.pm25(18.0)
+val pmColors = EnvironmentColors.air(EnvironmentParameter.PM25, pmQuality)
+val androidColor = pmColors?.graphic?.argb
+```
+
+Android 包不依赖 View、Jetpack Compose、Material 或 Matter SDK。传感器读取、协程调度、界面刷新和 Matter 通信由 App 层负责。
 
 ### Web / TypeScript 使用示例
 

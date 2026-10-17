@@ -3,3 +3,6 @@
 build*/
 web/node_modules/
 web/.wasm-build/
+android/.gradle/
+android/local.properties
+android/**/build/

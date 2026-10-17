@@ -29,6 +29,44 @@ jobs:
           -derivedDataPath "$RUNNER_TEMP/environment-rating-ios"
           CODE_SIGNING_ALLOWED=NO build
 
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: gradle
+          cache-dependency-path: |
+            android/*.gradle.kts
+            android/gradle/wrapper/gradle-wrapper.properties
+            android/environment-rating/build.gradle.kts
+      - uses: android-actions/setup-android@v3
+      - name: Accept Android SDK licenses
+        run: yes | sdkmanager --licenses > /dev/null || true
+      - name: Install Android native toolchain
+        run: >-
+          sdkmanager
+          "platforms;android-35"
+          "build-tools;35.0.0"
+          "ndk;27.2.12479018"
+          "cmake;3.22.1"
+      - name: Build Android AAR and run unit tests
+        working-directory: android
+        run: >-
+          ./gradlew
+          :environment-rating:assembleRelease
+          :environment-rating:testDebugUnitTest
+          --stacktrace
+      - name: Run Android JNI tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          disable-animations: true
+          script: cd android && ./gradlew :environment-rating:connectedDebugAndroidTest --stacktrace
+
   web:
     runs-on: ubuntu-latest
     steps:
