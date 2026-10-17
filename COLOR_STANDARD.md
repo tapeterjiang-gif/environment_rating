@@ -19,47 +19,72 @@
 
 | 参数 | 色样 | 识别色 | HEX | 浅色背景 | 建议用途 |
 | --- | --- | --- | --- | --- | --- |
+| 温度 | ![#F97316](assets/colors/F97316.svg) | 温暖橙 | `#F97316` | `#FFEDD5` | 温度图标、趋势线 |
+| 相对湿度 | ![#0891B2](assets/colors/0891B2.svg) | 水润青 | `#0891B2` | `#CFFAFE` | 湿度图标、趋势线 |
 | CO₂ | ![#15803D](assets/colors/15803D.svg) | 森林绿 | `#15803D` | `#DCFCE7` | CO₂ 图标、趋势线 |
 | PM2.5 | ![#667A83](assets/colors/667A83.svg) | 雾霾灰蓝 | `#667A83` | `#E8EEF0` | PM2.5 图标、趋势线 |
 | PM10 | ![#9A7958](assets/colors/9A7958.svg) | 沙尘灰棕 | `#9A7958` | `#F1EBE4` | PM10 图标、趋势线 |
 | 甲醛 HCHO | ![#DB2777](assets/colors/DB2777.svg) | 警觉玫红 | `#DB2777` | `#FCE7F3` | 甲醛图标、趋势线 |
 | tVOC | ![#89941A](assets/colors/89941A.svg) | 挥发黄绿 | `#89941A` | `#F1F5D5` | tVOC 图标、趋势线 |
-| 温度 | ![#F97316](assets/colors/F97316.svg) | 温暖橙 | `#F97316` | `#FFEDD5` | 温度图标、趋势线 |
-| 相对湿度 | ![#0891B2](assets/colors/0891B2.svg) | 水润青 | `#0891B2` | `#CFFAFE` | 湿度图标、趋势线 |
 | 噪声 | ![#9333EA](assets/colors/9333EA.svg) | 声波紫 | `#9333EA` | `#F3E8FF` | 噪声图标、趋势线 |
 | 照度 | ![#F2C94C](assets/colors/F2C94C.svg) | 阳光金 | `#F2C94C` | `#FEF9C3` | 照度图标、趋势线 |
 
 PM2.5 与 PM10 使用相近的低饱和自然色系，分别联想到雾霾与沙尘；两者仍须保持足够差异，不能只靠颜色区分。采用不同 PM 或甲醛标准时，只改变数值边界，不改变参数识别色。
 
-## 3. 空气质量状态色
+## 3. 空气质量分项状态色
 
-### 3.1 Matter AirQuality 六档
+CO₂、PM2.5、PM10 和甲醛分别按自己的评级标准确定状态色，不再设置一张通用空气质量色表。状态未知时统一使用灰色 `#64748B`、浅色背景 `#F1F5F9`、标签文字 `#334155`。
 
-当界面展示 `air_quality_t` 或 Matter `AirQuality` 时使用六档颜色。CO₂、PM2.5、PM10、甲醛的单项 AirQuality 共用此表。
+### CO₂
 
-| AirQuality | 色样 | 代表色 | HEX | 标签背景 | 标签文字 |
+参考德国 UBA 2008 室内 CO₂ 指导值，浓度单位为 ppm。
+
+| 状态 | 浓度 C | 色样 | 状态色 | 标签背景 | 标签文字 |
 | --- | --- | --- | --- | --- | --- |
-| Unknown | ![#64748B](assets/colors/64748B.svg) | 灰色 | `#64748B` | `#F1F5F9` | `#334155` |
-| Good | ![#16A34A](assets/colors/16A34A.svg) | 绿色 | `#16A34A` | `#DCFCE7` | `#14532D` |
-| Fair | ![#65A30D](assets/colors/65A30D.svg) | 黄绿色 | `#65A30D` | `#ECFCCB` | `#365314` |
-| Moderate | ![#CA8A04](assets/colors/CA8A04.svg) | 黄色 | `#CA8A04` | `#FEF9C3` | `#713F12` |
-| Poor | ![#EA580C](assets/colors/EA580C.svg) | 橙色 | `#EA580C` | `#FFEDD5` | `#7C2D12` |
-| VeryPoor | ![#DC2626](assets/colors/DC2626.svg) | 红色 | `#DC2626` | `#FEE2E2` | `#7F1D1D` |
-| ExtremelyPoor | ![#7E22CE](assets/colors/7E22CE.svg) | 紫红色 | `#7E22CE` | `#F3E8FF` | `#581C87` |
+| 好 Good | 0 ≤ C < 1000 | ![#16A34A](assets/colors/16A34A.svg) | `#16A34A` | `#DCFCE7` | `#14532D` |
+| 中等 Moderate | 1000 ≤ C ≤ 2000 | ![#CA8A04](assets/colors/CA8A04.svg) | `#CA8A04` | `#FEF9C3` | `#713F12` |
+| 差 Poor | C > 2000 | ![#EA580C](assets/colors/EA580C.svg) | `#EA580C` | `#FFEDD5` | `#7C2D12` |
 
-### 3.2 Matter LevelValue 四档
+### PM2.5
 
-当界面展示浓度 Cluster 的 `LevelValue` 时使用四档颜色。颜色必须以 `air_level_*()` 的实际返回值为准，不应由浓度在界面端重新计算。
+浓度单位为 μg/m³。EEA 使用原始浓度；HJ 使用修约后的整数；EPA 使用截断至一位小数的浓度。
 
-| LevelValue | 色样 | 代表色 | HEX | 标签背景 | 标签文字 |
-| --- | --- | --- | --- | --- | --- |
-| Unknown | ![#64748B](assets/colors/64748B.svg) | 灰色 | `#64748B` | `#F1F5F9` | `#334155` |
-| Low | ![#16A34A](assets/colors/16A34A.svg) | 绿色 | `#16A34A` | `#DCFCE7` | `#14532D` |
-| Medium | ![#CA8A04](assets/colors/CA8A04.svg) | 黄色 | `#CA8A04` | `#FEF9C3` | `#713F12` |
-| High | ![#DC2626](assets/colors/DC2626.svg) | 红色 | `#DC2626` | `#FEE2E2` | `#7F1D1D` |
-| Critical | ![#7E22CE](assets/colors/7E22CE.svg) | 紫红色 | `#7E22CE` | `#F3E8FF` | `#581C87` |
+| 状态 | 色样与状态色 | EEA（默认） | HJ 633—2026 | EPA AQI |
+| --- | --- | --- | --- | --- |
+| 好 Good | ![#16A34A](assets/colors/16A34A.svg) `#16A34A` | 0–5 | 0–35 | 0.0–9.0 |
+| 尚可 Fair | ![#65A30D](assets/colors/65A30D.svg) `#65A30D` | >5–15 | 36–60 | 9.1–35.4 |
+| 中等 Moderate | ![#CA8A04](assets/colors/CA8A04.svg) `#CA8A04` | >15–50 | 61–115 | 35.5–55.4 |
+| 差 Poor | ![#EA580C](assets/colors/EA580C.svg) `#EA580C` | >50–90 | 116–150 | 55.5–125.4 |
+| 很差 VeryPoor | ![#DC2626](assets/colors/DC2626.svg) `#DC2626` | >90–140 | 151–250 | 125.5–225.4 |
+| 极差 ExtremelyPoor | ![#7E22CE](assets/colors/7E22CE.svg) `#7E22CE` | >140 | ≥251 | ≥225.5 |
 
-PM 与甲醛当前均为 Good/Fair → Low、Moderate → Medium、Poor/VeryPoor → High、ExtremelyPoor → Critical。CO₂为 Good → Low、Moderate → Medium、Poor → High。
+### PM10
+
+浓度单位为 μg/m³。EEA 使用原始浓度；HJ 和 EPA 使用处理后的整数浓度。
+
+| 状态 | 色样与状态色 | EEA（默认） | HJ 633—2026 | EPA AQI |
+| --- | --- | --- | --- | --- |
+| 好 Good | ![#16A34A](assets/colors/16A34A.svg) `#16A34A` | 0–15 | 0–50 | 0–54 |
+| 尚可 Fair | ![#65A30D](assets/colors/65A30D.svg) `#65A30D` | >15–45 | 51–120 | 55–154 |
+| 中等 Moderate | ![#CA8A04](assets/colors/CA8A04.svg) `#CA8A04` | >45–120 | 121–250 | 155–254 |
+| 差 Poor | ![#EA580C](assets/colors/EA580C.svg) `#EA580C` | >120–195 | 251–350 | 255–354 |
+| 很差 VeryPoor | ![#DC2626](assets/colors/DC2626.svg) `#DC2626` | >195–270 | 351–420 | 355–424 |
+| 极差 ExtremelyPoor | ![#7E22CE](assets/colors/7E22CE.svg) `#7E22CE` | >270 | ≥421 | ≥425 |
+
+### 甲醛 HCHO
+
+浓度单位为 mg/m³。WHO、GB/T 和 OEHHA 提供不同参考浓度，项目按各自参考值划分六档。
+
+| 状态 | 色样与状态色 | WHO 2010（默认） | GB/T 18883—2022 | OEHHA 2008 |
+| --- | --- | --- | --- | --- |
+| 好 Good | ![#16A34A](assets/colors/16A34A.svg) `#16A34A` | 0–0.025 | 0–0.020 | 0–0.01375 |
+| 尚可 Fair | ![#65A30D](assets/colors/65A30D.svg) `#65A30D` | >0.025–0.050 | >0.020–0.040 | >0.01375–0.0275 |
+| 中等 Moderate | ![#CA8A04](assets/colors/CA8A04.svg) `#CA8A04` | >0.050–0.100 | >0.040–0.080 | >0.0275–0.055 |
+| 差 Poor | ![#EA580C](assets/colors/EA580C.svg) `#EA580C` | >0.100–0.200 | >0.080–0.160 | >0.055–0.110 |
+| 很差 VeryPoor | ![#DC2626](assets/colors/DC2626.svg) `#DC2626` | >0.200–0.500 | >0.160–0.400 | >0.110–0.275 |
+| 极差 ExtremelyPoor | ![#7E22CE](assets/colors/7E22CE.svg) `#7E22CE` | >0.500 | >0.400 | >0.275 |
+
+各表中的连续区间、修约和截断规则与 [环境评级标准](rating.md) 一致。颜色属于产品视觉规则，不是上述标准规定的颜色。
 
 ## 4. 热舒适度状态色
 
@@ -124,7 +149,7 @@ EPA 与 UBA 的阈值不同，但相同的返回枚举使用相同颜色。UBA �
 
 | 数据 | 参数识别部分 | 等级状态部分 |
 | --- | --- | --- |
-| PM2.5，AirQuality=Fair | 图标和趋势线使用雾霾灰蓝 `#667A83` | AirQuality 标签使用黄绿色 `#65A30D`；若展示 LevelValue=Low，则标签使用绿色 `#16A34A` |
+| PM2.5，评级为 Fair | 图标和趋势线使用雾霾灰蓝 `#667A83` | 等级标签使用黄绿色 `#65A30D` |
 | 温度对应 PMV=+2.0 | 温度图标和趋势线使用暖橙色 `#F97316` | Warm 标签使用深橙色 `#EA580C` |
 | 噪声=Loud | 噪声图标和趋势线使用声波紫 `#9333EA` | Loud 标签使用橙色 `#EA580C` |
 | 照度=ReadingAndTasks | 照度图标使用阳光金 `#F2C94C` | 活动提示标签使用等级表中的金色 `#CA8A04`，文字说明“读写与操作” |
