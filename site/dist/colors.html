@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="环境指标颜色说明：了解参数识别色、空气质量状态色、冷热感、湿度、噪声与照度颜色。">
+  <title>环境指标颜色说明</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header"><nav class="nav container" aria-label="主导航"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">◌</span><span>环境评级指南</span></a><div class="nav-links"><a href="index.html">评级标准</a><a href="colors.html" aria-current="page">颜色说明</a><a href="#examples">使用示例</a></div></nav></header>
+  <main id="main">
+    <section class="hero"><div class="container"><p class="eyebrow">Color guide</p><h1>环境指标颜色说明</h1><p class="lead">颜色一半用来认出“这是什么数据”，另一半用来判断“它现在处于什么状态”。分清这两层，就能快速读懂设备和 App 的环境信息。</p></div></section>
+
+    <section class="section"><div class="container">
+      <div class="explain-banner"><div><strong>指标识别色</strong><p>固定不变。帮助你一眼认出 PM2.5、温度或噪声，常用于图标和趋势线。</p></div><div class="versus">＋</div><div><strong>等级状态色</strong><p>随结果变化。帮助你判断良好、偏热或嘈杂，常用于状态标签和区间背景。</p></div></div>
+      <div class="note"><strong>举个例子：</strong>PM2.5 的趋势线始终是紫色；当它从“好”变成“差”时，状态标签会从绿色变成橙色。</div>
+    </div></section>
+
+    <section class="section" id="identity"><div class="container"><div class="section-heading"><span class="kicker">指标识别色</span><h2>先认出你正在看的指标</h2><p>这些颜色不表达好坏，也不会随着读数变化。它们像地图图例一样，始终代表同一个指标。</p></div>
+      <div class="identity-grid">
+        <div class="identity-card"><span class="swatch" style="--tone:#0F766E"></span><div><b>整体空气质量</b><small>青绿 · #0F766E</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#2563EB"></span><div><b>CO₂</b><small>蓝色 · #2563EB</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#7C3AED"></span><div><b>PM2.5</b><small>紫色 · #7C3AED</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#B45309"></span><div><b>PM10</b><small>棕橙 · #B45309</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#DB2777"></span><div><b>甲醛</b><small>品红 · #DB2777</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#E11D48"></span><div><b>温度 / PMV</b><small>玫红 · #E11D48</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#0891B2"></span><div><b>相对湿度</b><small>青色 · #0891B2</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#4F46E5"></span><div><b>噪声</b><small>靛蓝 · #4F46E5</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#CA8A04"></span><div><b>照度</b><small>金色 · #CA8A04</small></div></div>
+      </div>
+    </div></section>
+
+    <section class="section" id="status"><div class="container"><div class="section-heading"><span class="kicker">等级状态色</span><h2>再判断当前处于什么状态</h2><p>状态色必须和文字一起出现。绿色通常表示状态良好，黄色到紫红色表示需要逐步提高关注。</p></div>
+      <div class="chapter"><div class="chapter-head"><div><h3>空气质量</h3><p>整体空气质量与 PM、CO₂、甲醛的单项评级共用这套六档颜色。</p></div><span class="chapter-number" aria-hidden="true">AQ</span></div>
+        <div class="subsection"><div class="air-scale"><div class="aq-good"><b>好</b><span>#16A34A</span></div><div class="aq-fair"><b>尚可</b><span>#65A30D</span></div><div class="aq-moderate"><b>中等</b><span>#CA8A04</span></div><div class="aq-poor"><b>差</b><span>#EA580C</span></div><div class="aq-very-poor"><b>很差</b><span>#DC2626</span></div><div class="aq-extreme"><b>极差</b><span>#7E22CE</span></div></div></div>
+        <div class="note"><strong>灰色代表未知。</strong>传感器未就绪、数据无效或暂时缺失时使用灰色 #64748B。它不代表空气质量好或坏。</div>
+      </div>
+
+      <div class="chapter"><div class="chapter-head"><div><h3>热舒适度</h3><p>冷热感以中性的绿色为中心，向蓝色表示越来越冷，向暖色表示越来越热。</p></div><span class="chapter-number" aria-hidden="true">TC</span></div>
+        <div class="palette-row"><div class="palette-title"><b>PMV 冷热感</b><small>七点标尺</small></div><div class="palette" style="--count:7"><div style="--bg:#DBEAFE;--label:#1E3A8A">冷<span>#1D4ED8</span></div><div style="--bg:#E0F2FE;--label:#0C4A6E">凉<span>#0284C7</span></div><div style="--bg:#CFFAFE;--label:#155E75">稍凉<span>#0891B2</span></div><div style="--bg:#DCFCE7;--label:#14532D">中性<span>#16A34A</span></div><div style="--bg:#FEF9C3;--label:#713F12">稍暖<span>#CA8A04</span></div><div style="--bg:#FFEDD5;--label:#7C2D12">暖<span>#EA580C</span></div><div style="--bg:#FEE2E2;--label:#7F1D1D">热<span>#DC2626</span></div></div></div>
+        <div class="palette-row"><div class="palette-title"><b>相对湿度</b><small>干湿提示</small></div><div class="palette" style="--count:4"><div style="--bg:#FEF3C7;--label:#78350F">偏干<span>#D97706</span></div><div style="--bg:#DCFCE7;--label:#14532D">适宜<span>#16A34A</span></div><div style="--bg:#E0F2FE;--label:#0C4A6E">略湿<span>#0284C7</span></div><div style="--bg:#DBEAFE;--label:#1E3A8A">偏湿<span>#1D4ED8</span></div></div></div>
+      </div>
+
+      <div class="chapter"><div class="chapter-head"><div><h3>声光</h3><p>噪声颜色表达安静程度；照度颜色表达从暗到亮以及更适合的活动。</p></div><span class="chapter-number" aria-hidden="true">SL</span></div>
+        <div class="palette-row"><div class="palette-title"><b>噪声</b><small>从安静到很吵</small></div><div class="palette" style="--count:4"><div style="--bg:#DCFCE7;--label:#14532D">安静<span>#16A34A</span></div><div style="--bg:#FEF9C3;--label:#713F12">偏吵<span>#CA8A04</span></div><div style="--bg:#FFEDD5;--label:#7C2D12">嘈杂<span>#EA580C</span></div><div style="--bg:#FEE2E2;--label:#7F1D1D">很吵<span>#DC2626</span></div></div></div>
+        <div class="palette-row"><div class="palette-title"><b>照度</b><small>从暗到适合精细活动</small></div><div class="palette" style="--count:6"><div style="--bg:#E2E8F0;--label:#1E293B">光线较暗<span>&lt;75 lx</span></div><div style="--bg:#E0E7FF;--label:#3730A3">卧室活动<span>75–100</span></div><div style="--bg:#E0F2FE;--label:#0C4A6E">日常活动<span>100–150</span></div><div style="--bg:#CCFBF1;--label:#134E4A">用餐<span>150–200</span></div><div style="--bg:#FEF3C7;--label:#78350F">床头阅读<span>200–300</span></div><div style="--bg:#FEF9C3;--label:#713F12">读写与操作<span>≥300 lx</span></div></div></div>
+        <div class="note"><strong>照度颜色不代表好坏。</strong>金色的“读写与操作”不是告警，灰蓝色的“光线较暗”也可能正适合休息。请结合正在进行的活动判断。</div>
+      </div>
+    </div></section>
+
+    <section class="section" id="examples"><div class="container"><div class="section-heading"><span class="kicker">组合示例</span><h2>一张卡片里如何同时用两种颜色</h2><p>指标名称保持固定识别色，旁边的状态标签使用随结果变化的状态色。</p></div>
+      <article class="use-case"><div><h3>PM2.5 处于“尚可”</h3><p>紫色说明这是 PM2.5；黄绿色说明当前空气质量评级为尚可。</p></div><div class="mini-reading" style="--parameter:#7C3AED"><span class="parameter">PM2.5</span><strong style="display:block;font-size:1.7rem">12 μg/m³</strong><span class="pill aq-fair">尚可</span></div></article>
+      <article class="use-case"><div><h3>热舒适度为“暖”</h3><p>玫红色说明这是温度 / PMV；橙色标签说明综合冷热感偏暖。</p></div><div class="mini-reading" style="--parameter:#E11D48"><span class="parameter">热舒适度</span><strong style="display:block;font-size:1.7rem">PMV +2.0</strong><span class="pill" style="--bg:#FFEDD5;--label:#7C2D12">暖</span></div></article>
+      <article class="use-case"><div><h3>噪声处于“嘈杂”</h3><p>靛蓝色说明这是噪声；橙色标签说明当前环境已比较嘈杂。</p></div><div class="mini-reading" style="--parameter:#4F46E5"><span class="parameter">噪声</span><strong style="display:block;font-size:1.7rem">50 dB(A)</strong><span class="pill" style="--bg:#FFEDD5;--label:#7C2D12">嘈杂</span></div></article>
+    </div></section>
+
+    <section class="section"><div class="container"><div class="section-heading"><span class="kicker">清晰易读</span><h2>颜色只是提示的一部分</h2></div><ul class="a11y-list"><li><b>始终配文字</b>不要求用户只凭颜色猜测状态。</li><li><b>浅底配深字</b>黄色和黄绿色标签使用深色文字，保证清晰度。</li><li><b>未知保持灰色</b>无效或缺失数据不会沿用上一次的状态颜色。</li></ul></div></section>
+  </main>
+  <footer class="page-footer"><div class="footer-grid container"><div><strong>环境指标颜色说明</strong><p>指标识别色帮助定位数据，等级状态色帮助理解结果。</p></div><div><a href="index.html">返回环境评级标准 →</a><br><small>© <span data-year></span> environment_rating</small></div></div></footer>
+</body>
+</html>

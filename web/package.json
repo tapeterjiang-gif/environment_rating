@@ -1,6 +1,6 @@
 {
   "name": "@tapeterjiang-gif/environment-rating",
-  "version": "0.49.0",
+  "version": "0.50.0",
   "description": "Environment rating algorithms for browsers, Web Workers, and Node.js",
   "type": "module",
   "main": "./dist/index.js",

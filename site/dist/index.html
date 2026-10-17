@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用容易理解的方式介绍空气质量、热舒适度、噪声和照度的环境评级标准。">
+  <title>环境评级标准</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="主导航">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">◌</span>
+        <span>环境评级指南</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" aria-current="page">评级标准</a>
+        <a href="colors.html">颜色说明</a>
+        <a href="#standards">标准来源</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-grid container">
+        <div>
+          <p class="eyebrow">Environment rating guide</p>
+          <h1>看懂你身边的环境</h1>
+          <p class="lead">传感器给出数字，环境评级把数字转成容易理解的提示。这里介绍空气质量、热舒适度、噪声与照度如何判断，以及结果该怎样阅读。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#how">先看评级方法 <span aria-hidden="true">↓</span></a>
+            <a class="button secondary" href="colors.html">查看颜色含义</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="环境数据由多个指标共同组成的示意图">
+          <div class="orb"><div class="orb-core"><div><strong>3</strong><span>类环境体验</span></div></div></div>
+          <div class="float-card one"><b>空气质量</b><span>颗粒物 · CO₂ · 甲醛</span></div>
+          <div class="float-card two"><b>热舒适度</b><span>冷热感 · 湿度</span></div>
+          <div class="float-card three"><b>声光体验</b><span>噪声 · 照度</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">如何工作</span>
+          <h2>从测量值到一句有用的提示</h2>
+          <p>每个指标先按自己的单位和标准独立判断。只有空气质量会生成一个整体结果，热舒适度和声光则保留各自提示。</p>
+        </div>
+        <div class="principles">
+          <article class="principle"><div class="step">1</div><h3>分别评价</h3><p>PM2.5、CO₂、冷热感等指标各走各的规则，不把不同单位的数值直接相加。</p></article>
+          <article class="principle"><div class="step">2</div><h3>关注最差一项</h3><p>整体空气质量取当前有效指标中最需要关注的一项，让问题不会被平均值掩盖。</p></article>
+          <article class="principle"><div class="step">3</div><h3>缺失就跳过</h3><p>传感器未就绪或数据不可信时，该指标显示未知，也不会拉高或拉低整体结果。</p></article>
+        </div>
+        <div class="note"><strong>读数口径：</strong>这里根据设备当前读数给出即时提示。它便于日常观察，不等同于法规中按 1 小时、24 小时或长期平均值进行的正式达标判定。</div>
+      </div>
+    </section>
+
+    <section class="section" id="air">
+      <div class="container">
+        <div class="chapter">
+          <div class="chapter-head"><div><span class="kicker">第一类</span><h3>空气质量</h3><p>分别观察 PM2.5、PM10、CO₂ 和甲醛。单项和整体结果使用 Matter 的六档空气质量名称；具体浓度边界来自所选的环境或健康标准。</p></div><span class="chapter-number" aria-hidden="true">01</span></div>
+          <div class="subsection">
+            <h4>六档空气质量</h4>
+            <p>从左到右表示越来越需要关注。“未知”不在这六档中，通常表示当前没有可靠数据。</p>
+            <div class="air-scale" aria-label="六档空气质量颜色和含义">
+              <div class="aq-good"><b>好</b><span>Good</span></div><div class="aq-fair"><b>尚可</b><span>Fair</span></div><div class="aq-moderate"><b>中等</b><span>Moderate</span></div><div class="aq-poor"><b>差</b><span>Poor</span></div><div class="aq-very-poor"><b>很差</b><span>Very Poor</span></div><div class="aq-extreme"><b>极差</b><span>Extremely Poor</span></div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h4>快速了解每项指标</h4>
+            <div class="quick-grid">
+              <article class="quick"><span class="metric">CO₂ · ppm</span><strong>反映通风情况</strong><p>低于 1000 为好；1000–2000 建议通风；高于 2000 应加强通风。</p></article>
+              <article class="quick"><span class="metric">PM2.5 / PM10 · μg/m³</span><strong>反映颗粒物水平</strong><p>可选择欧洲 EEA、中国 HJ 或美国 EPA 分档；默认采用 EEA。</p></article>
+              <article class="quick"><span class="metric">甲醛 · mg/m³</span><strong>反映甲醛浓度</strong><p>可选择 WHO、中国 GB/T 或加州 OEHHA 参考值；默认采用 WHO。</p></article>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h4>CO₂ 通风提示</h4>
+            <div class="table-wrap"><table>
+              <thead><tr><th>当前浓度</th><th>空气质量</th><th>你会看到的提示</th></tr></thead>
+              <tbody><tr><td>低于 1000 ppm</td><td><span class="status-dot aq-good"></span>好</td><td>通风状况正常</td></tr><tr><td>1000–2000 ppm</td><td><span class="status-dot aq-moderate"></span>中等</td><td>建议适时通风</td></tr><tr><td>高于 2000 ppm</td><td><span class="status-dot aq-poor"></span>差</td><td>应加强通风</td></tr></tbody>
+            </table></div>
+          </div>
+
+          <div class="subsection">
+            <h4>PM2.5 和 PM10：三个可选标准</h4>
+            <p>三套标准的统计方式原本不同。页面展示的是项目用于即时提示的浓度分界；选择哪套标准，取决于产品希望对应的市场表达。</p>
+            <div class="standards"><div class="standard"><b>欧洲 EEA · 默认</b><small>使用 European Air Quality Index 六档，保留读数小数。</small></div><div class="standard"><b>中国 HJ 633—2026</b><small>对应优、良和四级污染类别，浓度先修约为整数。</small></div><div class="standard"><b>美国 EPA AQI</b><small>对应美国 AQI 类别，PM2.5 截断至一位小数，PM10 截断至整数。</small></div></div>
+            <details><summary>查看 PM2.5 六档边界（μg/m³）</summary><div class="table-wrap"><table><thead><tr><th>等级</th><th>EEA（默认）</th><th>中国 HJ</th><th>美国 EPA</th></tr></thead><tbody><tr><td>好</td><td>0–5</td><td>0–35</td><td>0.0–9.0</td></tr><tr><td>尚可</td><td>&gt;5–15</td><td>36–60</td><td>9.1–35.4</td></tr><tr><td>中等</td><td>&gt;15–50</td><td>61–115</td><td>35.5–55.4</td></tr><tr><td>差</td><td>&gt;50–90</td><td>116–150</td><td>55.5–125.4</td></tr><tr><td>很差</td><td>&gt;90–140</td><td>151–250</td><td>125.5–225.4</td></tr><tr><td>极差</td><td>&gt;140</td><td>≥251</td><td>≥225.5</td></tr></tbody></table></div></details>
+            <details><summary>查看 PM10 六档边界（μg/m³）</summary><div class="table-wrap"><table><thead><tr><th>等级</th><th>EEA（默认）</th><th>中国 HJ</th><th>美国 EPA</th></tr></thead><tbody><tr><td>好</td><td>0–15</td><td>0–50</td><td>0–54</td></tr><tr><td>尚可</td><td>&gt;15–45</td><td>51–120</td><td>55–154</td></tr><tr><td>中等</td><td>&gt;45–120</td><td>121–250</td><td>155–254</td></tr><tr><td>差</td><td>&gt;120–195</td><td>251–350</td><td>255–354</td></tr><tr><td>很差</td><td>&gt;195–270</td><td>351–420</td><td>355–424</td></tr><tr><td>极差</td><td>&gt;270</td><td>≥421</td><td>≥425</td></tr></tbody></table></div></details>
+          </div>
+
+          <div class="subsection">
+            <h4>甲醛：以参考浓度为中心分档</h4>
+            <p>WHO 等标准主要给出一个健康参考浓度，并没有统一的六档名称。项目以参考浓度 L 为中心，用 0.25L、0.5L、L、2L、5L 划分六档。</p>
+            <div class="table-wrap"><table><thead><tr><th>可选依据</th><th>参考浓度 L</th><th>中等的上限</th><th>极差起点</th></tr></thead><tbody><tr><td>WHO 2010（默认）</td><td>0.100 mg/m³</td><td>0.100 mg/m³</td><td>&gt;0.500 mg/m³</td></tr><tr><td>GB/T 18883—2022</td><td>0.080 mg/m³</td><td>0.080 mg/m³</td><td>&gt;0.400 mg/m³</td></tr><tr><td>加州 OEHHA 2008</td><td>0.055 mg/m³</td><td>0.055 mg/m³</td><td>&gt;0.275 mg/m³</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="thermal">
+      <div class="container"><div class="chapter">
+        <div class="chapter-head"><div><span class="kicker">第二类</span><h3>热舒适度</h3><p>热舒适度不只看温度。PMV 会同时考虑空气温度、辐射温度、湿度、风速、活动量和衣着，给出从冷到热的七点感受；湿度另有独立提示。</p></div><span class="chapter-number" aria-hidden="true">02</span></div>
+        <div class="subsection"><h4>PMV 七点冷热感</h4><p>PMV 越接近 0，代表多数人在当前条件下越可能感觉中性。每个人的感受仍可能不同。</p>
+          <div class="pmv-scale" aria-label="PMV 七点冷热感">
+            <div style="--bg:#DBEAFE;--label:#1E3A8A"><b>冷</b><span>−3 至 −2.5</span></div><div style="--bg:#E0F2FE;--label:#0C4A6E"><b>凉</b><span>−2.5 至 −1.5</span></div><div style="--bg:#CFFAFE;--label:#155E75"><b>稍凉</b><span>−1.5 至 −0.5</span></div><div style="--bg:#DCFCE7;--label:#14532D"><b>中性</b><span>−0.5 至 +0.5</span></div><div style="--bg:#FEF9C3;--label:#713F12"><b>稍暖</b><span>+0.5 至 +1.5</span></div><div style="--bg:#FFEDD5;--label:#7C2D12"><b>暖</b><span>+1.5 至 +2.5</span></div><div style="--bg:#FEE2E2;--label:#7F1D1D"><b>热</b><span>+2.5 至 +3</span></div>
+          </div>
+        </div>
+        <div class="subsection two-column"><div><h4>湿度默认提示</h4><p>默认参考德国 UBA：低于 40%RH 为偏干，40%–60%RH 为适宜，高于 60%RH 为偏湿。</p></div><div><h4>为什么不做综合分数</h4><p>冷热感与湿度传达的是不同体验。分别显示更容易判断是调整温度、风速，还是需要加湿或除湿。</p></div></div>
+      </div></div>
+    </section>
+
+    <section class="section" id="sound-light">
+      <div class="container"><div class="chapter">
+        <div class="chapter-head"><div><span class="kicker">第三类</span><h3>声光</h3><p>噪声提示帮助判断当前环境是否安静；照度提示说明当前光线更接近哪类住宅活动需要。两者分别显示，不合成一个分数。</p></div><span class="chapter-number" aria-hidden="true">03</span></div>
+        <div class="subsection two-column">
+          <div><h4>噪声 · dB(A)</h4><div class="table-wrap"><table><thead><tr><th>提示</th><th>住宅</th><th>睡眠</th></tr></thead><tbody><tr><td>安静</td><td>≤35</td><td>≤30</td></tr><tr><td>偏吵</td><td>&gt;35–45</td><td>&gt;30–40</td></tr><tr><td>嘈杂</td><td>&gt;45–55</td><td>&gt;40–50</td></tr><tr><td>很吵</td><td>&gt;55</td><td>&gt;50</td></tr></tbody></table></div></div>
+          <div><h4>照度 · lx</h4><div class="table-wrap"><table><thead><tr><th>当前照度</th><th>活动提示</th></tr></thead><tbody><tr><td>0–&lt;75</td><td>光线较暗</td></tr><tr><td>75–&lt;100</td><td>卧室活动</td></tr><tr><td>100–&lt;150</td><td>日常活动</td></tr><tr><td>150–&lt;200</td><td>用餐</td></tr><tr><td>200–&lt;300</td><td>床头阅读</td></tr><tr><td>≥300</td><td>读写与操作</td></tr></tbody></table></div></div>
+        </div>
+        <div class="note"><strong>照度不是“越高越好”。</strong>它表达光线更适合哪类活动，而不是健康风险等级。设备的单点瞬时读数也不能代表整个房间都达到照明标准。</div>
+      </div></div>
+    </section>
+
+    <section class="section" id="standards">
+      <div class="container"><div class="section-heading"><span class="kicker">标准来源</span><h2>评级依据来自哪里</h2><p>项目引用标准中的阈值、标尺或参考值，再将它们整理为一致、易读的产品提示。</p></div>
+        <div class="standards"><div class="standard"><b>空气质量</b><small>EEA European Air Quality Index、HJ 633—2026、美国 EPA AQI、WHO 2010、GB/T 18883—2022、OEHHA 2008、德国 UBA 2008。</small></div><div class="standard"><b>热舒适度</b><small>ISO 7730:2025、ASHRAE Standard 55 七点热感觉标尺、EPA 与德国 UBA 湿度建议。</small></div><div class="standard"><b>声光</b><small>WHO《社区噪声指南》与 GB/T 50034—2024 建筑照明设计标准。</small></div></div>
+        <div class="note"><strong>使用边界：</strong>本指南用于解释产品评级，不替代专业检测、医疗建议或法规合规结论。完整出处和算法边界请参阅项目技术文档。</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer"><div class="footer-grid container"><div><strong>环境评级指南</strong><p>让空气、冷热、湿度、噪声与光线更容易理解。</p></div><div><a href="colors.html">继续查看环境指标颜色说明 →</a><br><small>© <span data-year></span> environment_rating</small></div></div></footer>
+</body>
+</html>
