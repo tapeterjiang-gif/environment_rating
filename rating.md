@@ -1,12 +1,46 @@
 # 环境评级标准
 
-本文汇总当前项目已实现的空气质量、热舒适度和声光规则，与 [README.md](README.md) 及代码一致。所有评级均使用当前有效输入，不执行原标准的平均时间，也不用于正式达标判定。
+本文汇总当前项目已实现的热舒适度、空气质量和声光规则，与 [README.md](README.md) 及代码一致。所有评级均使用当前有效输入，不执行原标准的平均时间，也不用于正式达标判定。
 
-## 1. 空气质量
+## 1. 热舒适度
+
+热舒适度模块分别输出 PMV、PPD、冷热提示和湿度提示，不生成综合等级，也不写入 Matter `AirQuality`。PMV/PPD 参考 ISO 7730:2025，冷热名称采用 ASHRAE 七点热感觉标尺；连续区间为产品规则。
+
+### 1.1 PMV 冷热提示
+
+接口为 `thermal_pmv()`、`thermal_ppd()` 和 `thermal_rate()`。PMV 为负表示偏冷，为正表示偏热；PPD 根据 PMV 连续计算，不单独分档。
+
+| 有效 PMV 区间 | 冷热提示 | 返回枚举 |
+| --- | --- | --- |
+| −3 ≤ PMV < −2.5 | 冷 | `THERMAL_COLD` |
+| −2.5 ≤ PMV < −1.5 | 凉 | `THERMAL_COOL` |
+| −1.5 ≤ PMV < −0.5 | 稍凉 | `THERMAL_SLIGHTLY_COOL` |
+| −0.5 ≤ PMV ≤ +0.5 | 中性 | `THERMAL_NEUTRAL` |
+| +0.5 < PMV ≤ +1.5 | 稍暖 | `THERMAL_SLIGHTLY_WARM` |
+| +1.5 < PMV ≤ +2.5 | 暖 | `THERMAL_WARM` |
+| +2.5 < PMV ≤ +3 | 热 | `THERMAL_HOT` |
+| 无效或超出 −3～+3 | 未知 | `THERMAL_UNKNOWN` |
+
+PMV 为 0 时 PPD 为 5%；PMV 为 ±0.5、±1、±2、±3 时，PPD 分别约为 10.2%、26.1%、76.8%、99.1%。`thermal_pmv()` 将超出 ASHRAE 七点标尺的有限计算结果饱和到 −3 或 +3；直接传给 `thermal_ppd()` 或 `thermal_rate()` 的值须在 −3～+3。没有实际人员信息时，产品建议使用 `met=1.1`、`clo=0.7` 作全年估计；实际值已知时应由调用方传入。
+
+### 1.2 湿度提示
+
+接口为 `thermal_rate_humidity()`，输入单位为 **%RH**。EPA 和 UBA 是可选择的独立依据；默认建议使用 UBA 的全年 40%～60% 范围。
+
+| 依据 | 偏干 `DRY` | 适宜 `SUITABLE` | 略湿 `SLIGHTLY_HUMID` | 偏湿 `HUMID` |
+| --- | --- | --- | --- | --- |
+| EPA | RH < 30 | 30 ≤ RH ≤ 50 | 50 < RH < 60 | RH ≥ 60 |
+| UBA（默认） | RH < 40 | 40 ≤ RH ≤ 60 | 不使用 | RH > 60 |
+
+仅接受有限的 0～100%RH；无效湿度或非法依据返回 `THERMAL_HUMIDITY_UNKNOWN`。产品全年室内目标为温度 20～26°C、相对湿度 40%～60%，但温度冷热提示仍由 PMV 决定，不按空气温度单独分档。
+
+来源：[ISO 7730:2025](https://www.iso.org/standard/85803.html)、[ASHRAE 七点热感觉标尺](https://www.ashrae.org/file%20library/technical%20resources/standards%20and%20guidelines/standards%20addenda/55_2017_d_20200731.pdf#page=17)、[EPA 湿度指南](https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home)、[UBA 湿度指南](https://www.umweltbundesamt.de/en/node/3086)。
+
+## 2. 空气质量
 
 `AirQuality` 列为 `air_rate_*()` 返回的单项评级，参与整体最差等级计算；`LevelValue` 列为 `air_level_*()` 返回的单项浓度等级。两者的转换属于产品规则，不是 Matter 官方浓度阈值。
 
-### 1.1 PM2.5、PM10
+### 2.1 PM2.5、PM10
 
 浓度单位：**μg/m³**。PM2.5、PM10 分别评级，共用所选 PM 标准。
 
@@ -50,7 +84,7 @@ EEA 列的 C 为原始有效浓度；HJ 列为修约后的整数；EPA 列为截
 
 来源：[EEA 指数](https://airindex.eea.europa.eu/AQI/)、[EEA 方法报告](https://www.eionet.europa.eu/etcs/etc-he/products/etc-he-products/etc-he-reports/etc-he-report-2024-17-eeas-revision-of-the-european-air-quality-index-bands)、[HJ 633—2026](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/W020260225366493492011.pdf)、[EPA AQI 技术文档](https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf)。
 
-### 1.2 CO₂
+### 2.2 CO₂
 
 浓度单位：**ppm**。统一参考德国 UBA 2008 室内 CO₂ 卫生指导值，作为通风提示；无需选择标准参数。
 
@@ -64,9 +98,9 @@ CO₂ 只有三个有效档位，不输出 Critical；1000、2000 均归入 Medi
 
 来源：[UBA 2008，§6.2、表 4](https://www.umweltbundesamt.de/system/files/medien/pdfs/kohlendioxid_2008.pdf)。
 
-### 1.3 HCHO（甲醛）
+### 2.3 HCHO（甲醛）
 
-评级输入单位：**mg/m³**。默认并推荐 WHO 2010；甲醛标准独立于 PM 标准。SFA40 的 Matter 上报可用 ppb，传入评级函数前须按 [README 的单位转换说明](README.md#17-matter-接入-guide)换算。
+评级输入单位：**mg/m³**。默认并推荐 WHO 2010；甲醛标准独立于 PM 标准。SFA40 的 Matter 上报可用 ppb，传入评级函数前须按 [README 的单位转换说明](README.md#27-matter-接入-guide)换算。
 
 | 标准 | 接口枚举 | 参考浓度 L（mg/m³） | 原标准时间口径 |
 | --- | --- | --- | --- |
@@ -89,7 +123,7 @@ CO₂ 只有三个有效档位，不输出 Critical；1000、2000 均归入 Medi
 
 来源：[WHO 2010](https://www.ncbi.nlm.nih.gov/books/NBK138711/)、[GB/T 18883—2022](https://www.ndcpa.gov.cn/doc/ucap/1625444428300685312/document/20230607/ZgwODgwF.pdf)、[OEHHA 甲醛参考值](https://oehha.ca.gov/chemicals/formaldehyde)、[OEHHA 平均时间说明](https://oehha.ca.gov/air/general-info/oehha-acute-8-hour-and-chronic-reference-exposure-level-rel-summary)。
 
-### 1.4 通用规则
+### 2.4 通用规则
 
 | 情况 | 处理 |
 | --- | --- |
@@ -99,40 +133,6 @@ CO₂ 只有三个有效档位，不输出 Critical；1000、2000 均归入 Medi
 | 整体接口标准非法或有效位图含未定义位 | 整体返回 Unknown，即使对应参数未参与评价 |
 
 零浓度是有效值，不能代替缺失状态。Matter 等级枚举定义见 [AirQuality](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/clusters/AirQuality.xml) 和 [LevelValue](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/clusters/ConcentrationMeasurement.xml)。
-
-## 2. 热舒适度
-
-热舒适度模块分别输出 PMV、PPD、冷热提示和湿度提示，不生成综合等级，也不写入 Matter `AirQuality`。PMV/PPD 参考 ISO 7730:2025，冷热名称采用 ASHRAE 七点热感觉标尺；连续区间为产品规则。
-
-### 2.1 PMV 冷热提示
-
-接口为 `thermal_pmv()`、`thermal_ppd()` 和 `thermal_rate()`。PMV 为负表示偏冷，为正表示偏热；PPD 根据 PMV 连续计算，不单独分档。
-
-| 有效 PMV 区间 | 冷热提示 | 返回枚举 |
-| --- | --- | --- |
-| −3 ≤ PMV < −2.5 | 冷 | `THERMAL_COLD` |
-| −2.5 ≤ PMV < −1.5 | 凉 | `THERMAL_COOL` |
-| −1.5 ≤ PMV < −0.5 | 稍凉 | `THERMAL_SLIGHTLY_COOL` |
-| −0.5 ≤ PMV ≤ +0.5 | 中性 | `THERMAL_NEUTRAL` |
-| +0.5 < PMV ≤ +1.5 | 稍暖 | `THERMAL_SLIGHTLY_WARM` |
-| +1.5 < PMV ≤ +2.5 | 暖 | `THERMAL_WARM` |
-| +2.5 < PMV ≤ +3 | 热 | `THERMAL_HOT` |
-| 无效或超出 −3～+3 | 未知 | `THERMAL_UNKNOWN` |
-
-PMV 为 0 时 PPD 为 5%；PMV 为 ±0.5、±1、±2、±3 时，PPD 分别约为 10.2%、26.1%、76.8%、99.1%。`thermal_pmv()` 将超出 ASHRAE 七点标尺的有限计算结果饱和到 −3 或 +3；直接传给 `thermal_ppd()` 或 `thermal_rate()` 的值须在 −3～+3。没有实际人员信息时，产品建议使用 `met=1.1`、`clo=0.7` 作全年估计；实际值已知时应由调用方传入。
-
-### 2.2 湿度提示
-
-接口为 `thermal_rate_humidity()`，输入单位为 **%RH**。EPA 和 UBA 是可选择的独立依据；默认建议使用 UBA 的全年 40%～60% 范围。
-
-| 依据 | 偏干 `DRY` | 适宜 `SUITABLE` | 略湿 `SLIGHTLY_HUMID` | 偏湿 `HUMID` |
-| --- | --- | --- | --- | --- |
-| EPA | RH < 30 | 30 ≤ RH ≤ 50 | 50 < RH < 60 | RH ≥ 60 |
-| UBA（默认） | RH < 40 | 40 ≤ RH ≤ 60 | 不使用 | RH > 60 |
-
-仅接受有限的 0～100%RH；无效湿度或非法依据返回 `THERMAL_HUMIDITY_UNKNOWN`。产品全年室内目标为温度 20～26°C、相对湿度 40%～60%，但温度冷热提示仍由 PMV 决定，不按空气温度单独分档。
-
-来源：[ISO 7730:2025](https://www.iso.org/standard/85803.html)、[ASHRAE 七点热感觉标尺](https://www.ashrae.org/file%20library/technical%20resources/standards%20and%20guidelines/standards%20addenda/55_2017_d_20200731.pdf#page=17)、[EPA 湿度指南](https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home)、[UBA 湿度指南](https://www.umweltbundesamt.de/en/node/3086)。
 
 ## 3. 声光
 

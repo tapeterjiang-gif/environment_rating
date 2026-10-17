@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="用容易理解的方式介绍空气质量、热舒适度、噪声和照度的环境评级标准。">
+  <meta name="description" content="用容易理解的方式介绍热舒适度、空气质量、噪声和照度的环境评级标准。">
   <title>环境评级标准</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -31,7 +31,7 @@
         <div>
           <p class="eyebrow">Environment rating guide</p>
           <h1>看懂你身边的环境</h1>
-          <p class="lead">传感器给出数字，环境评级把数字转成容易理解的提示。这里介绍空气质量、热舒适度、噪声与照度如何判断，以及结果该怎样阅读。</p>
+          <p class="lead">传感器给出数字，环境评级把数字转成容易理解的提示。这里介绍热舒适度、空气质量、噪声与照度如何判断，以及结果该怎样阅读。</p>
           <div class="hero-actions">
             <a class="button primary" href="#how">先看评级方法 <span aria-hidden="true">↓</span></a>
             <a class="button secondary" href="colors.html">查看颜色含义</a>
@@ -39,8 +39,8 @@
         </div>
         <div class="hero-visual" aria-label="环境数据由多个指标共同组成的示意图">
           <div class="orb"><div class="orb-core"><div><strong>3</strong><span>类环境体验</span></div></div></div>
-          <div class="float-card one"><b>空气质量</b><span>颗粒物 · CO₂ · 甲醛</span></div>
-          <div class="float-card two"><b>热舒适度</b><span>冷热感 · 湿度</span></div>
+          <div class="float-card one"><b>热舒适度</b><span>冷热感 · 湿度</span></div>
+          <div class="float-card two"><b>空气质量</b><span>颗粒物 · CO₂ · 甲醛</span></div>
           <div class="float-card three"><b>声光体验</b><span>噪声 · 照度</span></div>
         </div>
       </div>
@@ -62,10 +62,22 @@
       </div>
     </section>
 
+    <section class="section" id="thermal">
+      <div class="container"><div class="chapter">
+        <div class="chapter-head"><div><span class="kicker">第一类</span><h3>热舒适度</h3><p>热舒适度不只看温度。PMV 会同时考虑空气温度、辐射温度、湿度、风速、活动量和衣着，给出从冷到热的七点感受；湿度另有独立提示。</p></div><span class="chapter-number" aria-hidden="true">01</span></div>
+        <div class="subsection"><h4>PMV 七点冷热感</h4><p>PMV 越接近 0，代表多数人在当前条件下越可能感觉中性。每个人的感受仍可能不同。</p>
+          <div class="pmv-scale" aria-label="PMV 七点冷热感">
+            <div style="--bg:#DBEAFE;--label:#1E3A8A"><b>冷</b><span>−3 至 −2.5</span></div><div style="--bg:#E0F2FE;--label:#0C4A6E"><b>凉</b><span>−2.5 至 −1.5</span></div><div style="--bg:#CFFAFE;--label:#155E75"><b>稍凉</b><span>−1.5 至 −0.5</span></div><div style="--bg:#DCFCE7;--label:#14532D"><b>中性</b><span>−0.5 至 +0.5</span></div><div style="--bg:#FEF9C3;--label:#713F12"><b>稍暖</b><span>+0.5 至 +1.5</span></div><div style="--bg:#FFEDD5;--label:#7C2D12"><b>暖</b><span>+1.5 至 +2.5</span></div><div style="--bg:#FEE2E2;--label:#7F1D1D"><b>热</b><span>+2.5 至 +3</span></div>
+          </div>
+        </div>
+        <div class="subsection two-column"><div><h4>湿度默认提示</h4><p>默认参考德国 UBA：低于 40%RH 为偏干，40%–60%RH 为适宜，高于 60%RH 为偏湿。</p></div><div><h4>为什么不做综合分数</h4><p>冷热感与湿度传达的是不同体验。分别显示更容易判断是调整温度、风速，还是需要加湿或除湿。</p></div></div>
+      </div></div>
+    </section>
+
     <section class="section" id="air">
       <div class="container">
         <div class="chapter">
-          <div class="chapter-head"><div><span class="kicker">第一类</span><h3>空气质量</h3><p>分别观察 PM2.5、PM10、CO₂ 和甲醛。单项和整体结果使用 Matter 的六档空气质量名称；具体浓度边界来自所选的环境或健康标准。</p></div><span class="chapter-number" aria-hidden="true">01</span></div>
+          <div class="chapter-head"><div><span class="kicker">第二类</span><h3>空气质量</h3><p>分别观察 PM2.5、PM10、CO₂ 和甲醛。单项和整体结果使用 Matter 的六档空气质量名称；具体浓度边界来自所选的环境或健康标准。</p></div><span class="chapter-number" aria-hidden="true">02</span></div>
           <div class="subsection">
             <h4>六档空气质量</h4>
             <p>从左到右表示越来越需要关注。“未知”不在这六档中，通常表示当前没有可靠数据。</p>
@@ -108,18 +120,6 @@
       </div>
     </section>
 
-    <section class="section" id="thermal">
-      <div class="container"><div class="chapter">
-        <div class="chapter-head"><div><span class="kicker">第二类</span><h3>热舒适度</h3><p>热舒适度不只看温度。PMV 会同时考虑空气温度、辐射温度、湿度、风速、活动量和衣着，给出从冷到热的七点感受；湿度另有独立提示。</p></div><span class="chapter-number" aria-hidden="true">02</span></div>
-        <div class="subsection"><h4>PMV 七点冷热感</h4><p>PMV 越接近 0，代表多数人在当前条件下越可能感觉中性。每个人的感受仍可能不同。</p>
-          <div class="pmv-scale" aria-label="PMV 七点冷热感">
-            <div style="--bg:#DBEAFE;--label:#1E3A8A"><b>冷</b><span>−3 至 −2.5</span></div><div style="--bg:#E0F2FE;--label:#0C4A6E"><b>凉</b><span>−2.5 至 −1.5</span></div><div style="--bg:#CFFAFE;--label:#155E75"><b>稍凉</b><span>−1.5 至 −0.5</span></div><div style="--bg:#DCFCE7;--label:#14532D"><b>中性</b><span>−0.5 至 +0.5</span></div><div style="--bg:#FEF9C3;--label:#713F12"><b>稍暖</b><span>+0.5 至 +1.5</span></div><div style="--bg:#FFEDD5;--label:#7C2D12"><b>暖</b><span>+1.5 至 +2.5</span></div><div style="--bg:#FEE2E2;--label:#7F1D1D"><b>热</b><span>+2.5 至 +3</span></div>
-          </div>
-        </div>
-        <div class="subsection two-column"><div><h4>湿度默认提示</h4><p>默认参考德国 UBA：低于 40%RH 为偏干，40%–60%RH 为适宜，高于 60%RH 为偏湿。</p></div><div><h4>为什么不做综合分数</h4><p>冷热感与湿度传达的是不同体验。分别显示更容易判断是调整温度、风速，还是需要加湿或除湿。</p></div></div>
-      </div></div>
-    </section>
-
     <section class="section" id="sound-light">
       <div class="container"><div class="chapter">
         <div class="chapter-head"><div><span class="kicker">第三类</span><h3>声光</h3><p>噪声提示帮助判断当前环境是否安静；照度提示说明当前光线更接近哪类住宅活动需要。两者分别显示，不合成一个分数。</p></div><span class="chapter-number" aria-hidden="true">03</span></div>
@@ -133,7 +133,7 @@
 
     <section class="section" id="standards">
       <div class="container"><div class="section-heading"><span class="kicker">标准来源</span><h2>评级依据来自哪里</h2><p>项目引用标准中的阈值、标尺或参考值，再将它们整理为一致、易读的产品提示。</p></div>
-        <div class="standards"><div class="standard"><b>空气质量</b><small>EEA European Air Quality Index、HJ 633—2026、美国 EPA AQI、WHO 2010、GB/T 18883—2022、OEHHA 2008、德国 UBA 2008。</small></div><div class="standard"><b>热舒适度</b><small>ISO 7730:2025、ASHRAE Standard 55 七点热感觉标尺、EPA 与德国 UBA 湿度建议。</small></div><div class="standard"><b>声光</b><small>WHO《社区噪声指南》与 GB/T 50034—2024 建筑照明设计标准。</small></div></div>
+        <div class="standards"><div class="standard"><b>热舒适度</b><small>ISO 7730:2025、ASHRAE Standard 55 七点热感觉标尺、EPA 与德国 UBA 湿度建议。</small></div><div class="standard"><b>空气质量</b><small>EEA European Air Quality Index、HJ 633—2026、美国 EPA AQI、WHO 2010、GB/T 18883—2022、OEHHA 2008、德国 UBA 2008。</small></div><div class="standard"><b>声光</b><small>WHO《社区噪声指南》与 GB/T 50034—2024 建筑照明设计标准。</small></div></div>
         <div class="note"><strong>使用边界：</strong>本指南用于解释产品评级，不替代专业检测、医疗建议或法规合规结论。完整出处和算法边界请参阅项目技术文档。</div>
       </div>
     </section>

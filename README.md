@@ -2,16 +2,16 @@
 
 环境评级库的需求、评级标准与使用指南。面向 ESP32（RTOS）、RK3506（Linux）、iOS 和 Web，核心采用可重入 C99 实现，兼容 C++、Swift 和 TypeScript。三个模块独立输出，均无需初始化、动态内存或历史状态。
 
-版本：v0.54。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
+版本：v0.55。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
 
-- [1. 空气质量](#1-空气质量)：CO₂、PM、甲醛及整体评级。
-- [2. 热舒适度](#2-热舒适度)：PMV、PPD、冷热与湿度提示。
+- [1. 热舒适度](#1-热舒适度)：PMV、PPD、冷热与湿度提示。
+- [2. 空气质量](#2-空气质量)：CO₂、PM、甲醛及整体评级。
 - [3. 声光](#3-声光)：噪声提示与照度活动参考。
 
 | 模块 | 文件 |
 | --- | --- |
-| 空气质量 | [air_quality_rating.h](air_quality_rating.h) / [air_quality_rating.c](air_quality_rating.c) |
 | 热舒适度 | [thermal_comfort.h](thermal_comfort.h) / [thermal_comfort.c](thermal_comfort.c) |
+| 空气质量 | [air_quality_rating.h](air_quality_rating.h) / [air_quality_rating.c](air_quality_rating.c) |
 | 声光 | [sound_light_rating.h](sound_light_rating.h) / [sound_light_rating.c](sound_light_rating.c) |
 
 ### 相关文档
@@ -19,7 +19,7 @@
 | 文档 | 内容 |
 | --- | --- |
 | [普通用户网页](https://environment-rating-guide.violetgleam9.chatgpt.site) | 用容易理解的方式浏览环境评级标准，并可进入环境指标颜色说明；源文件位于 [site/dist](site/dist) |
-| [环境评级标准](rating.md) | 空气质量、热舒适度和声光的评级依据与分级表 |
+| [环境评级标准](rating.md) | 热舒适度、空气质量和声光的评级依据与分级表 |
 | [环境指标颜色说明](COLOR_STANDARD.md) | 参数识别色、等级状态色、实际色样和可访问性规则 |
 | [Web 使用指南](web/README.md) | 浏览器、Web Worker 和 Node.js 的 Wasm/TypeScript 接入方法 |
 
@@ -29,16 +29,16 @@
 
 | 参数 | 单位 | 规则 |
 | --- | --- | --- |
+| 空气温度（temperature） | °C | 参与 PMV 计算 |
+| 相对湿度（humidity） | %RH | 参与 PMV 计算，并可独立输出干湿提示；50.0 表示 50%RH |
 | CO₂（co2） | ppm | 三个市场统一分档 |
 | PM2.5（pm25） | μg/m³ | 按指定 PM 标准分档 |
 | PM10（pm10） | μg/m³ | 按指定 PM 标准分档 |
 | 甲醛（hcho） | mg/m³ | 按指定甲醛标准分档 |
-| 空气温度（temperature） | °C | 参与 PMV 计算 |
-| 相对湿度（humidity） | %RH | 参与 PMV 计算，并可独立输出干湿提示；50.0 表示 50%RH |
 | 噪声（noise） | dB(A) | 当前 A 计权 Fast 声级，按住宅或睡眠场景分档 |
 | 照度（illuminance） | lx | 输出住宅活动参考提示 |
 
-PMV 的其他输入（平均辐射温度、相对风速、代谢率、衣着热阻）及单位见第 2 章。温湿度、噪声和照度不参与空气质量整体评级。
+PMV 的其他输入（平均辐射温度、相对风速、代谢率、衣着热阻）及单位见第 1 章。温湿度、噪声和照度不参与空气质量整体评级。
 
 ### 构建与验证
 
@@ -77,7 +77,7 @@ npm run test:browser
 
 - **ESP-IDF**：将项目放入 `components/environment_rating`，在调用组件中添加 `REQUIRES environment_rating`，会编译全部三个模块。
 - **Linux**：使用本项目 CMake，按需链接 `air_quality_rating`、`thermal_comfort`、`sound_light_rating`；也可直接编译所需源文件，使用热舒适度模块时链接数学库 `-lm`。只构建库可设置 `-DBUILD_TESTING=OFF`，无需 C++ 编译器。
-- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.54.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
+- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.55.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
 - **Web / TypeScript**：使用 `web/dist` 中的 ES Module 和 Wasm，先异步调用 `createEnvironmentRating()`，再复用返回的无状态 API。支持浏览器、Web Worker 和 Node.js 18 及以上，完整示例见 [Web 使用指南](web/README.md)。
 
 源文件按 C99 编译，支持 C++ 调用。不要开启 `-ffast-math` 或 `-ffinite-math-only`，以保证 NaN 和无穷大检查有效。传感器读取、校准、有效性判断和通信由上层负责。
@@ -136,15 +136,147 @@ const comfort = rating.thermal.evaluate({
 
 Web 包使用字符串枚举，缺失的空气质量参数可省略或传入 `null`。默认标准和 PMV 参数与 Swift API 一致；评级阈值仍全部来自根目录 C 源码。
 
-## 1. 空气质量
+## 1. 热舒适度
 
-### 1.1 目标与范围
+独立模块 `thermal_comfort.h/.c`，提供 PMV、PPD 与冷热提示。参考 ISO 7730:2025 的 Fanger PMV/PPD 模型，采用 ASHRAE 七点热感觉名称。首版限定外部机械功为零，不评估局部不适、适应性舒适度或完整标准符合性。独立湿度提示按所选依据评价，与冷热提示分别输出。
+
+产品采用全年统一的室内目标：温度 20～26°C、相对湿度 40%～60%，不再按夏季和冬季切换。温度目标用于简单场景提示，实际冷热提示仍以 PMV 为准；统一目标属于产品规则，不表示 GB/T 18883—2022 符合性评价。
+
+### 1.1 使用方式
+
+接口见 [thermal_comfort.h](thermal_comfort.h)。先计算 PMV，再由 PMV 得到 PPD 和冷热提示；湿度可独立评级。以下示例假设辐射温度等于气温、相对风速 0.1 m/s、活动强度 1.1 met、衣着热阻 0.7 clo，作为不区分季节时的全年估计，结果应标为“估算”。
+
+```c
+/* 包含 thermal_comfort.h 后，在函数内调用。 */
+double pmv = thermal_pmv(25.0, 50.0, 25.0, 0.1, 1.1, 0.7);
+double ppd = thermal_ppd(pmv);
+thermal_sensation_t sensation = thermal_rate(pmv);
+/* 无效时 pmv、ppd 为 NAN，sensation 为 THERMAL_UNKNOWN。 */
+```
+
+### 1.2 输入与适用范围
+
+| 输入 | 单位 | 接受范围（含边界） |
+| --- | --- | --- |
+| 空气温度 temperature | °C | −40～+80 |
+| 相对湿度 humidity | %RH | 0～100 |
+| 平均辐射温度 radiant_temperature | °C | −40～+80 |
+| 人体相对风速 air_speed | m/s | 0～1 |
+| 代谢率 met | met | 0.8～4 |
+| 有效衣着热阻 clo | clo | 0～2 |
+
+相对风速包含人体运动影响；有效衣着热阻应与实际条件相符，由调用方提供。函数不默认辐射温度等于气温，也不内置衣着或活动假设。没有实际信息时，产品建议使用 `met=1.1`、`clo=0.7` 作为全年默认估计；调用方掌握实际活动和衣着时应传入实际值。全部输入须有限；无效输入或计算不收敛返回 `NAN`。温度扩展范围用于覆盖产品环境监测场景；超出常规室内热舒适条件时，结果仅用于冷热提示，不表示符合 ISO 7730 或 ASHRAE 55 的适用条件。计算结果超出七点热感觉标尺时饱和为 −3 或 +3。瞬时计算不表示环境已满足模型的稳态假设，初始化、快速变化及数据可信度由上层处理。
+
+### 1.3 PMV 与 PPD
+
+PMV 为负表示偏冷，为正表示偏热。PPD 为预测不满意人数百分比：
+
+`PPD = 100 − 95 × exp(−0.03353 × PMV⁴ − 0.2179 × PMV²)`。
+
+PMV 为 0 时 PPD 仍为 5%；PMV 为 ±3 时 PPD 约为 99.1%。PPD 不是测量误差或置信度。`thermal_ppd()` 接受 −3～+3，越界返回 `NAN`；结果不取整，显示格式由界面处理。
+
+### 1.4 冷热提示
+
+标准标尺点为 −3 冷、−2 凉、−1 稍凉、0 中性、+1 稍暖、+2 暖、+3 热。以下连续区间属于产品规则，优先检查模型有效性：
+
+| 有效 PMV 区间 | 提示 | 枚举 |
+| --- | --- | --- |
+| −3 ≤ PMV < −2.5 | 冷 | `THERMAL_COLD` |
+| −2.5 ≤ PMV < −1.5 | 凉 | `THERMAL_COOL` |
+| −1.5 ≤ PMV < −0.5 | 稍凉 | `THERMAL_SLIGHTLY_COOL` |
+| −0.5 ≤ PMV ≤ +0.5 | 中性 | `THERMAL_NEUTRAL` |
+| +0.5 < PMV ≤ +1.5 | 稍暖 | `THERMAL_SLIGHTLY_WARM` |
+| +1.5 < PMV ≤ +2.5 | 暖 | `THERMAL_WARM` |
+| +2.5 < PMV ≤ +3 | 热 | `THERMAL_HOT` |
+| 无效或超出 −3～+3 | 未知 | `THERMAL_UNKNOWN` |
+
+`thermal_pmv()` 会把超出标尺的有限计算结果饱和到 −3 或 +3；`thermal_rate()` 不接受调用方直接传入的越界值。中性不代表所有人满意或局部不适条件合格。
+
+来源：[ISO 7730:2025](https://www.iso.org/standard/85803.html)、[ASHRAE 七点热感觉标尺（PDF 第 17 页）](https://www.ashrae.org/file%20library/technical%20resources/standards%20and%20guidelines/standards%20addenda/55_2017_d_20200731.pdf#page=17)、[CBE PMV/PPD 参考实现及适用范围](https://github.com/CenterForTheBuiltEnvironment/pythermalcomfort/blob/master/pythermalcomfort/models/pmv_ppd_iso.py)。
+
+### 1.5 独立湿度提示
+
+```c
+thermal_humidity_t humidity = thermal_rate_humidity(
+    THERMAL_HUMIDITY_UBA, 55.0); /* THERMAL_HUMIDITY_SUITABLE：适宜 */
+```
+
+`thermal_rate_humidity(standard, humidity)` 接受 `thermal_humidity_std_t` 和瞬时 %RH，返回 `thermal_humidity_t`。依据由调用方显式传入，不按地区或季节自动选择。默认建议使用 `THERMAL_HUMIDITY_UBA`，全年采用 40%～60% 的适宜范围。
+
+| 依据（枚举前缀 `THERMAL_HUMIDITY_`） | 偏干 DRY | 适宜 SUITABLE | 略湿 SLIGHTLY_HUMID | 偏湿 HUMID |
+| --- | --- | --- | --- | --- |
+| EPA | RH < 30 | 30 ≤ RH ≤ 50 | 50 < RH < 60 | RH ≥ 60 |
+| UBA（默认） | RH < 40 | 40 ≤ RH ≤ 60 | 不使用 | RH > 60 |
+
+仅接受有限的 0～100%（含边界），不修约；非法依据或无效湿度返回 `THERMAL_HUMIDITY_UNKNOWN`。湿度提示不受 PMV 的温度、水蒸气分压力或输出范围限制，两个结果分别计算和展示。EPA 为枚举零值，但调用方仍须明确传入依据。
+
+EPA、UBA 为官方指南，提示名称及分档为产品映射。“适宜”不代表所有人舒适；瞬时偏湿不直接判定霉菌或结露。默认采用 UBA 的 40%～60% 建议范围，不表示 GB/T 18883—2022 符合性评价。
+
+来源：[EPA 湿度指南](https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home)、[UBA 住宅通风与湿度指南](https://www.umweltbundesamt.de/en/node/3086)、[GB/T 18883—2022 表 1](https://www.gxcdc.org.cn/uploadfile/20231220/1703032288507215.pdf)。
+
+### 1.6 Matter 接入 Guide
+
+**启用 Cluster**
+
+Matter 1.6 的 Air Quality Sensor 设备类型允许在同一 Endpoint 上选配 Temperature Measurement（`0x0402`）和 Relative Humidity Measurement（`0x0405`）两个 Cluster。
+
+**填写测量属性**
+
+以下量程以 SHT40 芯片规格为参考，整机量程较窄时按验证结果调整；PMV 的适用范围不作为测量量程。
+
+| Matter 字段 | 温度 / SHT40 | 相对湿度 / SHT40 |
+| --- | --- | --- |
+| `MeasuredValue` | `round(temperature × 100)` | `round(humidity × 100)` |
+| `MinMeasuredValue` | `-4000`（−40°C） | `0`（0%RH） |
+| `MaxMeasuredValue` | `12500`（125°C） | `10000`（100%RH） |
+| `Tolerance` | `30` | `300` |
+
+温度编码为有符号整数，湿度为无符号整数；取最近整数，半值远离零，例如 25.12°C → 2512、50.25%RH → 5025。无效实测值填 null。
+
+`Tolerance` 的单位分别为 0.01°C 和 0.01%RH，30、300 表示 ±0.3°C、±3%RH，为本产品选定配置；整机在声明量程内的容差仍待验证。该属性固定、不可为 null，范围为 0～2048；未启用时不加入可选属性列表，不填 0 代替。两个 Cluster 均不提供 `MeasurementUnit`、`MeasurementMedium` 或 `Uncertainty`。
+
+**精度与一致性**
+
+将测量容差、重复性和设备间一致性分开定义；它们不改变评级阈值，也不作为 `thermal_pmv()` 的新增参数。以下 SHT40 数据来自数据手册 v7.3（2026-06），不代表整机已达到同等性能。
+
+| 项目 | 温度 | 相对湿度 | 定义与用途 |
+| --- | --- | --- | --- |
+| 芯片典型精度 | ±0.2°C | ±1.8%RH | 参考数据手册指定条件与精度曲线，不是全量程最大误差保证 |
+| 芯片高精度模式重复性 | 0.04°C | 0.08%RH | 恒定条件下连续读数的 3σ，表示短期噪声；湿度值条件为 25°C、50%RH |
+| 整机容差设计目标 | ±0.3°C | ±3%RH | 建议先在 10～30°C、20～80%RH 的室内范围验证，包含外壳、自热、补偿和参考仪器误差预算；尚未实测确认 |
+| 对应 Matter `Tolerance` 配置值 | 30 | 300 | 产品选定值，须验证其与整机声明量程一致 |
+
+湿度误差用 %RH 的绝对差表示，例如 50%RH ±3%RH 为 47～53%RH，并非读数的 ±3%。最大允许误差应参考手册的最大误差曲线及整机验证结果，不能把典型精度或重复性直接填入 `Tolerance`。
+
+设备间一致性建议定义为：多台整机处于同一稳定环境、使用相同采样模式和补偿配置时，各台在同一测试窗口内的平均读数最大值减最小值，记为温度差 `temperature_spread`（°C）与湿度差 `humidity_spread`（%RH）。测试应固定位置均匀性、稳定判据、采样间隔和窗口长度；窗口平均仅用于验收，不改变运行时的瞬时评级。
+
+若各台对同一参考值均满足容差目标，任意两台读数差的保守上限为 0.6°C、6%RH；这是推导值，不是厂商一致性规格。一致性须经批量实测，不能替代准确度验证或直接填入 `Tolerance`。
+
+跨平台对比须使用相同输入和湿度依据。SHT40 只提供温湿度，其他 PMV 输入由上层提供；其测量精度不能直接代表 PMV/PPD 的不确定度。
+
+来源：[Sensirion SHT4x 数据手册 v7.3，第 4～7 页及加热说明](https://sensirion.com/media/documents/33FD6951/6A7C10A0/HT_DS_Datasheet_SHT4x_V7.3.pdf)。以上整机目标和一致性定义为产品建议，不是新增的传感器选型要求。
+
+**处理无效数据**
+
+温湿度分别检查有效性、数据新鲜度和整机量程，再转换整数。初始化尚无有效数据、通信失败或数据失效时，用 SDK 的 nullable 类型将对应 `MeasuredValue` 设为 null，不用 0 代替。SHT40 加热期间及尚未恢复环境温度时的读数不作为有效环境测量值。
+
+**更新评级结果**
+
+使用有效温湿度调用本模块接口，在本机界面或厂商扩展中展示 PMV、PPD、冷热和干湿提示。缺少 PMV 必需输入时显示未知；湿度有效时仍可独立计算干湿提示。温度低于 10°C 等情况可导致 PMV 无效，但不影响量程内有效温度的 Matter 上报。
+
+温湿度 Cluster 没有 PMV、PPD、冷热和干湿提示的标准属性，也没有 `LevelValue`；这些结果不写入 `AirQuality`。
+
+来源：[Matter 1.6 设备类型](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/device_types/AirQualitySensor.xml)、[温度 Cluster](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/clusters/TemperatureMeasurement.xml)、[湿度 Cluster](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/clusters/WaterContentMeasurement.xml)。
+
+## 2. 空气质量
+
+### 2.1 目标与范围
 
 面向中国、美国和欧洲，对 CO₂、PM2.5、PM10、甲醛分别评级，并支持 Matter 1.6。整体取有效参数中最差等级；接口细节见头文件。
 
 空气质量评级统一采用**瞬时值**，不计算均值、NowCast、平滑、滞回或持续时间。PM 按所选标准阈值评价，CO₂ 统一参考德国 UBA 通风提示。本产品输出瞬时等级，不计算标准 AQI 数值，也不代表地区标准认证。
 
-### 1.2 输入有效性
+### 2.2 输入有效性
 
 PM 默认标准为 EEA European Air Quality Index；甲醛默认标准为 WHO 2010。两者分别对应标准枚举的零值，接口仍要求显式传入标准参数，不根据地区自动选择。
 
@@ -153,7 +285,7 @@ PM 默认标准为 EEA European Air Quality Index；甲醛默认标准为 WHO 20
 - 负值、NaN 和无穷大不可评价；单项返回 Unknown，整体计算排除该项。
 - 所有项均不可评价时，整体返回 Unknown；非法标准或未定义的有效位也使整体返回 Unknown。
 
-### 1.3 Matter 等级
+### 2.3 Matter 等级
 
 单项和整体均使用 Matter 1.6 Air Quality Cluster（0x005B，revision 1）的 AirQualityEnum：
 
@@ -171,11 +303,11 @@ Unknown 不参与优劣比较。Unknown、Good、Poor 为基础枚举；完整�
 
 来源：[Matter 1.6 规范 §2.9.5.1，正文第 207 页](https://csa-iot.org/wp-content/uploads/2026/06/23-27350-010_Matter-1.6-Application-Cluster-Specification.pdf#page=211)、[官方 Air Quality 数据模型](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/clusters/AirQuality.xml)。
 
-### 1.4 PM 评级标准
+### 2.4 PM 评级标准
 
 两项 PM 分别查表，不要求同时处于同一档。以下浓度单位均为 μg/m³；超过最高分档的有效值归入 ExtremelyPoor。
 
-#### 1.4.1 中国：HJ 633—2026
+#### 2.4.1 中国：HJ 633—2026
 
 参考《环境空气质量指数（AQI）技术规定》，2026-03-01 实施，替代 HJ 633—2012。两项 PM 按 GB/T 8170 修约到整数，采用最接近整数、半值取偶；表中 C 为修约值。
 
@@ -194,7 +326,7 @@ Unknown 不参与优劣比较。Unknown、Good、Poor 为基础枚举；完整�
 
 来源：[生态环境部发布页](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/t20260225_1144441.shtml)、[正式全文 §4.2、表 1 和表 3](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/W020260225366493492011.pdf)。
 
-#### 1.4.2 美国：EPA AQI
+#### 2.4.2 美国：EPA AQI
 
 参考 EPA AQI 技术文档 May 2026、表 6，PM2.5 使用 2024 年更新后的分界。PM2.5 截断至一位小数，PM10 截断至整数；表中 C 为截断值。
 
@@ -213,7 +345,7 @@ Unknown 不参与优劣比较。Unknown、Good、Poor 为基础枚举；完整�
 
 来源：[EPA AQI 技术文档，第 IV 节、表 6](https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf)、[2024 年 PM AQI 更新说明](https://www.epa.gov/system/files/documents/2024-02/pm-naaqs-air-quality-index-fact-sheet.pdf)。
 
-#### 1.4.3 欧洲：EEA European Air Quality Index
+#### 2.4.3 欧洲：EEA European Air Quality Index
 
 采用核对日期所示的 EEA 更新版分档，方法背景为 ETC HE Report 2024/17；枚举 `AIR_PM_EEA_AQI_2024` 中的 2024 对应该报告编号。保留小数，C 为原始有效瞬时值。
 
@@ -230,7 +362,7 @@ Unknown 不参与优劣比较。Unknown、Good、Poor 为基础枚举；完整�
 
 来源：[EEA 官方指数及分档](https://airindex.eea.europa.eu/AQI/)、[EEA 分档修订方法报告](https://www.eionet.europa.eu/etcs/etc-he/products/etc-he-products/etc-he-reports/etc-he-report-2024-17-eeas-revision-of-the-european-air-quality-index-bands)。
 
-### 1.5 CO₂ 评级标准
+### 2.5 CO₂ 评级标准
 
 三个市场统一参考德国 UBA 室内 CO₂ 卫生指导值，作为通风提示，不随 PM 标准切换，不增加地区限值评价。C 为有效瞬时浓度，单位 ppm。
 
@@ -244,7 +376,7 @@ Unknown 不参与优劣比较。Unknown、Good、Poor 为基础枚举；完整�
 
 来源：[UBA《室内空气中二氧化碳的健康评价》，2008，§6.2、表 4](https://www.umweltbundesamt.de/system/files/medien/pdfs/kohlendioxid_2008.pdf)。
 
-### 1.6 甲醛评级标准
+### 2.6 甲醛评级标准
 
 甲醛默认并推荐采用 **WHO 2010《室内空气质量指南》**，其参考浓度为 0.10 mg/m³（30 分钟平均），适合作为中、美、欧产品的统一参考。需要遵循特定市场方案时，也可显式选择 GB/T 18883—2022 或加州 OEHHA 2008。
 
@@ -271,7 +403,7 @@ OEHHA 项是加州参考暴露水平，不是美国联邦标准。本产品对�
 
 来源：[WHO 2010 甲醛章节](https://www.ncbi.nlm.nih.gov/books/NBK138711/)、[GB/T 18883—2022](https://www.ndcpa.gov.cn/doc/ucap/1625444428300685312/document/20230607/ZgwODgwF.pdf)、[加州 OEHHA 甲醛参考值](https://oehha.ca.gov/chemicals/formaldehyde)、[OEHHA 平均时间说明（脚注 1）](https://oehha.ca.gov/air/general-info/oehha-acute-8-hour-and-chronic-reference-exposure-level-rel-summary)。
 
-### 1.7 Matter 接入 Guide
+### 2.7 Matter 接入 Guide
 
 **启用 Cluster**
 
@@ -327,138 +459,6 @@ Air Quality Cluster 启用 FAIR、MOD、VPOOR、XPOOR 四个特性（`FeatureMap
 将函数返回值写入对应浓度 Cluster 的 `LevelValue`（`0x000A`）。单项与整体计算使用同一份有效数据和相同标准；`air_level_t` 与 `air_quality_t` 是不同枚举，不可混用。LevelValue 的分档映射与接口说明见 [air_quality_rating.h](air_quality_rating.h)。
 
 来源：[Matter 1.6 Air Quality 数据模型](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/clusters/AirQuality.xml)、[浓度测量数据模型](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/clusters/ConcentrationMeasurement.xml)。
-
-## 2. 热舒适度
-
-独立模块 `thermal_comfort.h/.c`，提供 PMV、PPD 与冷热提示。参考 ISO 7730:2025 的 Fanger PMV/PPD 模型，采用 ASHRAE 七点热感觉名称。首版限定外部机械功为零，不评估局部不适、适应性舒适度或完整标准符合性。独立湿度提示按所选依据评价，与冷热提示分别输出。
-
-产品采用全年统一的室内目标：温度 20～26°C、相对湿度 40%～60%，不再按夏季和冬季切换。温度目标用于简单场景提示，实际冷热提示仍以 PMV 为准；统一目标属于产品规则，不表示 GB/T 18883—2022 符合性评价。
-
-### 2.1 使用方式
-
-接口见 [thermal_comfort.h](thermal_comfort.h)。先计算 PMV，再由 PMV 得到 PPD 和冷热提示；湿度可独立评级。以下示例假设辐射温度等于气温、相对风速 0.1 m/s、活动强度 1.1 met、衣着热阻 0.7 clo，作为不区分季节时的全年估计，结果应标为“估算”。
-
-```c
-/* 包含 thermal_comfort.h 后，在函数内调用。 */
-double pmv = thermal_pmv(25.0, 50.0, 25.0, 0.1, 1.1, 0.7);
-double ppd = thermal_ppd(pmv);
-thermal_sensation_t sensation = thermal_rate(pmv);
-/* 无效时 pmv、ppd 为 NAN，sensation 为 THERMAL_UNKNOWN。 */
-```
-
-### 2.2 输入与适用范围
-
-| 输入 | 单位 | 接受范围（含边界） |
-| --- | --- | --- |
-| 空气温度 temperature | °C | −40～+80 |
-| 相对湿度 humidity | %RH | 0～100 |
-| 平均辐射温度 radiant_temperature | °C | −40～+80 |
-| 人体相对风速 air_speed | m/s | 0～1 |
-| 代谢率 met | met | 0.8～4 |
-| 有效衣着热阻 clo | clo | 0～2 |
-
-相对风速包含人体运动影响；有效衣着热阻应与实际条件相符，由调用方提供。函数不默认辐射温度等于气温，也不内置衣着或活动假设。没有实际信息时，产品建议使用 `met=1.1`、`clo=0.7` 作为全年默认估计；调用方掌握实际活动和衣着时应传入实际值。全部输入须有限；无效输入或计算不收敛返回 `NAN`。温度扩展范围用于覆盖产品环境监测场景；超出常规室内热舒适条件时，结果仅用于冷热提示，不表示符合 ISO 7730 或 ASHRAE 55 的适用条件。计算结果超出七点热感觉标尺时饱和为 −3 或 +3。瞬时计算不表示环境已满足模型的稳态假设，初始化、快速变化及数据可信度由上层处理。
-
-### 2.3 PMV 与 PPD
-
-PMV 为负表示偏冷，为正表示偏热。PPD 为预测不满意人数百分比：
-
-`PPD = 100 − 95 × exp(−0.03353 × PMV⁴ − 0.2179 × PMV²)`。
-
-PMV 为 0 时 PPD 仍为 5%；PMV 为 ±3 时 PPD 约为 99.1%。PPD 不是测量误差或置信度。`thermal_ppd()` 接受 −3～+3，越界返回 `NAN`；结果不取整，显示格式由界面处理。
-
-### 2.4 冷热提示
-
-标准标尺点为 −3 冷、−2 凉、−1 稍凉、0 中性、+1 稍暖、+2 暖、+3 热。以下连续区间属于产品规则，优先检查模型有效性：
-
-| 有效 PMV 区间 | 提示 | 枚举 |
-| --- | --- | --- |
-| −3 ≤ PMV < −2.5 | 冷 | `THERMAL_COLD` |
-| −2.5 ≤ PMV < −1.5 | 凉 | `THERMAL_COOL` |
-| −1.5 ≤ PMV < −0.5 | 稍凉 | `THERMAL_SLIGHTLY_COOL` |
-| −0.5 ≤ PMV ≤ +0.5 | 中性 | `THERMAL_NEUTRAL` |
-| +0.5 < PMV ≤ +1.5 | 稍暖 | `THERMAL_SLIGHTLY_WARM` |
-| +1.5 < PMV ≤ +2.5 | 暖 | `THERMAL_WARM` |
-| +2.5 < PMV ≤ +3 | 热 | `THERMAL_HOT` |
-| 无效或超出 −3～+3 | 未知 | `THERMAL_UNKNOWN` |
-
-`thermal_pmv()` 会把超出标尺的有限计算结果饱和到 −3 或 +3；`thermal_rate()` 不接受调用方直接传入的越界值。中性不代表所有人满意或局部不适条件合格。
-
-来源：[ISO 7730:2025](https://www.iso.org/standard/85803.html)、[ASHRAE 七点热感觉标尺（PDF 第 17 页）](https://www.ashrae.org/file%20library/technical%20resources/standards%20and%20guidelines/standards%20addenda/55_2017_d_20200731.pdf#page=17)、[CBE PMV/PPD 参考实现及适用范围](https://github.com/CenterForTheBuiltEnvironment/pythermalcomfort/blob/master/pythermalcomfort/models/pmv_ppd_iso.py)。
-
-### 2.5 独立湿度提示
-
-```c
-thermal_humidity_t humidity = thermal_rate_humidity(
-    THERMAL_HUMIDITY_UBA, 55.0); /* THERMAL_HUMIDITY_SUITABLE：适宜 */
-```
-
-`thermal_rate_humidity(standard, humidity)` 接受 `thermal_humidity_std_t` 和瞬时 %RH，返回 `thermal_humidity_t`。依据由调用方显式传入，不按地区或季节自动选择。默认建议使用 `THERMAL_HUMIDITY_UBA`，全年采用 40%～60% 的适宜范围。
-
-| 依据（枚举前缀 `THERMAL_HUMIDITY_`） | 偏干 DRY | 适宜 SUITABLE | 略湿 SLIGHTLY_HUMID | 偏湿 HUMID |
-| --- | --- | --- | --- | --- |
-| EPA | RH < 30 | 30 ≤ RH ≤ 50 | 50 < RH < 60 | RH ≥ 60 |
-| UBA（默认） | RH < 40 | 40 ≤ RH ≤ 60 | 不使用 | RH > 60 |
-
-仅接受有限的 0～100%（含边界），不修约；非法依据或无效湿度返回 `THERMAL_HUMIDITY_UNKNOWN`。湿度提示不受 PMV 的温度、水蒸气分压力或输出范围限制，两个结果分别计算和展示。EPA 为枚举零值，但调用方仍须明确传入依据。
-
-EPA、UBA 为官方指南，提示名称及分档为产品映射。“适宜”不代表所有人舒适；瞬时偏湿不直接判定霉菌或结露。默认采用 UBA 的 40%～60% 建议范围，不表示 GB/T 18883—2022 符合性评价。
-
-来源：[EPA 湿度指南](https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home)、[UBA 住宅通风与湿度指南](https://www.umweltbundesamt.de/en/node/3086)、[GB/T 18883—2022 表 1](https://www.gxcdc.org.cn/uploadfile/20231220/1703032288507215.pdf)。
-
-### 2.6 Matter 接入 Guide
-
-**启用 Cluster**
-
-Matter 1.6 的 Air Quality Sensor 设备类型允许在同一 Endpoint 上选配 Temperature Measurement（`0x0402`）和 Relative Humidity Measurement（`0x0405`）两个 Cluster。
-
-**填写测量属性**
-
-以下量程以 SHT40 芯片规格为参考，整机量程较窄时按验证结果调整；PMV 的适用范围不作为测量量程。
-
-| Matter 字段 | 温度 / SHT40 | 相对湿度 / SHT40 |
-| --- | --- | --- |
-| `MeasuredValue` | `round(temperature × 100)` | `round(humidity × 100)` |
-| `MinMeasuredValue` | `-4000`（−40°C） | `0`（0%RH） |
-| `MaxMeasuredValue` | `12500`（125°C） | `10000`（100%RH） |
-| `Tolerance` | `30` | `300` |
-
-温度编码为有符号整数，湿度为无符号整数；取最近整数，半值远离零，例如 25.12°C → 2512、50.25%RH → 5025。无效实测值填 null。
-
-`Tolerance` 的单位分别为 0.01°C 和 0.01%RH，30、300 表示 ±0.3°C、±3%RH，为本产品选定配置；整机在声明量程内的容差仍待验证。该属性固定、不可为 null，范围为 0～2048；未启用时不加入可选属性列表，不填 0 代替。两个 Cluster 均不提供 `MeasurementUnit`、`MeasurementMedium` 或 `Uncertainty`。
-
-**精度与一致性**
-
-将测量容差、重复性和设备间一致性分开定义；它们不改变评级阈值，也不作为 `thermal_pmv()` 的新增参数。以下 SHT40 数据来自数据手册 v7.3（2026-06），不代表整机已达到同等性能。
-
-| 项目 | 温度 | 相对湿度 | 定义与用途 |
-| --- | --- | --- | --- |
-| 芯片典型精度 | ±0.2°C | ±1.8%RH | 参考数据手册指定条件与精度曲线，不是全量程最大误差保证 |
-| 芯片高精度模式重复性 | 0.04°C | 0.08%RH | 恒定条件下连续读数的 3σ，表示短期噪声；湿度值条件为 25°C、50%RH |
-| 整机容差设计目标 | ±0.3°C | ±3%RH | 建议先在 10～30°C、20～80%RH 的室内范围验证，包含外壳、自热、补偿和参考仪器误差预算；尚未实测确认 |
-| 对应 Matter `Tolerance` 配置值 | 30 | 300 | 产品选定值，须验证其与整机声明量程一致 |
-
-湿度误差用 %RH 的绝对差表示，例如 50%RH ±3%RH 为 47～53%RH，并非读数的 ±3%。最大允许误差应参考手册的最大误差曲线及整机验证结果，不能把典型精度或重复性直接填入 `Tolerance`。
-
-设备间一致性建议定义为：多台整机处于同一稳定环境、使用相同采样模式和补偿配置时，各台在同一测试窗口内的平均读数最大值减最小值，记为温度差 `temperature_spread`（°C）与湿度差 `humidity_spread`（%RH）。测试应固定位置均匀性、稳定判据、采样间隔和窗口长度；窗口平均仅用于验收，不改变运行时的瞬时评级。
-
-若各台对同一参考值均满足容差目标，任意两台读数差的保守上限为 0.6°C、6%RH；这是推导值，不是厂商一致性规格。一致性须经批量实测，不能替代准确度验证或直接填入 `Tolerance`。
-
-跨平台对比须使用相同输入和湿度依据。SHT40 只提供温湿度，其他 PMV 输入由上层提供；其测量精度不能直接代表 PMV/PPD 的不确定度。
-
-来源：[Sensirion SHT4x 数据手册 v7.3，第 4～7 页及加热说明](https://sensirion.com/media/documents/33FD6951/6A7C10A0/HT_DS_Datasheet_SHT4x_V7.3.pdf)。以上整机目标和一致性定义为产品建议，不是新增的传感器选型要求。
-
-**处理无效数据**
-
-温湿度分别检查有效性、数据新鲜度和整机量程，再转换整数。初始化尚无有效数据、通信失败或数据失效时，用 SDK 的 nullable 类型将对应 `MeasuredValue` 设为 null，不用 0 代替。SHT40 加热期间及尚未恢复环境温度时的读数不作为有效环境测量值。
-
-**更新评级结果**
-
-使用有效温湿度调用本模块接口，在本机界面或厂商扩展中展示 PMV、PPD、冷热和干湿提示。缺少 PMV 必需输入时显示未知；湿度有效时仍可独立计算干湿提示。温度低于 10°C 等情况可导致 PMV 无效，但不影响量程内有效温度的 Matter 上报。
-
-温湿度 Cluster 没有 PMV、PPD、冷热和干湿提示的标准属性，也没有 `LevelValue`；这些结果不写入 `AirQuality`。
-
-来源：[Matter 1.6 设备类型](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/device_types/AirQualitySensor.xml)、[温度 Cluster](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/clusters/TemperatureMeasurement.xml)、[湿度 Cluster](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/clusters/WaterContentMeasurement.xml)。
 
 ## 3. 声光
 
