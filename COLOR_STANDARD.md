@@ -72,8 +72,10 @@ PM2.5 与 PM10 使用相近的低饱和自然色系，分别联想到雾霾与�
 | 状态 | 浓度 C | 色样 | 状态色 | 标签背景 | 标签文字 |
 | --- | --- | --- | --- | --- | --- |
 | 好 Good | 0 ≤ C < 1000 | ![#16A34A](assets/colors/16A34A.svg) | `#16A34A` | `#DCFCE7` | `#14532D` |
-| 中等 Moderate | 1000 ≤ C ≤ 2000 | ![#CA8A04](assets/colors/CA8A04.svg) | `#CA8A04` | `#FEF9C3` | `#713F12` |
+| 中等 Moderate | 1000 ≤ C ≤ 2000 | ![#65A30D](assets/colors/65A30D.svg) | `#65A30D` | `#ECFCCB` | `#365314` |
 | 差 Poor | C > 2000 | ![#EA580C](assets/colors/EA580C.svg) | `#EA580C` | `#FFEDD5` | `#7C2D12` |
+
+CO₂ 的 Moderate 保留原评级名称，但采用与 PM“尚可”相同的黄绿色，表达需要留意通风、尚未进入较差状态。
 
 ### PM2.5 状态色
 
