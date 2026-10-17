@@ -68,6 +68,17 @@ export const IlluminanceRating = {
     bedsideReading: "bedside-reading",
     readingAndTasks: "reading-and-tasks"
 };
+export const EnvironmentParameter = {
+    temperature: "temperature",
+    humidity: "humidity",
+    co2: "co2",
+    pm25: "pm25",
+    pm10: "pm10",
+    formaldehyde: "formaldehyde",
+    tvoc: "tvoc",
+    noise: "noise",
+    illuminance: "illuminance"
+};
 const airQualityValues = [
     AirQuality.unknown,
     AirQuality.good,
@@ -122,6 +133,23 @@ function enumValue(values, value) {
 }
 function numeric(value) {
     return typeof value === "number" ? value : Number.NaN;
+}
+function valueIndex(values, value) {
+    return values.indexOf(value);
+}
+function environmentParameterValue(parameter) {
+    switch (parameter) {
+        case EnvironmentParameter.temperature: return 0;
+        case EnvironmentParameter.humidity: return 1;
+        case EnvironmentParameter.co2: return 2;
+        case EnvironmentParameter.pm25: return 3;
+        case EnvironmentParameter.pm10: return 4;
+        case EnvironmentParameter.formaldehyde: return 5;
+        case EnvironmentParameter.tvoc: return 6;
+        case EnvironmentParameter.noise: return 7;
+        case EnvironmentParameter.illuminance: return 8;
+        default: return -1;
+    }
 }
 function pmStandardValue(standard) {
     switch (standard) {
@@ -204,6 +232,58 @@ function createSoundLightApi(native) {
         illuminance: (lux) => enumValue(illuminanceRatingValues, native._illuminance_rate(numeric(lux)))
     });
 }
+function cssColor(rawValue) {
+    const value = rawValue >>> 0;
+    if (value === 0xFFFFFFFF)
+        return null;
+    return `#${value.toString(16).toUpperCase().padStart(6, "0")}`;
+}
+function parameterColors(lookup) {
+    const primary = cssColor(lookup(0));
+    const background = cssColor(lookup(1));
+    if (primary == null || background == null)
+        return null;
+    return Object.freeze({ primary, background });
+}
+function stateColors(lookup) {
+    const primary = cssColor(lookup(0));
+    const background = cssColor(lookup(1));
+    const graphic = cssColor(lookup(2));
+    const text = cssColor(lookup(3));
+    if (primary == null || background == null || graphic == null || text == null) {
+        return null;
+    }
+    return Object.freeze({ primary, background, graphic, text });
+}
+function createColorsApi(native) {
+    return Object.freeze({
+        parameter: (parameter) => {
+            const parameterValue = environmentParameterValue(parameter);
+            return parameterColors((role) => native._env_color_parameter(parameterValue, role));
+        },
+        air: (parameter, quality) => {
+            const parameterValue = environmentParameterValue(parameter);
+            const qualityValue = valueIndex(airQualityValues, quality);
+            return stateColors((role) => native._env_color_air(parameterValue, qualityValue, role));
+        },
+        thermal: (sensation) => {
+            const value = valueIndex(thermalSensationValues, sensation);
+            return stateColors((role) => native._env_color_thermal(value, role));
+        },
+        humidity: (rating) => {
+            const value = valueIndex(humidityRatingValues, rating);
+            return stateColors((role) => native._env_color_humidity(value, role));
+        },
+        noise: (rating) => {
+            const value = valueIndex(noiseRatingValues, rating);
+            return stateColors((role) => native._env_color_noise(value, role));
+        },
+        illuminance: (rating) => {
+            const value = valueIndex(illuminanceRatingValues, rating);
+            return stateColors((role) => native._env_color_illuminance(value, role));
+        }
+    });
+}
 /** Initialize the Wasm module once, then reuse the returned stateless API. */
 export async function createEnvironmentRating(options = {}) {
     const nativeOptions = {};
@@ -220,7 +300,8 @@ export async function createEnvironmentRating(options = {}) {
     return Object.freeze({
         air: createAirApi(native),
         thermal: createThermalApi(native),
-        soundLight: createSoundLightApi(native)
+        soundLight: createSoundLightApi(native),
+        colors: createColorsApi(native)
     });
 }
 //# sourceMappingURL=index.js.map

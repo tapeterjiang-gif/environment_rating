@@ -8,6 +8,7 @@
 
 ```ts
 import {
+  EnvironmentParameter,
   PMStandard,
   createEnvironmentRating
 } from "@tapeterjiang-gif/environment-rating";
@@ -31,6 +32,11 @@ const comfort = rating.thermal.evaluate({
 
 const noise = rating.soundLight.noise(38, "home");
 const light = rating.soundLight.illuminance(300);
+
+const pmQuality = rating.air.pm25(18);
+const pmColors = rating.colors.air(EnvironmentParameter.pm25, pmQuality);
+// { primary: "#CA8A04", background: "#FEF9C3",
+//   graphic: "#FACC15", text: "#713F12" }
 ```
 
 `createEnvironmentRating()` 异步加载 Wasm。应用启动时调用一次并复用返回对象即可；评级函数本身无状态。使用 CDN 或自定义静态资源目录时可传入 `wasmUrl`：
@@ -42,6 +48,8 @@ const rating = await createEnvironmentRating({
 ```
 
 缺失的空气质量参数使用 `undefined`、`null` 或直接省略。默认 PM 标准为 EEA AQI 2024，默认甲醛标准为 WHO 2010，默认湿度参考为 UBA；PMV 默认 `met=1.1`、`clo=0.7`。输入单位与完整规则见项目根目录 [README](../README.md)。
+
+`rating.colors.parameter()` 返回参数的固定识别色和浅色背景；`air()`、`thermal()`、`humidity()`、`noise()`、`illuminance()` 根据对应评级结果返回状态色、标签背景、图示色和标签文字。所有颜色均为可直接用于 CSS 的大写 HEX 字符串；不支持的组合返回 `null`。完整配色见 [环境指标颜色说明](../COLOR_STANDARD.md)。
 
 ## 构建与测试
 

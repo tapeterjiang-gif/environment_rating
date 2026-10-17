@@ -75,6 +75,19 @@ export declare const IlluminanceRating: {
     readonly readingAndTasks: "reading-and-tasks";
 };
 export type IlluminanceRating = typeof IlluminanceRating[keyof typeof IlluminanceRating];
+export declare const EnvironmentParameter: {
+    readonly temperature: "temperature";
+    readonly humidity: "humidity";
+    readonly co2: "co2";
+    readonly pm25: "pm25";
+    readonly pm10: "pm10";
+    readonly formaldehyde: "formaldehyde";
+    readonly tvoc: "tvoc";
+    readonly noise: "noise";
+    readonly illuminance: "illuminance";
+};
+export type EnvironmentParameter = typeof EnvironmentParameter[keyof typeof EnvironmentParameter];
+export type AirColorParameter = typeof EnvironmentParameter.co2 | typeof EnvironmentParameter.pm25 | typeof EnvironmentParameter.pm10 | typeof EnvironmentParameter.formaldehyde;
 export interface CreateEnvironmentRatingOptions {
     /** Override the location of environment-rating-wasm.wasm, for example on a CDN. */
     wasmUrl?: string | URL;
@@ -121,10 +134,29 @@ export interface SoundLightRatingApi {
     noise(decibels: number, scene: NoiseScene): NoiseRating;
     illuminance(lux: number): IlluminanceRating;
 }
+export interface ParameterColors {
+    readonly primary: string;
+    readonly background: string;
+}
+export interface StateColors {
+    readonly primary: string;
+    readonly background: string;
+    readonly graphic: string;
+    readonly text: string;
+}
+export interface EnvironmentColorsApi {
+    parameter(parameter: EnvironmentParameter): ParameterColors | null;
+    air(parameter: AirColorParameter, quality: AirQuality): StateColors | null;
+    thermal(sensation: ThermalSensation): StateColors | null;
+    humidity(rating: HumidityRating): StateColors | null;
+    noise(rating: NoiseRating): StateColors | null;
+    illuminance(rating: IlluminanceRating): StateColors | null;
+}
 export interface EnvironmentRating {
     readonly air: AirRatingApi;
     readonly thermal: ThermalComfortApi;
     readonly soundLight: SoundLightRatingApi;
+    readonly colors: EnvironmentColorsApi;
 }
 /** Initialize the Wasm module once, then reuse the returned stateless API. */
 export declare function createEnvironmentRating(options?: CreateEnvironmentRatingOptions): Promise<EnvironmentRating>;

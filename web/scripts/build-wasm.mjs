@@ -26,7 +26,13 @@ const exportedFunctions = [
   "_thermal_ppd",
   "_thermal_rate",
   "_noise_rate",
-  "_illuminance_rate"
+  "_illuminance_rate",
+  "_env_color_parameter",
+  "_env_color_air",
+  "_env_color_thermal",
+  "_env_color_humidity",
+  "_env_color_noise",
+  "_env_color_illuminance"
 ];
 
 mkdirSync(outputDirectory, { recursive: true });
@@ -37,6 +43,7 @@ const args = [
   join(projectDirectory, "air_quality_rating.c"),
   join(projectDirectory, "thermal_comfort.c"),
   join(projectDirectory, "sound_light_rating.c"),
+  join(projectDirectory, "environment_color.c"),
   "-O3",
   "-flto",
   "-std=c99",

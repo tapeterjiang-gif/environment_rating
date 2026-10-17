@@ -1,8 +1,8 @@
 # environment_rating
 
-环境评级库的需求、评级标准与使用指南。面向 ESP32（RTOS）、RK3506（Linux）、iOS 和 Web，核心采用可重入 C99 实现，兼容 C++、Swift 和 TypeScript。三个模块独立输出，均无需初始化、动态内存或历史状态。
+环境评级库的需求、评级标准与使用指南。面向 ESP32（RTOS）、RK3506（Linux）、iOS 和 Web，核心采用可重入 C99 实现，兼容 C++、Swift 和 TypeScript。三个评级模块独立输出，颜色模块把评级结果映射为统一界面配色；所有模块均无需初始化、动态内存或历史状态。
 
-版本：v0.56。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
+版本：v0.57。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
 
 - [1. 热舒适度](#1-热舒适度)：PMV、PPD、冷热与湿度提示。
 - [2. 空气质量](#2-空气质量)：CO₂、PM、甲醛及整体评级。
@@ -13,6 +13,7 @@
 | 热舒适度 | [thermal_comfort.h](thermal_comfort.h) / [thermal_comfort.c](thermal_comfort.c) |
 | 空气质量 | [air_quality_rating.h](air_quality_rating.h) / [air_quality_rating.c](air_quality_rating.c) |
 | 声光 | [sound_light_rating.h](sound_light_rating.h) / [sound_light_rating.c](sound_light_rating.c) |
+| 界面颜色 | [environment_color.h](environment_color.h) / [environment_color.c](environment_color.c) |
 
 ### 相关文档
 
@@ -51,7 +52,7 @@ cmake --build build
 ctest --test-dir build --output-on-failure
 ```
 
-本机测试覆盖三个模块的分档边界、相邻浮点值、异常输入、PMV/PPD 参考值及 C++ 链接。ESP32、RK3506 的 SDK 交叉构建和实机验证待完成。
+本机测试覆盖三个评级模块的分档边界、颜色映射、相邻浮点值、异常输入、PMV/PPD 参考值及 C++ 链接。ESP32、RK3506 的 SDK 交叉构建和实机验证待完成。
 
 macOS 上还可验证 Swift Package：
 
@@ -76,9 +77,9 @@ npm run test:browser
 
 按需将上表中模块的 `.c` 文件加入工程，把根目录加入头文件搜索路径，包含对应 `.h` 即可调用。接口和参数说明以头文件注释为准。
 
-- **ESP-IDF**：将项目放入 `components/environment_rating`，在调用组件中添加 `REQUIRES environment_rating`，会编译全部三个模块。
-- **Linux**：使用本项目 CMake，按需链接 `air_quality_rating`、`thermal_comfort`、`sound_light_rating`；也可直接编译所需源文件，使用热舒适度模块时链接数学库 `-lm`。只构建库可设置 `-DBUILD_TESTING=OFF`，无需 C++ 编译器。
-- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.56.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
+- **ESP-IDF**：将项目放入 `components/environment_rating`，在调用组件中添加 `REQUIRES environment_rating`，会编译三个评级模块和颜色模块。
+- **Linux**：使用本项目 CMake，按需链接 `air_quality_rating`、`thermal_comfort`、`sound_light_rating`、`environment_color`；也可直接编译所需源文件，使用热舒适度模块时链接数学库 `-lm`。只构建库可设置 `-DBUILD_TESTING=OFF`，无需 C++ 编译器。
+- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.57.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
 - **Web / TypeScript**：使用 `web/dist` 中的 ES Module 和 Wasm，先异步调用 `createEnvironmentRating()`，再复用返回的无状态 API。支持浏览器、Web Worker 和 Node.js 18 及以上，完整示例见 [Web 使用指南](web/README.md)。
 
 源文件按 C99 编译，支持 C++ 调用。不要开启 `-ffast-math` 或 `-ffinite-math-only`，以保证 NaN 和无穷大检查有效。传感器读取、校准、有效性判断和通信由上层负责。
@@ -107,6 +108,10 @@ let comfort = ThermalComfort.evaluate(
 let humidity = ThermalComfort.rateHumidity(55) // 默认 UBA
 let noise = SoundLightRating.noise(38, scene: .home)
 let light = SoundLightRating.illuminance(300)
+
+let pmQuality = AirRating.pm25(18)
+let pmColors = EnvironmentColors.air(.pm25, quality: pmQuality)
+// primary、background、graphic、text；例如 graphic.hex 为 "#FACC15"
 ```
 
 Swift API 位于 `apple/Sources/EnvironmentRating`。需要直接调用 C 接口的 Apple 平台工程也可以选择 `CEnvironmentRating` 产品并导入同名模块。Swift 包不依赖 Apple Matter Framework；Matter 配网、读取 Cluster 和订阅属性应由 App 层负责，设备已经上报 `AirQuality` 时应优先使用设备结果。
@@ -133,9 +138,30 @@ const comfort = rating.thermal.evaluate({
   radiantTemperature: 25,
   airSpeed: 0.1
 });
+
+const pmQuality = rating.air.pm25(18);
+const pmColors = rating.colors.air("pm25", pmQuality);
+// { primary, background, graphic, text }，均为 CSS HEX 字符串
 ```
 
 Web 包使用字符串枚举，缺失的空气质量参数可省略或传入 `null`。默认标准和 PMV 参数与 Swift API 一致；评级阈值仍全部来自根目录 C 源码。
+
+### 颜色调用
+
+颜色模块包含两类查询：`env_color_parameter()` 返回固定的参数识别色或浅色背景；其余函数根据已经得到的评级枚举返回状态色、标签背景、图示色或标签文字。颜色值采用 `0x00RRGGBB`，非法参数、非法角色或不支持的组合返回 `ENV_RGB_INVALID`。
+
+```c
+air_quality_t quality = air_rate_pm25(AIR_PM_EEA_AQI_2024, pm25);
+
+env_rgb_t identity = env_color_parameter(ENV_PARAM_PM25,
+                                         ENV_COLOR_PRIMARY);
+env_rgb_t status = env_color_air(ENV_PARAM_PM25, quality,
+                                 ENV_COLOR_PRIMARY);
+env_rgb_t graphic = env_color_air(ENV_PARAM_PM25, quality,
+                                  ENV_COLOR_GRAPHIC);
+```
+
+颜色函数只读取评级枚举，不再次接收评级标准或原始测量值，因此不会重复评级阈值。空气质量颜色只支持 CO₂、PM2.5、PM10 和甲醛的单项 `air_quality_t`；不提供整体空气质量、tVOC 或 Matter `LevelValue` 的颜色。tVOC 仍可调用 `env_color_parameter()` 取得参数识别色。完整色值与使用方式见 [环境指标颜色说明](COLOR_STANDARD.md)。
 
 ## 1. 热舒适度
 

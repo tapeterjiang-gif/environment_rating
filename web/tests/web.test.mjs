@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   AirQuality,
   ConcentrationLevel,
+  EnvironmentParameter,
   FormaldehydeStandard,
   HumidityRating,
   HumidityStandard,
@@ -178,6 +179,38 @@ test("sound and light ratings use the same boundaries as C", () => {
   ].forEach(([value, expected]) => {
     assert.equal(rating.soundLight.illuminance(value), expected);
   });
+});
+
+test("colors expose parameter and rating palettes from C", () => {
+  assert.deepEqual(rating.colors.parameter(EnvironmentParameter.temperature), {
+    primary: "#F97316",
+    background: "#FFEDD5"
+  });
+  assert.deepEqual(
+    rating.colors.air(EnvironmentParameter.pm25, AirQuality.fair),
+    {
+      primary: "#65A30D",
+      background: "#ECFCCB",
+      graphic: "#A3E635",
+      text: "#365314"
+    }
+  );
+  assert.deepEqual(
+    rating.colors.air(EnvironmentParameter.co2, AirQuality.moderate),
+    rating.colors.air(EnvironmentParameter.pm25, AirQuality.fair)
+  );
+  assert.equal(
+    rating.colors.air(EnvironmentParameter.co2, AirQuality.fair),
+    null
+  );
+  assert.equal(rating.colors.parameter("invalid-parameter"), null);
+  assert.equal(rating.colors.thermal(ThermalSensation.cold)?.primary, "#1D4ED8");
+  assert.equal(rating.colors.humidity(HumidityRating.dry)?.text, "#78350F");
+  assert.equal(rating.colors.noise(NoiseRating.loud)?.graphic, "#FB923C");
+  assert.equal(
+    rating.colors.illuminance(IlluminanceRating.dining)?.background,
+    "#CCFBF1"
+  );
 });
 
 test("multiple instances remain independent", async () => {

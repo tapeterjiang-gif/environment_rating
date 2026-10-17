@@ -4,5 +4,6 @@
 #include "../../air_quality_rating.h"
 #include "../../thermal_comfort.h"
 #include "../../sound_light_rating.h"
+#include "../../environment_color.h"
 
 #endif

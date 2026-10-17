@@ -22,6 +22,19 @@ public enum ThermalSensation: Int, Sendable {
         default: self = .unknown
         }
     }
+
+    var cValue: thermal_sensation_t {
+        switch self {
+        case .unknown: return THERMAL_UNKNOWN
+        case .cold: return THERMAL_COLD
+        case .cool: return THERMAL_COOL
+        case .slightlyCool: return THERMAL_SLIGHTLY_COOL
+        case .neutral: return THERMAL_NEUTRAL
+        case .slightlyWarm: return THERMAL_SLIGHTLY_WARM
+        case .warm: return THERMAL_WARM
+        case .hot: return THERMAL_HOT
+        }
+    }
 }
 
 public enum HumidityStandard: Sendable {
@@ -50,6 +63,16 @@ public enum HumidityRating: Int, Sendable {
         case THERMAL_HUMIDITY_SLIGHTLY_HUMID: self = .slightlyHumid
         case THERMAL_HUMIDITY_HUMID: self = .humid
         default: self = .unknown
+        }
+    }
+
+    var cValue: thermal_humidity_t {
+        switch self {
+        case .unknown: return THERMAL_HUMIDITY_UNKNOWN
+        case .dry: return THERMAL_HUMIDITY_DRY
+        case .suitable: return THERMAL_HUMIDITY_SUITABLE
+        case .slightlyHumid: return THERMAL_HUMIDITY_SLIGHTLY_HUMID
+        case .humid: return THERMAL_HUMIDITY_HUMID
         }
     }
 }

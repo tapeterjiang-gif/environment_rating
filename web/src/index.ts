@@ -95,6 +95,26 @@ export const IlluminanceRating = {
 export type IlluminanceRating =
   typeof IlluminanceRating[keyof typeof IlluminanceRating];
 
+export const EnvironmentParameter = {
+  temperature: "temperature",
+  humidity: "humidity",
+  co2: "co2",
+  pm25: "pm25",
+  pm10: "pm10",
+  formaldehyde: "formaldehyde",
+  tvoc: "tvoc",
+  noise: "noise",
+  illuminance: "illuminance"
+} as const;
+export type EnvironmentParameter =
+  typeof EnvironmentParameter[keyof typeof EnvironmentParameter];
+
+export type AirColorParameter =
+  | typeof EnvironmentParameter.co2
+  | typeof EnvironmentParameter.pm25
+  | typeof EnvironmentParameter.pm10
+  | typeof EnvironmentParameter.formaldehyde;
+
 const airQualityValues = [
   AirQuality.unknown,
   AirQuality.good,
@@ -181,6 +201,12 @@ interface NativeModule {
   _thermal_rate(pmv: number): number;
   _noise_rate(scene: number, noise: number): number;
   _illuminance_rate(illuminance: number): number;
+  _env_color_parameter(parameter: number, role: number): number;
+  _env_color_air(parameter: number, quality: number, role: number): number;
+  _env_color_thermal(sensation: number, role: number): number;
+  _env_color_humidity(rating: number, role: number): number;
+  _env_color_noise(rating: number, role: number): number;
+  _env_color_illuminance(rating: number, role: number): number;
 }
 
 interface NativeOptions {
@@ -249,10 +275,32 @@ export interface SoundLightRatingApi {
   illuminance(lux: number): IlluminanceRating;
 }
 
+export interface ParameterColors {
+  readonly primary: string;
+  readonly background: string;
+}
+
+export interface StateColors {
+  readonly primary: string;
+  readonly background: string;
+  readonly graphic: string;
+  readonly text: string;
+}
+
+export interface EnvironmentColorsApi {
+  parameter(parameter: EnvironmentParameter): ParameterColors | null;
+  air(parameter: AirColorParameter, quality: AirQuality): StateColors | null;
+  thermal(sensation: ThermalSensation): StateColors | null;
+  humidity(rating: HumidityRating): StateColors | null;
+  noise(rating: NoiseRating): StateColors | null;
+  illuminance(rating: IlluminanceRating): StateColors | null;
+}
+
 export interface EnvironmentRating {
   readonly air: AirRatingApi;
   readonly thermal: ThermalComfortApi;
   readonly soundLight: SoundLightRatingApi;
+  readonly colors: EnvironmentColorsApi;
 }
 
 function enumValue<T extends string>(values: readonly T[], value: number): T {
@@ -261,6 +309,25 @@ function enumValue<T extends string>(values: readonly T[], value: number): T {
 
 function numeric(value: unknown): number {
   return typeof value === "number" ? value : Number.NaN;
+}
+
+function valueIndex<T extends string>(values: readonly T[], value: T): number {
+  return values.indexOf(value);
+}
+
+function environmentParameterValue(parameter: EnvironmentParameter): number {
+  switch (parameter) {
+    case EnvironmentParameter.temperature: return 0;
+    case EnvironmentParameter.humidity: return 1;
+    case EnvironmentParameter.co2: return 2;
+    case EnvironmentParameter.pm25: return 3;
+    case EnvironmentParameter.pm10: return 4;
+    case EnvironmentParameter.formaldehyde: return 5;
+    case EnvironmentParameter.tvoc: return 6;
+    case EnvironmentParameter.noise: return 7;
+    case EnvironmentParameter.illuminance: return 8;
+    default: return -1;
+  }
 }
 
 function pmStandardValue(standard: PMStandard): number {
@@ -414,6 +481,66 @@ function createSoundLightApi(native: NativeModule): SoundLightRatingApi {
   });
 }
 
+function cssColor(rawValue: number): string | null {
+  const value = rawValue >>> 0;
+  if (value === 0xFFFFFFFF) return null;
+  return `#${value.toString(16).toUpperCase().padStart(6, "0")}`;
+}
+
+function parameterColors(
+  lookup: (role: number) => number
+): ParameterColors | null {
+  const primary = cssColor(lookup(0));
+  const background = cssColor(lookup(1));
+  if (primary == null || background == null) return null;
+  return Object.freeze({ primary, background });
+}
+
+function stateColors(lookup: (role: number) => number): StateColors | null {
+  const primary = cssColor(lookup(0));
+  const background = cssColor(lookup(1));
+  const graphic = cssColor(lookup(2));
+  const text = cssColor(lookup(3));
+  if (primary == null || background == null || graphic == null || text == null) {
+    return null;
+  }
+  return Object.freeze({ primary, background, graphic, text });
+}
+
+function createColorsApi(native: NativeModule): EnvironmentColorsApi {
+  return Object.freeze({
+    parameter: (parameter: EnvironmentParameter) => {
+      const parameterValue = environmentParameterValue(parameter);
+      return parameterColors(
+        (role) => native._env_color_parameter(parameterValue, role)
+      );
+    },
+    air: (parameter: AirColorParameter, quality: AirQuality) => {
+      const parameterValue = environmentParameterValue(parameter);
+      const qualityValue = valueIndex(airQualityValues, quality);
+      return stateColors(
+        (role) => native._env_color_air(parameterValue, qualityValue, role)
+      );
+    },
+    thermal: (sensation: ThermalSensation) => {
+      const value = valueIndex(thermalSensationValues, sensation);
+      return stateColors((role) => native._env_color_thermal(value, role));
+    },
+    humidity: (rating: HumidityRating) => {
+      const value = valueIndex(humidityRatingValues, rating);
+      return stateColors((role) => native._env_color_humidity(value, role));
+    },
+    noise: (rating: NoiseRating) => {
+      const value = valueIndex(noiseRatingValues, rating);
+      return stateColors((role) => native._env_color_noise(value, role));
+    },
+    illuminance: (rating: IlluminanceRating) => {
+      const value = valueIndex(illuminanceRatingValues, rating);
+      return stateColors((role) => native._env_color_illuminance(value, role));
+    }
+  });
+}
+
 /** Initialize the Wasm module once, then reuse the returned stateless API. */
 export async function createEnvironmentRating(
   options: CreateEnvironmentRatingOptions = {}
@@ -434,6 +561,7 @@ export async function createEnvironmentRating(
   return Object.freeze({
     air: createAirApi(native),
     thermal: createThermalApi(native),
-    soundLight: createSoundLightApi(native)
+    soundLight: createSoundLightApi(native),
+    colors: createColorsApi(native)
   });
 }

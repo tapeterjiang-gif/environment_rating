@@ -83,40 +83,40 @@ CO₂ 的 Moderate 保留原评级名称，但采用与 PM“尚可”相同的�
 
 浓度单位为 μg/m³。EEA 使用原始浓度；HJ 使用修约后的整数；EPA 使用截断至一位小数的浓度。
 
-| 状态 | 色样与状态色 | 图示色 | EEA（默认） | HJ 633—2026 | EPA AQI |
-| --- | --- | --- | --- | --- | --- |
-| 好 Good | ![#16A34A](assets/colors/16A34A.svg) `#16A34A` | ![#4ADE80](assets/colors/4ADE80.svg) `#4ADE80` | 0–5 | 0–35 | 0.0–9.0 |
-| 尚可 Fair | ![#65A30D](assets/colors/65A30D.svg) `#65A30D` | ![#A3E635](assets/colors/A3E635.svg) `#A3E635` | >5–15 | 36–60 | 9.1–35.4 |
-| 中等 Moderate | ![#CA8A04](assets/colors/CA8A04.svg) `#CA8A04` | ![#FACC15](assets/colors/FACC15.svg) `#FACC15` | >15–50 | 61–115 | 35.5–55.4 |
-| 差 Poor | ![#EA580C](assets/colors/EA580C.svg) `#EA580C` | ![#FB923C](assets/colors/FB923C.svg) `#FB923C` | >50–90 | 116–150 | 55.5–125.4 |
-| 很差 VeryPoor | ![#DC2626](assets/colors/DC2626.svg) `#DC2626` | ![#F87171](assets/colors/F87171.svg) `#F87171` | >90–140 | 151–250 | 125.5–225.4 |
-| 极差 ExtremelyPoor | ![#7E22CE](assets/colors/7E22CE.svg) `#7E22CE` | ![#C084FC](assets/colors/C084FC.svg) `#C084FC` | >140 | ≥251 | ≥225.5 |
+| 状态 | 色样与状态色 | 标签背景 | 图示色 | 标签文字 | EEA（默认） | HJ 633—2026 | EPA AQI |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 好 Good | ![#16A34A](assets/colors/16A34A.svg) `#16A34A` | `#DCFCE7` | ![#4ADE80](assets/colors/4ADE80.svg) `#4ADE80` | `#14532D` | 0–5 | 0–35 | 0.0–9.0 |
+| 尚可 Fair | ![#65A30D](assets/colors/65A30D.svg) `#65A30D` | `#ECFCCB` | ![#A3E635](assets/colors/A3E635.svg) `#A3E635` | `#365314` | >5–15 | 36–60 | 9.1–35.4 |
+| 中等 Moderate | ![#CA8A04](assets/colors/CA8A04.svg) `#CA8A04` | `#FEF9C3` | ![#FACC15](assets/colors/FACC15.svg) `#FACC15` | `#713F12` | >15–50 | 61–115 | 35.5–55.4 |
+| 差 Poor | ![#EA580C](assets/colors/EA580C.svg) `#EA580C` | `#FFEDD5` | ![#FB923C](assets/colors/FB923C.svg) `#FB923C` | `#7C2D12` | >50–90 | 116–150 | 55.5–125.4 |
+| 很差 VeryPoor | ![#DC2626](assets/colors/DC2626.svg) `#DC2626` | `#FEE2E2` | ![#F87171](assets/colors/F87171.svg) `#F87171` | `#7F1D1D` | >90–140 | 151–250 | 125.5–225.4 |
+| 极差 ExtremelyPoor | ![#7E22CE](assets/colors/7E22CE.svg) `#7E22CE` | `#F3E8FF` | ![#C084FC](assets/colors/C084FC.svg) `#C084FC` | `#581C87` | >140 | ≥251 | ≥225.5 |
 
 ### PM10 状态色
 
 浓度单位为 μg/m³。EEA 使用原始浓度；HJ 和 EPA 使用处理后的整数浓度。
 
-| 状态 | 色样与状态色 | 图示色 | EEA（默认） | HJ 633—2026 | EPA AQI |
-| --- | --- | --- | --- | --- | --- |
-| 好 Good | ![#16A34A](assets/colors/16A34A.svg) `#16A34A` | ![#4ADE80](assets/colors/4ADE80.svg) `#4ADE80` | 0–15 | 0–50 | 0–54 |
-| 尚可 Fair | ![#65A30D](assets/colors/65A30D.svg) `#65A30D` | ![#A3E635](assets/colors/A3E635.svg) `#A3E635` | >15–45 | 51–120 | 55–154 |
-| 中等 Moderate | ![#CA8A04](assets/colors/CA8A04.svg) `#CA8A04` | ![#FACC15](assets/colors/FACC15.svg) `#FACC15` | >45–120 | 121–250 | 155–254 |
-| 差 Poor | ![#EA580C](assets/colors/EA580C.svg) `#EA580C` | ![#FB923C](assets/colors/FB923C.svg) `#FB923C` | >120–195 | 251–350 | 255–354 |
-| 很差 VeryPoor | ![#DC2626](assets/colors/DC2626.svg) `#DC2626` | ![#F87171](assets/colors/F87171.svg) `#F87171` | >195–270 | 351–420 | 355–424 |
-| 极差 ExtremelyPoor | ![#7E22CE](assets/colors/7E22CE.svg) `#7E22CE` | ![#C084FC](assets/colors/C084FC.svg) `#C084FC` | >270 | ≥421 | ≥425 |
+| 状态 | 色样与状态色 | 标签背景 | 图示色 | 标签文字 | EEA（默认） | HJ 633—2026 | EPA AQI |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 好 Good | ![#16A34A](assets/colors/16A34A.svg) `#16A34A` | `#DCFCE7` | ![#4ADE80](assets/colors/4ADE80.svg) `#4ADE80` | `#14532D` | 0–15 | 0–50 | 0–54 |
+| 尚可 Fair | ![#65A30D](assets/colors/65A30D.svg) `#65A30D` | `#ECFCCB` | ![#A3E635](assets/colors/A3E635.svg) `#A3E635` | `#365314` | >15–45 | 51–120 | 55–154 |
+| 中等 Moderate | ![#CA8A04](assets/colors/CA8A04.svg) `#CA8A04` | `#FEF9C3` | ![#FACC15](assets/colors/FACC15.svg) `#FACC15` | `#713F12` | >45–120 | 121–250 | 155–254 |
+| 差 Poor | ![#EA580C](assets/colors/EA580C.svg) `#EA580C` | `#FFEDD5` | ![#FB923C](assets/colors/FB923C.svg) `#FB923C` | `#7C2D12` | >120–195 | 251–350 | 255–354 |
+| 很差 VeryPoor | ![#DC2626](assets/colors/DC2626.svg) `#DC2626` | `#FEE2E2` | ![#F87171](assets/colors/F87171.svg) `#F87171` | `#7F1D1D` | >195–270 | 351–420 | 355–424 |
+| 极差 ExtremelyPoor | ![#7E22CE](assets/colors/7E22CE.svg) `#7E22CE` | `#F3E8FF` | ![#C084FC](assets/colors/C084FC.svg) `#C084FC` | `#581C87` | >270 | ≥421 | ≥425 |
 
 ### 甲醛 HCHO 状态色
 
 浓度单位为 mg/m³。WHO、GB/T 和 OEHHA 提供不同参考浓度，项目按各自参考值划分六档。
 
-| 状态 | 色样与状态色 | 图示色 | WHO 2010（默认） | GB/T 18883—2022 | OEHHA 2008 |
-| --- | --- | --- | --- | --- | --- |
-| 好 Good | ![#16A34A](assets/colors/16A34A.svg) `#16A34A` | ![#4ADE80](assets/colors/4ADE80.svg) `#4ADE80` | 0–0.025 | 0–0.020 | 0–0.01375 |
-| 尚可 Fair | ![#65A30D](assets/colors/65A30D.svg) `#65A30D` | ![#A3E635](assets/colors/A3E635.svg) `#A3E635` | >0.025–0.050 | >0.020–0.040 | >0.01375–0.0275 |
-| 中等 Moderate | ![#CA8A04](assets/colors/CA8A04.svg) `#CA8A04` | ![#FACC15](assets/colors/FACC15.svg) `#FACC15` | >0.050–0.100 | >0.040–0.080 | >0.0275–0.055 |
-| 差 Poor | ![#EA580C](assets/colors/EA580C.svg) `#EA580C` | ![#FB923C](assets/colors/FB923C.svg) `#FB923C` | >0.100–0.200 | >0.080–0.160 | >0.055–0.110 |
-| 很差 VeryPoor | ![#DC2626](assets/colors/DC2626.svg) `#DC2626` | ![#F87171](assets/colors/F87171.svg) `#F87171` | >0.200–0.500 | >0.160–0.400 | >0.110–0.275 |
-| 极差 ExtremelyPoor | ![#7E22CE](assets/colors/7E22CE.svg) `#7E22CE` | ![#C084FC](assets/colors/C084FC.svg) `#C084FC` | >0.500 | >0.400 | >0.275 |
+| 状态 | 色样与状态色 | 标签背景 | 图示色 | 标签文字 | WHO 2010（默认） | GB/T 18883—2022 | OEHHA 2008 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 好 Good | ![#16A34A](assets/colors/16A34A.svg) `#16A34A` | `#DCFCE7` | ![#4ADE80](assets/colors/4ADE80.svg) `#4ADE80` | `#14532D` | 0–0.025 | 0–0.020 | 0–0.01375 |
+| 尚可 Fair | ![#65A30D](assets/colors/65A30D.svg) `#65A30D` | `#ECFCCB` | ![#A3E635](assets/colors/A3E635.svg) `#A3E635` | `#365314` | >0.025–0.050 | >0.020–0.040 | >0.01375–0.0275 |
+| 中等 Moderate | ![#CA8A04](assets/colors/CA8A04.svg) `#CA8A04` | `#FEF9C3` | ![#FACC15](assets/colors/FACC15.svg) `#FACC15` | `#713F12` | >0.050–0.100 | >0.040–0.080 | >0.0275–0.055 |
+| 差 Poor | ![#EA580C](assets/colors/EA580C.svg) `#EA580C` | `#FFEDD5` | ![#FB923C](assets/colors/FB923C.svg) `#FB923C` | `#7C2D12` | >0.100–0.200 | >0.080–0.160 | >0.055–0.110 |
+| 很差 VeryPoor | ![#DC2626](assets/colors/DC2626.svg) `#DC2626` | `#FEE2E2` | ![#F87171](assets/colors/F87171.svg) `#F87171` | `#7F1D1D` | >0.200–0.500 | >0.160–0.400 | >0.110–0.275 |
+| 极差 ExtremelyPoor | ![#7E22CE](assets/colors/7E22CE.svg) `#7E22CE` | `#F3E8FF` | ![#C084FC](assets/colors/C084FC.svg) `#C084FC` | `#581C87` | >0.500 | >0.400 | >0.275 |
 
 状态未知时统一使用灰色 `#64748B`、浅色背景 `#F1F5F9`、标签文字 `#334155`。各表中的连续区间、修约和截断规则与 [环境评级标准](rating.md) 一致；颜色不是上述标准规定的官方颜色。
 
@@ -172,3 +172,22 @@ CO₂ 的 Moderate 保留原评级名称，但采用与 PM“尚可”相同的�
 - 浅色界面使用表中的标签背景和标签文字。深色界面可在 `#0F172A` 背景上用代表色的 20% 透明填充，文字使用 `#F8FAFC`，边框和图标使用不透明代表色。
 - 动画或闪烁不能作为严重等级的默认效果；需要吸引注意时使用静态图标和明确文字。
 - 业务代码应依据返回枚举选择颜色，不复制浓度或 PMV 阈值，防止界面规则与评级库不一致。
+
+## 7. 代码调用
+
+根目录的 `environment_color.h/.c` 是各平台共用的颜色数据源。颜色采用 `0x00RRGGBB`：`ENV_COLOR_PRIMARY` 表示参数识别色或状态色，`ENV_COLOR_BACKGROUND` 表示浅色背景，`ENV_COLOR_GRAPHIC` 表示图示色，`ENV_COLOR_TEXT` 表示标签文字。参数识别色只支持前两个角色；非法参数、非法角色或不支持的组合返回 `ENV_RGB_INVALID`。
+
+```c
+air_quality_t quality = air_rate_pm25(AIR_PM_EEA_AQI_2024, pm25);
+
+env_rgb_t identity = env_color_parameter(ENV_PARAM_PM25,
+                                         ENV_COLOR_PRIMARY);
+env_rgb_t label = env_color_air(ENV_PARAM_PM25, quality,
+                                ENV_COLOR_PRIMARY);
+env_rgb_t graphic = env_color_air(ENV_PARAM_PM25, quality,
+                                  ENV_COLOR_GRAPHIC);
+```
+
+各状态函数接收已经计算好的评级枚举，不接收原始测量值，也不重复评级阈值。`env_color_air()` 仅处理 CO₂、PM2.5、PM10 和甲醛的单项 `air_quality_t`；不处理整体空气质量、tVOC 或 Matter `LevelValue`。温度状态色应把 `thermal_rate()` 返回值传给 `env_color_thermal()`，相对湿度、噪声和照度同理。
+
+Swift 使用 `EnvironmentColors`，返回 `RGBColor`、`ParameterColors` 或 `StateColors`；`RGBColor` 提供 `rawValue`、RGB 分量和 `hex`。Web 使用 `rating.colors`，直接返回 CSS HEX 字符串。不支持的 Swift/Web 组合返回 `nil`/`null`。

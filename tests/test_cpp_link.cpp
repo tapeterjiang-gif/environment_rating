@@ -2,11 +2,16 @@
 #include "thermal_comfort.h"
 #include <cmath>
 #include "sound_light_rating.h"
+#include "environment_color.h"
 
 int main()
 {
     if (noise_rate(NOISE_SLEEP, 30) != NOISE_QUIET) return 1;
     if (illuminance_rate(100) != ILLUMINANCE_DAILY_ACTIVITY) return 1;
+    if (env_color_parameter(ENV_PARAM_TEMPERATURE, ENV_COLOR_PRIMARY) !=
+        UINT32_C(0xF97316)) return 1;
+    if (env_color_air(ENV_PARAM_PM25, AIR_FAIR, ENV_COLOR_GRAPHIC) !=
+        UINT32_C(0xA3E635)) return 1;
     return thermal_rate_humidity(THERMAL_HUMIDITY_EPA, 55) ==
                THERMAL_HUMIDITY_SLIGHTLY_HUMID &&
            std::isfinite(thermal_pmv(25,50,25,0.1,1.1,0.7)) &&

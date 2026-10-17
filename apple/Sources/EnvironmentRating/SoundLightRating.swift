@@ -28,6 +28,16 @@ public enum NoiseRating: Int, Sendable {
         default: self = .unknown
         }
     }
+
+    var cValue: noise_level_t {
+        switch self {
+        case .unknown: return NOISE_UNKNOWN
+        case .quiet: return NOISE_QUIET
+        case .noticeable: return NOISE_NOTICEABLE
+        case .loud: return NOISE_LOUD
+        case .veryLoud: return NOISE_VERY_LOUD
+        }
+    }
 }
 
 public enum IlluminanceRating: Int, Sendable {
@@ -48,6 +58,18 @@ public enum IlluminanceRating: Int, Sendable {
         case ILLUMINANCE_BEDSIDE_READING: self = .bedsideReading
         case ILLUMINANCE_READING_AND_TASKS: self = .readingAndTasks
         default: self = .unknown
+        }
+    }
+
+    var cValue: illuminance_level_t {
+        switch self {
+        case .unknown: return ILLUMINANCE_UNKNOWN
+        case .dim: return ILLUMINANCE_DIM
+        case .bedroomActivity: return ILLUMINANCE_BEDROOM_ACTIVITY
+        case .dailyActivity: return ILLUMINANCE_DAILY_ACTIVITY
+        case .dining: return ILLUMINANCE_DINING
+        case .bedsideReading: return ILLUMINANCE_BEDSIDE_READING
+        case .readingAndTasks: return ILLUMINANCE_READING_AND_TASKS
         }
     }
 }

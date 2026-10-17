@@ -19,7 +19,8 @@ let package = Package(
             sources: [
                 "air_quality_rating.c",
                 "thermal_comfort.c",
-                "sound_light_rating.c"
+                "sound_light_rating.c",
+                "environment_color.c"
             ],
             publicHeadersPath: "apple/include"
         ),

@@ -20,6 +20,18 @@ public enum AirQuality: Int, Sendable {
         default: self = .unknown
         }
     }
+
+    var cValue: air_quality_t {
+        switch self {
+        case .unknown: return AIR_UNKNOWN
+        case .good: return AIR_GOOD
+        case .fair: return AIR_FAIR
+        case .moderate: return AIR_MODERATE
+        case .poor: return AIR_POOR
+        case .veryPoor: return AIR_VERY_POOR
+        case .extremelyPoor: return AIR_EXTREMELY_POOR
+        }
+    }
 }
 
 public enum ConcentrationLevel: Int, Sendable {
