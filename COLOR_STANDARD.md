@@ -17,23 +17,22 @@
 
 | 参数 | 色样 | 识别色 | HEX | 浅色背景 | 建议用途 |
 | --- | --- | --- | --- | --- | --- |
-| 整体空气质量 | ![#0F766E](assets/colors/0F766E.svg) | 青绿 | `#0F766E` | `#CCFBF1` | 整体 AirQuality 卡片标题、图标 |
 | CO₂ | ![#2563EB](assets/colors/2563EB.svg) | 蓝色 | `#2563EB` | `#DBEAFE` | CO₂ 图标、趋势线 |
-| PM2.5 | ![#7C3AED](assets/colors/7C3AED.svg) | 紫色 | `#7C3AED` | `#EDE9FE` | PM2.5 图标、趋势线 |
-| PM10 | ![#B45309](assets/colors/B45309.svg) | 棕橙色 | `#B45309` | `#FFEDD5` | PM10 图标、趋势线 |
+| PM2.5 | ![#667A83](assets/colors/667A83.svg) | 雾霾灰蓝 | `#667A83` | `#E8EEF0` | PM2.5 图标、趋势线 |
+| PM10 | ![#9A7958](assets/colors/9A7958.svg) | 沙尘灰棕 | `#9A7958` | `#F1EBE4` | PM10 图标、趋势线 |
 | 甲醛 HCHO | ![#DB2777](assets/colors/DB2777.svg) | 品红色 | `#DB2777` | `#FCE7F3` | 甲醛图标、趋势线 |
-| 温度 / PMV | ![#E11D48](assets/colors/E11D48.svg) | 玫红色 | `#E11D48` | `#FFE4E6` | 温度与 PMV 图标、趋势线 |
+| 温度 / PMV | ![#F97316](assets/colors/F97316.svg) | 暖橙色 | `#F97316` | `#FFEDD5` | 温度与 PMV 图标、趋势线 |
 | 相对湿度 | ![#0891B2](assets/colors/0891B2.svg) | 青色 | `#0891B2` | `#CFFAFE` | 湿度图标、趋势线 |
 | 噪声 | ![#4F46E5](assets/colors/4F46E5.svg) | 靛蓝色 | `#4F46E5` | `#E0E7FF` | 噪声图标、趋势线 |
 | 照度 | ![#CA8A04](assets/colors/CA8A04.svg) | 金色 | `#CA8A04` | `#FEF9C3` | 照度图标、趋势线 |
 
-PM2.5 与 PM10 必须保持不同识别色。采用不同 PM 或甲醛标准时，只改变数值边界，不改变参数识别色。
+PM2.5 与 PM10 使用相近的低饱和自然色系，分别联想到雾霾与沙尘；两者仍须保持足够差异，不能只靠颜色区分。采用不同 PM 或甲醛标准时，只改变数值边界，不改变参数识别色。
 
 ## 3. 空气质量状态色
 
 ### 3.1 Matter AirQuality 六档
 
-当界面展示 `air_quality_t` 或 Matter `AirQuality` 时使用六档颜色。整体空气质量和 CO₂、PM2.5、PM10、甲醛的单项 AirQuality 共用此表。
+当界面展示 `air_quality_t` 或 Matter `AirQuality` 时使用六档颜色。CO₂、PM2.5、PM10、甲醛的单项 AirQuality 共用此表。
 
 | AirQuality | 色样 | 代表色 | HEX | 标签背景 | 标签文字 |
 | --- | --- | --- | --- | --- | --- |
@@ -76,7 +75,7 @@ PM 与甲醛当前均为 Good/Fair → Low、Moderate → Medium、Poor/VeryPoor
 | Warm 暖 | +1.5 < PMV ≤ +2.5 | ![#EA580C](assets/colors/EA580C.svg) | 橙色 | `#EA580C` | `#FFEDD5` | `#7C2D12` |
 | Hot 热 | +2.5 < PMV ≤ +3 | ![#DC2626](assets/colors/DC2626.svg) | 红色 | `#DC2626` | `#FEE2E2` | `#7F1D1D` |
 
-温度趋势线仍使用温度识别色 `#E11D48`；只有冷热感标签或 PMV 区间背景使用本表颜色。
+温度趋势线仍使用温度识别色 `#F97316`；只有冷热感标签或 PMV 区间背景使用本表颜色。
 
 ### 4.2 相对湿度提示
 
@@ -122,8 +121,8 @@ EPA 与 UBA 的阈值不同，但相同的返回枚举使用相同颜色。UBA �
 
 | 数据 | 参数识别部分 | 等级状态部分 |
 | --- | --- | --- |
-| PM2.5，AirQuality=Fair | 图标和趋势线使用紫色 `#7C3AED` | AirQuality 标签使用黄绿色 `#65A30D`；若展示 LevelValue=Low，则标签使用绿色 `#16A34A` |
-| 温度对应 PMV=+2.0 | 温度图标和趋势线使用玫红色 `#E11D48` | Warm 标签使用橙色 `#EA580C` |
+| PM2.5，AirQuality=Fair | 图标和趋势线使用雾霾灰蓝 `#667A83` | AirQuality 标签使用黄绿色 `#65A30D`；若展示 LevelValue=Low，则标签使用绿色 `#16A34A` |
+| 温度对应 PMV=+2.0 | 温度图标和趋势线使用暖橙色 `#F97316` | Warm 标签使用深橙色 `#EA580C` |
 | 噪声=Loud | 噪声图标和趋势线使用靛蓝色 `#4F46E5` | Loud 标签使用橙色 `#EA580C` |
 | 照度=ReadingAndTasks | 照度图标使用金色 `#CA8A04` | 活动提示标签使用金色 `#CA8A04`，文字说明“读写与操作” |
 

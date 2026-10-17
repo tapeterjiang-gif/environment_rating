@@ -17,17 +17,16 @@
 
     <section class="section"><div class="container">
       <div class="explain-banner"><div><strong>指标识别色</strong><p>固定不变。帮助你一眼认出 PM2.5、温度或噪声，常用于图标和趋势线。</p></div><div class="versus">＋</div><div><strong>等级状态色</strong><p>随结果变化。帮助你判断良好、偏热或嘈杂，常用于状态标签和区间背景。</p></div></div>
-      <div class="note"><strong>举个例子：</strong>PM2.5 的趋势线始终是紫色；当它从“好”变成“差”时，状态标签会从绿色变成橙色。</div>
+      <div class="note"><strong>举个例子：</strong>PM2.5 的趋势线始终是雾霾灰蓝；当它从“好”变成“差”时，状态标签会从绿色变成橙色。</div>
     </div></section>
 
     <section class="section" id="identity"><div class="container"><div class="section-heading"><span class="kicker">指标识别色</span><h2>先认出你正在看的指标</h2><p>这些颜色不表达好坏，也不会随着读数变化。它们像地图图例一样，始终代表同一个指标。</p></div>
       <div class="identity-grid">
-        <div class="identity-card"><span class="swatch" style="--tone:#0F766E"></span><div><b>整体空气质量</b><small>青绿 · #0F766E</small></div></div>
         <div class="identity-card"><span class="swatch" style="--tone:#2563EB"></span><div><b>CO₂</b><small>蓝色 · #2563EB</small></div></div>
-        <div class="identity-card"><span class="swatch" style="--tone:#7C3AED"></span><div><b>PM2.5</b><small>紫色 · #7C3AED</small></div></div>
-        <div class="identity-card"><span class="swatch" style="--tone:#B45309"></span><div><b>PM10</b><small>棕橙 · #B45309</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#667A83"></span><div><b>PM2.5</b><small>雾霾灰蓝 · #667A83</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#9A7958"></span><div><b>PM10</b><small>沙尘灰棕 · #9A7958</small></div></div>
         <div class="identity-card"><span class="swatch" style="--tone:#DB2777"></span><div><b>甲醛</b><small>品红 · #DB2777</small></div></div>
-        <div class="identity-card"><span class="swatch" style="--tone:#E11D48"></span><div><b>温度 / PMV</b><small>玫红 · #E11D48</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#F97316"></span><div><b>温度 / PMV</b><small>暖橙 · #F97316</small></div></div>
         <div class="identity-card"><span class="swatch" style="--tone:#0891B2"></span><div><b>相对湿度</b><small>青色 · #0891B2</small></div></div>
         <div class="identity-card"><span class="swatch" style="--tone:#4F46E5"></span><div><b>噪声</b><small>靛蓝 · #4F46E5</small></div></div>
         <div class="identity-card"><span class="swatch" style="--tone:#CA8A04"></span><div><b>照度</b><small>金色 · #CA8A04</small></div></div>
@@ -35,7 +34,7 @@
     </div></section>
 
     <section class="section" id="status"><div class="container"><div class="section-heading"><span class="kicker">等级状态色</span><h2>再判断当前处于什么状态</h2><p>状态色必须和文字一起出现。绿色通常表示状态良好，黄色到紫红色表示需要逐步提高关注。</p></div>
-      <div class="chapter"><div class="chapter-head"><div><h3>空气质量</h3><p>整体空气质量与 PM、CO₂、甲醛的单项评级共用这套六档颜色。</p></div><span class="chapter-number" aria-hidden="true">AQ</span></div>
+      <div class="chapter"><div class="chapter-head"><div><h3>空气质量</h3><p>PM、CO₂ 和甲醛的单项评级共用这套六档颜色。</p></div><span class="chapter-number" aria-hidden="true">AQ</span></div>
         <div class="subsection"><div class="air-scale"><div class="aq-good"><b>好</b><span>#16A34A</span></div><div class="aq-fair"><b>尚可</b><span>#65A30D</span></div><div class="aq-moderate"><b>中等</b><span>#CA8A04</span></div><div class="aq-poor"><b>差</b><span>#EA580C</span></div><div class="aq-very-poor"><b>很差</b><span>#DC2626</span></div><div class="aq-extreme"><b>极差</b><span>#7E22CE</span></div></div></div>
         <div class="note"><strong>灰色代表未知。</strong>传感器未就绪、数据无效或暂时缺失时使用灰色 #64748B。它不代表空气质量好或坏。</div>
       </div>
@@ -53,8 +52,8 @@
     </div></section>
 
     <section class="section" id="examples"><div class="container"><div class="section-heading"><span class="kicker">组合示例</span><h2>一张卡片里如何同时用两种颜色</h2><p>指标名称保持固定识别色，旁边的状态标签使用随结果变化的状态色。</p></div>
-      <article class="use-case"><div><h3>PM2.5 处于“尚可”</h3><p>紫色说明这是 PM2.5；黄绿色说明当前空气质量评级为尚可。</p></div><div class="mini-reading" style="--parameter:#7C3AED"><span class="parameter">PM2.5</span><strong style="display:block;font-size:1.7rem">12 μg/m³</strong><span class="pill aq-fair">尚可</span></div></article>
-      <article class="use-case"><div><h3>热舒适度为“暖”</h3><p>玫红色说明这是温度 / PMV；橙色标签说明综合冷热感偏暖。</p></div><div class="mini-reading" style="--parameter:#E11D48"><span class="parameter">热舒适度</span><strong style="display:block;font-size:1.7rem">PMV +2.0</strong><span class="pill" style="--bg:#FFEDD5;--label:#7C2D12">暖</span></div></article>
+      <article class="use-case"><div><h3>PM2.5 处于“尚可”</h3><p>雾霾灰蓝说明这是 PM2.5；黄绿色说明当前空气质量评级为尚可。</p></div><div class="mini-reading" style="--parameter:#667A83"><span class="parameter">PM2.5</span><strong style="display:block;font-size:1.7rem">12 μg/m³</strong><span class="pill aq-fair">尚可</span></div></article>
+      <article class="use-case"><div><h3>热舒适度为“暖”</h3><p>暖橙色说明这是温度 / PMV；深橙色标签说明综合冷热感偏暖。</p></div><div class="mini-reading" style="--parameter:#F97316"><span class="parameter">热舒适度</span><strong style="display:block;font-size:1.7rem">PMV +2.0</strong><span class="pill" style="--bg:#FFEDD5;--label:#7C2D12">暖</span></div></article>
       <article class="use-case"><div><h3>噪声处于“嘈杂”</h3><p>靛蓝色说明这是噪声；橙色标签说明当前环境已比较嘈杂。</p></div><div class="mini-reading" style="--parameter:#4F46E5"><span class="parameter">噪声</span><strong style="display:block;font-size:1.7rem">50 dB(A)</strong><span class="pill" style="--bg:#FFEDD5;--label:#7C2D12">嘈杂</span></div></article>
     </div></section>
 
