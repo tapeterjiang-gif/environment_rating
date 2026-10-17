@@ -140,6 +140,7 @@ details > div { padding: 0 18px 18px; }
 .explain-banner p { margin: 8px 0 0; color: #bad0c9; }
 .versus { width: 52px; height: 52px; display: grid; place-items: center; border: 1px solid #54716a; border-radius: 50%; color: #bad0c9; font-weight: 700; }
 .identity-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.identity-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .identity-card { display: flex; align-items: center; gap: 14px; padding: 17px; border: 1px solid var(--line); border-radius: 17px; background: white; }
 .swatch { flex: 0 0 44px; width: 44px; height: 44px; border-radius: 14px; background: var(--tone); box-shadow: inset 0 0 0 1px rgba(0,0,0,.04); }
 .identity-card b { display: block; }
@@ -165,7 +166,7 @@ details > div { padding: 0 18px 18px; }
   .hero { padding-top: 58px; }
   .hero-grid { grid-template-columns: 1fr; gap: 25px; }
   .hero-visual { min-height: 340px; }
-  .principles, .standards, .quick-grid, .identity-grid, .a11y-list { grid-template-columns: 1fr; }
+  .principles, .standards, .quick-grid, .identity-grid, .identity-grid.two, .a11y-list { grid-template-columns: 1fr; }
   .air-scale { grid-template-columns: repeat(3, 1fr); }
   .air-scale div:nth-child(3) { border-right: 0; }
   .air-scale div:nth-child(-n+3) { border-bottom: 1px solid rgba(255,255,255,.8); }
