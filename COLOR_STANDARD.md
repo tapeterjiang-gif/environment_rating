@@ -1,5 +1,7 @@
 # 环境指标颜色说明
 
+**Qingping Environmental Colors V1.3｜青萍环境参数标准配色方案**
+
 本文定义 `environment_rating` 的界面颜色规则，适用于设备屏幕、移动端、网页、图表和状态标签。颜色是产品视觉规则，不属于 Matter、ISO、ASHRAE、WHO、EPA、EEA、UBA 或 GB/T 标准的一部分，也不改变任何评级阈值。
 
 ## 1. 使用原则
@@ -17,14 +19,15 @@
 
 | 参数 | 色样 | 识别色 | HEX | 浅色背景 | 建议用途 |
 | --- | --- | --- | --- | --- | --- |
-| CO₂ | ![#2563EB](assets/colors/2563EB.svg) | 蓝色 | `#2563EB` | `#DBEAFE` | CO₂ 图标、趋势线 |
+| CO₂ | ![#15803D](assets/colors/15803D.svg) | 森林绿 | `#15803D` | `#DCFCE7` | CO₂ 图标、趋势线 |
 | PM2.5 | ![#667A83](assets/colors/667A83.svg) | 雾霾灰蓝 | `#667A83` | `#E8EEF0` | PM2.5 图标、趋势线 |
 | PM10 | ![#9A7958](assets/colors/9A7958.svg) | 沙尘灰棕 | `#9A7958` | `#F1EBE4` | PM10 图标、趋势线 |
-| 甲醛 HCHO | ![#DB2777](assets/colors/DB2777.svg) | 品红色 | `#DB2777` | `#FCE7F3` | 甲醛图标、趋势线 |
-| 温度 / PMV | ![#F97316](assets/colors/F97316.svg) | 暖橙色 | `#F97316` | `#FFEDD5` | 温度与 PMV 图标、趋势线 |
-| 相对湿度 | ![#0891B2](assets/colors/0891B2.svg) | 青色 | `#0891B2` | `#CFFAFE` | 湿度图标、趋势线 |
-| 噪声 | ![#4F46E5](assets/colors/4F46E5.svg) | 靛蓝色 | `#4F46E5` | `#E0E7FF` | 噪声图标、趋势线 |
-| 照度 | ![#CA8A04](assets/colors/CA8A04.svg) | 金色 | `#CA8A04` | `#FEF9C3` | 照度图标、趋势线 |
+| 甲醛 HCHO | ![#DB2777](assets/colors/DB2777.svg) | 警觉玫红 | `#DB2777` | `#FCE7F3` | 甲醛图标、趋势线 |
+| tVOC | ![#89941A](assets/colors/89941A.svg) | 挥发黄绿 | `#89941A` | `#F1F5D5` | tVOC 图标、趋势线 |
+| 温度 | ![#F97316](assets/colors/F97316.svg) | 温暖橙 | `#F97316` | `#FFEDD5` | 温度图标、趋势线 |
+| 相对湿度 | ![#0891B2](assets/colors/0891B2.svg) | 水润青 | `#0891B2` | `#CFFAFE` | 湿度图标、趋势线 |
+| 噪声 | ![#9333EA](assets/colors/9333EA.svg) | 声波紫 | `#9333EA` | `#F3E8FF` | 噪声图标、趋势线 |
+| 照度 | ![#F2C94C](assets/colors/F2C94C.svg) | 阳光金 | `#F2C94C` | `#FEF9C3` | 照度图标、趋势线 |
 
 PM2.5 与 PM10 使用相近的低饱和自然色系，分别联想到雾霾与沙尘；两者仍须保持足够差异，不能只靠颜色区分。采用不同 PM 或甲醛标准时，只改变数值边界，不改变参数识别色。
 
@@ -123,8 +126,8 @@ EPA 与 UBA 的阈值不同，但相同的返回枚举使用相同颜色。UBA �
 | --- | --- | --- |
 | PM2.5，AirQuality=Fair | 图标和趋势线使用雾霾灰蓝 `#667A83` | AirQuality 标签使用黄绿色 `#65A30D`；若展示 LevelValue=Low，则标签使用绿色 `#16A34A` |
 | 温度对应 PMV=+2.0 | 温度图标和趋势线使用暖橙色 `#F97316` | Warm 标签使用深橙色 `#EA580C` |
-| 噪声=Loud | 噪声图标和趋势线使用靛蓝色 `#4F46E5` | Loud 标签使用橙色 `#EA580C` |
-| 照度=ReadingAndTasks | 照度图标使用金色 `#CA8A04` | 活动提示标签使用金色 `#CA8A04`，文字说明“读写与操作” |
+| 噪声=Loud | 噪声图标和趋势线使用声波紫 `#9333EA` | Loud 标签使用橙色 `#EA580C` |
+| 照度=ReadingAndTasks | 照度图标使用阳光金 `#F2C94C` | 活动提示标签使用等级表中的金色 `#CA8A04`，文字说明“读写与操作” |
 
 ## 7. 可访问性与实现要求
 

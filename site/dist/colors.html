@@ -13,7 +13,7 @@
   <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="site-header"><nav class="nav container" aria-label="主导航"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">◌</span><span>环境评级指南</span></a><div class="nav-links"><a href="index.html">评级标准</a><a href="colors.html" aria-current="page">颜色说明</a><a href="#examples">使用示例</a></div></nav></header>
   <main id="main">
-    <section class="hero"><div class="container"><p class="eyebrow">Color guide</p><h1>环境指标颜色说明</h1><p class="lead">颜色一半用来认出“这是什么数据”，另一半用来判断“它现在处于什么状态”。分清这两层，就能快速读懂设备和 App 的环境信息。</p></div></section>
+    <section class="hero"><div class="container"><p class="eyebrow">Qingping Environmental Colors V1.3</p><h1>环境指标颜色说明</h1><p class="lead">青萍环境参数标准配色方案。颜色一半用来认出“这是什么数据”，另一半用来判断“它现在处于什么状态”。分清这两层，就能快速读懂设备和 App 的环境信息。</p></div></section>
 
     <section class="section"><div class="container">
       <div class="explain-banner"><div><strong>指标识别色</strong><p>固定不变。帮助你一眼认出 PM2.5、温度或噪声，常用于图标和趋势线。</p></div><div class="versus">＋</div><div><strong>等级状态色</strong><p>随结果变化。帮助你判断良好、偏热或嘈杂，常用于状态标签和区间背景。</p></div></div>
@@ -22,14 +22,15 @@
 
     <section class="section" id="identity"><div class="container"><div class="section-heading"><span class="kicker">指标识别色</span><h2>先认出你正在看的指标</h2><p>这些颜色不表达好坏，也不会随着读数变化。它们像地图图例一样，始终代表同一个指标。</p></div>
       <div class="identity-grid">
-        <div class="identity-card"><span class="swatch" style="--tone:#2563EB"></span><div><b>CO₂</b><small>蓝色 · #2563EB</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#15803D"></span><div><b>CO₂</b><small>森林绿 · #15803D</small></div></div>
         <div class="identity-card"><span class="swatch" style="--tone:#667A83"></span><div><b>PM2.5</b><small>雾霾灰蓝 · #667A83</small></div></div>
         <div class="identity-card"><span class="swatch" style="--tone:#9A7958"></span><div><b>PM10</b><small>沙尘灰棕 · #9A7958</small></div></div>
-        <div class="identity-card"><span class="swatch" style="--tone:#DB2777"></span><div><b>甲醛</b><small>品红 · #DB2777</small></div></div>
-        <div class="identity-card"><span class="swatch" style="--tone:#F97316"></span><div><b>温度 / PMV</b><small>暖橙 · #F97316</small></div></div>
-        <div class="identity-card"><span class="swatch" style="--tone:#0891B2"></span><div><b>相对湿度</b><small>青色 · #0891B2</small></div></div>
-        <div class="identity-card"><span class="swatch" style="--tone:#4F46E5"></span><div><b>噪声</b><small>靛蓝 · #4F46E5</small></div></div>
-        <div class="identity-card"><span class="swatch" style="--tone:#CA8A04"></span><div><b>照度</b><small>金色 · #CA8A04</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#DB2777"></span><div><b>甲醛 HCHO</b><small>警觉玫红 · #DB2777</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#89941A"></span><div><b>tVOC</b><small>挥发黄绿 · #89941A</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#F97316"></span><div><b>温度</b><small>温暖橙 · #F97316</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#0891B2"></span><div><b>相对湿度</b><small>水润青 · #0891B2</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#9333EA"></span><div><b>噪声</b><small>声波紫 · #9333EA</small></div></div>
+        <div class="identity-card"><span class="swatch" style="--tone:#F2C94C"></span><div><b>照度</b><small>阳光金 · #F2C94C</small></div></div>
       </div>
     </div></section>
 
@@ -54,7 +55,7 @@
     <section class="section" id="examples"><div class="container"><div class="section-heading"><span class="kicker">组合示例</span><h2>一张卡片里如何同时用两种颜色</h2><p>指标名称保持固定识别色，旁边的状态标签使用随结果变化的状态色。</p></div>
       <article class="use-case"><div><h3>PM2.5 处于“尚可”</h3><p>雾霾灰蓝说明这是 PM2.5；黄绿色说明当前空气质量评级为尚可。</p></div><div class="mini-reading" style="--parameter:#667A83"><span class="parameter">PM2.5</span><strong style="display:block;font-size:1.7rem">12 μg/m³</strong><span class="pill aq-fair">尚可</span></div></article>
       <article class="use-case"><div><h3>热舒适度为“暖”</h3><p>暖橙色说明这是温度 / PMV；深橙色标签说明综合冷热感偏暖。</p></div><div class="mini-reading" style="--parameter:#F97316"><span class="parameter">热舒适度</span><strong style="display:block;font-size:1.7rem">PMV +2.0</strong><span class="pill" style="--bg:#FFEDD5;--label:#7C2D12">暖</span></div></article>
-      <article class="use-case"><div><h3>噪声处于“嘈杂”</h3><p>靛蓝色说明这是噪声；橙色标签说明当前环境已比较嘈杂。</p></div><div class="mini-reading" style="--parameter:#4F46E5"><span class="parameter">噪声</span><strong style="display:block;font-size:1.7rem">50 dB(A)</strong><span class="pill" style="--bg:#FFEDD5;--label:#7C2D12">嘈杂</span></div></article>
+      <article class="use-case"><div><h3>噪声处于“嘈杂”</h3><p>声波紫说明这是噪声；橙色标签说明当前环境已比较嘈杂。</p></div><div class="mini-reading" style="--parameter:#9333EA"><span class="parameter">噪声</span><strong style="display:block;font-size:1.7rem">50 dB(A)</strong><span class="pill" style="--bg:#FFEDD5;--label:#7C2D12">嘈杂</span></div></article>
     </div></section>
 
     <section class="section"><div class="container"><div class="section-heading"><span class="kicker">清晰易读</span><h2>颜色只是提示的一部分</h2></div><ul class="a11y-list"><li><b>始终配文字</b>不要求用户只凭颜色猜测状态。</li><li><b>浅底配深字</b>黄色和黄绿色标签使用深色文字，保证清晰度。</li><li><b>未知保持灰色</b>无效或缺失数据不会沿用上一次的状态颜色。</li></ul></div></section>
