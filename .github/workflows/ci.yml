@@ -43,14 +43,17 @@ jobs:
             android/gradle/wrapper/gradle-wrapper.properties
             android/environment-rating/build.gradle.kts
       - name: Accept Android SDK licenses
-        run: yes | sdkmanager --licenses > /dev/null || true
+        run: |
+          sdk_root="${ANDROID_SDK_ROOT:-$ANDROID_HOME}"
+          yes | "$sdk_root/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
       - name: Install Android native toolchain
-        run: >-
-          sdkmanager
-          "platforms;android-35"
-          "build-tools;35.0.0"
-          "ndk;27.2.12479018"
-          "cmake;3.22.1"
+        run: |
+          sdk_root="${ANDROID_SDK_ROOT:-$ANDROID_HOME}"
+          "$sdk_root/cmdline-tools/latest/bin/sdkmanager" \
+            "platforms;android-35" \
+            "build-tools;35.0.0" \
+            "ndk;27.2.12479018" \
+            "cmake;3.22.1"
       - name: Build Android AAR and run unit tests
         working-directory: android
         run: >-
