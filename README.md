@@ -18,7 +18,8 @@
 
 | 文档 | 内容 |
 | --- | --- |
-| [普通用户网页](https://environment-rating-guide.violetgleam9.chatgpt.site) | 用容易理解的方式浏览环境评级标准，并可进入环境指标颜色说明；源文件位于 [site/dist](site/dist) |
+| [普通用户网页（GitHub Pages）](https://tapeterjiang-gif.github.io/environment_rating/) | 用容易理解的方式浏览环境评级标准，并可进入环境指标颜色说明；源文件位于 [site/dist](site/dist) |
+| [普通用户网页（备用地址）](https://environment-rating-guide.violetgleam9.chatgpt.site) | 与 GitHub Pages 展示相同的静态内容 |
 | [环境评级标准](rating.md) | 热舒适度、空气质量和声光的评级依据与分级表 |
 | [环境指标颜色说明](COLOR_STANDARD.md) | 参数识别色、等级状态色、实际色样和可访问性规则 |
 | [Web 使用指南](web/README.md) | 浏览器、Web Worker 和 Node.js 的 Wasm/TypeScript 接入方法 |
