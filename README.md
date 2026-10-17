@@ -1,8 +1,8 @@
 # environment_rating
 
-环境评级库的需求、评级标准与使用指南。面向 ESP32（RTOS）、RK3506（Linux）和 iOS，核心采用可重入 C99 实现，兼容 C++ 和 Swift。三个模块独立输出，均无需初始化、动态内存或历史状态。
+环境评级库的需求、评级标准与使用指南。面向 ESP32（RTOS）、RK3506（Linux）、iOS 和 Web，核心采用可重入 C99 实现，兼容 C++、Swift 和 TypeScript。三个模块独立输出，均无需初始化、动态内存或历史状态。
 
-版本：v0.48。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
+版本：v0.49。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
 
 - [1. 空气质量](#1-空气质量)：CO₂、PM、甲醛及整体评级。
 - [2. 热舒适度](#2-热舒适度)：PMV、PPD、冷热与湿度提示。
@@ -20,6 +20,7 @@
 | --- | --- |
 | [环境评级标准](rating.md) | 空气质量、热舒适度和声光的评级依据与分级表 |
 | [环境指标颜色说明](COLOR_STANDARD.md) | 参数识别色、等级状态色、实际色样和可访问性规则 |
+| [Web 使用指南](web/README.md) | 浏览器、Web Worker 和 Node.js 的 Wasm/TypeScript 接入方法 |
 
 ### 通用输入单位
 
@@ -59,13 +60,24 @@ xcodebuild -scheme EnvironmentRating \
   CODE_SIGNING_ALLOWED=NO build
 ```
 
+Web 包的预编译文件位于 `web/dist`。维护者重新构建时需要 Emscripten 和 Node.js 18 或更新版本：
+
+```sh
+cd web
+npm ci
+npm run build
+npm test
+npm run test:browser
+```
+
 ### 平台集成
 
 按需将上表中模块的 `.c` 文件加入工程，把根目录加入头文件搜索路径，包含对应 `.h` 即可调用。接口和参数说明以头文件注释为准。
 
 - **ESP-IDF**：将项目放入 `components/environment_rating`，在调用组件中添加 `REQUIRES environment_rating`，会编译全部三个模块。
 - **Linux**：使用本项目 CMake，按需链接 `air_quality_rating`、`thermal_comfort`、`sound_light_rating`；也可直接编译所需源文件，使用热舒适度模块时链接数学库 `-lm`。只构建库可设置 `-DBUILD_TESTING=OFF`，无需 C++ 编译器。
-- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.48.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
+- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.49.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
+- **Web / TypeScript**：使用 `web/dist` 中的 ES Module 和 Wasm，先异步调用 `createEnvironmentRating()`，再复用返回的无状态 API。支持浏览器、Web Worker 和 Node.js 18 及以上，完整示例见 [Web 使用指南](web/README.md)。
 
 源文件按 C99 编译，支持 C++ 调用。不要开启 `-ffast-math` 或 `-ffinite-math-only`，以保证 NaN 和无穷大检查有效。传感器读取、校准、有效性判断和通信由上层负责。
 
@@ -96,6 +108,32 @@ let light = SoundLightRating.illuminance(300)
 ```
 
 Swift API 位于 `apple/Sources/EnvironmentRating`。需要直接调用 C 接口的 Apple 平台工程也可以选择 `CEnvironmentRating` 产品并导入同名模块。Swift 包不依赖 Apple Matter Framework；Matter 配网、读取 Cluster 和订阅属性应由 App 层负责，设备已经上报 `AirQuality` 时应优先使用设备结果。
+
+### Web / TypeScript 使用示例
+
+```ts
+import {
+  PMStandard,
+  createEnvironmentRating
+} from "@tapeterjiang-gif/environment-rating";
+
+const rating = await createEnvironmentRating();
+const overall = rating.air.overall({
+  pmStandard: PMStandard.eeaAQI2024,
+  co2: 1200,
+  pm25: 18,
+  pm10: 30
+});
+
+const comfort = rating.thermal.evaluate({
+  temperature: 25,
+  humidity: 50,
+  radiantTemperature: 25,
+  airSpeed: 0.1
+});
+```
+
+Web 包使用字符串枚举，缺失的空气质量参数可省略或传入 `null`。默认标准和 PMV 参数与 Swift API 一致；评级阈值仍全部来自根目录 C 源码。
 
 ## 1. 空气质量
 

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>Environment Rating Web Test</title>
+</head>
+<body data-result="pending">PENDING
+<script type="module">
+  import {
+    AirQuality,
+    IlluminanceRating,
+    ThermalSensation,
+    createEnvironmentRating
+  } from "../dist/index.js";
+
+  try {
+    const rating = await createEnvironmentRating();
+    const comfort = rating.thermal.evaluate({
+      temperature: 25,
+      humidity: 50,
+      radiantTemperature: 25,
+      airSpeed: 0.1,
+      met: 1.1,
+      clo: 0.5
+    });
+    const passed = rating.air.co2(1000) === AirQuality.moderate
+      && rating.soundLight.illuminance(300) === IlluminanceRating.readingAndTasks
+      && comfort?.sensation === ThermalSensation.neutral;
+    document.body.dataset.result = passed ? "pass" : "fail";
+    document.body.textContent = passed ? "PASS" : "FAIL";
+  } catch (error) {
+    document.body.dataset.result = "fail";
+    document.body.textContent = `FAIL: ${error instanceof Error ? error.message : error}`;
+  }
+</script>
+</body>
+</html>
