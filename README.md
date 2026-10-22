@@ -88,8 +88,8 @@ cd android
 
 - **ESP-IDF**：将项目放入 `components/environment_rating`，在调用组件中添加 `REQUIRES environment_rating`，会编译三个评级模块和颜色模块。
 - **Linux**：使用本项目 CMake，按需链接 `air_quality_rating`、`thermal_comfort`、`sound_light_rating`、`environment_color`；也可直接编译所需源文件，使用热舒适度模块时链接数学库 `-lm`。只构建库可设置 `-DBUILD_TESTING=OFF`，无需 C++ 编译器。
-- **iOS / Swift**：在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.58.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。算法包支持 iOS 13 及以上；使用 Apple Matter Framework 的 App 建议以 iOS 16.1 及以上为最低版本。
-- **Android / Kotlin/Java**：使用 `android/environment-rating` 构建 AAR。最低 Android 5.0（API 21），提供 `arm64-v8a`、`armeabi-v7a` 和 `x86_64`，Kotlin/Java 通过 JNI 调用同一套 C 源码；完整示例见 [Android 使用指南](android/README.md)。
+- **iOS / Swift**：支持 iOS 26 及以上。在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.58.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。
+- **Android / Kotlin/Java**：支持 Android 13（API 33）及以上。使用 `android/environment-rating` 构建 AAR，提供 `arm64-v8a`、`armeabi-v7a` 和 `x86_64`，Kotlin/Java 通过 JNI 调用同一套 C 源码；完整示例见 [Android 使用指南](android/README.md)。
 - **Web / TypeScript**：使用 `web/dist` 中的 ES Module 和 Wasm，先异步调用 `createEnvironmentRating()`，再复用返回的无状态 API。支持浏览器、Web Worker 和 Node.js 18 及以上，完整示例见 [Web 使用指南](web/README.md)。
 
 源文件按 C99 编译，支持 C++ 调用。不要开启 `-ffast-math` 或 `-ffinite-math-only`，以保证 NaN 和无穷大检查有效。传感器读取、校准、有效性判断和通信由上层负责。

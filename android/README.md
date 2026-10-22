@@ -11,7 +11,7 @@ cd android
 ./gradlew :environment-rating:assembleRelease
 ```
 
-AAR 位于 `environment-rating/build/outputs/aar/`。最低版本为 Android 5.0（API 21），包含 `arm64-v8a`、`armeabi-v7a` 和 `x86_64`。
+AAR 位于 `environment-rating/build/outputs/aar/`。支持 Android 13（API 33）及以上，包含 `arm64-v8a`、`armeabi-v7a` 和 `x86_64`。
 
 ```kotlin
 import com.qingping.environmentrating.*

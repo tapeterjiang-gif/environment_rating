@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "EnvironmentRating",
     platforms: [
-        .iOS(.v13),
+        .iOS("26.0"),
         .macOS(.v10_15)
     ],
     products: [
