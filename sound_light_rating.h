@@ -44,7 +44,7 @@ typedef enum {
     ILLUMINANCE_DAILY_ACTIVITY,     /* 日常活动 */
     ILLUMINANCE_DINING,             /* 用餐 */
     ILLUMINANCE_BEDSIDE_READING,    /* 床头阅读 */
-    ILLUMINANCE_READING_AND_TASKS   /* 读写与操作 */
+    ILLUMINANCE_READING_AND_TASKS   /* 办公读写 */
 } illuminance_level_t;
 
 /* Instantaneous illuminance in lux, finite and >=0; zero is valid.

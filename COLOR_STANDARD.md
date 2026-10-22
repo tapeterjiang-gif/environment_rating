@@ -153,7 +153,7 @@ CO₂ 的 Moderate 保留原评级名称，但采用与 PM“尚可”相同的�
 | DailyActivity 日常活动 | 100 ≤ E < 150 lx | ![#0284C7](assets/colors/0284C7.svg) | `#0284C7` | `#E0F2FE` | ![#38BDF8](assets/colors/38BDF8.svg) `#38BDF8` | `#0C4A6E` |
 | Dining 用餐 | 150 ≤ E < 200 lx | ![#0D9488](assets/colors/0D9488.svg) | `#0D9488` | `#CCFBF1` | ![#2DD4BF](assets/colors/2DD4BF.svg) `#2DD4BF` | `#134E4A` |
 | BedsideReading 床头阅读 | 200 ≤ E < 300 lx | ![#D97706](assets/colors/D97706.svg) | `#D97706` | `#FEF3C7` | ![#FBBF24](assets/colors/FBBF24.svg) `#FBBF24` | `#78350F` |
-| ReadingAndTasks 读写与操作 | E ≥ 300 lx | ![#CA8A04](assets/colors/CA8A04.svg) | `#CA8A04` | `#FEF9C3` | ![#FACC15](assets/colors/FACC15.svg) `#FACC15` | `#713F12` |
+| ReadingAndTasks 办公读写 | E ≥ 300 lx | ![#CA8A04](assets/colors/CA8A04.svg) | `#CA8A04` | `#FEF9C3` | ![#FACC15](assets/colors/FACC15.svg) `#FACC15` | `#713F12` |
 
 ## 5. 组合展示示例
 

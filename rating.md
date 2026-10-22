@@ -161,7 +161,7 @@ CO₂ 只有三个有效档位，不输出 Critical；1000、2000 均归入 Medi
 | 100 ≤ E < 150 | 日常活动 | `ILLUMINANCE_DAILY_ACTIVITY` | 客厅、厨房、卫生间一般活动 100 lx |
 | 150 ≤ E < 200 | 用餐 | `ILLUMINANCE_DINING` | 餐桌面 150 lx |
 | 200 ≤ E < 300 | 床头阅读 | `ILLUMINANCE_BEDSIDE_READING` | 卧室床头、阅读 200 lx |
-| E ≥ 300（有限值） | 读写与操作 | `ILLUMINANCE_READING_AND_TASKS` | 书写、阅读和厨房操作台等 300 lx |
+| E ≥ 300（有限值） | 办公读写 | `ILLUMINANCE_READING_AND_TASKS` | 书写、阅读等较精细活动 300 lx |
 | E < 0、NaN 或无穷大 | 未知 | `ILLUMINANCE_UNKNOWN` | 无效输入 |
 
 照度边界归入较高档，零值有效。标准值是指定参考平面的维持平均照度；设备的单点瞬时读数只能作为活动参考，不能证明整个区域符合照明标准。

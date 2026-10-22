@@ -567,7 +567,7 @@ illuminance_level_t level = illuminance_rate(120.0); /* 日常活动 */
 | 100 ≤ E < 150 | 日常活动 | ILLUMINANCE_DAILY_ACTIVITY | 客厅、厨房、卫生间一般活动 100 lx |
 | 150 ≤ E < 200 | 用餐 | ILLUMINANCE_DINING | 餐桌面 150 lx |
 | 200 ≤ E < 300 | 床头阅读 | ILLUMINANCE_BEDSIDE_READING | 卧室床头、阅读 200 lx |
-| E ≥ 300（有限值） | 读写与操作 | ILLUMINANCE_READING_AND_TASKS | 客厅书写、阅读及厨房操作台等 300 lx |
+| E ≥ 300（有限值） | 办公读写 | ILLUMINANCE_READING_AND_TASKS | 书写、阅读等较精细活动 300 lx |
 | 无效 | 未知 | ILLUMINANCE_UNKNOWN | 负值、NaN、无穷大 |
 
 阈值不修约、不加容差；边界归入较高档，零值有效。接受所有非负有限 double，不根据数值猜测传感器超量程；上层检查校准、实际量程及数据新鲜度。枚举零值为 Unknown，其余依表顺序排列。
