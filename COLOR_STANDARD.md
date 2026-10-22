@@ -148,12 +148,12 @@ CO₂ 的 Moderate 保留原评级名称，但采用与 PM“尚可”相同的�
 | 照度提示 | 有效区间 | 色样 | 状态色 | 标签背景 | 图示色 | 标签文字 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Unknown | 无效输入 | ![#64748B](assets/colors/64748B.svg) | `#64748B` | `#F1F5F9` | ![#94A3B8](assets/colors/94A3B8.svg) `#94A3B8` | `#334155` |
-| Dim 光线较暗 | 0 ≤ E < 75 lx | ![#475569](assets/colors/475569.svg) | `#475569` | `#E2E8F0` | ![#94A3B8](assets/colors/94A3B8.svg) `#94A3B8` | `#1E293B` |
-| BedroomActivity 卧室活动 | 75 ≤ E < 100 lx | ![#6366F1](assets/colors/6366F1.svg) | `#6366F1` | `#E0E7FF` | ![#818CF8](assets/colors/818CF8.svg) `#818CF8` | `#3730A3` |
-| DailyActivity 日常活动 | 100 ≤ E < 150 lx | ![#0284C7](assets/colors/0284C7.svg) | `#0284C7` | `#E0F2FE` | ![#38BDF8](assets/colors/38BDF8.svg) `#38BDF8` | `#0C4A6E` |
-| Dining 用餐 | 150 ≤ E < 200 lx | ![#0D9488](assets/colors/0D9488.svg) | `#0D9488` | `#CCFBF1` | ![#2DD4BF](assets/colors/2DD4BF.svg) `#2DD4BF` | `#134E4A` |
-| BedsideReading 床头阅读 | 200 ≤ E < 300 lx | ![#D97706](assets/colors/D97706.svg) | `#D97706` | `#FEF3C7` | ![#FBBF24](assets/colors/FBBF24.svg) `#FBBF24` | `#78350F` |
-| ReadingAndTasks 办公读写 | E ≥ 300 lx | ![#CA8A04](assets/colors/CA8A04.svg) | `#CA8A04` | `#FEF9C3` | ![#FACC15](assets/colors/FACC15.svg) `#FACC15` | `#713F12` |
+| LowLight 低照环境 | 0 ≤ E < 53.819552… lx | ![#475569](assets/colors/475569.svg) | `#475569` | `#E2E8F0` | ![#94A3B8](assets/colors/94A3B8.svg) `#94A3B8` | `#1E293B` |
+| Ambient 氛围照明 | 53.819552… ≤ E < 107.639104… lx | ![#6366F1](assets/colors/6366F1.svg) | `#6366F1` | `#E0E7FF` | ![#818CF8](assets/colors/818CF8.svg) `#818CF8` | `#3730A3` |
+| DailyActivity 日常活动 | 107.639104… ≤ E < 215.278208… lx | ![#0284C7](assets/colors/0284C7.svg) | `#0284C7` | `#E0F2FE` | ![#38BDF8](assets/colors/38BDF8.svg) `#38BDF8` | `#0C4A6E` |
+| Reading 阅读学习 | 215.278208… ≤ E < 322.917313… lx | ![#0D9488](assets/colors/0D9488.svg) | `#0D9488` | `#CCFBF1` | ![#2DD4BF](assets/colors/2DD4BF.svg) `#2DD4BF` | `#134E4A` |
+| FocusedActivity 专注活动 | 322.917313… ≤ E < 538.195521… lx | ![#D97706](assets/colors/D97706.svg) | `#D97706` | `#FEF3C7` | ![#FBBF24](assets/colors/FBBF24.svg) `#FBBF24` | `#78350F` |
+| DetailWork 精细作业 | E ≥ 538.195521… lx | ![#CA8A04](assets/colors/CA8A04.svg) | `#CA8A04` | `#FEF9C3` | ![#FACC15](assets/colors/FACC15.svg) `#FACC15` | `#713F12` |
 
 ## 5. 组合展示示例
 
@@ -162,7 +162,7 @@ CO₂ 的 Moderate 保留原评级名称，但采用与 PM“尚可”相同的�
 | PM2.5，评级为 Fair | 图标和趋势线使用雾霾灰蓝 `#667A83` | 等级标签使用黄绿色 `#65A30D` | ![#A3E635](assets/colors/A3E635.svg) `#A3E635` |
 | 温度对应 PMV=+2.0 | 温度图标和趋势线使用温暖橙 `#F97316` | Warm 标签使用深橙色 `#EA580C` | ![#FB923C](assets/colors/FB923C.svg) `#FB923C` |
 | 噪声=Loud | 噪声图标和趋势线使用声波紫 `#9333EA` | Loud 标签使用橙色 `#EA580C` | ![#FB923C](assets/colors/FB923C.svg) `#FB923C` |
-| 照度=ReadingAndTasks | 照度图标使用阳光金 `#F2C94C` | 活动提示标签使用等级表中的金色 `#CA8A04` | ![#FACC15](assets/colors/FACC15.svg) `#FACC15` |
+| 照度=DetailWork | 照度图标使用阳光金 `#F2C94C` | 活动提示标签使用等级表中的金色 `#CA8A04` | ![#FACC15](assets/colors/FACC15.svg) `#FACC15` |
 
 ## 6. 可访问性与实现要求
 

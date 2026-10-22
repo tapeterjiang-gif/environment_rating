@@ -42,21 +42,21 @@ public enum NoiseRating: Int, Sendable {
 
 public enum IlluminanceRating: Int, Sendable {
     case unknown = 0
-    case dim
-    case bedroomActivity
+    case lowLight
+    case ambient
     case dailyActivity
-    case dining
-    case bedsideReading
-    case readingAndTasks
+    case reading
+    case focusedActivity
+    case detailWork
 
     init(_ value: illuminance_level_t) {
         switch value {
-        case ILLUMINANCE_DIM: self = .dim
-        case ILLUMINANCE_BEDROOM_ACTIVITY: self = .bedroomActivity
+        case ILLUMINANCE_LOW_LIGHT: self = .lowLight
+        case ILLUMINANCE_AMBIENT: self = .ambient
         case ILLUMINANCE_DAILY_ACTIVITY: self = .dailyActivity
-        case ILLUMINANCE_DINING: self = .dining
-        case ILLUMINANCE_BEDSIDE_READING: self = .bedsideReading
-        case ILLUMINANCE_READING_AND_TASKS: self = .readingAndTasks
+        case ILLUMINANCE_READING: self = .reading
+        case ILLUMINANCE_FOCUSED_ACTIVITY: self = .focusedActivity
+        case ILLUMINANCE_DETAIL_WORK: self = .detailWork
         default: self = .unknown
         }
     }
@@ -64,12 +64,12 @@ public enum IlluminanceRating: Int, Sendable {
     var cValue: illuminance_level_t {
         switch self {
         case .unknown: return ILLUMINANCE_UNKNOWN
-        case .dim: return ILLUMINANCE_DIM
-        case .bedroomActivity: return ILLUMINANCE_BEDROOM_ACTIVITY
+        case .lowLight: return ILLUMINANCE_LOW_LIGHT
+        case .ambient: return ILLUMINANCE_AMBIENT
         case .dailyActivity: return ILLUMINANCE_DAILY_ACTIVITY
-        case .dining: return ILLUMINANCE_DINING
-        case .bedsideReading: return ILLUMINANCE_BEDSIDE_READING
-        case .readingAndTasks: return ILLUMINANCE_READING_AND_TASKS
+        case .reading: return ILLUMINANCE_READING
+        case .focusedActivity: return ILLUMINANCE_FOCUSED_ACTIVITY
+        case .detailWork: return ILLUMINANCE_DETAIL_WORK
         }
     }
 }

@@ -32,25 +32,32 @@ typedef enum {
  */
 noise_level_t noise_rate(noise_scene_t scene, double noise);
 
-/* Residential activity hints derived from GB/T 50034-2024, Table 5.2.1.
- * https://zcsys.ncepu.edu.cn/docs/2025-01/d5c197c2837e4892ac7d02faae298500.pdf#page=34
- * Continuous bands and labels are product rules, not official grades.
- * These describe illuminance references, not detected room types or quality.
+/* Residential activity hints derived from ANSI/IES/ALA RP-11-26,
+ * especially its Annex A illuminance recommendations.
+ * https://store.ies.org/product/recommended-practice-lighting-for-interior-and-exterior-residential-environments/
+ * The source recommendations are task-specific maintained illuminance targets
+ * in footcandles. Continuous bands and labels are product rules, not official
+ * RP-11-26 grades. They describe supported activity levels, not room types,
+ * visual comfort, health effects or standards compliance.
  */
 typedef enum {
-    ILLUMINANCE_UNKNOWN = 0,        /* 未知 */
-    ILLUMINANCE_DIM,                /* 光线较暗 */
-    ILLUMINANCE_BEDROOM_ACTIVITY,   /* 卧室活动 */
-    ILLUMINANCE_DAILY_ACTIVITY,     /* 日常活动 */
-    ILLUMINANCE_DINING,             /* 用餐 */
-    ILLUMINANCE_BEDSIDE_READING,    /* 床头阅读 */
-    ILLUMINANCE_READING_AND_TASKS   /* 办公读写 */
+    ILLUMINANCE_UNKNOWN = 0,       /* 未知 */
+    ILLUMINANCE_LOW_LIGHT,         /* 低照环境 */
+    ILLUMINANCE_AMBIENT,           /* 氛围照明 */
+    ILLUMINANCE_DAILY_ACTIVITY,    /* 日常活动 */
+    ILLUMINANCE_READING,           /* 阅读学习 */
+    ILLUMINANCE_FOCUSED_ACTIVITY,  /* 专注活动 */
+    ILLUMINANCE_DETAIL_WORK        /* 精细作业 */
 } illuminance_level_t;
 
 /* Instantaneous illuminance in lux, finite and >=0; zero is valid.
- * [0,75) Dim; [75,100) BedroomActivity; [100,150) DailyActivity;
- * [150,200) Dining; [200,300) BedsideReading; [300,+inf) ReadingAndTasks
- * (finite inputs only). Negative, NAN or infinite inputs return UNKNOWN.
+ * Boundaries are exact conversions of 5, 10, 20, 30 and 50 footcandles:
+ * [0,53.819552...) LowLight; [53.819552...,107.639104...) Ambient;
+ * [107.639104...,215.278208...) DailyActivity;
+ * [215.278208...,322.917312...) Reading;
+ * [322.917312...,538.195521...) FocusedActivity;
+ * [538.195521...,+inf) DetailWork (finite inputs only).
+ * Negative, NAN or infinite inputs return UNKNOWN.
  * No rounding, clamping, scene selection or upper brightness warning.
  * Standard values concern maintained average illuminance at specified
  * reference/task planes; a single instantaneous sample is only a hint,

@@ -152,18 +152,20 @@ CO₂ 只有三个有效档位，不输出 Critical；1000、2000 均归入 Medi
 
 ### 3.2 照度提示
 
-接口为 `illuminance_rate()`，输入单位为 **lx**。参考 GB/T 50034—2024 表 5.2.1 的住宅照度值；连续区间和场景提示属于产品映射。
+接口为 `illuminance_rate()`，输入单位为 **lx**。参考 ANSI/IES/ALA RP-11-26 的住宅任务照度层级；标准本身按具体房间、活动和任务面给出维持照度目标，不定义以下连续评级。项目以 5、10、20、30、50 fc 为分界，并按 `1 fc = 10.763910416709722 lx` 精确换算。
 
-| 瞬时照度 E | 场景提示 | 返回枚举 | 参考含义 |
+| 瞬时照度 E | 场景提示 | 返回枚举 | 分界依据 |
 | --- | --- | --- | --- |
-| 0 ≤ E < 75 | 光线较暗 | `ILLUMINANCE_DIM` | 低于所选住宅活动最低参考值 |
-| 75 ≤ E < 100 | 卧室活动 | `ILLUMINANCE_BEDROOM_ACTIVITY` | 卧室一般活动 75 lx |
-| 100 ≤ E < 150 | 日常活动 | `ILLUMINANCE_DAILY_ACTIVITY` | 客厅、厨房、卫生间一般活动 100 lx |
-| 150 ≤ E < 200 | 用餐 | `ILLUMINANCE_DINING` | 餐桌面 150 lx |
-| 200 ≤ E < 300 | 床头阅读 | `ILLUMINANCE_BEDSIDE_READING` | 卧室床头、阅读 200 lx |
-| E ≥ 300（有限值） | 办公读写 | `ILLUMINANCE_READING_AND_TASKS` | 书写、阅读等较精细活动 300 lx |
+| 0 ≤ E < 53.819552… lx | 低照环境 | `ILLUMINANCE_LOW_LIGHT` | 低于 5 fc |
+| 53.819552… ≤ E < 107.639104… lx | 氛围照明 | `ILLUMINANCE_AMBIENT` | 5～<10 fc |
+| 107.639104… ≤ E < 215.278208… lx | 日常活动 | `ILLUMINANCE_DAILY_ACTIVITY` | 10～<20 fc |
+| 215.278208… ≤ E < 322.917313… lx | 阅读学习 | `ILLUMINANCE_READING` | 20～<30 fc |
+| 322.917313… ≤ E < 538.195521… lx | 专注活动 | `ILLUMINANCE_FOCUSED_ACTIVITY` | 30～<50 fc |
+| E ≥ 538.195521… lx（有限值） | 精细作业 | `ILLUMINANCE_DETAIL_WORK` | 50 fc 及以上 |
 | E < 0、NaN 或无穷大 | 未知 | `ILLUMINANCE_UNKNOWN` | 无效输入 |
 
-照度边界归入较高档，零值有效。标准值是指定参考平面的维持平均照度；设备的单点瞬时读数只能作为活动参考，不能证明整个区域符合照明标准。
+界面可将边界显示为 54、108、215、323、538 lx；算法不提前修约。边界归入较高档，零值有效。结果表示当前照度大致能够支持的活动层级，不表示越亮越好。
 
-来源：[WHO《社区噪声指南》](https://www.who.int/publications/i/item/a68672)、[GB/T 50034—2024 表 5.2.1](https://zcsys.ncepu.edu.cn/docs/2025-01/d5c197c2837e4892ac7d02faae298500.pdf#page=34)。
+RP-11-26 的目标值针对指定任务面和测量方向。设备的墙面单点瞬时读数只能作为场景提示，不能证明整个区域符合标准，也不评价眩光、均匀度或昼夜节律影响。
+
+来源：[ANSI/IES/ALA RP-11-26 官方说明](https://store.ies.org/product/recommended-practice-lighting-for-interior-and-exterior-residential-environments/?v=eb65bcceaa5f)、[IES Illuminance Selector 使用说明](https://ies.org/standards/lighting-library/illuminance-selector-faqs/)。

@@ -74,9 +74,9 @@ final class EnvironmentRatingTests: XCTestCase {
         XCTAssertEqual(SoundLightRating.noise(35, scene: .home), .quiet)
         XCTAssertEqual(SoundLightRating.noise(35.1, scene: .home), .noticeable)
         XCTAssertEqual(SoundLightRating.noise(50, scene: .sleep), .loud)
-        XCTAssertEqual(SoundLightRating.illuminance(0), .dim)
-        XCTAssertEqual(SoundLightRating.illuminance(100), .dailyActivity)
-        XCTAssertEqual(SoundLightRating.illuminance(300), .readingAndTasks)
+        XCTAssertEqual(SoundLightRating.illuminance(0), .lowLight)
+        XCTAssertEqual(SoundLightRating.illuminance(125), .dailyActivity)
+        XCTAssertEqual(SoundLightRating.illuminance(540), .detailWork)
         XCTAssertEqual(SoundLightRating.illuminance(.infinity), .unknown)
     }
 
@@ -103,7 +103,7 @@ final class EnvironmentRatingTests: XCTestCase {
         XCTAssertEqual(EnvironmentColors.humidity(.dry)?.text.hex, "#78350F")
         XCTAssertEqual(EnvironmentColors.noise(.loud)?.graphic.hex, "#FB923C")
         XCTAssertEqual(
-            EnvironmentColors.illuminance(.dining)?.background.hex,
+            EnvironmentColors.illuminance(.reading)?.background.hex,
             "#CCFBF1"
         )
         XCTAssertEqual(EnvironmentColors.thermal(.unknown)?.primary.hex, "#64748B")

@@ -53,12 +53,12 @@ static const palette_t noise_palettes[] = {
 
 static const palette_t illuminance_palettes[] = {
     PALETTE(64748B, F1F5F9, 94A3B8, 334155), /* Unknown */
-    PALETTE(475569, E2E8F0, 94A3B8, 1E293B), /* Dim */
-    PALETTE(6366F1, E0E7FF, 818CF8, 3730A3), /* Bedroom activity */
+    PALETTE(475569, E2E8F0, 94A3B8, 1E293B), /* Low light */
+    PALETTE(6366F1, E0E7FF, 818CF8, 3730A3), /* Ambient */
     PALETTE(0284C7, E0F2FE, 38BDF8, 0C4A6E), /* Daily activity */
-    PALETTE(0D9488, CCFBF1, 2DD4BF, 134E4A), /* Dining */
-    PALETTE(D97706, FEF3C7, FBBF24, 78350F), /* Bedside reading */
-    PALETTE(CA8A04, FEF9C3, FACC15, 713F12)  /* Reading and tasks */
+    PALETTE(0D9488, CCFBF1, 2DD4BF, 134E4A), /* Reading */
+    PALETTE(D97706, FEF3C7, FBBF24, 78350F), /* Focused activity */
+    PALETTE(CA8A04, FEF9C3, FACC15, 713F12)  /* Detail work */
 };
 
 static env_rgb_t palette_color(const palette_t *palette,
@@ -156,7 +156,7 @@ env_rgb_t env_color_illuminance(illuminance_level_t level,
                                 env_color_role_t role)
 {
     if ((int)level < (int)ILLUMINANCE_UNKNOWN ||
-        (int)level > (int)ILLUMINANCE_READING_AND_TASKS)
+        (int)level > (int)ILLUMINANCE_DETAIL_WORK)
         return ENV_RGB_INVALID;
     return palette_color(&illuminance_palettes[(int)level], role);
 }

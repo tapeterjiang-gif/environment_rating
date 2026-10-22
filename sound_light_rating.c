@@ -31,11 +31,14 @@ noise_level_t noise_rate(noise_scene_t scene, double noise)
 
 illuminance_level_t illuminance_rate(double illuminance)
 {
+    /* Exact SI conversion: 1 footcandle = 10.763910416709722 lux. */
+    static const double lux_per_fc = 10.763910416709722;
+
     if (!isfinite(illuminance) || illuminance < 0) return ILLUMINANCE_UNKNOWN;
-    if (illuminance < 75) return ILLUMINANCE_DIM;
-    if (illuminance < 100) return ILLUMINANCE_BEDROOM_ACTIVITY;
-    if (illuminance < 150) return ILLUMINANCE_DAILY_ACTIVITY;
-    if (illuminance < 200) return ILLUMINANCE_DINING;
-    if (illuminance < 300) return ILLUMINANCE_BEDSIDE_READING;
-    return ILLUMINANCE_READING_AND_TASKS;
+    if (illuminance < 5 * lux_per_fc) return ILLUMINANCE_LOW_LIGHT;
+    if (illuminance < 10 * lux_per_fc) return ILLUMINANCE_AMBIENT;
+    if (illuminance < 20 * lux_per_fc) return ILLUMINANCE_DAILY_ACTIVITY;
+    if (illuminance < 30 * lux_per_fc) return ILLUMINANCE_READING;
+    if (illuminance < 50 * lux_per_fc) return ILLUMINANCE_FOCUSED_ACTIVITY;
+    return ILLUMINANCE_DETAIL_WORK;
 }

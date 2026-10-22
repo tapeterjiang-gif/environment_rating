@@ -6,15 +6,16 @@
 #define CHECK(x) do { if (!(x)) { fprintf(stderr,"line %d: %s\n",__LINE__,#x); exit(1); } } while(0)
 static void test_illuminance(void)
 {
+    const double lux_per_fc = 10.763910416709722;
     const struct {
         double boundary;
         illuminance_level_t below, at;
     } edges[] = {
-        {75, ILLUMINANCE_DIM, ILLUMINANCE_BEDROOM_ACTIVITY},
-        {100, ILLUMINANCE_BEDROOM_ACTIVITY, ILLUMINANCE_DAILY_ACTIVITY},
-        {150, ILLUMINANCE_DAILY_ACTIVITY, ILLUMINANCE_DINING},
-        {200, ILLUMINANCE_DINING, ILLUMINANCE_BEDSIDE_READING},
-        {300, ILLUMINANCE_BEDSIDE_READING, ILLUMINANCE_READING_AND_TASKS}
+        {5 * lux_per_fc, ILLUMINANCE_LOW_LIGHT, ILLUMINANCE_AMBIENT},
+        {10 * lux_per_fc, ILLUMINANCE_AMBIENT, ILLUMINANCE_DAILY_ACTIVITY},
+        {20 * lux_per_fc, ILLUMINANCE_DAILY_ACTIVITY, ILLUMINANCE_READING},
+        {30 * lux_per_fc, ILLUMINANCE_READING, ILLUMINANCE_FOCUSED_ACTIVITY},
+        {50 * lux_per_fc, ILLUMINANCE_FOCUSED_ACTIVITY, ILLUMINANCE_DETAIL_WORK}
     };
     size_t i;
     for (i=0;i<sizeof(edges)/sizeof(edges[0]);++i) {
@@ -22,16 +23,16 @@ static void test_illuminance(void)
         CHECK(illuminance_rate(edges[i].boundary)==edges[i].at);
         CHECK(illuminance_rate(nextafter(edges[i].boundary,INFINITY))==edges[i].at);
     }
-    CHECK(illuminance_rate(0)==ILLUMINANCE_DIM);
-    CHECK(illuminance_rate(-0.0)==ILLUMINANCE_DIM);
-    CHECK(illuminance_rate(nextafter(0,INFINITY))==ILLUMINANCE_DIM);
+    CHECK(illuminance_rate(0)==ILLUMINANCE_LOW_LIGHT);
+    CHECK(illuminance_rate(-0.0)==ILLUMINANCE_LOW_LIGHT);
+    CHECK(illuminance_rate(nextafter(0,INFINITY))==ILLUMINANCE_LOW_LIGHT);
     CHECK(illuminance_rate(nextafter(0,-INFINITY))==ILLUMINANCE_UNKNOWN);
     CHECK(illuminance_rate(-1)==ILLUMINANCE_UNKNOWN);
     CHECK(illuminance_rate(NAN)==ILLUMINANCE_UNKNOWN);
     CHECK(illuminance_rate(INFINITY)==ILLUMINANCE_UNKNOWN);
     CHECK(illuminance_rate(-INFINITY)==ILLUMINANCE_UNKNOWN);
-    CHECK(illuminance_rate(DBL_MAX)==ILLUMINANCE_READING_AND_TASKS);
-    CHECK(illuminance_rate(250)==ILLUMINANCE_BEDSIDE_READING);
+    CHECK(illuminance_rate(DBL_MAX)==ILLUMINANCE_DETAIL_WORK);
+    CHECK(illuminance_rate(250)==ILLUMINANCE_READING);
     CHECK(illuminance_rate(125)==ILLUMINANCE_DAILY_ACTIVITY);
 }
 

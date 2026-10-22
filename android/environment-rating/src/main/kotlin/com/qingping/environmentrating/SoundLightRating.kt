@@ -20,12 +20,12 @@ enum class NoiseRating(internal val code: Int) {
 
 enum class IlluminanceRating(internal val code: Int) {
     UNKNOWN(0),
-    DIM(1),
-    BEDROOM_ACTIVITY(2),
+    LOW_LIGHT(1),
+    AMBIENT(2),
     DAILY_ACTIVITY(3),
-    DINING(4),
-    BEDSIDE_READING(5),
-    READING_AND_TASKS(6);
+    READING(4),
+    FOCUSED_ACTIVITY(5),
+    DETAIL_WORK(6);
 
     companion object {
         internal fun fromCode(code: Int): IlluminanceRating =

@@ -147,10 +147,10 @@ test("sound and light ratings use the same boundaries as C", () => {
     rating.soundLight.noise(35, NoiseScene.sleep),
     NoiseRating.noticeable
   );
-  assert.equal(rating.soundLight.illuminance(0), IlluminanceRating.dim);
+  assert.equal(rating.soundLight.illuminance(0), IlluminanceRating.lowLight);
   assert.equal(
-    rating.soundLight.illuminance(300),
-    IlluminanceRating.readingAndTasks
+    rating.soundLight.illuminance(540),
+    IlluminanceRating.detailWork
   );
   assert.equal(
     rating.soundLight.illuminance(-1),
@@ -170,14 +170,27 @@ test("sound and light ratings use the same boundaries as C", () => {
     assert.equal(rating.soundLight.noise(value, NoiseScene.home), expected);
   });
   [
-    [0, IlluminanceRating.dim],
-    [75, IlluminanceRating.bedroomActivity],
-    [100, IlluminanceRating.dailyActivity],
-    [150, IlluminanceRating.dining],
-    [200, IlluminanceRating.bedsideReading],
-    [300, IlluminanceRating.readingAndTasks]
+    [0, IlluminanceRating.lowLight],
+    [54, IlluminanceRating.ambient],
+    [108, IlluminanceRating.dailyActivity],
+    [216, IlluminanceRating.reading],
+    [324, IlluminanceRating.focusedActivity],
+    [540, IlluminanceRating.detailWork]
   ].forEach(([value, expected]) => {
     assert.equal(rating.soundLight.illuminance(value), expected);
+  });
+
+  const luxPerFootcandle = 10.763910416709722;
+  [
+    [5, IlluminanceRating.lowLight, IlluminanceRating.ambient],
+    [10, IlluminanceRating.ambient, IlluminanceRating.dailyActivity],
+    [20, IlluminanceRating.dailyActivity, IlluminanceRating.reading],
+    [30, IlluminanceRating.reading, IlluminanceRating.focusedActivity],
+    [50, IlluminanceRating.focusedActivity, IlluminanceRating.detailWork]
+  ].forEach(([footcandles, below, at]) => {
+    const boundary = footcandles * luxPerFootcandle;
+    assert.equal(rating.soundLight.illuminance(boundary - 1e-9), below);
+    assert.equal(rating.soundLight.illuminance(boundary), at);
   });
 });
 
@@ -208,7 +221,7 @@ test("colors expose parameter and rating palettes from C", () => {
   assert.equal(rating.colors.humidity(HumidityRating.dry)?.text, "#78350F");
   assert.equal(rating.colors.noise(NoiseRating.loud)?.graphic, "#FB923C");
   assert.equal(
-    rating.colors.illuminance(IlluminanceRating.dining)?.background,
+    rating.colors.illuminance(IlluminanceRating.reading)?.background,
     "#CCFBF1"
   );
 });

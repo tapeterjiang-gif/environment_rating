@@ -39,7 +39,7 @@ class EnvironmentRatingInstrumentedTest {
         assertTrue(comfort?.ppd?.let { it >= 5.0 } == true)
         assertEquals(HumidityRating.SUITABLE, ThermalComfort.rateHumidity(55.0))
         assertEquals(NoiseRating.NOTICEABLE, SoundLightRating.noise(35.1, NoiseScene.HOME))
-        assertEquals(IlluminanceRating.READING_AND_TASKS, SoundLightRating.illuminance(300.0))
+        assertEquals(IlluminanceRating.DETAIL_WORK, SoundLightRating.illuminance(540.0))
         assertNull(
             ThermalComfort.evaluate(
                 temperature = Double.NaN,

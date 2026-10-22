@@ -69,7 +69,7 @@ static void test_other_state_colors(void)
           UINT32_C(0x78350F));
     CHECK(env_color_noise(NOISE_LOUD, ENV_COLOR_BACKGROUND) ==
           UINT32_C(0xFFEDD5));
-    CHECK(env_color_illuminance(ILLUMINANCE_DINING, ENV_COLOR_GRAPHIC) ==
+    CHECK(env_color_illuminance(ILLUMINANCE_READING, ENV_COLOR_GRAPHIC) ==
           UINT32_C(0x2DD4BF));
     CHECK(env_color_illuminance(ILLUMINANCE_UNKNOWN, ENV_COLOR_PRIMARY) ==
           UINT32_C(0x64748B));

@@ -25,7 +25,7 @@
       clo: 0.5
     });
     const passed = rating.air.co2(1000) === AirQuality.moderate
-      && rating.soundLight.illuminance(300) === IlluminanceRating.readingAndTasks
+      && rating.soundLight.illuminance(540) === IlluminanceRating.detailWork
       && comfort?.sensation === ThermalSensation.neutral
       && rating.colors.parameter(EnvironmentParameter.temperature)?.primary === "#F97316"
       && rating.colors.air(EnvironmentParameter.co2, AirQuality.moderate)?.graphic === "#A3E635";

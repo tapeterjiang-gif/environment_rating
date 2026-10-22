@@ -7,7 +7,7 @@
 int main()
 {
     if (noise_rate(NOISE_SLEEP, 30) != NOISE_QUIET) return 1;
-    if (illuminance_rate(100) != ILLUMINANCE_DAILY_ACTIVITY) return 1;
+    if (illuminance_rate(125) != ILLUMINANCE_DAILY_ACTIVITY) return 1;
     if (env_color_parameter(ENV_PARAM_TEMPERATURE, ENV_COLOR_PRIMARY) !=
         UINT32_C(0xF97316)) return 1;
     if (env_color_air(ENV_PARAM_PM25, AIR_FAIR, ENV_COLOR_GRAPHIC) !=

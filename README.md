@@ -555,28 +555,30 @@ WHO 的住宅日间及晚间参考值为 LAeq,16h 35 dB(A)，睡眠参考值为 
 
 ```c
 /* 包含 sound_light_rating.h 后，在函数内调用。 */
-illuminance_level_t level = illuminance_rate(120.0); /* 日常活动 */
+illuminance_level_t level = illuminance_rate(125.0); /* 日常活动 */
 ```
 
-`illuminance_level_t illuminance_rate(double illuminance)` 接收瞬时照度（lx），无需标准或场景参数。仅参考 GB/T 50034—2024 表 5.2.1 的住宅照度值，不与噪声合并。
+`illuminance_level_t illuminance_rate(double illuminance)` 接收瞬时照度（lx），无需标准或场景参数。评级参考 ANSI/IES/ALA RP-11-26 的住宅任务照度层级，不与噪声合并。
 
-| 照度 E（lx） | 场景提示 | 返回枚举 | 参考依据 |
+RP-11-26 按房间、活动和任务面给出维持照度目标，并不提供连续评级。本项目选用 5、10、20、30、50 fc 作为活动层级分界，按 `1 fc = 10.763910416709722 lx` 转换；连续区间和提示名称均为产品映射。
+
+| 瞬时照度 E（lx） | 场景提示 | 返回枚举 | 分界依据 |
 | --- | --- | --- | --- |
-| 0 ≤ E < 75 | 光线较暗 | ILLUMINANCE_DIM | 低于所选住宅活动最低参考值 |
-| 75 ≤ E < 100 | 卧室活动 | ILLUMINANCE_BEDROOM_ACTIVITY | 卧室一般活动 75 lx |
-| 100 ≤ E < 150 | 日常活动 | ILLUMINANCE_DAILY_ACTIVITY | 客厅、厨房、卫生间一般活动 100 lx |
-| 150 ≤ E < 200 | 用餐 | ILLUMINANCE_DINING | 餐桌面 150 lx |
-| 200 ≤ E < 300 | 床头阅读 | ILLUMINANCE_BEDSIDE_READING | 卧室床头、阅读 200 lx |
-| E ≥ 300（有限值） | 办公读写 | ILLUMINANCE_READING_AND_TASKS | 书写、阅读等较精细活动 300 lx |
+| 0 ≤ E < 53.819552… | 低照环境 | ILLUMINANCE_LOW_LIGHT | 低于 5 fc |
+| 53.819552… ≤ E < 107.639104… | 氛围照明 | ILLUMINANCE_AMBIENT | 5～<10 fc |
+| 107.639104… ≤ E < 215.278208… | 日常活动 | ILLUMINANCE_DAILY_ACTIVITY | 10～<20 fc |
+| 215.278208… ≤ E < 322.917313… | 阅读学习 | ILLUMINANCE_READING | 20～<30 fc |
+| 322.917313… ≤ E < 538.195521… | 专注活动 | ILLUMINANCE_FOCUSED_ACTIVITY | 30～<50 fc |
+| E ≥ 538.195521…（有限值） | 精细作业 | ILLUMINANCE_DETAIL_WORK | 50 fc 及以上 |
 | 无效 | 未知 | ILLUMINANCE_UNKNOWN | 负值、NaN、无穷大 |
 
-阈值不修约、不加容差；边界归入较高档，零值有效。接受所有非负有限 double，不根据数值猜测传感器超量程；上层检查校准、实际量程及数据新鲜度。枚举零值为 Unknown，其余依表顺序排列。
+界面显示边界时可分别取整为 54、108、215、323、538 lx；算法使用精确换算值，不提前修约。边界归入较高档，零值有效。函数接受所有非负有限 `double`，不根据数值猜测传感器超量程；调用方检查校准、实际量程和数据新鲜度。
 
-数值来自标准，连续区间及提示名称为产品映射。档位表示逐步达到更多活动的照度参考值，不是互斥用途、房间识别或好坏评级。界面统一使用“照度参考：日常活动”等格式，并说明：“根据住宅照明标准提供活动参考，实际需求因任务和测量位置而异。”
+档位表达当前照度大致能够支持的住宅活动层级，不表示越亮越好，也不识别房间类型。界面建议使用“照度参考：日常活动”等格式，并说明：“根据住宅任务照度提供活动参考，实际需求因活动、人员和测量位置而异。”
 
-标准值是指定参考平面的维持平均照度：一般活动多为距地面 0.75 m 水平面，用餐为 0.75 m 餐桌面，操作台为台面；阅读、操作台等项目包含一般照明与局部照明组成的混合照明。仪器单点瞬时读数只能作提示，不证明整个区域符合标准，不评价眩光、过亮或睡眠照明。
+IES 照度目标通常是指定任务面上的维持照度，并可能分别规定水平和垂直照度。墙面设备的单点瞬时读数只能作场景提示，不能证明整个区域符合 RP-11-26，也不评价眩光、均匀度、睡眠照明或昼夜节律影响。
 
-来源：[GB/T 50034—2024 表 5.2.1，正文第 25～26 页](https://zcsys.ncepu.edu.cn/docs/2025-01/d5c197c2837e4892ac7d02faae298500.pdf#page=34)。
+来源：[ANSI/IES/ALA RP-11-26 官方说明](https://store.ies.org/product/recommended-practice-lighting-for-interior-and-exterior-residential-environments/?v=eb65bcceaa5f)、[IES Illuminance Selector 使用说明](https://ies.org/standards/lighting-library/illuminance-selector-faqs/)。
 
 ## 4. 代码引用的标准与指南
 
@@ -597,4 +599,4 @@ illuminance_level_t level = illuminance_rate(120.0); /* 日常活动 */
 | U.S. EPA | 家庭霉菌与潮湿简明指南 | *A Brief Guide to Mold, Moisture and Your Home* |
 | UBA | 住宅通风与湿度指南 | *Residential ventilation and humidity guidance* |
 | WHO 1999 | 社区噪声指南 | *Guidelines for Community Noise* |
-| GB/T 50034—2024 | 建筑照明设计标准 | *Standard for lighting design of buildings* |
+| ANSI/IES/ALA RP-11-26 | 室内和室外住宅环境照明推荐实践 | *Recommended Practice: Lighting for Interior and Exterior Residential Environments* |

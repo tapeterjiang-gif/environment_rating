@@ -61,12 +61,12 @@ export const NoiseRating = {
 };
 export const IlluminanceRating = {
     unknown: "unknown",
-    dim: "dim",
-    bedroomActivity: "bedroom-activity",
+    lowLight: "low-light",
+    ambient: "ambient",
     dailyActivity: "daily-activity",
-    dining: "dining",
-    bedsideReading: "bedside-reading",
-    readingAndTasks: "reading-and-tasks"
+    reading: "reading",
+    focusedActivity: "focused-activity",
+    detailWork: "detail-work"
 };
 export const EnvironmentParameter = {
     temperature: "temperature",
@@ -121,12 +121,12 @@ const noiseRatingValues = [
 ];
 const illuminanceRatingValues = [
     IlluminanceRating.unknown,
-    IlluminanceRating.dim,
-    IlluminanceRating.bedroomActivity,
+    IlluminanceRating.lowLight,
+    IlluminanceRating.ambient,
     IlluminanceRating.dailyActivity,
-    IlluminanceRating.dining,
-    IlluminanceRating.bedsideReading,
-    IlluminanceRating.readingAndTasks
+    IlluminanceRating.reading,
+    IlluminanceRating.focusedActivity,
+    IlluminanceRating.detailWork
 ];
 function enumValue(values, value) {
     return values[value] ?? values[0];

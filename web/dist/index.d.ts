@@ -67,12 +67,12 @@ export declare const NoiseRating: {
 export type NoiseRating = typeof NoiseRating[keyof typeof NoiseRating];
 export declare const IlluminanceRating: {
     readonly unknown: "unknown";
-    readonly dim: "dim";
-    readonly bedroomActivity: "bedroom-activity";
+    readonly lowLight: "low-light";
+    readonly ambient: "ambient";
     readonly dailyActivity: "daily-activity";
-    readonly dining: "dining";
-    readonly bedsideReading: "bedside-reading";
-    readonly readingAndTasks: "reading-and-tasks";
+    readonly reading: "reading";
+    readonly focusedActivity: "focused-activity";
+    readonly detailWork: "detail-work";
 };
 export type IlluminanceRating = typeof IlluminanceRating[keyof typeof IlluminanceRating];
 export declare const EnvironmentParameter: {
