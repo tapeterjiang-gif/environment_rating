@@ -1,6 +1,6 @@
 # 环境指标颜色说明
 
-**Qingping Environmental Colors V1.5｜青萍环境参数标准配色方案**
+**Qingping Environmental Colors V1.6｜青萍环境参数标准配色方案**
 
 本文定义 `environment_rating` 的界面颜色规则，适用于设备屏幕、移动端、网页、图表和状态标签。颜色是产品视觉规则，不属于 Matter、ISO、ASHRAE、WHO、EPA、EEA、UBA 或 GB/T 标准的一部分，也不改变任何评级阈值。
 
@@ -13,7 +13,7 @@
 
 同一界面同时展示参数与等级时，参数名称或图标使用识别色，等级标签使用状态色。只有一个颜色位置时，优先显示等级状态色，并保留参数文字或图标。颜色不能作为唯一信息来源，必须同时显示文字、数值或图标。
 
-参数图标在 Apple 平台使用下表指定的 SF Symbols，并着参数识别色。图标表示参数类型，不随评级改变；Android、Web 和设备屏幕沿用相同语义，并使用各平台对应的本地图标资源。
+参数图标在 Apple 平台使用下表指定的 SF Symbols；Android、Web、Linux 和设备屏幕使用 Material Symbols Rounded。两套图标均着参数识别色，表示参数类型，不随评级改变。Material 图标以实际资源展示；Apple 端通过系统名称加载 SF Symbol。
 
 图表按表达目的选色：只区分参数时使用参数识别色；表达评级分布或区间时使用各状态表中的**图示色**。图示色在视觉明度上介于标签背景与标签文字之间，比背景清楚、比文字柔和，适合柱形图、面积图、仪表填充等较大面积图形。图形上的文字优先放在图形外；必须叠加时，应按实际背景检查对比度。
 
@@ -21,10 +21,10 @@
 
 ### 参数识别色
 
-| 参数 | SF Symbol | 色样 | 识别色 | HEX | 浅色背景 | 建议用途 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 温度 | `thermometer.medium` | ![#F97316](assets/colors/F97316.svg) | 温暖橙 | `#F97316` | `#FFEDD5` | 温度图标、趋势线 |
-| 相对湿度 | `humidity.fill` | ![#0891B2](assets/colors/0891B2.svg) | 水润青 | `#0891B2` | `#CFFAFE` | 湿度图标、趋势线 |
+| 参数 | Material 图标 | Apple · SF Symbols | Material Symbols Rounded | 色样 | 识别色 | HEX | 浅色背景 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 温度 | ![温度](assets/icons/material/device_thermostat.svg) | `thermometer.medium` | `device_thermostat` | ![#F97316](assets/colors/F97316.svg) | 温暖橙 | `#F97316` | `#FFEDD5` |
+| 相对湿度 | ![相对湿度](assets/icons/material/humidity_percentage.svg) | `humidity.fill` | `humidity_percentage` | ![#0891B2](assets/colors/0891B2.svg) | 水润青 | `#0891B2` | `#CFFAFE` |
 
 ### PMV 冷热感状态色
 
@@ -59,15 +59,15 @@ EPA 与 UBA 的阈值不同，但相同提示使用相同颜色；UBA 不产生 
 
 ### 参数识别色
 
-| 参数 | SF Symbol | 色样 | 识别色 | HEX | 浅色背景 | 建议用途 |
-| --- | --- | --- | --- | --- | --- | --- |
-| CO₂ | `carbon.dioxide.cloud` | ![#15803D](assets/colors/15803D.svg) | 森林绿 | `#15803D` | `#DCFCE7` | CO₂ 图标、趋势线 |
-| PM2.5 | `aqi.medium` | ![#667A83](assets/colors/667A83.svg) | 雾霾灰蓝 | `#667A83` | `#E8EEF0` | PM2.5 图标、趋势线 |
-| PM10 | `aqi.medium` | ![#9A7958](assets/colors/9A7958.svg) | 沙尘灰棕 | `#9A7958` | `#F1EBE4` | PM10 图标、趋势线 |
-| 甲醛 HCHO | `atom` | ![#DB2777](assets/colors/DB2777.svg) | 警觉玫红 | `#DB2777` | `#FCE7F3` | 甲醛图标、趋势线 |
-| TVOC 指数 | `speedometer` | ![#89941A](assets/colors/89941A.svg) | 挥发黄绿 | `#89941A` | `#F1F5D5` | TVOC 图标、趋势线 |
+| 参数 | Material 图标 | Apple · SF Symbols | Material Symbols Rounded | 色样 | 识别色 | HEX | 浅色背景 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| CO₂ | ![CO₂](assets/icons/material/co2.svg) | `carbon.dioxide.cloud` | `co2` | ![#15803D](assets/colors/15803D.svg) | 森林绿 | `#15803D` | `#DCFCE7` |
+| PM2.5 | ![PM2.5](assets/icons/material/air.svg) | `aqi.medium` | `air` | ![#667A83](assets/colors/667A83.svg) | 雾霾灰蓝 | `#667A83` | `#E8EEF0` |
+| PM10 | ![PM10](assets/icons/material/air.svg) | `aqi.medium` | `air` | ![#9A7958](assets/colors/9A7958.svg) | 沙尘灰棕 | `#9A7958` | `#F1EBE4` |
+| 甲醛 HCHO | ![甲醛](assets/icons/material/science.svg) | `atom` | `science` | ![#DB2777](assets/colors/DB2777.svg) | 警觉玫红 | `#DB2777` | `#FCE7F3` |
+| TVOC 指数 | ![TVOC 指数](assets/icons/material/speed.svg) | `speedometer` | `speed` | ![#89941A](assets/colors/89941A.svg) | 挥发黄绿 | `#89941A` | `#F1F5D5` |
 
-PM2.5 与 PM10 共用 `aqi.medium`，通过名称和识别色区分；两种识别色采用相近的低饱和自然色系，分别联想到雾霾与沙尘。TVOC 当前只定义参数识别色，项目尚未为其定义评级状态色。
+PM2.5 与 PM10 在 Apple 端共用 `aqi.medium`，在其他平台共用 `air`，通过名称和识别色区分；两种识别色采用相近的低饱和自然色系，分别联想到雾霾与沙尘。TVOC 当前只定义参数识别色，项目尚未为其定义评级状态色。
 
 ### CO₂ 状态色
 
@@ -126,10 +126,10 @@ CO₂ 的 Moderate 保留原评级名称，但采用与 PM“尚可”相同的�
 
 ### 参数识别色
 
-| 参数 | SF Symbol | 色样 | 识别色 | HEX | 浅色背景 | 建议用途 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 噪声 | `waveform` | ![#9333EA](assets/colors/9333EA.svg) | 声波紫 | `#9333EA` | `#F3E8FF` | 噪声图标、趋势线 |
-| 光照 / 照度 | `sun.max` | ![#F2C94C](assets/colors/F2C94C.svg) | 阳光金 | `#F2C94C` | `#FEF9C3` | 照度图标、趋势线 |
+| 参数 | Material 图标 | Apple · SF Symbols | Material Symbols Rounded | 色样 | 识别色 | HEX | 浅色背景 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 噪声 | ![噪声](assets/icons/material/graphic_eq.svg) | `waveform` | `graphic_eq` | ![#9333EA](assets/colors/9333EA.svg) | 声波紫 | `#9333EA` | `#F3E8FF` |
+| 光照 / 照度 | ![照度](assets/icons/material/light_mode.svg) | `sun.max` | `light_mode` | ![#F2C94C](assets/colors/F2C94C.svg) | 阳光金 | `#F2C94C` | `#FEF9C3` |
 
 ### 噪声状态色
 

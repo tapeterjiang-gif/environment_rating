@@ -19,4 +19,16 @@ class RgbColorTest {
     fun padsLeadingZeroes() {
         assertEquals("#0891B2", RgbColor(0x0891B2).hex)
     }
+
+    @Test
+    fun exposesMaterialEnvironmentIcons() {
+        assertEquals("device_thermostat", EnvironmentParameter.TEMPERATURE.materialSymbolName)
+        assertEquals("air", EnvironmentParameter.PM25.materialSymbolName)
+        assertEquals("air", EnvironmentParameter.PM10.materialSymbolName)
+        assertEquals("light_mode", EnvironmentParameter.ILLUMINANCE.materialSymbolName)
+        assertEquals(
+            EnvironmentParameter.PM25.iconResource,
+            EnvironmentParameter.PM10.iconResource
+        )
+    }
 }

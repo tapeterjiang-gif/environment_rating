@@ -45,19 +45,21 @@ PMV 的其他输入（平均辐射温度、相对风速、代谢率、衣着热�
 
 ### 环境参数图标
 
-Apple 平台统一使用 SF Symbols。SwiftUI 可通过 `Image(systemName:)` 调用，UIKit 可通过 `UIImage(systemName:)` 调用；图标应与参数名称或数值同时出现，不能作为唯一信息来源。Android、Web 和设备屏幕沿用相同语义，并使用各平台对应的本地图标资源。
+Apple 平台使用 SF Symbols；Android、Web、Linux 和设备屏幕使用 Material Symbols Rounded。图标语义和参数顺序一致，PM2.5 与 PM10 在两套图标中均共用图形，并通过参数名称和识别色区分。图标应与名称或数值同时出现，不能作为唯一信息来源。
 
-| 类别 | 环境参数 | SF Symbol |
-| --- | --- | --- |
-| 热舒适度 | 温度 | `thermometer.medium` |
-| 热舒适度 | 相对湿度 | `humidity.fill` |
-| 空气质量 | CO₂ | `carbon.dioxide.cloud` |
-| 空气质量 | PM2.5 | `aqi.medium` |
-| 空气质量 | PM10 | `aqi.medium` |
-| 空气质量 | 甲醛 HCHO | `atom` |
-| 空气质量 | TVOC 指数 | `speedometer` |
-| 声光环境 | 噪声 | `waveform` |
-| 声光环境 | 光照 / 照度 | `sun.max` |
+| 类别 | 环境参数 | Material 图标预览 | Apple · SF Symbols | Android 与其他平台 · Material Symbols Rounded |
+| --- | --- | --- | --- | --- |
+| 热舒适度 | 温度 | ![温度](assets/icons/material/device_thermostat.svg) | `thermometer.medium` | `device_thermostat` |
+| 热舒适度 | 相对湿度 | ![相对湿度](assets/icons/material/humidity_percentage.svg) | `humidity.fill` | `humidity_percentage` |
+| 空气质量 | CO₂ | ![CO₂](assets/icons/material/co2.svg) | `carbon.dioxide.cloud` | `co2` |
+| 空气质量 | PM2.5 | ![PM2.5](assets/icons/material/air.svg) | `aqi.medium` | `air` |
+| 空气质量 | PM10 | ![PM10](assets/icons/material/air.svg) | `aqi.medium` | `air` |
+| 空气质量 | 甲醛 HCHO | ![甲醛](assets/icons/material/science.svg) | `atom` | `science` |
+| 空气质量 | TVOC 指数 | ![TVOC 指数](assets/icons/material/speed.svg) | `speedometer` | `speed` |
+| 声光环境 | 噪声 | ![噪声](assets/icons/material/graphic_eq.svg) | `waveform` | `graphic_eq` |
+| 声光环境 | 光照 / 照度 | ![照度](assets/icons/material/light_mode.svg) | `sun.max` | `light_mode` |
+
+C/C++ 使用 `env_icon_name()` 查询两套名称；Swift 使用 `EnvironmentParameter.sfSymbolName`；Android 使用 `EnvironmentParameter.materialSymbolName` 和 `iconResource`；Web 使用 `materialIcon()` 取得名称及随包发布的 SVG 地址。Material SVG 原文件位于 [`assets/icons/material`](assets/icons/material)，采用 Apache 2.0 许可。
 
 ### 构建与验证
 

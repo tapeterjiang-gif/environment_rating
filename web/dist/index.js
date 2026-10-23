@@ -79,6 +79,27 @@ export const EnvironmentParameter = {
     noise: "noise",
     illuminance: "illuminance"
 };
+const materialIconNames = Object.freeze({
+    [EnvironmentParameter.temperature]: "device_thermostat",
+    [EnvironmentParameter.humidity]: "humidity_percentage",
+    [EnvironmentParameter.co2]: "co2",
+    [EnvironmentParameter.pm25]: "air",
+    [EnvironmentParameter.pm10]: "air",
+    [EnvironmentParameter.formaldehyde]: "science",
+    [EnvironmentParameter.tvoc]: "speed",
+    [EnvironmentParameter.noise]: "graphic_eq",
+    [EnvironmentParameter.illuminance]: "light_mode"
+});
+/** Material Symbols Rounded icon used by Web and other non-Apple UIs. */
+export function materialIcon(parameter) {
+    const name = materialIconNames[parameter];
+    if (name == null)
+        return null;
+    return Object.freeze({
+        name,
+        svgUrl: new URL(`./icons/${name}.svg`, import.meta.url).href
+    });
+}
 const airQualityValues = [
     AirQuality.unknown,
     AirQuality.good,

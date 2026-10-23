@@ -3,6 +3,7 @@
 #include <cmath>
 #include "sound_light_rating.h"
 #include "environment_color.h"
+#include <cstring>
 
 int main()
 {
@@ -12,6 +13,8 @@ int main()
         UINT32_C(0xF97316)) return 1;
     if (env_color_air(ENV_PARAM_PM25, AIR_FAIR, ENV_COLOR_GRAPHIC) !=
         UINT32_C(0xA3E635)) return 1;
+    if (std::strcmp(env_icon_name(ENV_PARAM_CO2, ENV_ICON_SF_SYMBOLS),
+                    "carbon.dioxide.cloud") != 0) return 1;
     return thermal_rate_humidity(THERMAL_HUMIDITY_EPA, 55) ==
                THERMAL_HUMIDITY_SLIGHTLY_HUMID &&
            std::isfinite(thermal_pmv(25,50,25,0.1,1.1,0.7)) &&

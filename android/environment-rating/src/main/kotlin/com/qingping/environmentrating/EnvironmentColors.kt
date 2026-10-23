@@ -28,16 +28,20 @@ data class StateColors(
     val text: RgbColor
 )
 
-enum class EnvironmentParameter(internal val code: Int) {
-    TEMPERATURE(0),
-    HUMIDITY(1),
-    CO2(2),
-    PM25(3),
-    PM10(4),
-    HCHO(5),
-    TVOC(6),
-    NOISE(7),
-    ILLUMINANCE(8)
+enum class EnvironmentParameter(
+    internal val code: Int,
+    val materialSymbolName: String,
+    val iconResource: Int
+) {
+    TEMPERATURE(0, "device_thermostat", R.drawable.ic_environment_temperature),
+    HUMIDITY(1, "humidity_percentage", R.drawable.ic_environment_humidity),
+    CO2(2, "co2", R.drawable.ic_environment_co2),
+    PM25(3, "air", R.drawable.ic_environment_pm),
+    PM10(4, "air", R.drawable.ic_environment_pm),
+    HCHO(5, "science", R.drawable.ic_environment_hcho),
+    TVOC(6, "speed", R.drawable.ic_environment_tvoc),
+    NOISE(7, "graphic_eq", R.drawable.ic_environment_noise),
+    ILLUMINANCE(8, "light_mode", R.drawable.ic_environment_illuminance)
 }
 
 object EnvironmentColors {

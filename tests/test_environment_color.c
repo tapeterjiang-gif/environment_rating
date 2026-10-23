@@ -1,6 +1,7 @@
 #include "environment_color.h"
 
 #include <stdio.h>
+#include <string.h>
 
 static int failures;
 
@@ -31,6 +32,27 @@ static void test_parameter_colors(void)
           ENV_RGB_INVALID);
     CHECK(env_color_parameter(ENV_PARAM_CO2, (env_color_role_t)99) ==
           ENV_RGB_INVALID);
+}
+
+static void test_parameter_icons(void)
+{
+    CHECK(strcmp(env_icon_name(ENV_PARAM_TEMPERATURE,
+                               ENV_ICON_SF_SYMBOLS),
+                 "thermometer.medium") == 0);
+    CHECK(strcmp(env_icon_name(ENV_PARAM_HUMIDITY,
+                               ENV_ICON_MATERIAL_SYMBOLS_ROUNDED),
+                 "humidity_percentage") == 0);
+    CHECK(strcmp(env_icon_name(ENV_PARAM_PM25,
+                               ENV_ICON_MATERIAL_SYMBOLS_ROUNDED),
+                 "air") == 0);
+    CHECK(strcmp(env_icon_name(ENV_PARAM_PM10,
+                               ENV_ICON_MATERIAL_SYMBOLS_ROUNDED),
+                 "air") == 0);
+    CHECK(strcmp(env_icon_name(ENV_PARAM_ILLUMINANCE,
+                               ENV_ICON_SF_SYMBOLS),
+                 "sun.max") == 0);
+    CHECK(env_icon_name((env_parameter_t)-1, ENV_ICON_SF_SYMBOLS) == 0);
+    CHECK(env_icon_name(ENV_PARAM_CO2, (env_icon_set_t)99) == 0);
 }
 
 static void test_air_colors(void)
@@ -86,6 +108,7 @@ static void test_other_state_colors(void)
 int main(void)
 {
     test_parameter_colors();
+    test_parameter_icons();
     test_air_colors();
     test_other_state_colors();
     return failures == 0 ? 0 : 1;

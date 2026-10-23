@@ -109,6 +109,36 @@ export const EnvironmentParameter = {
 export type EnvironmentParameter =
   typeof EnvironmentParameter[keyof typeof EnvironmentParameter];
 
+const materialIconNames: Readonly<Record<EnvironmentParameter, string>> =
+  Object.freeze({
+    [EnvironmentParameter.temperature]: "device_thermostat",
+    [EnvironmentParameter.humidity]: "humidity_percentage",
+    [EnvironmentParameter.co2]: "co2",
+    [EnvironmentParameter.pm25]: "air",
+    [EnvironmentParameter.pm10]: "air",
+    [EnvironmentParameter.formaldehyde]: "science",
+    [EnvironmentParameter.tvoc]: "speed",
+    [EnvironmentParameter.noise]: "graphic_eq",
+    [EnvironmentParameter.illuminance]: "light_mode"
+  });
+
+export interface MaterialIcon {
+  readonly name: string;
+  readonly svgUrl: string;
+}
+
+/** Material Symbols Rounded icon used by Web and other non-Apple UIs. */
+export function materialIcon(
+  parameter: EnvironmentParameter
+): MaterialIcon | null {
+  const name = materialIconNames[parameter];
+  if (name == null) return null;
+  return Object.freeze({
+    name,
+    svgUrl: new URL(`./icons/${name}.svg`, import.meta.url).href
+  });
+}
+
 export type AirColorParameter =
   | typeof EnvironmentParameter.co2
   | typeof EnvironmentParameter.pm25

@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
   AirQuality,
@@ -12,10 +13,21 @@ import {
   NoiseScene,
   PMStandard,
   ThermalSensation,
-  createEnvironmentRating
+  createEnvironmentRating,
+  materialIcon
 } from "../dist/index.js";
 
 const rating = await createEnvironmentRating();
+
+test("Material icons expose packaged SVG assets", async () => {
+  const temperature = materialIcon(EnvironmentParameter.temperature);
+  assert.equal(temperature?.name, "device_thermostat");
+  assert.match(await readFile(new URL(temperature.svgUrl), "utf8"), /^<svg/);
+  assert.equal(materialIcon(EnvironmentParameter.pm25)?.name, "air");
+  assert.equal(materialIcon(EnvironmentParameter.pm10)?.svgUrl,
+               materialIcon(EnvironmentParameter.pm25)?.svgUrl);
+  assert.equal(materialIcon("invalid-parameter"), null);
+});
 
 test("air quality uses the C rules and defaults", () => {
   assert.equal(rating.air.co2(999), AirQuality.good);

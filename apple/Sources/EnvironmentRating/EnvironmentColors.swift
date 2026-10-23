@@ -54,6 +54,14 @@ public enum EnvironmentParameter: Sendable {
         case .illuminance: return ENV_PARAM_ILLUMINANCE
         }
     }
+
+    /// SF Symbols system name for Apple platform interfaces.
+    public var sfSymbolName: String {
+        guard let name = env_icon_name(cValue, ENV_ICON_SF_SYMBOLS) else {
+            preconditionFailure("Missing SF Symbol for \(self)")
+        }
+        return String(cString: name)
+    }
 }
 
 public enum EnvironmentColors {

@@ -31,7 +31,9 @@ val androidColor = colors?.graphic?.argb
 val cssHex = colors?.graphic?.hex
 ```
 
-`RgbColor.rgb` 为 `0x00RRGGBB`，`argb` 为可传给 Android View 或 Jetpack Compose 的不透明 `0xFFRRGGBB`，`hex` 为大写 `#RRGGBB`。库本身不依赖 View、Compose 或 Material。
+`RgbColor.rgb` 为 `0x00RRGGBB`，`argb` 为可传给 Android View 或 Jetpack Compose 的不透明 `0xFFRRGGBB`，`hex` 为大写 `#RRGGBB`。库本身不依赖 View、Compose 或 Material Components；Material Symbols 已作为本地 Vector Drawable 随包提供。
+
+每个 `EnvironmentParameter` 同时提供 `materialSymbolName` 和可直接使用的 `iconResource`。图标采用 Material Symbols Rounded，例如 `EnvironmentParameter.CO2.iconResource`；View 可设置给 `ImageView`，Compose 可通过 `painterResource()` 加载并着参数识别色。PM2.5 与 PM10 共用同一个 `air` Vector Drawable。
 
 空气质量的默认标准、输入单位、无效值规则和颜色限制与根目录 [README](../README.md) 及 [环境指标颜色说明](../COLOR_STANDARD.md) 一致。不支持的颜色组合返回 `null`。
 

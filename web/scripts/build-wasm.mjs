@@ -9,7 +9,20 @@ const projectDirectory = resolve(webDirectory, "..");
 const outputDirectory = join(webDirectory, "dist");
 const temporaryDirectory = join(webDirectory, ".wasm-build");
 const outputFile = join(temporaryDirectory, "environment-rating-wasm.mjs");
+const iconSourceDirectory = join(projectDirectory, "assets", "icons", "material");
+const iconOutputDirectory = join(outputDirectory, "icons");
 const compiler = process.env.EMCC || "emcc";
+const iconFiles = [
+  "device_thermostat.svg",
+  "humidity_percentage.svg",
+  "co2.svg",
+  "air.svg",
+  "science.svg",
+  "speed.svg",
+  "graphic_eq.svg",
+  "light_mode.svg",
+  "LICENSE"
+];
 
 const exportedFunctions = [
   "_air_level_co2",
@@ -36,6 +49,11 @@ const exportedFunctions = [
 ];
 
 mkdirSync(outputDirectory, { recursive: true });
+rmSync(iconOutputDirectory, { recursive: true, force: true });
+mkdirSync(iconOutputDirectory, { recursive: true });
+for (const file of iconFiles) {
+  copyFileSync(join(iconSourceDirectory, file), join(iconOutputDirectory, file));
+}
 rmSync(temporaryDirectory, { recursive: true, force: true });
 mkdirSync(temporaryDirectory, { recursive: true });
 

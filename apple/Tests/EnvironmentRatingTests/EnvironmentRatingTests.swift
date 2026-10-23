@@ -81,6 +81,12 @@ final class EnvironmentRatingTests: XCTestCase {
     }
 
     func testEnvironmentColors() {
+        XCTAssertEqual(EnvironmentParameter.temperature.sfSymbolName,
+                       "thermometer.medium")
+        XCTAssertEqual(EnvironmentParameter.pm25.sfSymbolName, "aqi.medium")
+        XCTAssertEqual(EnvironmentParameter.pm10.sfSymbolName, "aqi.medium")
+        XCTAssertEqual(EnvironmentParameter.illuminance.sfSymbolName, "sun.max")
+
         let temperature = EnvironmentColors.parameter(.temperature)
         XCTAssertEqual(temperature?.primary.hex, "#F97316")
         XCTAssertEqual(temperature?.background.rawValue, 0xFFEDD5)

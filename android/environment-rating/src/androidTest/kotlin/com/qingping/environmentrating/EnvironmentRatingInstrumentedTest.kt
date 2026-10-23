@@ -52,6 +52,9 @@ class EnvironmentRatingInstrumentedTest {
 
     @Test
     fun exposesParameterAndStateColors() {
+        assertEquals("co2", EnvironmentParameter.CO2.materialSymbolName)
+        assertTrue(EnvironmentParameter.CO2.iconResource != 0)
+
         val temperature = EnvironmentColors.parameter(EnvironmentParameter.TEMPERATURE)
         assertEquals("#F97316", temperature?.primary?.hex)
         assertEquals(0xFFF97316.toInt(), temperature?.primary?.argb)

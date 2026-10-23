@@ -4,19 +4,19 @@
 
 ## 环境参数图标
 
-Apple 平台统一使用 SF Symbols；图标与参数名称、数值或单位同时显示。图标只表示参数类型，不表示当前评级。Android、Web 和设备屏幕沿用相同语义，并使用各平台对应的本地图标资源。
+Apple 平台使用 SF Symbols；Android、Web、Linux 和设备屏幕使用 Material Symbols Rounded。图标与参数名称、数值或单位同时显示，只表示参数类型，不表示当前评级。
 
-| 类别 | 环境参数 | SF Symbol |
-| --- | --- | --- |
-| 热舒适度 | 温度 | `thermometer.medium` |
-| 热舒适度 | 相对湿度 | `humidity.fill` |
-| 空气质量 | CO₂ | `carbon.dioxide.cloud` |
-| 空气质量 | PM2.5 | `aqi.medium` |
-| 空气质量 | PM10 | `aqi.medium` |
-| 空气质量 | 甲醛 HCHO | `atom` |
-| 空气质量 | TVOC 指数 | `speedometer` |
-| 声光环境 | 噪声 | `waveform` |
-| 声光环境 | 光照 / 照度 | `sun.max` |
+| 类别 | 环境参数 | Material 图标预览 | Apple · SF Symbols | Android 与其他平台 · Material Symbols Rounded |
+| --- | --- | --- | --- | --- |
+| 热舒适度 | 温度 | ![温度](assets/icons/material/device_thermostat.svg) | `thermometer.medium` | `device_thermostat` |
+| 热舒适度 | 相对湿度 | ![相对湿度](assets/icons/material/humidity_percentage.svg) | `humidity.fill` | `humidity_percentage` |
+| 空气质量 | CO₂ | ![CO₂](assets/icons/material/co2.svg) | `carbon.dioxide.cloud` | `co2` |
+| 空气质量 | PM2.5 | ![PM2.5](assets/icons/material/air.svg) | `aqi.medium` | `air` |
+| 空气质量 | PM10 | ![PM10](assets/icons/material/air.svg) | `aqi.medium` | `air` |
+| 空气质量 | 甲醛 HCHO | ![甲醛](assets/icons/material/science.svg) | `atom` | `science` |
+| 空气质量 | TVOC 指数 | ![TVOC 指数](assets/icons/material/speed.svg) | `speedometer` | `speed` |
+| 声光环境 | 噪声 | ![噪声](assets/icons/material/graphic_eq.svg) | `waveform` | `graphic_eq` |
+| 声光环境 | 光照 / 照度 | ![照度](assets/icons/material/light_mode.svg) | `sun.max` | `light_mode` |
 
 ## 1. 热舒适度
 

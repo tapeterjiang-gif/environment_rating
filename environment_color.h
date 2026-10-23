@@ -37,6 +37,18 @@ typedef enum {
     ENV_PARAM_ILLUMINANCE = 8
 } env_parameter_t;
 
+/* UI icon families. Apple platforms use SF Symbols; Android, Web, Linux,
+ * and device UIs use Material Symbols Rounded. env_icon_name() returns a
+ * static string owned by the library, or NULL for an invalid enum.
+ */
+typedef enum {
+    ENV_ICON_SF_SYMBOLS = 0,
+    ENV_ICON_MATERIAL_SYMBOLS_ROUNDED = 1
+} env_icon_set_t;
+
+const char *env_icon_name(env_parameter_t parameter,
+                          env_icon_set_t icon_set);
+
 /* Parameter identity colors support PRIMARY and BACKGROUND. Other roles,
  * invalid parameters, and invalid roles return ENV_RGB_INVALID.
  */

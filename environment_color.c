@@ -74,6 +74,42 @@ static env_rgb_t palette_color(const palette_t *palette,
     }
 }
 
+const char *env_icon_name(env_parameter_t parameter,
+                          env_icon_set_t icon_set)
+{
+    static const char *const sf_symbols[] = {
+        "thermometer.medium",
+        "humidity.fill",
+        "carbon.dioxide.cloud",
+        "aqi.medium",
+        "aqi.medium",
+        "atom",
+        "speedometer",
+        "waveform",
+        "sun.max"
+    };
+    static const char *const material_symbols[] = {
+        "device_thermostat",
+        "humidity_percentage",
+        "co2",
+        "air",
+        "air",
+        "science",
+        "speed",
+        "graphic_eq",
+        "light_mode"
+    };
+
+    if ((int)parameter < (int)ENV_PARAM_TEMPERATURE ||
+        (int)parameter > (int)ENV_PARAM_ILLUMINANCE)
+        return 0;
+    if (icon_set == ENV_ICON_SF_SYMBOLS)
+        return sf_symbols[(int)parameter];
+    if (icon_set == ENV_ICON_MATERIAL_SYMBOLS_ROUNDED)
+        return material_symbols[(int)parameter];
+    return 0;
+}
+
 env_rgb_t env_color_parameter(env_parameter_t parameter,
                               env_color_role_t role)
 {

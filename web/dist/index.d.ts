@@ -87,6 +87,12 @@ export declare const EnvironmentParameter: {
     readonly illuminance: "illuminance";
 };
 export type EnvironmentParameter = typeof EnvironmentParameter[keyof typeof EnvironmentParameter];
+export interface MaterialIcon {
+    readonly name: string;
+    readonly svgUrl: string;
+}
+/** Material Symbols Rounded icon used by Web and other non-Apple UIs. */
+export declare function materialIcon(parameter: EnvironmentParameter): MaterialIcon | null;
 export type AirColorParameter = typeof EnvironmentParameter.co2 | typeof EnvironmentParameter.pm25 | typeof EnvironmentParameter.pm10 | typeof EnvironmentParameter.formaldehyde;
 export interface CreateEnvironmentRatingOptions {
     /** Override the location of environment-rating-wasm.wasm, for example on a CDN. */

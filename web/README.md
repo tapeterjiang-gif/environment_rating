@@ -2,6 +2,8 @@
 
 浏览器、Web Worker 和 Node.js 的 WebAssembly 封装。评级计算直接使用项目根目录的 C99 源码，与 ESP32、Linux 和 iOS 保持一致。
 
+环境参数图标使用随包发布的 Material Symbols Rounded SVG。调用 `materialIcon(parameter)` 可取得图标名称和相对于 Web 包的 SVG 地址；PM2.5 与 PM10 共用 `air` 图标，并通过名称和参数识别色区分。
+
 当前仓库已包含可发布的 npm 包结构和预编译文件，但尚未发布到 npm registry。在仓库内可直接导入 `web/dist/index.js`，也可以执行 `npm pack --ignore-scripts` 生成本地安装包；发布后使用下面的包名导入。
 
 ## 使用
