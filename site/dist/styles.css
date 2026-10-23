@@ -123,6 +123,14 @@ details > div { padding: 0 18px 18px; }
 .standard b { display: block; margin-bottom: 6px; }
 .standard small { color: var(--muted); }
 
+.symbol-groups { display: grid; grid-template-columns: .8fr 1.4fr .8fr; gap: 16px; }
+.symbol-group { padding: 22px; border: 1px solid rgba(23,51,47,.08); border-radius: 20px; background: var(--surface); box-shadow: 0 10px 35px rgba(32,67,58,.05); }
+.symbol-group h3 { margin: 0 0 14px; font-size: 1.08rem; }
+.symbol-list { display: grid; gap: 10px; }
+.symbol-list div { min-width: 0; padding: 11px 12px; border-radius: 12px; background: #f4f7f2; }
+.symbol-list b { display: block; }
+.symbol-list code, .identity-card code { display: block; margin-top: 3px; color: var(--muted); font-size: .75rem; overflow-wrap: anywhere; }
+
 .pmv-scale, .light-scale { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
 .pmv-scale div, .light-scale div { min-height: 104px; padding: 12px 9px; display: flex; flex-direction: column; justify-content: space-between; color: var(--label); background: var(--bg); border-radius: 13px; }
 .pmv-scale b, .light-scale b { font-size: .84rem; }
@@ -166,7 +174,7 @@ details > div { padding: 0 18px 18px; }
   .hero { padding-top: 58px; }
   .hero-grid { grid-template-columns: 1fr; gap: 25px; }
   .hero-visual { min-height: 340px; }
-  .principles, .standards, .quick-grid, .identity-grid, .identity-grid.two, .a11y-list { grid-template-columns: 1fr; }
+  .principles, .standards, .quick-grid, .identity-grid, .identity-grid.two, .a11y-list, .symbol-groups { grid-template-columns: 1fr; }
   .air-scale { grid-template-columns: repeat(3, 1fr); }
   .air-scale div:nth-child(3) { border-right: 0; }
   .air-scale div:nth-child(-n+3) { border-bottom: 1px solid rgba(255,255,255,.8); }

@@ -7,8 +7,8 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "dist");
 const pages = [
-  { file: "index.html", expected: ["环境评级标准", "热舒适度", "空气质量", "声光"] },
-  { file: "colors.html", expected: ["Qingping Environmental Colors V1.4", "环境指标颜色说明", "热舒适度", "空气质量", "声光环境", "tVOC", "指标识别色", "等级状态色"] }
+  { file: "index.html", expected: ["环境评级标准", "热舒适度", "空气质量", "声光", "thermometer.medium", "carbon.dioxide.cloud", "sun.max"] },
+  { file: "colors.html", expected: ["Qingping Environmental Colors V1.5", "环境指标颜色说明", "热舒适度", "空气质量", "声光环境", "TVOC 指数", "speedometer", "指标识别色", "等级状态色"] }
 ];
 
 for (const page of pages) {

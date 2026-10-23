@@ -2,6 +2,22 @@
 
 本文汇总当前项目已实现的热舒适度、空气质量和声光规则，与 [README.md](README.md) 及代码一致。所有评级均使用当前有效输入，不执行原标准的平均时间，也不用于正式达标判定。
 
+## 环境参数图标
+
+Apple 平台统一使用 SF Symbols；图标与参数名称、数值或单位同时显示。图标只表示参数类型，不表示当前评级。Android、Web 和设备屏幕沿用相同语义，并使用各平台对应的本地图标资源。
+
+| 类别 | 环境参数 | SF Symbol |
+| --- | --- | --- |
+| 热舒适度 | 温度 | `thermometer.medium` |
+| 热舒适度 | 相对湿度 | `humidity.fill` |
+| 空气质量 | CO₂ | `carbon.dioxide.cloud` |
+| 空气质量 | PM2.5 | `aqi.medium` |
+| 空气质量 | PM10 | `aqi.medium` |
+| 空气质量 | 甲醛 HCHO | `atom` |
+| 空气质量 | TVOC 指数 | `speedometer` |
+| 声光环境 | 噪声 | `waveform` |
+| 声光环境 | 光照 / 照度 | `sun.max` |
+
 ## 1. 热舒适度
 
 热舒适度模块分别输出 PMV、PPD、冷热提示和湿度提示，不生成综合等级，也不写入 Matter `AirQuality`。PMV/PPD 参考 ISO 7730:2025，冷热名称采用 ASHRAE 七点热感觉标尺；连续区间为产品规则。

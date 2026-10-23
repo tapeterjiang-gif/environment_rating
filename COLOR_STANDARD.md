@@ -1,6 +1,6 @@
 # 环境指标颜色说明
 
-**Qingping Environmental Colors V1.4｜青萍环境参数标准配色方案**
+**Qingping Environmental Colors V1.5｜青萍环境参数标准配色方案**
 
 本文定义 `environment_rating` 的界面颜色规则，适用于设备屏幕、移动端、网页、图表和状态标签。颜色是产品视觉规则，不属于 Matter、ISO、ASHRAE、WHO、EPA、EEA、UBA 或 GB/T 标准的一部分，也不改变任何评级阈值。
 
@@ -13,16 +13,18 @@
 
 同一界面同时展示参数与等级时，参数名称或图标使用识别色，等级标签使用状态色。只有一个颜色位置时，优先显示等级状态色，并保留参数文字或图标。颜色不能作为唯一信息来源，必须同时显示文字、数值或图标。
 
+参数图标在 Apple 平台使用下表指定的 SF Symbols，并着参数识别色。图标表示参数类型，不随评级改变；Android、Web 和设备屏幕沿用相同语义，并使用各平台对应的本地图标资源。
+
 图表按表达目的选色：只区分参数时使用参数识别色；表达评级分布或区间时使用各状态表中的**图示色**。图示色在视觉明度上介于标签背景与标签文字之间，比背景清楚、比文字柔和，适合柱形图、面积图、仪表填充等较大面积图形。图形上的文字优先放在图形外；必须叠加时，应按实际背景检查对比度。
 
 ## 2. 热舒适度
 
 ### 参数识别色
 
-| 参数 | 色样 | 识别色 | HEX | 浅色背景 | 建议用途 |
-| --- | --- | --- | --- | --- | --- |
-| 温度 | ![#F97316](assets/colors/F97316.svg) | 温暖橙 | `#F97316` | `#FFEDD5` | 温度图标、趋势线 |
-| 相对湿度 | ![#0891B2](assets/colors/0891B2.svg) | 水润青 | `#0891B2` | `#CFFAFE` | 湿度图标、趋势线 |
+| 参数 | SF Symbol | 色样 | 识别色 | HEX | 浅色背景 | 建议用途 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 温度 | `thermometer.medium` | ![#F97316](assets/colors/F97316.svg) | 温暖橙 | `#F97316` | `#FFEDD5` | 温度图标、趋势线 |
+| 相对湿度 | `humidity.fill` | ![#0891B2](assets/colors/0891B2.svg) | 水润青 | `#0891B2` | `#CFFAFE` | 湿度图标、趋势线 |
 
 ### PMV 冷热感状态色
 
@@ -57,15 +59,15 @@ EPA 与 UBA 的阈值不同，但相同提示使用相同颜色；UBA 不产生 
 
 ### 参数识别色
 
-| 参数 | 色样 | 识别色 | HEX | 浅色背景 | 建议用途 |
-| --- | --- | --- | --- | --- | --- |
-| CO₂ | ![#15803D](assets/colors/15803D.svg) | 森林绿 | `#15803D` | `#DCFCE7` | CO₂ 图标、趋势线 |
-| PM2.5 | ![#667A83](assets/colors/667A83.svg) | 雾霾灰蓝 | `#667A83` | `#E8EEF0` | PM2.5 图标、趋势线 |
-| PM10 | ![#9A7958](assets/colors/9A7958.svg) | 沙尘灰棕 | `#9A7958` | `#F1EBE4` | PM10 图标、趋势线 |
-| 甲醛 HCHO | ![#DB2777](assets/colors/DB2777.svg) | 警觉玫红 | `#DB2777` | `#FCE7F3` | 甲醛图标、趋势线 |
-| tVOC | ![#89941A](assets/colors/89941A.svg) | 挥发黄绿 | `#89941A` | `#F1F5D5` | tVOC 图标、趋势线 |
+| 参数 | SF Symbol | 色样 | 识别色 | HEX | 浅色背景 | 建议用途 |
+| --- | --- | --- | --- | --- | --- | --- |
+| CO₂ | `carbon.dioxide.cloud` | ![#15803D](assets/colors/15803D.svg) | 森林绿 | `#15803D` | `#DCFCE7` | CO₂ 图标、趋势线 |
+| PM2.5 | `aqi.medium` | ![#667A83](assets/colors/667A83.svg) | 雾霾灰蓝 | `#667A83` | `#E8EEF0` | PM2.5 图标、趋势线 |
+| PM10 | `aqi.medium` | ![#9A7958](assets/colors/9A7958.svg) | 沙尘灰棕 | `#9A7958` | `#F1EBE4` | PM10 图标、趋势线 |
+| 甲醛 HCHO | `atom` | ![#DB2777](assets/colors/DB2777.svg) | 警觉玫红 | `#DB2777` | `#FCE7F3` | 甲醛图标、趋势线 |
+| TVOC 指数 | `speedometer` | ![#89941A](assets/colors/89941A.svg) | 挥发黄绿 | `#89941A` | `#F1F5D5` | TVOC 图标、趋势线 |
 
-PM2.5 与 PM10 使用相近的低饱和自然色系，分别联想到雾霾与沙尘。tVOC 当前只定义参数识别色，项目尚未为其定义评级状态色。
+PM2.5 与 PM10 共用 `aqi.medium`，通过名称和识别色区分；两种识别色采用相近的低饱和自然色系，分别联想到雾霾与沙尘。TVOC 当前只定义参数识别色，项目尚未为其定义评级状态色。
 
 ### CO₂ 状态色
 
@@ -124,10 +126,10 @@ CO₂ 的 Moderate 保留原评级名称，但采用与 PM“尚可”相同的�
 
 ### 参数识别色
 
-| 参数 | 色样 | 识别色 | HEX | 浅色背景 | 建议用途 |
-| --- | --- | --- | --- | --- | --- |
-| 噪声 | ![#9333EA](assets/colors/9333EA.svg) | 声波紫 | `#9333EA` | `#F3E8FF` | 噪声图标、趋势线 |
-| 照度 | ![#F2C94C](assets/colors/F2C94C.svg) | 阳光金 | `#F2C94C` | `#FEF9C3` | 照度图标、趋势线 |
+| 参数 | SF Symbol | 色样 | 识别色 | HEX | 浅色背景 | 建议用途 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 噪声 | `waveform` | ![#9333EA](assets/colors/9333EA.svg) | 声波紫 | `#9333EA` | `#F3E8FF` | 噪声图标、趋势线 |
+| 光照 / 照度 | `sun.max` | ![#F2C94C](assets/colors/F2C94C.svg) | 阳光金 | `#F2C94C` | `#FEF9C3` | 照度图标、趋势线 |
 
 ### 噪声状态色
 
@@ -188,6 +190,6 @@ env_rgb_t graphic = env_color_air(ENV_PARAM_PM25, quality,
                                   ENV_COLOR_GRAPHIC);
 ```
 
-各状态函数接收已经计算好的评级枚举，不接收原始测量值，也不重复评级阈值。`env_color_air()` 仅处理 CO₂、PM2.5、PM10 和甲醛的单项 `air_quality_t`；不处理整体空气质量、tVOC 或 Matter `LevelValue`。温度状态色应把 `thermal_rate()` 返回值传给 `env_color_thermal()`，相对湿度、噪声和照度同理。
+各状态函数接收已经计算好的评级枚举，不接收原始测量值，也不重复评级阈值。`env_color_air()` 仅处理 CO₂、PM2.5、PM10 和甲醛的单项 `air_quality_t`；不处理整体空气质量、TVOC 指数或 Matter `LevelValue`。温度状态色应把 `thermal_rate()` 返回值传给 `env_color_thermal()`，相对湿度、噪声和照度同理。
 
 Swift 使用 `EnvironmentColors`，返回 `RGBColor`、`ParameterColors` 或 `StateColors`；`RGBColor` 提供 `rawValue`、RGB 分量和 `hex`。Web 使用 `rating.colors`，直接返回 CSS HEX 字符串。不支持的 Swift/Web 组合返回 `nil`/`null`。

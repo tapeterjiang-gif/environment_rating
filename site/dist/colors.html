@@ -13,7 +13,7 @@
   <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="site-header"><nav class="nav container" aria-label="主导航"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">◌</span><span>环境评级指南</span></a><div class="nav-links"><a href="index.html">评级标准</a><a href="colors.html" aria-current="page">颜色说明</a><a href="#examples">使用示例</a></div></nav></header>
   <main id="main">
-    <section class="hero"><div class="container"><p class="eyebrow">Qingping Environmental Colors V1.4</p><h1>环境指标颜色说明</h1><p class="lead">青萍环境参数标准配色方案。颜色一半用来认出“这是什么数据”，另一半用来判断“它现在处于什么状态”。分清这两层，就能快速读懂设备和 App 的环境信息。</p></div></section>
+    <section class="hero"><div class="container"><p class="eyebrow">Qingping Environmental Colors V1.5</p><h1>环境指标颜色说明</h1><p class="lead">青萍环境参数标准配色方案。颜色一半用来认出“这是什么数据”，另一半用来判断“它现在处于什么状态”。分清这两层，就能快速读懂设备和 App 的环境信息。</p></div></section>
 
     <section class="section"><div class="container">
       <div class="explain-banner"><div><strong>指标识别色</strong><p>固定不变。帮助你一眼认出 PM2.5、温度或噪声，常用于图标和趋势线。</p></div><div class="versus">＋</div><div><strong>等级状态色</strong><p>随结果变化。帮助你判断良好、偏热或嘈杂，常用于状态标签和区间背景。</p></div></div>
@@ -23,8 +23,8 @@
     <section class="section" id="categories"><div class="container"><div class="section-heading"><span class="kicker">三类环境颜色</span><h2>按环境类别查看颜色</h2><p>每一类先列出固定的指标识别色，再列出随评级结果变化的等级状态色。</p></div>
       <div class="chapter"><div class="chapter-head"><div><h3>热舒适度</h3><p>温度和相对湿度各有固定识别色；冷热感与干湿提示使用状态色表达当前感受。</p></div><span class="chapter-number" aria-hidden="true">TC</span></div>
         <div class="subsection"><h4>指标识别色</h4><p>识别色用于图标、名称与趋势线，不随读数变化。</p><div class="identity-grid two">
-          <div class="identity-card"><span class="swatch" style="--tone:#F97316"></span><div><b>温度</b><small>温暖橙 · #F97316</small></div></div>
-          <div class="identity-card"><span class="swatch" style="--tone:#0891B2"></span><div><b>相对湿度</b><small>水润青 · #0891B2</small></div></div>
+          <div class="identity-card"><span class="swatch" style="--tone:#F97316"></span><div><b>温度</b><small>温暖橙 · #F97316</small><code>thermometer.medium</code></div></div>
+          <div class="identity-card"><span class="swatch" style="--tone:#0891B2"></span><div><b>相对湿度</b><small>水润青 · #0891B2</small><code>humidity.fill</code></div></div>
         </div></div>
         <div class="subsection"><h4>等级状态色</h4><p>PMV 以中性的绿色为中心，向蓝色表示越来越冷，向暖色表示越来越热。</p>
           <div class="palette-row"><div class="palette-title"><b>PMV 冷热感</b><small>七点标尺</small></div><div class="palette" style="--count:7"><div style="--bg:#DBEAFE;--label:#1E3A8A">冷<span>#1D4ED8</span></div><div style="--bg:#E0F2FE;--label:#0C4A6E">凉<span>#0284C7</span></div><div style="--bg:#CFFAFE;--label:#155E75">稍凉<span>#0891B2</span></div><div style="--bg:#DCFCE7;--label:#14532D">中性<span>#16A34A</span></div><div style="--bg:#FEF9C3;--label:#713F12">稍暖<span>#CA8A04</span></div><div style="--bg:#FFEDD5;--label:#7C2D12">暖<span>#EA580C</span></div><div style="--bg:#FEE2E2;--label:#7F1D1D">热<span>#DC2626</span></div></div></div>
@@ -32,15 +32,15 @@
         </div>
       </div>
 
-      <div class="chapter"><div class="chapter-head"><div><h3>空气质量</h3><p>CO₂、PM2.5、PM10、甲醛和 tVOC 各有固定识别色；有评级算法的指标再按所选标准显示状态色。</p></div><span class="chapter-number" aria-hidden="true">AQ</span></div>
+      <div class="chapter"><div class="chapter-head"><div><h3>空气质量</h3><p>CO₂、PM2.5、PM10、甲醛和 TVOC 指数各有固定识别色；有评级算法的指标再按所选标准显示状态色。</p></div><span class="chapter-number" aria-hidden="true">AQ</span></div>
         <div class="subsection"><h4>指标识别色</h4><p>PM2.5 与 PM10 使用相近的低饱和色，分别联想到雾霾和沙尘。</p><div class="identity-grid">
-          <div class="identity-card"><span class="swatch" style="--tone:#15803D"></span><div><b>CO₂</b><small>森林绿 · #15803D</small></div></div>
-          <div class="identity-card"><span class="swatch" style="--tone:#667A83"></span><div><b>PM2.5</b><small>雾霾灰蓝 · #667A83</small></div></div>
-          <div class="identity-card"><span class="swatch" style="--tone:#9A7958"></span><div><b>PM10</b><small>沙尘灰棕 · #9A7958</small></div></div>
-          <div class="identity-card"><span class="swatch" style="--tone:#DB2777"></span><div><b>甲醛 HCHO</b><small>警觉玫红 · #DB2777</small></div></div>
-          <div class="identity-card"><span class="swatch" style="--tone:#89941A"></span><div><b>tVOC</b><small>挥发黄绿 · #89941A</small></div></div>
+          <div class="identity-card"><span class="swatch" style="--tone:#15803D"></span><div><b>CO₂</b><small>森林绿 · #15803D</small><code>carbon.dioxide.cloud</code></div></div>
+          <div class="identity-card"><span class="swatch" style="--tone:#667A83"></span><div><b>PM2.5</b><small>雾霾灰蓝 · #667A83</small><code>aqi.medium</code></div></div>
+          <div class="identity-card"><span class="swatch" style="--tone:#9A7958"></span><div><b>PM10</b><small>沙尘灰棕 · #9A7958</small><code>aqi.medium</code></div></div>
+          <div class="identity-card"><span class="swatch" style="--tone:#DB2777"></span><div><b>甲醛 HCHO</b><small>警觉玫红 · #DB2777</small><code>atom</code></div></div>
+          <div class="identity-card"><span class="swatch" style="--tone:#89941A"></span><div><b>TVOC 指数</b><small>挥发黄绿 · #89941A</small><code>speedometer</code></div></div>
         </div></div>
-        <div class="subsection"><h4>等级状态色</h4><p>同一状态使用相同颜色，数值边界按指标及所选标准确定。tVOC 当前仅定义识别色，尚未定义评级状态色。</p>
+        <div class="subsection"><h4>等级状态色</h4><p>同一状态使用相同颜色，数值边界按指标及所选标准确定。TVOC 指数当前仅定义识别色，尚未定义评级状态色。</p>
           <div class="subsection"><h4>CO₂ · UBA 2008</h4><p>CO₂ 使用三档通风提示，单位为 ppm。“中等”采用与 PM“尚可”相同的黄绿色，表示需要留意通风，但尚未进入较差状态。</p><div class="table-wrap"><table><thead><tr><th>状态</th><th>状态色</th><th>浓度</th><th>提示</th></tr></thead><tbody><tr><td>好</td><td><span class="status-dot aq-good"></span>#16A34A</td><td>低于 1000</td><td>通风状况正常</td></tr><tr><td>中等</td><td><span class="status-dot aq-fair"></span>#65A30D</td><td>1000–2000</td><td>建议适时通风</td></tr><tr><td>差</td><td><span class="status-dot aq-poor"></span>#EA580C</td><td>高于 2000</td><td>应加强通风</td></tr></tbody></table></div></div>
           <details><summary>PM2.5 · 查看 EEA、中国 HJ、美国 EPA 分档与颜色</summary><div><p>单位：μg/m³。EEA 为默认标准。</p><div class="table-wrap"><table><thead><tr><th>状态</th><th>状态色</th><th>EEA</th><th>中国 HJ</th><th>美国 EPA</th></tr></thead><tbody><tr><td>好</td><td><span class="status-dot aq-good"></span>#16A34A</td><td>0–5</td><td>0–35</td><td>0.0–9.0</td></tr><tr><td>尚可</td><td><span class="status-dot aq-fair"></span>#65A30D</td><td>&gt;5–15</td><td>36–60</td><td>9.1–35.4</td></tr><tr><td>中等</td><td><span class="status-dot aq-moderate"></span>#CA8A04</td><td>&gt;15–50</td><td>61–115</td><td>35.5–55.4</td></tr><tr><td>差</td><td><span class="status-dot aq-poor"></span>#EA580C</td><td>&gt;50–90</td><td>116–150</td><td>55.5–125.4</td></tr><tr><td>很差</td><td><span class="status-dot aq-very-poor"></span>#DC2626</td><td>&gt;90–140</td><td>151–250</td><td>125.5–225.4</td></tr><tr><td>极差</td><td><span class="status-dot aq-extreme"></span>#7E22CE</td><td>&gt;140</td><td>≥251</td><td>≥225.5</td></tr></tbody></table></div></div></details>
           <details><summary>PM10 · 查看 EEA、中国 HJ、美国 EPA 分档与颜色</summary><div><p>单位：μg/m³。EEA 为默认标准。</p><div class="table-wrap"><table><thead><tr><th>状态</th><th>状态色</th><th>EEA</th><th>中国 HJ</th><th>美国 EPA</th></tr></thead><tbody><tr><td>好</td><td><span class="status-dot aq-good"></span>#16A34A</td><td>0–15</td><td>0–50</td><td>0–54</td></tr><tr><td>尚可</td><td><span class="status-dot aq-fair"></span>#65A30D</td><td>&gt;15–45</td><td>51–120</td><td>55–154</td></tr><tr><td>中等</td><td><span class="status-dot aq-moderate"></span>#CA8A04</td><td>&gt;45–120</td><td>121–250</td><td>155–254</td></tr><tr><td>差</td><td><span class="status-dot aq-poor"></span>#EA580C</td><td>&gt;120–195</td><td>251–350</td><td>255–354</td></tr><tr><td>很差</td><td><span class="status-dot aq-very-poor"></span>#DC2626</td><td>&gt;195–270</td><td>351–420</td><td>355–424</td></tr><tr><td>极差</td><td><span class="status-dot aq-extreme"></span>#7E22CE</td><td>&gt;270</td><td>≥421</td><td>≥425</td></tr></tbody></table></div></div></details>
@@ -51,8 +51,8 @@
 
       <div class="chapter"><div class="chapter-head"><div><h3>声光环境</h3><p>噪声和照度各有固定识别色；状态色分别表达安静程度和适合的活动。</p></div><span class="chapter-number" aria-hidden="true">SL</span></div>
         <div class="subsection"><h4>指标识别色</h4><p>识别色用于图标、名称与趋势线，不随读数变化。</p><div class="identity-grid two">
-          <div class="identity-card"><span class="swatch" style="--tone:#9333EA"></span><div><b>噪声</b><small>声波紫 · #9333EA</small></div></div>
-          <div class="identity-card"><span class="swatch" style="--tone:#F2C94C"></span><div><b>照度</b><small>阳光金 · #F2C94C</small></div></div>
+          <div class="identity-card"><span class="swatch" style="--tone:#9333EA"></span><div><b>噪声</b><small>声波紫 · #9333EA</small><code>waveform</code></div></div>
+          <div class="identity-card"><span class="swatch" style="--tone:#F2C94C"></span><div><b>光照 / 照度</b><small>阳光金 · #F2C94C</small><code>sun.max</code></div></div>
         </div></div>
         <div class="subsection"><h4>等级状态色</h4>
           <div class="palette-row"><div class="palette-title"><b>噪声</b><small>从安静到很吵</small></div><div class="palette" style="--count:4"><div style="--bg:#DCFCE7;--label:#14532D">安静<span>#16A34A</span></div><div style="--bg:#FEF9C3;--label:#713F12">偏吵<span>#CA8A04</span></div><div style="--bg:#FFEDD5;--label:#7C2D12">嘈杂<span>#EA580C</span></div><div style="--bg:#FEE2E2;--label:#7F1D1D">很吵<span>#DC2626</span></div></div></div>

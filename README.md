@@ -43,6 +43,22 @@
 
 PMV 的其他输入（平均辐射温度、相对风速、代谢率、衣着热阻）及单位见第 1 章。温湿度、噪声和照度不参与空气质量整体评级。
 
+### 环境参数图标
+
+Apple 平台统一使用 SF Symbols。SwiftUI 可通过 `Image(systemName:)` 调用，UIKit 可通过 `UIImage(systemName:)` 调用；图标应与参数名称或数值同时出现，不能作为唯一信息来源。Android、Web 和设备屏幕沿用相同语义，并使用各平台对应的本地图标资源。
+
+| 类别 | 环境参数 | SF Symbol |
+| --- | --- | --- |
+| 热舒适度 | 温度 | `thermometer.medium` |
+| 热舒适度 | 相对湿度 | `humidity.fill` |
+| 空气质量 | CO₂ | `carbon.dioxide.cloud` |
+| 空气质量 | PM2.5 | `aqi.medium` |
+| 空气质量 | PM10 | `aqi.medium` |
+| 空气质量 | 甲醛 HCHO | `atom` |
+| 空气质量 | TVOC 指数 | `speedometer` |
+| 声光环境 | 噪声 | `waveform` |
+| 声光环境 | 光照 / 照度 | `sun.max` |
+
 ### 构建与验证
 
 通用 C 版本需要 CMake 3.16 或更新版本，以及 C99、C++11 编译器（C++ 用于链接测试）。在项目根目录执行：
