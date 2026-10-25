@@ -2,8 +2,8 @@
 
 面向普通用户的静态网页，包含：
 
-- `dist/index.html`：环境评级标准
-- `dist/colors.html`：环境指标颜色说明
+- `dist/index.html`：合并后的环境评级、图标与颜色指南
+- `dist/colors.html`：旧颜色说明链接的兼容跳转页
 
 页面不依赖框架或外部资源，可直接静态托管。在线版本：
-[环境评级指南](https://environment-rating-guide.violetgleam9.chatgpt.site)。
+[环境评级指南](https://tapeterjiang-gif.github.io/environment_rating/)。

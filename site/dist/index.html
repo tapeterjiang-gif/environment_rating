@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="用容易理解的方式介绍热舒适度、空气质量、噪声和照度的环境评级标准。">
-  <title>环境评级标准</title>
+  <meta name="description" content="一页看懂热舒适度、空气质量、噪声和照度的评级标准、图标与颜色。">
+  <title>环境评级指南</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <script src="site.js" defer></script>
@@ -18,8 +18,9 @@
         <span>环境评级指南</span>
       </a>
       <div class="nav-links">
-        <a href="index.html" aria-current="page">评级标准</a>
-        <a href="colors.html">颜色说明</a>
+        <a href="#thermal">热舒适度</a>
+        <a href="#air">空气质量</a>
+        <a href="#sound-light">声光环境</a>
         <a href="#standards">标准来源</a>
       </div>
     </nav>
@@ -31,10 +32,10 @@
         <div>
           <p class="eyebrow">Environment rating guide</p>
           <h1>看懂你身边的环境</h1>
-          <p class="lead">传感器给出数字，环境评级把数字转成容易理解的提示。这里介绍热舒适度、空气质量、噪声与照度如何判断，以及结果该怎样阅读。</p>
+          <p class="lead">传感器给出数字，环境评级把数字转成容易理解的提示。这一页集中说明每项指标如何判断、颜色如何变化，以及结果应该怎样阅读。</p>
           <div class="hero-actions">
             <a class="button primary" href="#how">先看评级方法 <span aria-hidden="true">↓</span></a>
-            <a class="button secondary" href="colors.html">查看颜色含义</a>
+            <a class="button secondary" href="#color-principles">颜色怎样读</a>
           </div>
         </div>
         <div class="hero-visual" aria-label="环境数据由多个指标共同组成的示意图">
@@ -62,20 +63,19 @@
       </div>
     </section>
 
-    <section class="section" id="icons">
-      <div class="container">
-        <div class="section-heading"><span class="kicker">统一图标</span><h2>每个环境参数都有固定图标</h2><p>Apple 平台使用 SF Symbols；Android、网页和设备屏幕使用这里实际展示的 Material Symbols Rounded。图标帮助识别参数，状态仍要结合名称、数值和评级文字判断。</p></div>
-        <div class="symbol-groups">
-          <article class="symbol-group"><h3>热舒适度</h3><div class="symbol-list"><div><span class="metric-icon" style="--tone:#F97316;--icon:url('assets/icons/material/device_thermostat.svg')" aria-hidden="true"></span><span><b>温度</b><code>SF · thermometer.medium</code><code>Material · device_thermostat</code></span></div><div><span class="metric-icon" style="--tone:#0891B2;--icon:url('assets/icons/material/humidity_percentage.svg')" aria-hidden="true"></span><span><b>相对湿度</b><code>SF · humidity.fill</code><code>Material · humidity_percentage</code></span></div></div></article>
-          <article class="symbol-group"><h3>空气质量</h3><div class="symbol-list"><div><span class="metric-icon" style="--tone:#15803D;--icon:url('assets/icons/material/co2.svg')" aria-hidden="true"></span><span><b>CO₂</b><code>SF · carbon.dioxide.cloud</code><code>Material · co2</code></span></div><div><span class="metric-icon" style="--tone:#667A83;--icon:url('assets/icons/material/blur_on.svg')" aria-hidden="true"></span><span><b>PM2.5</b><code>SF · aqi.medium</code><code>Material · blur_on</code></span></div><div><span class="metric-icon" style="--tone:#9A7958;--icon:url('assets/icons/material/blur_on.svg')" aria-hidden="true"></span><span><b>PM10</b><code>SF · aqi.medium</code><code>Material · blur_on</code></span></div><div><span class="metric-icon" style="--tone:#DB2777;--icon:url('assets/icons/material/science.svg')" aria-hidden="true"></span><span><b>甲醛</b><code>SF · atom</code><code>Material · science</code></span></div><div><span class="metric-icon" style="--tone:#89941A;--icon:url('assets/icons/material/speed.svg')" aria-hidden="true"></span><span><b>TVOC 指数</b><code>SF · speedometer</code><code>Material · speed</code></span></div></div></article>
-          <article class="symbol-group"><h3>声光环境</h3><div class="symbol-list"><div><span class="metric-icon" style="--tone:#9333EA;--icon:url('assets/icons/material/graphic_eq.svg')" aria-hidden="true"></span><span><b>噪声</b><code>SF · waveform</code><code>Material · graphic_eq</code></span></div><div><span class="metric-icon" style="--tone:#F2C94C;--icon:url('assets/icons/material/light_mode.svg')" aria-hidden="true"></span><span><b>光照 / 照度</b><code>SF · sun.max</code><code>Material · light_mode</code></span></div></div></article>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="color-principles"><div class="container">
+      <div class="section-heading"><span class="kicker">图标与颜色</span><h2>先认出指标，再判断状态</h2><p>每项指标使用固定图标和识别色；评级结果再使用状态色。两种颜色各自表达一层信息，不会混在一起。</p></div>
+      <div class="explain-banner"><div><strong>指标识别色</strong><p>固定不变，用于图标、名称和趋势线，帮助认出这是温度、PM2.5 还是噪声。</p></div><div class="versus">＋</div><div><strong>等级状态色</strong><p>随结果变化，用于分档色块和状态标签，帮助判断适宜、偏热、尚可或较差。</p></div></div>
+      <div class="note"><strong>颜色不是唯一信息。</strong>页面始终同时显示指标名称、数值范围和评级文字；数据无效或传感器未就绪时统一显示灰色“未知”。</div>
+    </div></section>
 
     <section class="section" id="thermal">
       <div class="container"><div class="chapter">
         <div class="chapter-head"><div><span class="kicker">第一类</span><h3>热舒适度</h3><p>热舒适度不只看温度。PMV 会同时考虑空气温度、辐射温度、湿度、风速、活动量和衣着，给出从冷到热的七点感受；湿度另有独立提示。</p></div><span class="chapter-number" aria-hidden="true">01</span></div>
+        <div class="subsection"><h4>指标识别</h4><div class="identity-grid two">
+          <div class="identity-card"><span class="metric-icon" style="--tone:#F97316;--icon:url('assets/icons/material/device_thermostat.svg')" aria-hidden="true"></span><div><b>温度</b><small>温暖橙 · 固定识别色</small></div></div>
+          <div class="identity-card"><span class="metric-icon" style="--tone:#0891B2;--icon:url('assets/icons/material/humidity_percentage.svg')" aria-hidden="true"></span><div><b>相对湿度</b><small>水润青 · 固定识别色</small></div></div>
+        </div></div>
         <div class="subsection"><h4>PMV 七点冷热感</h4><p>PMV 越接近 0，代表多数人在当前条件下越可能感觉中性。每个人的感受仍可能不同。</p>
           <div class="pmv-scale" aria-label="PMV 七点冷热感">
             <div style="--bg:#DBEAFE;--label:#1E3A8A"><b>冷</b><span>−3 至 −2.5</span></div><div style="--bg:#E0F2FE;--label:#0C4A6E"><b>凉</b><span>−2.5 至 −1.5</span></div><div style="--bg:#CFFAFE;--label:#155E75"><b>稍凉</b><span>−1.5 至 −0.5</span></div><div style="--bg:#DCFCE7;--label:#14532D"><b>中性</b><span>−0.5 至 +0.5</span></div><div style="--bg:#FEF9C3;--label:#713F12"><b>稍暖</b><span>+0.5 至 +1.5</span></div><div style="--bg:#FFEDD5;--label:#7C2D12"><b>暖</b><span>+1.5 至 +2.5</span></div><div style="--bg:#FEE2E2;--label:#7F1D1D"><b>热</b><span>+2.5 至 +3</span></div>
@@ -94,22 +94,13 @@
       <div class="container">
         <div class="chapter">
           <div class="chapter-head"><div><span class="kicker">第二类</span><h3>空气质量</h3><p>分别观察 PM2.5、PM10、CO₂ 和甲醛。单项和整体结果使用 Matter 的六档空气质量名称；具体浓度边界来自所选的环境或健康标准。</p></div><span class="chapter-number" aria-hidden="true">02</span></div>
-          <div class="subsection">
-            <h4>六档空气质量</h4>
-            <p>从左到右表示越来越需要关注。“未知”不在这六档中，通常表示当前没有可靠数据。</p>
-            <div class="air-scale" aria-label="六档空气质量颜色和含义">
-              <div class="aq-good"><b>好</b><span>Good</span></div><div class="aq-fair"><b>尚可</b><span>Fair</span></div><div class="aq-moderate"><b>中等</b><span>Moderate</span></div><div class="aq-poor"><b>差</b><span>Poor</span></div><div class="aq-very-poor"><b>很差</b><span>Very Poor</span></div><div class="aq-extreme"><b>极差</b><span>Extremely Poor</span></div>
-            </div>
-          </div>
-
-          <div class="subsection">
-            <h4>快速了解每项指标</h4>
-            <div class="quick-grid">
-              <article class="quick"><span class="metric">CO₂ · ppm</span><strong>反映通风情况</strong><p>低于 1000 为好；1000–2000 建议通风；高于 2000 应加强通风。</p></article>
-              <article class="quick"><span class="metric">PM2.5 / PM10 · μg/m³</span><strong>反映颗粒物水平</strong><p>可选择欧洲 EEA、中国 HJ 或美国 EPA 分档；默认采用 EEA。</p></article>
-              <article class="quick"><span class="metric">甲醛 · mg/m³</span><strong>反映甲醛浓度</strong><p>可选择 WHO、中国 GB/T 或加州 OEHHA 参考值；默认采用 WHO。</p></article>
-            </div>
-          </div>
+          <div class="subsection"><h4>指标识别</h4><p>图标和识别色固定不变；下方分档色块表示当前评级。TVOC 指数目前只有识别色，尚未参与本项目评级。</p><div class="identity-grid">
+            <div class="identity-card"><span class="metric-icon" style="--tone:#15803D;--icon:url('assets/icons/material/co2.svg')" aria-hidden="true"></span><div><b>CO₂</b><small>森林绿 · 通风情况</small></div></div>
+            <div class="identity-card"><span class="metric-icon" style="--tone:#667A83;--icon:url('assets/icons/material/blur_on.svg')" aria-hidden="true"></span><div><b>PM2.5</b><small>雾霾灰蓝 · 细颗粒物</small></div></div>
+            <div class="identity-card"><span class="metric-icon" style="--tone:#9A7958;--icon:url('assets/icons/material/blur_on.svg')" aria-hidden="true"></span><div><b>PM10</b><small>沙尘灰棕 · 可吸入颗粒物</small></div></div>
+            <div class="identity-card"><span class="metric-icon" style="--tone:#DB2777;--icon:url('assets/icons/material/science.svg')" aria-hidden="true"></span><div><b>甲醛 HCHO</b><small>警觉玫红 · 甲醛浓度</small></div></div>
+            <div class="identity-card"><span class="metric-icon" style="--tone:#89941A;--icon:url('assets/icons/material/speed.svg')" aria-hidden="true"></span><div><b>TVOC 指数</b><small>挥发黄绿 · 仅作识别</small></div></div>
+          </div></div>
 
           <div class="subsection">
             <h4>CO₂ 通风提示</h4>
@@ -144,6 +135,10 @@
     <section class="section" id="sound-light">
       <div class="container"><div class="chapter">
         <div class="chapter-head"><div><span class="kicker">第三类</span><h3>声光</h3><p>噪声提示帮助判断当前环境是否安静；照度提示说明当前光线更接近哪类住宅活动需要。两者分别显示，不合成一个分数。</p></div><span class="chapter-number" aria-hidden="true">03</span></div>
+        <div class="subsection"><h4>指标识别</h4><div class="identity-grid two">
+          <div class="identity-card"><span class="metric-icon" style="--tone:#9333EA;--icon:url('assets/icons/material/graphic_eq.svg')" aria-hidden="true"></span><div><b>噪声</b><small>声波紫 · 固定识别色</small></div></div>
+          <div class="identity-card"><span class="metric-icon" style="--tone:#F2C94C;--icon:url('assets/icons/material/light_mode.svg')" aria-hidden="true"></span><div><b>光照 / 照度</b><small>阳光金 · 固定识别色</small></div></div>
+        </div></div>
         <div class="subsection"><h4>噪声 · dB(A)</h4><p>住宅与睡眠场景使用相同的四档提示，睡眠场景的边界更严格。</p>
           <div class="scale-stack">
             <div><h5>住宅</h5><div class="metric-scale four" aria-label="住宅噪声四档图示"><div style="--bg:#DCFCE7;--label:#14532D"><b>安静</b><span>≤35</span></div><div style="--bg:#FEF9C3;--label:#713F12"><b>偏吵</b><span>&gt;35–45</span></div><div style="--bg:#FFEDD5;--label:#7C2D12"><b>嘈杂</b><span>&gt;45–55</span></div><div style="--bg:#FEE2E2;--label:#7F1D1D"><b>很吵</b><span>&gt;55</span></div></div></div>
@@ -165,6 +160,6 @@
     </section>
   </main>
 
-  <footer class="page-footer"><div class="footer-grid container"><div><strong>环境评级指南</strong><p>让空气、冷热、湿度、噪声与光线更容易理解。</p></div><div><a href="colors.html">继续查看环境指标颜色说明 →</a><br><small>© <span data-year></span> environment_rating</small></div></div></footer>
+  <footer class="page-footer"><div class="footer-grid container"><div><strong>环境评级指南</strong><p>一页看懂空气、冷热、湿度、噪声与光线的评级、图标和颜色。</p></div><div><a href="#main">返回页首 ↑</a><br><small>© <span data-year></span> environment_rating</small></div></div></footer>
 </body>
 </html>
