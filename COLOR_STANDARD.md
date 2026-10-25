@@ -1,6 +1,6 @@
 # 环境指标颜色说明
 
-**Qingping Environmental Colors V1.6｜青萍环境参数标准配色方案**
+**Qingping Environmental Colors V1.7｜青萍环境参数标准配色方案**
 
 本文定义 `environment_rating` 的界面颜色规则，适用于设备屏幕、移动端、网页、图表和状态标签。颜色是产品视觉规则，不属于 Matter、ISO、ASHRAE、WHO、EPA、EEA、UBA 或 GB/T 标准的一部分，也不改变任何评级阈值。
 
@@ -62,12 +62,12 @@ EPA 与 UBA 的阈值不同，但相同提示使用相同颜色；UBA 不产生 
 | 参数 | Material 图标 | Apple · SF Symbols | Material Symbols Rounded | 色样 | 识别色 | HEX | 浅色背景 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | CO₂ | ![CO₂](assets/icons/material/co2.svg) | `carbon.dioxide.cloud` | `co2` | ![#15803D](assets/colors/15803D.svg) | 森林绿 | `#15803D` | `#DCFCE7` |
-| PM2.5 | ![PM2.5](assets/icons/material/air.svg) | `aqi.medium` | `air` | ![#667A83](assets/colors/667A83.svg) | 雾霾灰蓝 | `#667A83` | `#E8EEF0` |
-| PM10 | ![PM10](assets/icons/material/air.svg) | `aqi.medium` | `air` | ![#9A7958](assets/colors/9A7958.svg) | 沙尘灰棕 | `#9A7958` | `#F1EBE4` |
+| PM2.5 | ![PM2.5](assets/icons/material/blur_on.svg) | `aqi.medium` | `blur_on` | ![#667A83](assets/colors/667A83.svg) | 雾霾灰蓝 | `#667A83` | `#E8EEF0` |
+| PM10 | ![PM10](assets/icons/material/blur_on.svg) | `aqi.medium` | `blur_on` | ![#9A7958](assets/colors/9A7958.svg) | 沙尘灰棕 | `#9A7958` | `#F1EBE4` |
 | 甲醛 HCHO | ![甲醛](assets/icons/material/science.svg) | `atom` | `science` | ![#DB2777](assets/colors/DB2777.svg) | 警觉玫红 | `#DB2777` | `#FCE7F3` |
 | TVOC 指数 | ![TVOC 指数](assets/icons/material/speed.svg) | `speedometer` | `speed` | ![#89941A](assets/colors/89941A.svg) | 挥发黄绿 | `#89941A` | `#F1F5D5` |
 
-PM2.5 与 PM10 在 Apple 端共用 `aqi.medium`，在其他平台共用 `air`，通过名称和识别色区分；两种识别色采用相近的低饱和自然色系，分别联想到雾霾与沙尘。TVOC 当前只定义参数识别色，项目尚未为其定义评级状态色。
+PM2.5 与 PM10 在 Apple 端共用 `aqi.medium`，在其他平台共用 `blur_on`，通过名称和识别色区分；两种识别色采用相近的低饱和自然色系，分别联想到雾霾与沙尘。TVOC 当前只定义参数识别色，项目尚未为其定义评级状态色。
 
 ### CO₂ 状态色
 

@@ -23,7 +23,7 @@ test("Material icons expose packaged SVG assets", async () => {
   const temperature = materialIcon(EnvironmentParameter.temperature);
   assert.equal(temperature?.name, "device_thermostat");
   assert.match(await readFile(new URL(temperature.svgUrl), "utf8"), /^<svg/);
-  assert.equal(materialIcon(EnvironmentParameter.pm25)?.name, "air");
+  assert.equal(materialIcon(EnvironmentParameter.pm25)?.name, "blur_on");
   assert.equal(materialIcon(EnvironmentParameter.pm10)?.svgUrl,
                materialIcon(EnvironmentParameter.pm25)?.svgUrl);
   assert.equal(materialIcon("invalid-parameter"), null);

@@ -23,8 +23,8 @@ class RgbColorTest {
     @Test
     fun exposesMaterialEnvironmentIcons() {
         assertEquals("device_thermostat", EnvironmentParameter.TEMPERATURE.materialSymbolName)
-        assertEquals("air", EnvironmentParameter.PM25.materialSymbolName)
-        assertEquals("air", EnvironmentParameter.PM10.materialSymbolName)
+        assertEquals("blur_on", EnvironmentParameter.PM25.materialSymbolName)
+        assertEquals("blur_on", EnvironmentParameter.PM10.materialSymbolName)
         assertEquals("light_mode", EnvironmentParameter.ILLUMINANCE.materialSymbolName)
         assertEquals(
             EnvironmentParameter.PM25.iconResource,

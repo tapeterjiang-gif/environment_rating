@@ -52,8 +52,8 @@ Apple 平台使用 SF Symbols；Android、Web、Linux 和设备屏幕使用 Mate
 | 热舒适度 | 温度 | ![温度](assets/icons/material/device_thermostat.svg) | `thermometer.medium` | `device_thermostat` |
 | 热舒适度 | 相对湿度 | ![相对湿度](assets/icons/material/humidity_percentage.svg) | `humidity.fill` | `humidity_percentage` |
 | 空气质量 | CO₂ | ![CO₂](assets/icons/material/co2.svg) | `carbon.dioxide.cloud` | `co2` |
-| 空气质量 | PM2.5 | ![PM2.5](assets/icons/material/air.svg) | `aqi.medium` | `air` |
-| 空气质量 | PM10 | ![PM10](assets/icons/material/air.svg) | `aqi.medium` | `air` |
+| 空气质量 | PM2.5 | ![PM2.5](assets/icons/material/blur_on.svg) | `aqi.medium` | `blur_on` |
+| 空气质量 | PM10 | ![PM10](assets/icons/material/blur_on.svg) | `aqi.medium` | `blur_on` |
 | 空气质量 | 甲醛 HCHO | ![甲醛](assets/icons/material/science.svg) | `atom` | `science` |
 | 空气质量 | TVOC 指数 | ![TVOC 指数](assets/icons/material/speed.svg) | `speedometer` | `speed` |
 | 声光环境 | 噪声 | ![噪声](assets/icons/material/graphic_eq.svg) | `waveform` | `graphic_eq` |

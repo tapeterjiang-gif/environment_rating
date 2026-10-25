@@ -16,7 +16,7 @@ const iconFiles = [
   "device_thermostat.svg",
   "humidity_percentage.svg",
   "co2.svg",
-  "air.svg",
+  "blur_on.svg",
   "science.svg",
   "speed.svg",
   "graphic_eq.svg",

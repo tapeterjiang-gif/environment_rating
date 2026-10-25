@@ -44,10 +44,10 @@ static void test_parameter_icons(void)
                  "humidity_percentage") == 0);
     CHECK(strcmp(env_icon_name(ENV_PARAM_PM25,
                                ENV_ICON_MATERIAL_SYMBOLS_ROUNDED),
-                 "air") == 0);
+                 "blur_on") == 0);
     CHECK(strcmp(env_icon_name(ENV_PARAM_PM10,
                                ENV_ICON_MATERIAL_SYMBOLS_ROUNDED),
-                 "air") == 0);
+                 "blur_on") == 0);
     CHECK(strcmp(env_icon_name(ENV_PARAM_ILLUMINANCE,
                                ENV_ICON_SF_SYMBOLS),
                  "sun.max") == 0);

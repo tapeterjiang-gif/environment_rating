@@ -7,7 +7,7 @@ These SVG files are the 24 px default-weight, unfilled **Material Symbols Rounde
 | Temperature | `device_thermostat` | `device_thermostat.svg` |
 | Relative humidity | `humidity_percentage` | `humidity_percentage.svg` |
 | CO₂ | `co2` | `co2.svg` |
-| PM2.5 / PM10 | `air` | `air.svg` |
+| PM2.5 / PM10 | `blur_on` | `blur_on.svg` |
 | Formaldehyde | `science` | `science.svg` |
 | TVOC index | `speed` | `speed.svg` |
 | Noise | `graphic_eq` | `graphic_eq.svg` |
