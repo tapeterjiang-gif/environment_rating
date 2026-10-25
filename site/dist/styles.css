@@ -172,6 +172,7 @@ details > div { padding: 0 18px 18px; }
 .palette { display: grid; grid-template-columns: repeat(var(--count), 1fr); overflow: hidden; border-radius: 14px; }
 .palette div { min-height: 76px; padding: 10px; color: var(--label); background: var(--bg); font-size: .78rem; font-weight: 700; }
 .palette div span { display: block; margin-top: 4px; font-size: .67rem; font-weight: 500; opacity: .82; }
+.palette-note { margin: 18px 0 0; color: var(--muted); font-size: .9rem; }
 .use-case { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 25px; padding: 25px; border: 1px solid var(--line); border-radius: 20px; background: white; }
 .use-case + .use-case { margin-top: 14px; }
 .use-case h3 { margin: 0 0 7px; font-size: 1.1rem; }
