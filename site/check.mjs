@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "dist");
 const pages = [
-  { file: "index.html", expected: ["环境评级标准", "热舒适度", "空气质量", "声光", "thermometer.medium", "carbon.dioxide.cloud", "blur_on.svg", "sun.max"] },
+  { file: "index.html", expected: ["环境评级标准", "热舒适度", "空气质量", "声光", "相对湿度三档提示", "低于 40%RH", "40%–60%RH", "高于 60%RH", "thermometer.medium", "carbon.dioxide.cloud", "blur_on.svg", "sun.max"] },
   { file: "colors.html", expected: ["Qingping Environmental Colors V1.7", "环境指标颜色说明", "热舒适度", "空气质量", "声光环境", "TVOC 指数", "speedometer", "device_thermostat.svg", "blur_on.svg", "指标识别色", "等级状态色"] }
 ];
 
