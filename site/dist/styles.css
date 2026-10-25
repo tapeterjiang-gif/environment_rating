@@ -146,6 +146,9 @@ details > div { padding: 0 18px 18px; }
 .identity-card { display: flex; align-items: center; gap: 14px; padding: 17px; border: 1px solid var(--line); border-radius: 17px; background: white; }
 .identity-card b { display: block; }
 .identity-card small { color: var(--muted); }
+.icon-credit { margin: 13px 0 0; padding: 12px 14px; border-radius: 12px; color: var(--muted); background: #f4f7f2; font-size: .82rem; }
+.icon-credit strong { color: var(--ink); }
+.icon-credit code { padding: .08rem .3rem; border-radius: 5px; color: #31534d; background: #e7efea; font: .92em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; overflow-wrap: anywhere; }
 .redirect-page { min-height: 100vh; display: grid; place-content: center; justify-items: start; gap: 18px; padding: 28px; }
 
 @media (max-width: 850px) {
