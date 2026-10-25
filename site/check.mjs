@@ -7,8 +7,8 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "dist");
 const pages = [
-  { file: "index.html", expected: ["环境评级指南", "指标识别色", "等级状态色", "颜色值怎样看", "热舒适度", "空气质量", "声光环境", "相对湿度三档提示", "CO₂ 三档通风提示", "PM2.5 EEA 六档图示", "PM10 EEA 六档图示", "甲醛 WHO 六档图示", "住宅噪声四档图示", "睡眠噪声四档图示", "照度六档活动提示", "低于 40%RH", "40%–60%RH", "高于 60%RH", "#F97316", "状态色 #1D4ED8", "状态色 #7E22CE", "状态色 #475569", "图标来源", "本类图标来源", "device_thermostat</code>", "carbon.dioxide.cloud", "aqi.medium", "graphic_eq</code>", "sun.max", "Material Symbols Rounded", "SF Symbols", "device_thermostat.svg", "co2.svg", "blur_on.svg", "light_mode.svg"] },
-  { file: "colors.html", expected: ["颜色说明已合并", "index.html#color-principles"] }
+  { file: "index.html", expected: ["环境评级指南", "指标识别色", "等级状态色", "颜色值怎样看", "热舒适度", "空气质量", "声光环境", "相对湿度三档提示", "CO₂ 三档通风提示", "PM2.5 EEA 六档图示", "PM10 EEA 六档图示", "甲醛 WHO 六档图示", "住宅噪声四档图示", "睡眠噪声四档图示", "照度六档活动提示", "低于 40%RH", "40%–60%RH", "高于 60%RH", "#F97316", "状态色 #1D4ED8", "状态色 #7E22CE", "状态色 #475569", "图标来源", "本类图标来源", "device_thermostat</code>", "carbon.dioxide.cloud", "aqi.medium", "graphic_eq</code>", "sun.max", "Material Symbols Rounded", "SF Symbols", "favicon.ico", "favicon-32x32.png", "favicon-48x48.png", "apple-touch-icon.png", "site.webmanifest", "device_thermostat.svg", "co2.svg", "blur_on.svg", "light_mode.svg"] },
+  { file: "colors.html", expected: ["颜色说明已合并", "index.html#color-principles", "favicon.ico", "favicon-32x32.png", "apple-touch-icon.png"] }
 ];
 
 for (const page of pages) {
@@ -28,6 +28,10 @@ for (const page of pages) {
   }
 }
 
+const manifest = JSON.parse(await readFile(resolve(root, "site.webmanifest"), "utf8"));
+if (manifest.theme_color !== "#0564A0") throw new Error("site.webmanifest has the wrong Qingping theme color");
+for (const icon of manifest.icons ?? []) accessSync(resolve(root, icon.src));
+
 const candidates = [
   process.env.CHROME_BIN,
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
@@ -42,7 +46,7 @@ const chrome = candidates.find((candidate) => {
 if (!chrome) throw new Error("Chrome or Chromium is required");
 
 let missing = false;
-const types = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".svg": "image/svg+xml" };
+const types = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".svg": "image/svg+xml", ".webmanifest": "application/manifest+json" };
 const server = createServer((request, response) => {
   const pathname = new URL(request.url ?? "/", "http://127.0.0.1").pathname;
   const file = resolve(root, pathname === "/" ? "index.html" : `.${pathname}`);
