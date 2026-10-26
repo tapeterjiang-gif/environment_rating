@@ -112,6 +112,13 @@ details > div { padding: 0 18px 18px; }
 .standard { padding: 19px; border-radius: 18px; background: #eff8f8; }
 .standard b { display: block; margin-bottom: 6px; }
 .standard small { color: var(--muted); }
+.standard-group { margin-top: 30px; }
+.standard-group > h3 { margin: 0 0 12px; font-size: 1.28rem; }
+.standards.detailed { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.standards.detailed .standard { padding: 22px; border: 1px solid rgba(5,100,160,.08); background: rgba(255,255,255,.82); }
+.standards.detailed .standard a { color: var(--brand-dark); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.standards.detailed .standard p { margin: 8px 0 10px; color: var(--muted); font-size: .9rem; }
+.standards.detailed .standard small { display: block; color: #164a59; line-height: 1.5; }
 
 .metric-icon { flex: 0 0 44px; width: 44px; height: 44px; display: inline-block; background-color: var(--tone); -webkit-mask-image: var(--icon); mask-image: var(--icon); -webkit-mask-position: center; mask-position: center; -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
 
@@ -156,7 +163,7 @@ details > div { padding: 0 18px 18px; }
   .hero { padding-top: 58px; }
   .hero-grid { grid-template-columns: 1fr; gap: 25px; }
   .hero-visual { min-height: 340px; }
-  .principles, .standards, .identity-grid, .identity-grid.two { grid-template-columns: 1fr; }
+  .principles, .standards, .standards.detailed, .identity-grid, .identity-grid.two { grid-template-columns: 1fr; }
   .pmv-scale { grid-template-columns: repeat(4, 1fr); }
   .metric-scale.six { --columns: 3; }
   .explain-banner { grid-template-columns: 1fr; }

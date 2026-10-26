@@ -41,7 +41,7 @@ a { color: inherit; }
 .glance-grid i { width: 25px; height: 25px; margin-bottom: 13px; display: block; border-radius: 9px; background: var(--tone); }
 .glance-grid small { margin-top: auto; color: var(--secondary); font-size: .72rem; font-weight: 550; }
 
-.section-tabs { position: sticky; top: calc(64px + env(safe-area-inset-top)); z-index: 15; margin-bottom: 26px; padding: 5px; display: grid; grid-template-columns: repeat(3, 1fr); border-radius: 12px; background: rgba(118,118,128,.12); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); }
+.section-tabs { position: sticky; top: calc(64px + env(safe-area-inset-top)); z-index: 15; margin-bottom: 26px; padding: 5px; display: grid; grid-template-columns: repeat(4, 1fr); border-radius: 12px; background: rgba(118,118,128,.12); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); }
 .section-tabs a { padding: 8px 10px; border-radius: 9px; text-align: center; text-decoration: none; font-size: .88rem; font-weight: 650; }
 .section-tabs a:hover { background: white; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
 
@@ -61,6 +61,14 @@ a { color: inherit; }
 .symbol-note, .inline-note { margin: 16px 0 0; padding: 16px 18px; border-radius: 18px; color: var(--secondary); background: rgba(255,255,255,.72); font-size: .88rem; }
 .symbol-note strong { color: var(--ink); }
 .symbol-note code { font: .92em ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+.basis-group { margin-top: 28px; }
+.basis-group > h3 { margin: 0 0 11px; font-size: 1.18rem; }
+.basis-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.basis-card { padding: 20px; border: .5px solid var(--line); border-radius: 22px; background: var(--surface); box-shadow: 0 8px 28px rgba(0,0,0,.035); }
+.basis-card a { color: #007aff; font-weight: 720; text-underline-offset: 3px; }
+.basis-card p { margin: 8px 0 10px; color: var(--secondary); font-size: .88rem; }
+.basis-card small { display: block; color: #3a3a3c; line-height: 1.45; }
 
 .group-card { margin-top: 14px; padding: 22px; border: .5px solid var(--line); border-radius: 24px; background: var(--surface); box-shadow: 0 8px 32px rgba(0,0,0,.035); }
 .card-heading { margin-bottom: 17px; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
@@ -104,6 +112,7 @@ footer small { grid-column: 2 / -1; color: rgba(255,255,255,.72); }
   .hero { grid-template-columns: 1fr; gap: 42px; }
   .phone-card { width: min(360px, 100%); margin-inline: auto; }
   .symbol-grid { grid-template-columns: repeat(2, 1fr); }
+  .basis-grid { grid-template-columns: 1fr; }
   .scale.seven { grid-template-columns: repeat(4, 1fr); }
   .scale.six { grid-template-columns: repeat(3, 1fr); }
 }

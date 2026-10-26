@@ -55,6 +55,7 @@
       <a href="#thermal">热舒适度</a>
       <a href="#air">空气质量</a>
       <a href="#sound-light">声光环境</a>
+      <a href="#standards">评级依据</a>
     </nav>
 
     <section class="content-section shell" id="symbols">
@@ -91,7 +92,7 @@
       <div class="section-title"><span>第二类</span><h2>空气质量</h2><p>各污染物先独立评级，整体空气质量采用当前有效指标中最差的一档。以下展示默认标准。</p></div>
       <div class="group-card">
         <div class="card-heading"><div><h3>CO₂ 通风提示</h3><p>用于提示何时需要加强通风。</p></div><span class="source">统一三档</span></div>
-        <div class="scale three" aria-label="CO₂ 三档通风提示"><div class="good"><b>好</b><span>0–1000 ppm</span></div><div class="fair"><b>中等</b><span>&gt;1000–1500 ppm</span></div><div class="poor"><b>差</b><span>&gt;1500 ppm</span></div></div>
+        <div class="scale three" aria-label="CO₂ 三档通风提示"><div class="good"><b>好</b><span>低于 1000 ppm</span></div><div class="fair"><b>中等</b><span>1000–2000 ppm</span></div><div class="poor"><b>差</b><span>高于 2000 ppm</span></div></div>
       </div>
       <div class="group-card">
         <div class="card-heading"><div><h3>PM2.5 · EEA 默认分档</h3><p>单位：μg/m³</p></div><span class="source">EEA</span></div>
@@ -118,6 +119,30 @@
         <div class="card-heading"><div><h3>照度活动提示</h3><p>单位：lx；近似换算自 IES RP-11-26 的 foot-candle 范围。</p></div><span class="source">IES RP-11-26</span></div>
         <div class="scale six" aria-label="照度六档活动提示"><div class="light-1"><b>低照环境</b><span>约 54 以下</span></div><div class="light-2"><b>氛围照明</b><span>约 54–108</span></div><div class="light-3"><b>日常活动</b><span>约 108–215</span></div><div class="light-4"><b>阅读学习</b><span>约 215–323</span></div><div class="light-5"><b>专注活动</b><span>约 323–538</span></div><div class="light-6"><b>精细作业</b><span>约 538 以上</span></div></div>
       </div>
+    </section>
+
+    <section class="content-section shell" id="standards">
+      <div class="section-title"><span>评级依据</span><h2>这些标准分别解决什么问题</h2><p>标准提供计算方法、阈值或参考值；本项目再把它们整理成适合日常阅读的分档提示。</p></div>
+      <div class="basis-group"><h3>热舒适度</h3><div class="basis-grid">
+        <article class="basis-card"><a href="https://www.iso.org/standard/85803.html" target="_blank" rel="noreferrer">ISO 7730:2025</a><p>规定 PMV、PPD 等热舒适分析方法。</p><small>项目用途：计算冷热感和预计不满意率。</small></article>
+        <article class="basis-card"><a href="https://www.ashrae.org/file%20library/technical%20resources/standards%20and%20guidelines/standards%20addenda/55_2017_d_20200731.pdf#page=17" target="_blank" rel="noreferrer">ASHRAE Standard 55 七点标尺</a><p>用从“冷”到“热”的七个名称描述 −3 至 +3 热感觉。</p><small>项目用途：为 PMV 结果提供易懂名称。</small></article>
+        <article class="basis-card"><a href="https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home" target="_blank" rel="noreferrer">美国 EPA 湿度指南</a><p>从住宅防潮和霉菌控制角度建议 30%–50%RH，并保持低于 60%RH。</p><small>项目用途：可选湿度提示依据。</small></article>
+        <article class="basis-card"><a href="https://www.umweltbundesamt.de/en/node/3086" target="_blank" rel="noreferrer">德国 UBA 湿度指南</a><p>从住宅通风和防潮角度建议约 40%–60%RH。</p><small>项目用途：默认湿度提示依据。</small></article>
+      </div></div>
+      <div class="basis-group"><h3>空气质量</h3><div class="basis-grid">
+        <article class="basis-card"><a href="https://airindex.eea.europa.eu/AQI/" target="_blank" rel="noreferrer">EEA European Air Quality Index</a><p>欧洲环境署的六档公众空气质量指数。</p><small>项目用途：默认 PM2.5、PM10 分档。</small></article>
+        <article class="basis-card"><a href="https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/W020260225366493492011.pdf" target="_blank" rel="noreferrer">HJ 633—2026</a><p>中国环境空气质量指数的计算、级别和报告技术规定。</p><small>项目用途：可选中国 PM 分档及修约规则。</small></article>
+        <article class="basis-card"><a href="https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf" target="_blank" rel="noreferrer">美国 EPA AQI</a><p>美国面向公众报告空气质量的六类指数体系。</p><small>项目用途：可选美国 PM 分档及截断规则。</small></article>
+        <article class="basis-card"><a href="https://www.umweltbundesamt.de/system/files/medien/pdfs/kohlendioxid_2008.pdf" target="_blank" rel="noreferrer">德国 UBA 2008 CO₂ 指导值</a><p>以 1000 ppm 和 2000 ppm 划分三类室内卫生评价。</p><small>项目用途：生成三档通风提示。</small></article>
+        <article class="basis-card"><a href="https://www.ncbi.nlm.nih.gov/books/NBK138711/" target="_blank" rel="noreferrer">WHO 2010 室内空气质量指南</a><p>甲醛参考浓度为 0.10 mg/m³、30 分钟平均。</p><small>项目用途：默认甲醛依据，并围绕参考值映射六档。</small></article>
+        <article class="basis-card"><a href="https://www.ndcpa.gov.cn/doc/ucap/1625444428300685312/document/20230607/ZgwODgwF.pdf" target="_blank" rel="noreferrer">GB/T 18883—2022</a><p>中国室内空气质量标准，甲醛限值为 0.08 mg/m³、1 小时平均。</p><small>项目用途：可选甲醛依据。</small></article>
+        <article class="basis-card"><a href="https://oehha.ca.gov/chemicals/formaldehyde" target="_blank" rel="noreferrer">加州 OEHHA 2008</a><p>甲醛 1 小时急性参考暴露水平为 0.055 mg/m³。</p><small>项目用途：可选甲醛依据；并非美国联邦标准。</small></article>
+      </div></div>
+      <div class="basis-group"><h3>声光环境</h3><div class="basis-grid">
+        <article class="basis-card"><a href="https://www.who.int/publications/i/item/a68672" target="_blank" rel="noreferrer">WHO《社区噪声指南》</a><p>按住宅、睡眠等场景给出长期等效声级参考。</p><small>项目用途：借用参考值生成即时噪声提示，不计算 LAeq。</small></article>
+        <article class="basis-card"><a href="https://store.ies.org/product/recommended-practice-lighting-for-interior-and-exterior-residential-environments/?v=eb65bcceaa5f" target="_blank" rel="noreferrer">ANSI/IES/ALA RP-11-26</a><p>按住宅空间、活动和任务面给出推荐照度及设计原则。</p><small>项目用途：将任务照度层级转换为六档活动提示。</small></article>
+      </div></div>
+      <p class="inline-note">这里显示的是产品评级如何引用标准。即时传感器提示不能替代标准规定的平均时间、测量位置、采样方法或正式达标判定。</p>
     </section>
   </main>
 

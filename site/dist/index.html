@@ -27,7 +27,7 @@
         <a href="#thermal">热舒适度</a>
         <a href="#air">空气质量</a>
         <a href="#sound-light">声光环境</a>
-        <a href="#standards">标准来源</a>
+        <a href="#standards">评级依据</a>
       </div>
     </nav>
   </header>
@@ -160,8 +160,26 @@
     </section>
 
     <section class="section" id="standards">
-      <div class="container"><div class="section-heading"><span class="kicker">标准来源</span><h2>评级依据来自哪里</h2><p>项目引用标准中的阈值、标尺或参考值，再将它们整理为一致、易读的产品提示。</p></div>
-        <div class="standards"><div class="standard"><b>热舒适度</b><small>ISO 7730:2025、ASHRAE Standard 55 七点热感觉标尺、EPA 与德国 UBA 湿度建议。</small></div><div class="standard"><b>空气质量</b><small>EEA European Air Quality Index、HJ 633—2026、美国 EPA AQI、WHO 2010、GB/T 18883—2022、OEHHA 2008、德国 UBA 2008。</small></div><div class="standard"><b>声光</b><small>WHO《社区噪声指南》与 ANSI/IES/ALA RP-11-26 住宅照明推荐实践。</small></div></div>
+      <div class="container"><div class="section-heading"><span class="kicker">评级依据</span><h2>这些标准分别解决什么问题</h2><p>项目引用标准中的计算方法、阈值或参考值，再整理为一致、易读的产品提示。下面说明每项依据的用途，以及它在本项目中如何使用。</p></div>
+        <div class="standard-group"><h3>热舒适度</h3><div class="standards detailed">
+          <div class="standard"><b><a href="https://www.iso.org/standard/85803.html" target="_blank" rel="noreferrer">ISO 7730:2025</a></b><p>用于分析和解释热环境，规定 PMV、PPD 等热舒适评价方法。</p><small>本项目使用 PMV/PPD 计算方法，结果用于冷热感提示。</small></div>
+          <div class="standard"><b><a href="https://www.ashrae.org/file%20library/technical%20resources/standards%20and%20guidelines/standards%20addenda/55_2017_d_20200731.pdf#page=17" target="_blank" rel="noreferrer">ASHRAE Standard 55 七点标尺</a></b><p>用“冷、凉、稍凉、中性、稍暖、暖、热”描述从 −3 到 +3 的主观热感觉。</p><small>本项目采用这七个名称呈现 PMV，不据此单独宣称符合整项标准。</small></div>
+          <div class="standard"><b><a href="https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home" target="_blank" rel="noreferrer">美国 EPA 湿度指南</a></b><p>面向住宅防潮和霉菌控制，建议室内相对湿度约为 30%–50%，并保持在 60% 以下。</p><small>本项目将其作为可选湿度提示依据。</small></div>
+          <div class="standard"><b><a href="https://www.umweltbundesamt.de/en/node/3086" target="_blank" rel="noreferrer">德国 UBA 湿度指南</a></b><p>从住宅通风和防潮角度建议全年保持约 40%–60%RH。</p><small>本项目将 40%–60%RH 作为默认适宜范围。</small></div>
+        </div></div>
+        <div class="standard-group"><h3>空气质量</h3><div class="standards detailed">
+          <div class="standard"><b><a href="https://airindex.eea.europa.eu/AQI/" target="_blank" rel="noreferrer">EEA European Air Quality Index</a></b><p>欧洲环境署以污染物浓度给出六档空气质量指数，便于公众理解短期空气状况。</p><small>本项目采用其 PM2.5、PM10 六档作为默认颗粒物评级。</small></div>
+          <div class="standard"><b><a href="https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/W020260225366493492011.pdf" target="_blank" rel="noreferrer">HJ 633—2026</a></b><p>中国环境空气质量指数技术规定，定义 AQI 计算、污染级别和报告要求。</p><small>本项目提供对应的 PM 六档选项，并按规定处理浓度修约。</small></div>
+          <div class="standard"><b><a href="https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf" target="_blank" rel="noreferrer">美国 EPA AQI</a></b><p>美国面向公众报告空气质量的六类指数体系，包含 PM 浓度断点和健康提示类别。</p><small>本项目提供对应的 PM 六档选项，并保留 EPA 的截断规则。</small></div>
+          <div class="standard"><b><a href="https://www.umweltbundesamt.de/system/files/medien/pdfs/kohlendioxid_2008.pdf" target="_blank" rel="noreferrer">德国 UBA 2008 CO₂ 指导值</a></b><p>以 1000 ppm 和 2000 ppm 将室内 CO₂ 分为无明显问题、需要关注和不可接受三类。</p><small>本项目据此生成正常、建议通风和应加强通风三档提示。</small></div>
+          <div class="standard"><b><a href="https://www.ncbi.nlm.nih.gov/books/NBK138711/" target="_blank" rel="noreferrer">WHO 2010 室内空气质量指南</a></b><p>针对多种室内污染物给出健康参考，其中甲醛参考浓度为 0.10 mg/m³、30 分钟平均。</p><small>本项目将其作为甲醛默认依据，并围绕参考浓度映射六档。</small></div>
+          <div class="standard"><b><a href="https://www.ndcpa.gov.cn/doc/ucap/1625444428300685312/document/20230607/ZgwODgwF.pdf" target="_blank" rel="noreferrer">GB/T 18883—2022</a></b><p>中国室内空气质量标准，规定室内污染物限值及检验方法，甲醛限值为 0.08 mg/m³、1 小时平均。</p><small>本项目将其作为可选甲醛依据。</small></div>
+          <div class="standard"><b><a href="https://oehha.ca.gov/chemicals/formaldehyde" target="_blank" rel="noreferrer">加州 OEHHA 2008</a></b><p>加州健康风险评估机构发布的甲醛参考暴露水平，其中 1 小时急性参考值为 0.055 mg/m³。</p><small>本项目将其作为可选甲醛依据；它不是美国联邦标准。</small></div>
+        </div></div>
+        <div class="standard-group"><h3>声光环境</h3><div class="standards detailed">
+          <div class="standard"><b><a href="https://www.who.int/publications/i/item/a68672" target="_blank" rel="noreferrer">WHO《社区噪声指南》</a></b><p>总结环境噪声对健康和生活的影响，并按住宅、睡眠等场景给出长期等效声级参考。</p><small>本项目借用住宅与睡眠参考值生成即时提示，不计算 LAeq 或正式达标结果。</small></div>
+          <div class="standard"><b><a href="https://store.ies.org/product/recommended-practice-lighting-for-interior-and-exterior-residential-environments/?v=eb65bcceaa5f" target="_blank" rel="noreferrer">ANSI/IES/ALA RP-11-26</a></b><p>面向住宅室内外照明，按空间、活动和任务面给出推荐照度及照明设计原则。</p><small>本项目选取任务照度层级，换算成六档住宅活动提示。</small></div>
+        </div></div>
         <div class="note" id="icon-sources"><strong>图标来源：</strong>本网页以及 Android、Web、Linux 和设备屏幕使用 Google <a href="https://fonts.google.com/icons?icon.set=Material+Symbols&amp;icon.style=Rounded" target="_blank" rel="noreferrer">Material Symbols Rounded</a>，随项目提供的 SVG 采用 Apache 2.0 许可；Apple 平台使用 Apple <a href="https://developer.apple.com/sf-symbols/" target="_blank" rel="noreferrer">SF Symbols</a>，由系统按符号名称加载。PM2.5 与 PM10 共用颗粒物图形，通过名称和识别色区分。</div>
         <div class="note"><strong>使用边界：</strong>本指南用于解释产品评级，不替代专业检测、医疗建议或法规合规结论。完整出处和算法边界请参阅项目技术文档。</div>
       </div>
