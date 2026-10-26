@@ -19,7 +19,7 @@
 
 | 文档 | 内容 |
 | --- | --- |
-| [普通用户网页（GitHub Pages）](https://tapeterjiang-gif.github.io/environment_rating/) | 在一个页面中浏览环境评级、图标和颜色说明；源文件位于 [site/dist](site/dist) |
+| [普通用户网页（GitHub Pages）](https://tapeterjiang-gif.github.io/environment_rating/) | 在一个页面中浏览环境评级、图标和颜色说明，支持简体中文、繁體中文、English 和日本語；源文件位于 [site/dist](site/dist) |
 | [普通用户网页（备用地址）](https://environment-rating-guide.violetgleam9.chatgpt.site) | 与 GitHub Pages 展示相同的静态内容 |
 | [环境评级标准](rating.md) | 热舒适度、空气质量和声光的评级依据与分级表 |
 | [环境指标颜色说明](COLOR_STANDARD.md) | 参数识别色、等级状态色、实际色样和可访问性规则 |
