@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="环境评级指南的 iOS 26+ 版本，以 Apple 风格展示热舒适度、空气质量和声光环境评级。">
+  <meta name="theme-color" content="#F2F2F7">
+  <meta name="apple-mobile-web-app-title" content="环境评级指南">
+  <title>环境评级指南 · iOS</title>
+  <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="ios.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="返回环境评级指南首页">
+        <img src="qingping-logo.png" alt="Qingping" width="148" height="38">
+      </a>
+      <a class="back-link" href="index.html">标准网页</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <span class="platform-badge">iOS 26+</span>
+        <p class="eyebrow">Qingping Environment Guide</p>
+        <h1>环境评级指南</h1>
+        <p>用熟悉的 iOS 分组卡片查看冷热、湿度、空气、噪声与光线。颜色、边界和标准与主网页保持一致。</p>
+        <div class="hero-links">
+          <a class="primary" href="#thermal">开始阅读</a>
+          <a href="#symbols">查看 SF Symbols</a>
+        </div>
+      </div>
+      <div class="phone-card" aria-label="iOS 环境概览示意">
+        <div class="phone-status"><span>9:41</span><span>● ●</span></div>
+        <p>我的环境</p>
+        <strong>舒适</strong>
+        <div class="glance-grid">
+          <span><i style="--tone:#F97316"></i>温度<small>24.0 °C</small></span>
+          <span><i style="--tone:#0891B2"></i>湿度<small>52%RH</small></span>
+          <span><i style="--tone:#15803D"></i>CO₂<small>720 ppm</small></span>
+          <span><i style="--tone:#667A83"></i>PM2.5<small>8 μg/m³</small></span>
+        </div>
+      </div>
+    </section>
+
+    <nav class="section-tabs shell" aria-label="页面章节">
+      <a href="#thermal">热舒适度</a>
+      <a href="#air">空气质量</a>
+      <a href="#sound-light">声光环境</a>
+    </nav>
+
+    <section class="content-section shell" id="symbols">
+      <div class="section-title"><span>视觉规范</span><h2>环境参数图标与识别色</h2><p>Apple 平台使用 SF Symbols；下列识别色固定不变，用来区分指标。评级状态会另外使用绿、黄、橙、红、紫等状态色。</p></div>
+      <div class="symbol-grid">
+        <article class="symbol-card" style="--tone:#F97316"><span class="symbol-mark">SF</span><div><h3>温度</h3><code>thermometer.medium</code><small>温暖橙 · #F97316</small></div></article>
+        <article class="symbol-card" style="--tone:#0891B2"><span class="symbol-mark">SF</span><div><h3>相对湿度</h3><code>humidity.fill</code><small>水润青 · #0891B2</small></div></article>
+        <article class="symbol-card" style="--tone:#15803D"><span class="symbol-mark">SF</span><div><h3>CO₂</h3><code>carbon.dioxide.cloud</code><small>森林绿 · #15803D</small></div></article>
+        <article class="symbol-card" style="--tone:#667A83"><span class="symbol-mark">SF</span><div><h3>PM2.5</h3><code>aqi.medium</code><small>雾霾灰蓝 · #667A83</small></div></article>
+        <article class="symbol-card" style="--tone:#9A7958"><span class="symbol-mark">SF</span><div><h3>PM10</h3><code>aqi.medium</code><small>沙尘灰棕 · #9A7958</small></div></article>
+        <article class="symbol-card" style="--tone:#DB2777"><span class="symbol-mark">SF</span><div><h3>甲醛 HCHO</h3><code>atom</code><small>警觉玫红 · #DB2777</small></div></article>
+        <article class="symbol-card" style="--tone:#89941A"><span class="symbol-mark">SF</span><div><h3>TVOC 指数</h3><code>speedometer</code><small>挥发黄绿 · #89941A</small></div></article>
+        <article class="symbol-card" style="--tone:#9333EA"><span class="symbol-mark">SF</span><div><h3>噪声</h3><code>waveform</code><small>声波紫 · #9333EA</small></div></article>
+        <article class="symbol-card" style="--tone:#F2C94C"><span class="symbol-mark">SF</span><div><h3>照度</h3><code>sun.max</code><small>阳光金 · #F2C94C</small></div></article>
+      </div>
+      <p class="symbol-note"><strong>图标说明：</strong>本页展示 SF Symbols 的名称，不分发 Apple 图标文件。iOS App 使用 <code>Image(systemName:)</code> 调用系统图标；图标始终与指标名称或数值一起出现。</p>
+    </section>
+
+    <section class="content-section shell" id="thermal">
+      <div class="section-title"><span>第一类</span><h2>热舒适度</h2><p>PMV 综合温度、辐射温度、湿度、风速、活动量和衣着；相对湿度保留独立提示。</p></div>
+      <div class="group-card">
+        <div class="card-heading"><div><h3>PMV 七点冷热感</h3><p>越接近 0，越可能感觉中性。</p></div><span class="source">ISO 7730</span></div>
+        <div class="scale seven" aria-label="PMV 七点冷热感">
+          <div class="cold"><b>冷</b><span>−3 至 −2.5</span></div><div class="cool"><b>凉</b><span>−2.5 至 −1.5</span></div><div class="slightly-cool"><b>稍凉</b><span>−1.5 至 −0.5</span></div><div class="good"><b>中性</b><span>−0.5 至 +0.5</span></div><div class="fair"><b>稍暖</b><span>+0.5 至 +1.5</span></div><div class="poor"><b>暖</b><span>+1.5 至 +2.5</span></div><div class="very-poor"><b>热</b><span>+2.5 至 +3</span></div>
+        </div>
+      </div>
+      <div class="group-card">
+        <div class="card-heading"><div><h3>相对湿度三档提示</h3><p>全年建议范围为 40%–60%RH。</p></div><span class="source">UBA</span></div>
+        <div class="scale three" aria-label="相对湿度三档提示"><div class="dry"><b>偏干</b><span>低于 40%RH</span></div><div class="good"><b>适宜</b><span>40%–60%RH</span></div><div class="wet"><b>偏湿</b><span>高于 60%RH</span></div></div>
+      </div>
+    </section>
+
+    <section class="content-section shell" id="air">
+      <div class="section-title"><span>第二类</span><h2>空气质量</h2><p>各污染物先独立评级，整体空气质量采用当前有效指标中最差的一档。以下展示默认标准。</p></div>
+      <div class="group-card">
+        <div class="card-heading"><div><h3>CO₂ 通风提示</h3><p>用于提示何时需要加强通风。</p></div><span class="source">统一三档</span></div>
+        <div class="scale three" aria-label="CO₂ 三档通风提示"><div class="good"><b>好</b><span>0–1000 ppm</span></div><div class="fair"><b>中等</b><span>&gt;1000–1500 ppm</span></div><div class="poor"><b>差</b><span>&gt;1500 ppm</span></div></div>
+      </div>
+      <div class="group-card">
+        <div class="card-heading"><div><h3>PM2.5 · EEA 默认分档</h3><p>单位：μg/m³</p></div><span class="source">EEA</span></div>
+        <div class="scale six" aria-label="PM2.5 EEA 六档图示"><div class="good"><b>好</b><span>0–5</span></div><div class="fair"><b>尚可</b><span>&gt;5–15</span></div><div class="moderate"><b>中等</b><span>&gt;15–50</span></div><div class="poor"><b>差</b><span>&gt;50–90</span></div><div class="very-poor"><b>很差</b><span>&gt;90–140</span></div><div class="extreme"><b>极差</b><span>&gt;140</span></div></div>
+      </div>
+      <div class="group-card">
+        <div class="card-heading"><div><h3>PM10 · EEA 默认分档</h3><p>单位：μg/m³</p></div><span class="source">EEA</span></div>
+        <div class="scale six" aria-label="PM10 EEA 六档图示"><div class="good"><b>好</b><span>0–15</span></div><div class="fair"><b>尚可</b><span>&gt;15–45</span></div><div class="moderate"><b>中等</b><span>&gt;45–120</span></div><div class="poor"><b>差</b><span>&gt;120–195</span></div><div class="very-poor"><b>很差</b><span>&gt;195–270</span></div><div class="extreme"><b>极差</b><span>&gt;270</span></div></div>
+      </div>
+      <div class="group-card">
+        <div class="card-heading"><div><h3>甲醛 · WHO 默认分档</h3><p>单位：mg/m³</p></div><span class="source">WHO</span></div>
+        <div class="scale six" aria-label="甲醛 WHO 六档图示"><div class="good"><b>好</b><span>0–0.025</span></div><div class="fair"><b>尚可</b><span>&gt;0.025–0.050</span></div><div class="moderate"><b>中等</b><span>&gt;0.050–0.100</span></div><div class="poor"><b>差</b><span>&gt;0.100–0.200</span></div><div class="very-poor"><b>很差</b><span>&gt;0.200–0.500</span></div><div class="extreme"><b>极差</b><span>&gt;0.500</span></div></div>
+      </div>
+      <p class="inline-note">TVOC 指数目前仅定义图标和识别色，尚未参与评级。</p>
+    </section>
+
+    <section class="content-section shell" id="sound-light">
+      <div class="section-title"><span>第三类</span><h2>声光环境</h2><p>噪声按使用场景提示；照度表示当前光线更适合哪类活动，不代表简单的好与坏。</p></div>
+      <div class="group-card">
+        <div class="card-heading"><div><h3>住宅噪声</h3><p>单位：dB(A)</p></div><span class="source">WHO</span></div>
+        <div class="scale four" aria-label="住宅噪声四档图示"><div class="good"><b>安静</b><span>≤35</span></div><div class="moderate"><b>偏吵</b><span>&gt;35–45</span></div><div class="poor"><b>嘈杂</b><span>&gt;45–55</span></div><div class="very-poor"><b>很吵</b><span>&gt;55</span></div></div>
+      </div>
+      <div class="group-card">
+        <div class="card-heading"><div><h3>照度活动提示</h3><p>单位：lx；近似换算自 IES RP-11-26 的 foot-candle 范围。</p></div><span class="source">IES RP-11-26</span></div>
+        <div class="scale six" aria-label="照度六档活动提示"><div class="light-1"><b>低照环境</b><span>约 54 以下</span></div><div class="light-2"><b>氛围照明</b><span>约 54–108</span></div><div class="light-3"><b>日常活动</b><span>约 108–215</span></div><div class="light-4"><b>阅读学习</b><span>约 215–323</span></div><div class="light-5"><b>专注活动</b><span>约 323–538</span></div><div class="light-6"><b>精细作业</b><span>约 538 以上</span></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="shell"><img src="qingping-logo.png" alt="Qingping" width="148" height="38"><p>环境评级指南 · iOS 26+</p><a href="index.html">返回标准网页</a><small>© <span data-year></span> environment_rating</small></div></footer>
+</body>
+</html>

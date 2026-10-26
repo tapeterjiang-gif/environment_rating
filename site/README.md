@@ -3,6 +3,7 @@
 面向普通用户的静态网页，包含：
 
 - `dist/index.html`：合并后的环境评级、图标与颜色指南
+- `dist/ios.html`：面向 iOS 26+ 的 Apple 风格版本，列出 SF Symbols 对照
 - `dist/colors.html`：旧颜色说明链接的兼容跳转页
 
 页面不依赖框架或外部资源，可直接静态托管。在线版本：
