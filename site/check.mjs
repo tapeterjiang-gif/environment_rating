@@ -7,8 +7,8 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "dist");
 const pages = [
-  { file: "index.html", expected: ["环境评级指南", "指标识别色", "等级状态色", "颜色值怎样看", "热舒适度", "空气质量", "声光环境", "相对湿度三档提示", "CO₂ 三档通风提示", "PM2.5 EEA 六档图示", "PM10 EEA 六档图示", "甲醛 WHO 六档图示", "住宅噪声四档图示", "睡眠噪声四档图示", "照度六档活动提示", "低于 40%RH", "40%–60%RH", "高于 60%RH", "#F97316", "状态色 #1D4ED8", "状态色 #7E22CE", "状态色 #475569", "图标来源", "图标：Material Symbols", "device_thermostat</code>", "carbon.dioxide.cloud", "aqi.medium", "graphic_eq</code>", "sun.max", "Material Symbols Rounded", "SF Symbols", "qingping-logo.png", "查看 iOS 版", "favicon.ico", "favicon-32x32.png", "apple-touch-icon.png", "site.webmanifest", "device_thermostat.svg", "co2.svg", "blur_on.svg", "light_mode.svg"] },
-  { file: "ios.html", expected: ["环境评级指南 · iOS", "iOS 26+", "Qingping", "qingping-logo.png", "SF Symbols", "thermometer.medium", "humidity.fill", "carbon.dioxide.cloud", "aqi.medium", "atom", "speedometer", "waveform", "sun.max", "PMV 七点冷热感", "EEA 默认分档", "WHO 默认分档", "住宅噪声", "照度活动提示"] },
+  { file: "index.html", expected: ["环境评级指南", "指标识别色", "等级状态色", "颜色值怎样看", "热舒适度", "空气质量", "声光环境", "相对湿度三档提示", "CO₂ 三档通风提示", "PM2.5 EEA 六档图示", "PM10 EEA 六档图示", "甲醛 WHO 六档图示", "住宅噪声四档图示", "睡眠噪声四档图示", "照度六档活动提示", "低于 40%RH", "40%–60%RH", "高于 60%RH", "#F97316", "状态色 #1D4ED8", "状态色 #7E22CE", "状态色 #475569", "图标来源", "图标：Material Symbols", "device_thermostat</code>", "carbon.dioxide.cloud", "aqi.medium", "graphic_eq</code>", "sun.max", "Material Symbols Rounded", "SF Symbols", "qingping-wordmark.png", "查看 iOS 版", "favicon.ico", "favicon-32x32.png", "apple-touch-icon.png", "site.webmanifest", "device_thermostat.svg", "co2.svg", "blur_on.svg", "light_mode.svg"] },
+  { file: "ios.html", expected: ["环境评级指南 · iOS", "iOS 26+", "Qingping", "qingping-wordmark.png", "SF Symbols", "thermometer.medium", "humidity.fill", "carbon.dioxide.cloud", "aqi.medium", "atom", "speedometer", "waveform", "sun.max", "PMV 七点冷热感", "EEA 默认分档", "WHO 默认分档", "住宅噪声", "照度活动提示"] },
   { file: "colors.html", expected: ["颜色说明已合并", "index.html#color-principles", "favicon.ico", "favicon-32x32.png", "apple-touch-icon.png"] }
 ];
 

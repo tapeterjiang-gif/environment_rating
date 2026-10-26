@@ -20,7 +20,7 @@ a { color: inherit; }
 
 .topbar { position: sticky; top: 0; z-index: 20; padding-top: env(safe-area-inset-top); border-bottom: .5px solid var(--line); background: rgba(242,242,247,.82); -webkit-backdrop-filter: saturate(180%) blur(22px); backdrop-filter: saturate(180%) blur(22px); }
 .topbar-inner { width: min(1060px, calc(100% - 40px)); min-height: 64px; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.brand img, footer img { width: 148px; height: 38px; display: block; object-fit: cover; object-position: center; border-radius: 11px; box-shadow: 0 4px 14px rgba(5,100,160,.18); }
+.brand img, footer img { width: 136px; height: auto; display: block; }
 .back-link { padding: 7px 13px; border-radius: 999px; color: #007aff; background: rgba(0,122,255,.10); font-size: .92rem; font-weight: 650; text-decoration: none; }
 
 .hero { min-height: 560px; padding: 72px 0 56px; display: grid; grid-template-columns: 1fr 360px; gap: 70px; align-items: center; }
@@ -110,7 +110,7 @@ footer small { grid-column: 2 / -1; color: rgba(255,255,255,.72); }
 
 @media (max-width: 560px) {
   .shell, .topbar-inner { width: min(100% - 28px, 1060px); }
-  .brand img { width: 136px; height: 35px; }
+  .brand img { width: 128px; height: auto; }
   .hero { min-height: auto; padding-top: 48px; }
   .phone-card { min-height: 430px; border-radius: 45px; }
   .section-tabs { width: calc(100% - 20px); top: calc(59px + env(safe-area-inset-top)); }
