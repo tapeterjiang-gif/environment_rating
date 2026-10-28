@@ -357,13 +357,14 @@ Matter 1.6 的 Air Quality Sensor 设备类型允许在同一 Endpoint 上选配
 
 面向中国、美国和欧洲，对 CO₂、PM2.5、PM10、甲醛分别评级，并支持 Matter 1.6。整体取有效参数中最差等级；接口细节见头文件。
 
-空气质量评级统一采用**瞬时值**，不计算均值、NowCast、平滑、滞回或持续时间。PM 按所选标准阈值评价，CO₂ 统一参考德国 UBA 通风提示。本产品输出瞬时等级，不计算标准 AQI 数值，也不代表地区标准认证。
+空气质量评级采用与所选标准时间口径一致的测量结果。标准要求 1 小时、24 小时、NowCast 或其他统计方式时，调用方须先完成采样与平均，再把结果传给评级函数；本库只执行数值处理和阈值查表，不保存历史样本。PM 按所选标准阈值评价，CO₂ 统一参考德国 UBA 通风提示。评级结果不等同于完整的标准 AQI 数值或地区标准认证。
 
 ### 2.2 输入有效性
 
 PM 默认标准为 EEA European Air Quality Index；甲醛默认标准为 WHO 2010。两者分别对应标准枚举的零值，接口仍要求显式传入标准参数，不根据地区自动选择。
 
 - 调用方负责单位、可信量程和新鲜度；缺失、异常或过期项清除有效位，并保留原因。
+- 调用方负责按所选标准规定的平均时间或统计方法生成输入值；切换标准时须同步切换测量窗口。
 - 未设置有效位的数值被忽略；有效零浓度须设置有效位，不能用零表示缺失。
 - 负值、NaN 和无穷大不可评价；单项返回 Unknown，整体计算排除该项。
 - 所有项均不可评价时，整体返回 Unknown；非法标准或未定义的有效位也使整体返回 Unknown。
@@ -405,7 +406,7 @@ Unknown 不参与优劣比较。Unknown、Good、Poor 为基础枚举；完整�
 
 例如 PM2.5=35.5 修约为 36，属于 Fair；60.5 修约为 60，仍为 Fair。有效零浓度归入 Good。
 
-原标准日报采用自然日均值，实时报告采用当前 1 小时均值；本产品仅借用浓度阈值和修约规则，不进行 IAQI 插值或指数取整。
+原标准日报采用自然日均值，实时报告采用当前 1 小时均值。调用方应按所选报告模式提供相应平均浓度；本库不进行时间平均、IAQI 插值或指数取整。
 
 来源：[生态环境部发布页](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/t20260225_1144441.shtml)、[正式全文 §4.2、表 1 和表 3](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/W020260225366493492011.pdf)。
 
@@ -424,13 +425,13 @@ Unknown 不参与优劣比较。Unknown、Good、Poor 为基础枚举；完整�
 
 例如 PM2.5=9.09 截断为 9.0，属于 Good。按严重程度映射，**EPA Moderate 对应 Matter Fair**；展示 EPA 类别时须保留其原名。
 
-原标准日 AQI 采用 24 小时均值，当前空气质量采用 PM NowCast；本产品不计算这些统计值或数值 AQI。
+原标准日 AQI 采用 24 小时均值，当前空气质量采用 PM NowCast。调用方应提供相应统计结果；本库不计算 24 小时均值、NowCast 或数值 AQI。
 
 来源：[EPA AQI 技术文档，第 IV 节、表 6](https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf)、[2024 年 PM AQI 更新说明](https://www.epa.gov/system/files/documents/2024-02/pm-naaqs-air-quality-index-fact-sheet.pdf)。
 
 #### 2.4.3 欧洲：EEA European Air Quality Index
 
-采用核对日期所示的 EEA 更新版分档，方法背景为 ETC HE Report 2024/17；枚举 `AIR_PM_EEA_AQI_2024` 中的 2024 对应该报告编号。保留小数，C 为原始有效瞬时值。
+采用核对日期所示的 EEA 更新版分档，方法背景为 ETC HE Report 2024/17；枚举 `AIR_PM_EEA_AQI_2024` 中的 2024 对应该报告编号。保留小数，C 为调用方按 EEA 时间口径计算的有效浓度。
 
 | EEA 类别 | PM2.5 | PM10 | Matter 等级 |
 | --- | --- | --- | --- |
@@ -441,13 +442,13 @@ Unknown 不参与优劣比较。Unknown、Good、Poor 为基础枚举；完整�
 | Very poor | 90 < C ≤ 140 | 195 < C ≤ 270 | 5 / VeryPoor |
 | Extremely poor | C > 140 | C > 270 | 6 / ExtremelyPoor |
 
-原方法使用小时浓度。官方表给出整数区间，未明确测量小数的取整方法；上表采用已确认的产品连续区间规则：首档含零，其后下限不含、上限包含。例如 PM2.5=5 为 Good，5.1 为 Fair。此规则不标称为 EEA 官方取整规则。
+原方法使用小时浓度，因此调用方应先计算小时平均值。官方表给出整数区间，未明确测量小数的取整方法；上表采用已确认的产品连续区间规则：首档含零，其后下限不含、上限包含。例如 PM2.5=5 为 Good，5.1 为 Fair。此规则不标称为 EEA 官方取整规则。
 
 来源：[EEA 官方指数及分档](https://airindex.eea.europa.eu/AQI/)、[EEA 分档修订方法报告](https://www.eionet.europa.eu/etcs/etc-he/products/etc-he-products/etc-he-reports/etc-he-report-2024-17-eeas-revision-of-the-european-air-quality-index-bands)。
 
 ### 2.5 CO₂ 评级标准
 
-三个市场统一参考德国 UBA 室内 CO₂ 卫生指导值，作为通风提示，不随 PM 标准切换，不增加地区限值评价。C 为有效瞬时浓度，单位 ppm。
+三个市场统一参考德国 UBA 室内 CO₂ 卫生指导值，作为通风提示，不随 PM 标准切换，不增加地区限值评价。C 为按产品规定测量窗口得到的有效浓度，单位 ppm。
 
 | 浓度 | UBA 评价含义 | 产品提示 | Matter 等级 |
 | --- | --- | --- | --- |
@@ -463,7 +464,7 @@ Unknown 不参与优劣比较。Unknown、Good、Poor 为基础枚举；完整�
 
 甲醛默认并推荐采用 **WHO 2010《室内空气质量指南》**，其参考浓度为 0.10 mg/m³（30 分钟平均），适合作为中、美、欧产品的统一参考。需要遵循特定市场方案时，也可显式选择 GB/T 18883—2022 或加州 OEHHA 2008。
 
-甲醛标准独立于 PM 标准。各标准提供一个参考浓度 L；Matter 六档采用统一产品倍数 0.25L、0.5L、L、2L、5L。标准本身没有规定六档，因此该倍数映射不得标称为标准官方分档。C 为有效瞬时浓度，单位 mg/m³。
+甲醛标准独立于 PM 标准。各标准提供一个参考浓度 L；Matter 六档采用统一产品倍数 0.25L、0.5L、L、2L、5L。标准本身没有规定六档，因此该倍数映射不得标称为标准官方分档。C 为按所选标准时间口径计算的有效平均浓度，单位 mg/m³。
 
 PM 和甲醛的 `LevelValue` 产品映射均为：Good/Fair → Low、Moderate → Medium、Poor/VeryPoor → High、ExtremelyPoor → Critical。CO₂ 保持 Low/Medium/High 三档。
 
@@ -482,7 +483,7 @@ PM 和甲醛的 `LevelValue` 产品映射均为：Good/Fair → Low、Moderate �
 | VeryPoor | 0.200 < C ≤ 0.500 | 0.160 < C ≤ 0.400 | 0.110 < C ≤ 0.275 |
 | ExtremelyPoor | C > 0.500 | C > 0.400 | C > 0.275 |
 
-OEHHA 项是加州参考暴露水平，不是美国联邦标准。本产品对瞬时浓度评级，不执行原标准的平均时间，也不用于正式达标判定。
+OEHHA 项是加州参考暴露水平，不是美国联邦标准。调用方须按表中时间口径提供平均浓度；评级结果仍不等同于完整的正式达标判定。
 
 来源：[WHO 2010 甲醛章节](https://www.ncbi.nlm.nih.gov/books/NBK138711/)、[GB/T 18883—2022](https://www.ndcpa.gov.cn/doc/ucap/1625444428300685312/document/20230607/ZgwODgwF.pdf)、[加州 OEHHA 甲醛参考值](https://oehha.ca.gov/chemicals/formaldehyde)、[OEHHA 平均时间说明（脚注 1）](https://oehha.ca.gov/air/general-info/oehha-acute-8-hour-and-chronic-reference-exposure-level-rel-summary)。
 

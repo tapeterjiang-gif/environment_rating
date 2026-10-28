@@ -81,7 +81,7 @@
           <article class="principle"><div class="step">2</div><h3>关注最差一项</h3><p>整体空气质量取当前有效指标中最需要关注的一项，让问题不会被平均值掩盖。</p></article>
           <article class="principle"><div class="step">3</div><h3>缺失就跳过</h3><p>传感器未就绪或数据不可信时，该指标显示未知，也不会拉高或拉低整体结果。</p></article>
         </div>
-        <div class="note"><strong>读数口径：</strong>这里根据设备当前读数给出即时提示。它便于日常观察，不等同于法规中按 1 小时、24 小时或长期平均值进行的正式达标判定。</div>
+        <div class="note"><strong>读数口径：</strong>评级使用按所选标准测得的结果。标准规定平均时间时，设备先在对应时间窗口内采样并计算平均值，再将结果用于评级；未规定平均时间的指标按该标准的测量方法处理。</div>
       </div>
     </section>
 
@@ -134,7 +134,7 @@
 
           <div class="subsection">
             <h4>PM2.5 和 PM10：三个可选标准</h4>
-            <p>三套标准的统计方式原本不同。页面展示的是项目用于即时提示的浓度分界；选择哪套标准，取决于产品希望对应的市场表达。</p>
+            <p>三套标准的统计口径和平均时间不同。设备按当前选择标准的要求完成测量和平均，再应用对应的浓度分界；选择哪套标准，取决于产品希望对应的市场表达。</p>
             <div class="standard-switcher" role="tablist" aria-label="选择颗粒物评级标准" data-standard-switcher="pm">
               <button class="standard-option is-active" type="button" role="tab" aria-selected="true" aria-controls="pm-eea-panel" id="pm-eea-tab" tabindex="0" data-standard-option="eea"><b>欧洲 EEA · 默认</b><small>使用 European Air Quality Index 六档，保留读数小数。</small></button>
               <button class="standard-option" type="button" role="tab" aria-selected="false" aria-controls="pm-hj-panel" id="pm-hj-tab" tabindex="-1" data-standard-option="hj"><b>中国 HJ 633—2026</b><small>对应优、良和四级污染类别，浓度先修约为整数。</small></button>
@@ -220,7 +220,7 @@
           <div class="standard"><b><a href="https://oehha.ca.gov/chemicals/formaldehyde" target="_blank" rel="noreferrer">加州 OEHHA 2008</a></b><p>加州健康风险评估机构发布的甲醛参考暴露水平，其中 1 小时急性参考值为 0.055 mg/m³。</p><small>本项目将其作为可选甲醛依据；它不是美国联邦标准。</small></div>
         </div></div>
         <div class="standard-group"><h3>声光环境</h3><div class="standards detailed">
-          <div class="standard"><b><a href="https://www.who.int/publications/i/item/a68672" target="_blank" rel="noreferrer">WHO《社区噪声指南》</a></b><p>总结环境噪声对健康和生活的影响，并按住宅、睡眠等场景给出长期等效声级参考。</p><small>本项目借用住宅与睡眠参考值生成即时提示，不计算 LAeq 或正式达标结果。</small></div>
+          <div class="standard"><b><a href="https://www.who.int/publications/i/item/a68672" target="_blank" rel="noreferrer">WHO《社区噪声指南》</a></b><p>总结环境噪声对健康和生活的影响，并按住宅、睡眠等场景给出长期等效声级参考。</p><small>设备按相应测量时间处理读数后生成住宅与睡眠提示；正式达标判定仍须满足完整测量条件。</small></div>
           <div class="standard"><b><a href="https://store.ies.org/product/recommended-practice-lighting-for-interior-and-exterior-residential-environments/?v=eb65bcceaa5f" target="_blank" rel="noreferrer">ANSI/IES/ALA RP-11-26</a></b><p>面向住宅室内外照明，按空间、活动和任务面给出推荐照度及照明设计原则。</p><small>本项目选取任务照度层级，换算成六档住宅活动提示。</small></div>
         </div></div>
         <div class="note" id="icon-sources"><strong>图标来源：</strong>本网页以及 Android、Web、Linux 和设备屏幕使用 Google <a href="https://fonts.google.com/icons?icon.set=Material+Symbols&amp;icon.style=Rounded" target="_blank" rel="noreferrer">Material Symbols Rounded</a>，随项目提供的 SVG 采用 Apache 2.0 许可；Apple 平台使用 Apple <a href="https://developer.apple.com/sf-symbols/" target="_blank" rel="noreferrer">SF Symbols</a>，由系统按符号名称加载。PM2.5 与 PM10 共用颗粒物图形，通过名称和识别色区分。</div>

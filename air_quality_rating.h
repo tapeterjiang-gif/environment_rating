@@ -18,9 +18,10 @@ typedef uint32_t air_param_mask_t;
 /* PM2.5/PM10 threshold and numeric-processing standard.
  * The selection names the referenced standard, not a product region.
  * It applies only to PM; CO2 uses one common rule.
- * Product ratings use instantaneous concentrations, not a complete official
- * AQI calculation: no averaging or NowCast. Thresholds and Matter mappings
- * are documented in README.md (section 1.4).
+ * The caller supplies concentrations averaged using the selected standard's
+ * required time basis. This library performs threshold lookup only; it does
+ * not retain samples or calculate averages, NowCast, or a complete official
+ * AQI. Thresholds and Matter mappings are documented in README.md section 2.4.
  */
 typedef enum {
     /* Europe: EEA European Air Quality Index (checked 2026-09-12).
@@ -37,7 +38,9 @@ typedef enum {
 /* Formaldehyde rating standard. This selection is independent of the PM
  * standard and does not represent a product region. Each standard supplies
  * one reference concentration; the six Matter grades use the common product
- * multipliers 0.25, 0.5, 1, 2 and 5 documented in README.md section 1.6.
+ * multipliers 0.25, 0.5, 1, 2 and 5 documented in README.md section 2.6.
+ * The caller supplies a concentration averaged over the selected standard's
+ * stated time window; the library does not calculate that average.
  */
 typedef enum {
     /* WHO Guidelines for Indoor Air Quality (2010):
@@ -87,6 +90,8 @@ typedef enum {
 } air_level_t;
 
 /* Units: CO2 in ppm; PM in ug/m3; HCHO in mg/m3.
+ * Inputs are measurement results already averaged or otherwise processed by
+ * the caller according to the applicable reference and reporting mode.
  * Reuse the corresponding air_rate_* rules, then apply this product mapping:
  * Good/Fair -> Low; Moderate -> Medium; Poor/VeryPoor -> High;
  * ExtremelyPoor -> Critical; Unknown -> Unknown.
@@ -132,7 +137,7 @@ air_quality_t air_rate_all(air_pm_std_t pm_std,
 
 /* Inputs and results are passed by value. No allocations, retained pointers,
  * history, or mutable global state. Calls are reentrant. Caller checks sensor
- * health, range, and freshness before setting valid_mask.
+ * health, range, freshness, and required averaging window before calling.
  */
 
 #ifdef __cplusplus
