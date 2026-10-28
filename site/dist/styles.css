@@ -149,6 +149,9 @@ details > div { padding: 0 18px 18px; }
 .standards.detailed .standard > b { order: 1; min-width: 0; margin: 0; }
 .standards.detailed .standard a { color: var(--brand-dark); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .standard-org { order: 4; max-width: 84%; align-self: flex-end; margin-top: auto; padding-top: 14px; color: #315f6b; font-size: .72rem; font-weight: 620; line-height: 1.4; overflow-wrap: anywhere; text-align: right; }
+.standards.detailed .standard .standard-org a { color: inherit; text-decoration-color: rgba(49, 95, 107, .35); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.standards.detailed .standard .standard-org a:hover { color: var(--brand); text-decoration-color: currentColor; }
+.standards.detailed .standard .standard-org a:focus-visible { border-radius: 3px; outline: 3px solid rgba(5, 161, 195, .24); outline-offset: 2px; }
 .standards.detailed .standard p { order: 2; margin: 13px 0 10px; color: var(--muted); font-size: .9rem; }
 .standards.detailed .standard small { order: 3; display: block; color: #164a59; line-height: 1.5; }
 
