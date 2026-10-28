@@ -88,15 +88,15 @@
     <section class="section" id="color-principles"><div class="container">
       <div class="section-heading"><span class="kicker">图标与颜色</span><h2>先认出指标，再判断状态</h2><p>每项指标使用固定图标和识别色；评级结果再使用状态色。两种颜色各自表达一层信息，不会混在一起。</p></div>
       <div class="explain-banner"><div><strong>指标识别色</strong><p>固定不变，用于图标、名称和趋势线，帮助认出这是温度、PM2.5 还是噪声。</p></div><div class="versus">＋</div><div><strong>等级状态色</strong><p>随结果变化，用于分档色块和状态标签，帮助判断适宜、偏热、尚可或较差。</p></div></div>
-      <div class="note"><strong>颜色值怎样看：</strong>指标卡中的 HEX 是固定识别色；分档色块同时列出“状态色”“标签背景”和“标签文字”：状态色是评级主色，用于状态点、边框等强调位置；标签背景是色块实际显示的浅色底色；标签文字是色块中名称、范围和说明使用的深色文字。页面始终同时显示名称、范围和评级文字；无效数据统一显示灰色“未知”。</div>
+      <div class="note"><strong>颜色值怎样看：</strong>参数识别卡同时列出固定的“识别色”和“浅色背景”：识别色用于图标、名称和趋势线，浅色背景用于参数卡片等较大面积底色。分档色块则列出“状态色”“标签背景”和“标签文字”：状态色用于状态点、边框等强调位置；标签背景是色块的浅色底色；标签文字是名称、范围和说明使用的深色文字。页面始终同时显示名称、范围和评级文字；无效数据统一显示灰色“未知”。</div>
     </div></section>
 
     <section class="section" id="thermal">
       <div class="container"><div class="chapter">
         <div class="chapter-head"><div><span class="kicker">第一类</span><h3>热舒适度</h3><p>热舒适度不只看温度。PMV 会同时考虑空气温度、辐射温度、湿度、风速、活动量和衣着，给出从冷到热的七点感受；湿度另有独立提示。</p></div><span class="chapter-number" aria-hidden="true">01</span></div>
         <div class="subsection"><h4>指标识别</h4><div class="identity-grid two">
-          <div class="identity-card"><span class="metric-icon" style="--tone:#F97316;--icon:url('assets/icons/material/device_thermostat.svg')" aria-hidden="true"></span><div><b>温度</b><small>温暖橙 · #F97316</small><small class="icon-source">图标：Material Symbols <code>device_thermostat</code> · SF Symbols <code>thermometer.medium</code></small></div></div>
-          <div class="identity-card"><span class="metric-icon" style="--tone:#0891B2;--icon:url('assets/icons/material/humidity_percentage.svg')" aria-hidden="true"></span><div><b>相对湿度</b><small>水润青 · #0891B2</small><small class="icon-source">图标：Material Symbols <code>humidity_percentage</code> · SF Symbols <code>humidity.fill</code></small></div></div>
+          <div class="identity-card"><span class="metric-icon" style="--tone:#F97316;--icon:url('assets/icons/material/device_thermostat.svg')" aria-hidden="true"></span><div><b>温度</b><small>温暖橙 · #F97316</small><small class="identity-background"><span>浅色背景</span> #FFEDD5</small><small class="icon-source">图标：Material Symbols <code>device_thermostat</code> · SF Symbols <code>thermometer.medium</code></small></div></div>
+          <div class="identity-card"><span class="metric-icon" style="--tone:#0891B2;--icon:url('assets/icons/material/humidity_percentage.svg')" aria-hidden="true"></span><div><b>相对湿度</b><small>水润青 · #0891B2</small><small class="identity-background"><span>浅色背景</span> #CFFAFE</small><small class="icon-source">图标：Material Symbols <code>humidity_percentage</code> · SF Symbols <code>humidity.fill</code></small></div></div>
         </div></div>
         <div class="subsection"><h4>PMV 七点冷热感</h4><p>PMV 越接近 0，代表多数人在当前条件下越可能感觉中性。每个人的感受仍可能不同。</p>
           <div class="pmv-scale" aria-label="PMV 七点冷热感">
@@ -117,11 +117,11 @@
         <div class="chapter">
           <div class="chapter-head"><div><span class="kicker">第二类</span><h3>空气质量</h3><p>分别观察 PM2.5、PM10、CO₂ 和甲醛。单项和整体结果使用 Matter 的六档空气质量名称；具体浓度边界来自所选的环境或健康标准。</p></div><span class="chapter-number" aria-hidden="true">02</span></div>
           <div class="subsection"><h4>指标识别</h4><p>图标和识别色固定不变；下方分档色块表示当前评级。TVOC 指数目前只有识别色，尚未参与本项目评级。</p><div class="identity-grid">
-            <div class="identity-card"><span class="metric-icon" style="--tone:#15803D;--icon:url('assets/icons/material/co2.svg')" aria-hidden="true"></span><div><b>CO₂</b><small>森林绿 · #15803D</small><small class="icon-source">图标：Material Symbols <code>co2</code> · SF Symbols <code>carbon.dioxide.cloud</code></small></div></div>
-            <div class="identity-card"><span class="metric-icon" style="--tone:#667A83;--icon:url('assets/icons/material/blur_on.svg')" aria-hidden="true"></span><div><b>PM2.5</b><small>雾霾灰蓝 · #667A83</small><small class="icon-source">图标：Material Symbols <code>blur_on</code> · SF Symbols <code>aqi.medium</code></small></div></div>
-            <div class="identity-card"><span class="metric-icon" style="--tone:#9A7958;--icon:url('assets/icons/material/blur_on.svg')" aria-hidden="true"></span><div><b>PM10</b><small>沙尘灰棕 · #9A7958</small><small class="icon-source">图标：Material Symbols <code>blur_on</code> · SF Symbols <code>aqi.medium</code></small></div></div>
-            <div class="identity-card"><span class="metric-icon" style="--tone:#DB2777;--icon:url('assets/icons/material/science.svg')" aria-hidden="true"></span><div><b>甲醛 HCHO</b><small>警觉玫红 · #DB2777</small><small class="icon-source">图标：Material Symbols <code>science</code> · SF Symbols <code>atom</code></small></div></div>
-            <div class="identity-card"><span class="metric-icon" style="--tone:#89941A;--icon:url('assets/icons/material/speed.svg')" aria-hidden="true"></span><div><b>TVOC 指数</b><small>挥发黄绿 · #89941A</small><small class="icon-source">图标：Material Symbols <code>speed</code> · SF Symbols <code>speedometer</code></small></div></div>
+            <div class="identity-card"><span class="metric-icon" style="--tone:#15803D;--icon:url('assets/icons/material/co2.svg')" aria-hidden="true"></span><div><b>CO₂</b><small>森林绿 · #15803D</small><small class="identity-background"><span>浅色背景</span> #DCFCE7</small><small class="icon-source">图标：Material Symbols <code>co2</code> · SF Symbols <code>carbon.dioxide.cloud</code></small></div></div>
+            <div class="identity-card"><span class="metric-icon" style="--tone:#667A83;--icon:url('assets/icons/material/blur_on.svg')" aria-hidden="true"></span><div><b>PM2.5</b><small>雾霾灰蓝 · #667A83</small><small class="identity-background"><span>浅色背景</span> #E8EEF0</small><small class="icon-source">图标：Material Symbols <code>blur_on</code> · SF Symbols <code>aqi.medium</code></small></div></div>
+            <div class="identity-card"><span class="metric-icon" style="--tone:#9A7958;--icon:url('assets/icons/material/blur_on.svg')" aria-hidden="true"></span><div><b>PM10</b><small>沙尘灰棕 · #9A7958</small><small class="identity-background"><span>浅色背景</span> #F1EBE4</small><small class="icon-source">图标：Material Symbols <code>blur_on</code> · SF Symbols <code>aqi.medium</code></small></div></div>
+            <div class="identity-card"><span class="metric-icon" style="--tone:#DB2777;--icon:url('assets/icons/material/science.svg')" aria-hidden="true"></span><div><b>甲醛 HCHO</b><small>警觉玫红 · #DB2777</small><small class="identity-background"><span>浅色背景</span> #FCE7F3</small><small class="icon-source">图标：Material Symbols <code>science</code> · SF Symbols <code>atom</code></small></div></div>
+            <div class="identity-card"><span class="metric-icon" style="--tone:#89941A;--icon:url('assets/icons/material/speed.svg')" aria-hidden="true"></span><div><b>TVOC 指数</b><small>挥发黄绿 · #89941A</small><small class="identity-background"><span>浅色背景</span> #F1F5D5</small><small class="icon-source">图标：Material Symbols <code>speed</code> · SF Symbols <code>speedometer</code></small></div></div>
           </div></div>
 
           <div class="subsection">
@@ -186,8 +186,8 @@
       <div class="container"><div class="chapter">
         <div class="chapter-head"><div><span class="kicker">第三类</span><h3>声光</h3><p>噪声提示帮助判断当前环境是否安静；照度提示说明当前光线更接近哪类住宅活动需要。两者分别显示，不合成一个分数。</p></div><span class="chapter-number" aria-hidden="true">03</span></div>
         <div class="subsection"><h4>指标识别</h4><div class="identity-grid two">
-          <div class="identity-card"><span class="metric-icon" style="--tone:#9333EA;--icon:url('assets/icons/material/graphic_eq.svg')" aria-hidden="true"></span><div><b>噪声</b><small>声波紫 · #9333EA</small><small class="icon-source">图标：Material Symbols <code>graphic_eq</code> · SF Symbols <code>waveform</code></small></div></div>
-          <div class="identity-card"><span class="metric-icon" style="--tone:#F2C94C;--icon:url('assets/icons/material/light_mode.svg')" aria-hidden="true"></span><div><b>光照 / 照度</b><small>阳光金 · #F2C94C</small><small class="icon-source">图标：Material Symbols <code>light_mode</code> · SF Symbols <code>sun.max</code></small></div></div>
+          <div class="identity-card"><span class="metric-icon" style="--tone:#9333EA;--icon:url('assets/icons/material/graphic_eq.svg')" aria-hidden="true"></span><div><b>噪声</b><small>声波紫 · #9333EA</small><small class="identity-background"><span>浅色背景</span> #F3E8FF</small><small class="icon-source">图标：Material Symbols <code>graphic_eq</code> · SF Symbols <code>waveform</code></small></div></div>
+          <div class="identity-card"><span class="metric-icon" style="--tone:#F2C94C;--icon:url('assets/icons/material/light_mode.svg')" aria-hidden="true"></span><div><b>光照 / 照度</b><small>阳光金 · #F2C94C</small><small class="identity-background"><span>浅色背景</span> #FEF9C3</small><small class="icon-source">图标：Material Symbols <code>light_mode</code> · SF Symbols <code>sun.max</code></small></div></div>
         </div></div>
         <div class="subsection"><h4>噪声 · dB(A)</h4><p>住宅与睡眠场景使用相同的四档提示，睡眠场景的边界更严格。</p>
           <div class="scale-stack">

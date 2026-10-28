@@ -195,6 +195,7 @@ details > div { padding: 0 18px 18px; }
 .identity-card { display: flex; align-items: center; gap: 14px; padding: 17px; border: 1px solid var(--line); border-radius: 17px; background: white; }
 .identity-card b { display: block; }
 .identity-card small { display: block; color: var(--muted); }
+.identity-card .identity-background { margin-top: 2px; font-size: .72rem; }
 .identity-card .icon-source { margin-top: 4px; font-size: .68rem; line-height: 1.45; }
 .identity-card .icon-source code { color: #164a59; font: .96em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; overflow-wrap: anywhere; }
 .redirect-page { min-height: 100vh; display: grid; place-content: center; justify-items: start; gap: 18px; padding: 28px; }
