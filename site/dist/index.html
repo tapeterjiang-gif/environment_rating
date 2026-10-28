@@ -60,10 +60,25 @@
           </div>
         </div>
         <div class="hero-visual" aria-label="环境数据由多个指标共同组成的示意图">
-          <div class="orb"><div class="orb-core"><div><strong>3</strong><span>类环境体验</span></div></div></div>
-          <div class="float-card one"><b>热舒适度</b><span>冷热感 · 湿度</span></div>
-          <div class="float-card two"><b>空气质量</b><span>颗粒物 · CO₂ · 甲醛</span></div>
-          <div class="float-card three"><b>声光环境</b><span>噪声 · 照度</span></div>
+          <div class="environment-map">
+            <svg class="environment-guides" viewBox="0 0 430 390" aria-hidden="true"><path d="M215 56 L354 320 L76 320 Z"></path></svg>
+            <span class="environment-axis thermal" aria-hidden="true"></span>
+            <span class="environment-axis air" aria-hidden="true"></span>
+            <span class="environment-axis sound-light" aria-hidden="true"></span>
+            <a class="environment-node thermal" href="#thermal">
+              <span class="environment-glyphs" aria-hidden="true"><i style="--icon:url('assets/icons/material/device_thermostat.svg')"></i><i style="--icon:url('assets/icons/material/humidity_percentage.svg')"></i></span>
+              <span><b>热舒适度</b><small>冷热感 · 湿度</small></span>
+            </a>
+            <a class="environment-node air" href="#air">
+              <span class="environment-glyphs" aria-hidden="true"><i style="--icon:url('assets/icons/material/co2.svg')"></i><i style="--icon:url('assets/icons/material/blur_on.svg')"></i><i style="--icon:url('assets/icons/material/science.svg')"></i></span>
+              <span><b>空气质量</b><small>颗粒物 · CO₂ · 甲醛</small></span>
+            </a>
+            <a class="environment-node sound-light" href="#sound-light">
+              <span class="environment-glyphs" aria-hidden="true"><i style="--icon:url('assets/icons/material/graphic_eq.svg')"></i><i style="--icon:url('assets/icons/material/light_mode.svg')"></i></span>
+              <span><b>声光环境</b><small>噪声 · 照度</small></span>
+            </a>
+            <div class="environment-hub"><small>环境评级</small><strong>3</strong><span>类环境</span><em>分别评价</em></div>
+          </div>
         </div>
       </div>
     </section>
