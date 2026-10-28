@@ -176,6 +176,9 @@ details > div { padding: 0 18px 18px; }
 .metric-scale b { font-size: .84rem; }
 .metric-scale span { font-size: .71rem; overflow-wrap: anywhere; }
 .metric-scale small { font-size: .67rem; opacity: .82; }
+.pmv-scale small.scale-colors, .humidity-scale small.scale-colors, .metric-scale small.scale-colors { display: grid; gap: 1px; margin-top: 7px; opacity: .88; }
+.scale-colors > span { display: block; }
+.scale-colors .scale-hint { margin-top: 2px; font-weight: 650; }
 .chapter, .subsection, details, details > div { min-width: 0; }
 
 .page-footer { margin-top: 50px; padding: 45px 0; color: #e8fbff; background: linear-gradient(120deg, #044e7a, #057e9e); }
