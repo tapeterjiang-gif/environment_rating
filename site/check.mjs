@@ -24,7 +24,7 @@ for (const page of pages) {
   for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const target = match[1];
     if (target.startsWith("#") || target.includes("://")) continue;
-    accessSync(resolve(root, target.split("#")[0]));
+    accessSync(resolve(root, target.split(/[?#]/)[0]));
   }
   for (const match of html.matchAll(/url\(['"]?([^'")]+)['"]?\)/g)) {
     const target = match[1];
