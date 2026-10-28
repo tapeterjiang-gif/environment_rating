@@ -18,7 +18,7 @@ for (const page of pages) {
   }
   if (page.file === "index.html" && /查看 PM(?:2\.5|10) 六档边界/.test(html)) throw new Error("index.html still contains the removed PM boundary expanders");
   if (page.file === "index.html" && (html.includes("甲醛：以参考浓度为中心分档") || html.includes("<th>可选依据</th>"))) throw new Error("index.html still contains the replaced formaldehyde comparison table");
-  if (page.file === "index.html" && (html.includes("class=\"orb\"") || html.includes("class=\"float-card"))) throw new Error("index.html still contains the replaced hero graphic");
+  if (page.file === "index.html" && (html.includes("class=\"orb\"") || html.includes("class=\"float-card") || html.includes("environment-axis") || html.includes("environment-node"))) throw new Error("index.html still contains an earlier hero graphic");
   for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const target = match[1];
     if (target.startsWith("#") || target.includes("://")) continue;
@@ -26,7 +26,7 @@ for (const page of pages) {
   }
   for (const match of html.matchAll(/url\(['"]?([^'")]+)['"]?\)/g)) {
     const target = match[1];
-    if (target.startsWith("data:") || target.includes("://")) continue;
+    if (target.startsWith("#") || target.startsWith("data:") || target.includes("://")) continue;
     accessSync(resolve(root, target));
   }
 }

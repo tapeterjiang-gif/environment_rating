@@ -61,23 +61,24 @@
         </div>
         <div class="hero-visual" aria-label="环境数据由多个指标共同组成的示意图">
           <div class="environment-map">
-            <svg class="environment-guides" viewBox="0 0 430 390" aria-hidden="true"><path d="M215 56 L354 320 L76 320 Z"></path></svg>
-            <span class="environment-axis thermal" aria-hidden="true"></span>
-            <span class="environment-axis air" aria-hidden="true"></span>
-            <span class="environment-axis sound-light" aria-hidden="true"></span>
-            <a class="environment-node thermal" href="#thermal">
-              <span class="environment-glyphs" aria-hidden="true"><i style="--icon:url('assets/icons/material/device_thermostat.svg')"></i><i style="--icon:url('assets/icons/material/humidity_percentage.svg')"></i></span>
-              <span><b>热舒适度</b><small>冷热感 · 湿度</small></span>
-            </a>
-            <a class="environment-node air" href="#air">
-              <span class="environment-glyphs" aria-hidden="true"><i style="--icon:url('assets/icons/material/co2.svg')"></i><i style="--icon:url('assets/icons/material/blur_on.svg')"></i><i style="--icon:url('assets/icons/material/science.svg')"></i></span>
-              <span><b>空气质量</b><small>颗粒物 · CO₂ · 甲醛</small></span>
-            </a>
-            <a class="environment-node sound-light" href="#sound-light">
-              <span class="environment-glyphs" aria-hidden="true"><i style="--icon:url('assets/icons/material/graphic_eq.svg')"></i><i style="--icon:url('assets/icons/material/light_mode.svg')"></i></span>
-              <span><b>声光环境</b><small>噪声 · 照度</small></span>
-            </a>
-            <div class="environment-hub"><small>环境评级</small><strong>3</strong><span>类环境</span><em>分别评价</em></div>
+            <div class="ring-graphic">
+              <svg class="category-rings" viewBox="0 0 320 320" aria-hidden="true">
+                <defs>
+                  <linearGradient id="thermal-ring" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F97316"></stop><stop offset="1" stop-color="#F2C94C"></stop></linearGradient>
+                  <linearGradient id="air-ring" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#15803D"></stop><stop offset="1" stop-color="#54E3CD"></stop></linearGradient>
+                  <linearGradient id="sound-light-ring" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9333EA"></stop><stop offset="1" stop-color="#F2C94C"></stop></linearGradient>
+                </defs>
+                <circle class="ring-track outer" cx="160" cy="160" r="132"></circle><circle class="category-ring outer" cx="160" cy="160" r="132" pathLength="100" stroke="url(#thermal-ring)"></circle>
+                <circle class="ring-track middle" cx="160" cy="160" r="101"></circle><circle class="category-ring middle" cx="160" cy="160" r="101" pathLength="100" stroke="url(#air-ring)"></circle>
+                <circle class="ring-track inner" cx="160" cy="160" r="70"></circle><circle class="category-ring inner" cx="160" cy="160" r="70" pathLength="100" stroke="url(#sound-light-ring)"></circle>
+              </svg>
+              <div class="environment-hub"><small>环境评级</small><strong>3</strong><span>类环境</span><em>分别评价</em></div>
+            </div>
+            <div class="ring-legend">
+              <a class="ring-label thermal" href="#thermal"><span class="ring-glyphs" aria-hidden="true"><i style="--icon:url('assets/icons/material/device_thermostat.svg')"></i><i style="--icon:url('assets/icons/material/humidity_percentage.svg')"></i></span><span><b>热舒适度</b><small>冷热感 · 湿度</small></span></a>
+              <a class="ring-label air" href="#air"><span class="ring-glyphs three" aria-hidden="true"><i style="--icon:url('assets/icons/material/co2.svg')"></i><i style="--icon:url('assets/icons/material/blur_on.svg')"></i><i style="--icon:url('assets/icons/material/science.svg')"></i></span><span><b>空气质量</b><small>颗粒物 · CO₂ · 甲醛</small></span></a>
+              <a class="ring-label sound-light" href="#sound-light"><span class="ring-glyphs" aria-hidden="true"><i style="--icon:url('assets/icons/material/graphic_eq.svg')"></i><i style="--icon:url('assets/icons/material/light_mode.svg')"></i></span><span><b>声光环境</b><small>噪声 · 照度</small></span></a>
+            </div>
           </div>
         </div>
       </div>
