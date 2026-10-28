@@ -2,32 +2,35 @@ document.querySelectorAll("[data-year]").forEach((node) => {
   node.textContent = new Date().getFullYear().toString();
 });
 
-const pmStandardTabs = [...document.querySelectorAll("[data-pm-standard]")];
-const pmStandardPanels = [...document.querySelectorAll("[data-pm-panel]")];
+document.querySelectorAll("[data-standard-switcher]").forEach((switcher) => {
+  const group = switcher.dataset.standardSwitcher;
+  const tabs = [...switcher.querySelectorAll("[data-standard-option]")];
+  const panels = [...document.querySelectorAll(`[data-standard-group="${group}"]`)];
 
-function selectPmStandard(standard, focus = false) {
-  pmStandardTabs.forEach((tab) => {
-    const selected = tab.dataset.pmStandard === standard;
-    tab.classList.toggle("is-active", selected);
-    tab.setAttribute("aria-selected", selected.toString());
-    tab.tabIndex = selected ? 0 : -1;
-    if (selected && focus) tab.focus();
-  });
-  pmStandardPanels.forEach((panel) => {
-    panel.hidden = panel.dataset.pmPanel !== standard;
-  });
-}
+  function selectStandard(standard, focus = false) {
+    tabs.forEach((tab) => {
+      const selected = tab.dataset.standardOption === standard;
+      tab.classList.toggle("is-active", selected);
+      tab.setAttribute("aria-selected", selected.toString());
+      tab.tabIndex = selected ? 0 : -1;
+      if (selected && focus) tab.focus();
+    });
+    panels.forEach((panel) => {
+      panel.hidden = panel.dataset.standardPanel !== standard;
+    });
+  }
 
-pmStandardTabs.forEach((tab, index) => {
-  tab.addEventListener("click", () => selectPmStandard(tab.dataset.pmStandard));
-  tab.addEventListener("keydown", (event) => {
-    let targetIndex;
-    if (event.key === "ArrowRight" || event.key === "ArrowDown") targetIndex = (index + 1) % pmStandardTabs.length;
-    if (event.key === "ArrowLeft" || event.key === "ArrowUp") targetIndex = (index - 1 + pmStandardTabs.length) % pmStandardTabs.length;
-    if (event.key === "Home") targetIndex = 0;
-    if (event.key === "End") targetIndex = pmStandardTabs.length - 1;
-    if (targetIndex == null) return;
-    event.preventDefault();
-    selectPmStandard(pmStandardTabs[targetIndex].dataset.pmStandard, true);
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => selectStandard(tab.dataset.standardOption));
+    tab.addEventListener("keydown", (event) => {
+      let targetIndex;
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") targetIndex = (index + 1) % tabs.length;
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") targetIndex = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === "Home") targetIndex = 0;
+      if (event.key === "End") targetIndex = tabs.length - 1;
+      if (targetIndex == null) return;
+      event.preventDefault();
+      selectStandard(tabs[targetIndex].dataset.standardOption, true);
+    });
   });
 });

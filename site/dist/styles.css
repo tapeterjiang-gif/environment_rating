@@ -128,7 +128,7 @@ details > div { padding: 0 18px 18px; }
 .standard-option b, .standard-option small { display: block; }
 .standard-option b { margin-bottom: 6px; }
 .standard-option small { color: var(--muted); line-height: 1.45; }
-.pm-standard-panel[hidden] { display: none; }
+.standard-panel[hidden] { display: none; }
 .standard-group { margin-top: 30px; }
 .standard-group > h3 { margin: 0 0 12px; font-size: 1.28rem; }
 .standards.detailed { grid-template-columns: repeat(2, minmax(0, 1fr)); }
