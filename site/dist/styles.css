@@ -41,7 +41,7 @@ button, summary { font: inherit; }
 }
 .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 750; text-decoration: none; letter-spacing: -.01em; }
-.brand-logo { width: 96px; height: auto; display: block; }
+.brand-logo { width: 120px; height: auto; display: block; flex-shrink: 0; }
 .nav-actions { display: flex; align-items: center; gap: 10px; }
 .nav-links { display: flex; align-items: center; gap: 6px; }
 .nav-links a { padding: 8px 13px; border-radius: 999px; color: var(--muted); font-size: .94rem; text-decoration: none; }
