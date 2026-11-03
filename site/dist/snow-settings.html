@@ -41,6 +41,7 @@
     </div>
 
     <form id="rating-form">
+      <div class="settings-scroll" tabindex="0" aria-label="评级标准列表">
       <div class="setting-list">
         <fieldset class="setting-card pm-card">
           <legend class="sr-only" data-i18n="pmTitle">颗粒物</legend>
@@ -84,9 +85,15 @@
         </fieldset>
       </div>
 
-      <div class="fixed-references" aria-label="固定评级依据">
-        <span class="fixed-label" data-i18n="fixed">固定依据</span>
-        <span>CO₂ · UBA</span><span>PMV · ISO 7730</span><span data-i18n="sensationFixed">冷热感 · ASHRAE 55</span><span data-i18n="noiseFixed">噪声 · WHO</span><span data-i18n="lightFixed">照度 · RP-11</span>
+      <section class="single-section" aria-labelledby="single-title">
+        <div class="single-heading"><h2 id="single-title" data-i18n="fixed">固定依据</h2><span data-i18n="fixedHint">以下指标目前只有一种评级依据，已默认选中</span></div>
+        <div class="single-grid">
+          <div class="single-card"><span class="single-icon" aria-hidden="true"><img src="assets/icons/material/co2.svg" alt=""></span><div><strong>CO₂</strong><small data-i18n="co2Detail">室内通风提示</small></div><label class="single-choice"><input type="radio" name="co2" value="uba" checked disabled><span>UBA 2008</span></label></div>
+          <div class="single-card"><span class="single-icon" aria-hidden="true"><img src="assets/icons/material/device_thermostat.svg" alt=""></span><div><strong data-i18n="thermalTitle">冷热感</strong><small data-i18n="thermalDetail">PMV / 七点热感觉</small></div><label class="single-choice"><input type="radio" name="thermal" value="iso-ashrae" checked disabled><span>ISO 7730 / ASHRAE 55</span></label></div>
+          <div class="single-card"><span class="single-icon" aria-hidden="true"><img src="assets/icons/material/graphic_eq.svg" alt=""></span><div><strong data-i18n="noiseTitle">噪声</strong><small data-i18n="noiseDetail">住宅与睡眠场景</small></div><label class="single-choice"><input type="radio" name="noise" value="who" checked disabled><span>WHO 1999</span></label></div>
+          <div class="single-card"><span class="single-icon" aria-hidden="true"><img src="assets/icons/material/light_mode.svg" alt=""></span><div><strong data-i18n="lightTitle">照度</strong><small data-i18n="lightDetail">住宅活动参考</small></div><label class="single-choice"><input type="radio" name="light" value="rp11" checked disabled><span>ANSI/IES/ALA RP-11-26</span></label></div>
+        </div>
+      </section>
       </div>
 
       <footer class="form-footer">
