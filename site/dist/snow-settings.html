@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0564A0">
+  <meta name="description" content="Snow 环境评级标准设置页面示例，支持简体中文、繁體中文、English 和日本語。">
+  <title>Snow · 环境评级标准设置</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="snow-settings.css">
+  <script src="snow-settings.js" defer></script>
+</head>
+<body>
+  <main class="snow-screen" id="main">
+    <header class="topbar">
+      <div class="identity">
+        <img src="qingping-wordmark-blue.svg" width="80" height="20" alt="Qingping">
+        <span class="identity-divider" aria-hidden="true"></span>
+        <span class="product-name">SNOW</span>
+      </div>
+      <label class="language-control">
+        <span class="sr-only" data-i18n="language">语言</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.2 2.4 3.3 5.2 3.3 8.5S14.2 18 12 20.5M12 3.5C9.8 5.9 8.7 8.7 8.7 12s1.1 6.2 3.3 8.5"/></svg>
+        <select id="language" aria-label="语言">
+          <option value="zh-Hans">简体中文</option>
+          <option value="zh-Hant">繁體中文</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+        </select>
+        <span class="chevron" aria-hidden="true"></span>
+      </label>
+    </header>
+
+    <div class="page-heading">
+      <div>
+        <span class="eyebrow" data-i18n="eyebrow">SNOW / 环境设置</span>
+        <h1 data-i18n="title">环境评级标准</h1>
+        <p data-i18n="intro">选择适合你的评级依据。不同指标可以使用不同标准。</p>
+      </div>
+      <span class="settings-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 17h16M9 4v6M15 14v6"/></svg></span>
+    </div>
+
+    <form id="rating-form">
+      <div class="setting-list">
+        <fieldset class="setting-card pm-card">
+          <legend class="sr-only" data-i18n="pmTitle">颗粒物</legend>
+          <div class="setting-head">
+            <span class="setting-icon pm-icon" aria-hidden="true"><img src="assets/icons/material/blur_on.svg" alt=""></span>
+            <div class="setting-title"><h2 data-i18n="pmTitle">颗粒物</h2><p data-i18n="pmDetail">PM2.5 与 PM10 共用一套标准</p></div>
+            <span class="setting-count">01</span>
+          </div>
+          <div class="option-grid three">
+            <label class="choice"><input type="radio" name="pm" value="eea" checked><span class="choice-face"><strong>EEA</strong><small data-i18n="pmEea">欧洲空气质量指数</small></span></label>
+            <label class="choice"><input type="radio" name="pm" value="hj"><span class="choice-face"><strong>HJ 633</strong><small data-i18n="pmHj">中国环境空气质量指数</small></span></label>
+            <label class="choice"><input type="radio" name="pm" value="epa"><span class="choice-face"><strong>EPA AQI</strong><small data-i18n="pmEpa">美国空气质量指数</small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="setting-card hcho-card">
+          <legend class="sr-only" data-i18n="hchoTitle">甲醛</legend>
+          <div class="setting-head">
+            <span class="setting-icon hcho-icon" aria-hidden="true"><img src="assets/icons/material/science.svg" alt=""></span>
+            <div class="setting-title"><h2 data-i18n="hchoTitle">甲醛</h2><p data-i18n="hchoDetail">参考浓度与平均时间随标准变化</p></div>
+            <span class="setting-count">02</span>
+          </div>
+          <div class="option-grid three">
+            <label class="choice"><input type="radio" name="hcho" value="who" checked><span class="choice-face"><strong>WHO 2010</strong><small data-i18n="hchoWho">国际参考 · 30 分钟</small></span></label>
+            <label class="choice"><input type="radio" name="hcho" value="gbt"><span class="choice-face"><strong>GB/T 18883</strong><small data-i18n="hchoGbt">中国参考 · 1 小时</small></span></label>
+            <label class="choice"><input type="radio" name="hcho" value="oehha"><span class="choice-face"><strong>OEHHA 2008</strong><small data-i18n="hchoOehha">加州参考 · 1 小时</small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="setting-card humidity-card">
+          <legend class="sr-only" data-i18n="humidityTitle">相对湿度</legend>
+          <div class="setting-head">
+            <span class="setting-icon humidity-icon" aria-hidden="true"><img src="assets/icons/material/humidity_percentage.svg" alt=""></span>
+            <div class="setting-title"><h2 data-i18n="humidityTitle">相对湿度</h2><p data-i18n="humidityDetail">选择“适宜”范围的参考依据</p></div>
+            <span class="setting-count">03</span>
+          </div>
+          <div class="option-grid two">
+            <label class="choice"><input type="radio" name="humidity" value="uba" checked><span class="choice-face"><strong>UBA</strong><small data-i18n="humidityUba">德国环境署 · 40–60%RH</small></span></label>
+            <label class="choice"><input type="radio" name="humidity" value="epa"><span class="choice-face"><strong>EPA</strong><small data-i18n="humidityEpa">美国环保署 · 30–50%RH</small></span></label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="fixed-references" aria-label="固定评级依据">
+        <span class="fixed-label" data-i18n="fixed">固定依据</span>
+        <span>CO₂ · UBA</span><span>PMV · ISO 7730</span><span data-i18n="sensationFixed">冷热感 · ASHRAE 55</span><span data-i18n="noiseFixed">噪声 · WHO</span><span data-i18n="lightFixed">照度 · RP-11</span>
+      </div>
+
+      <footer class="form-footer">
+        <div class="footer-copy"><p data-i18n="note">演示设置仅保存在浏览器；切换标准时需同步调整平均时间。</p><a href="index.html" data-i18n="guide">查看评级依据 ↗</a></div>
+        <div class="footer-actions"><button type="button" id="reset" class="reset-button" data-i18n="reset">恢复默认</button><button type="submit" class="save-button" data-i18n="save">保存设置</button></div>
+      </footer>
+    </form>
+    <p class="save-status" id="save-status" role="status" aria-live="polite"></p>
+  </main>
+</body>
+</html>
