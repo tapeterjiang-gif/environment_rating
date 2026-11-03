@@ -22,6 +22,7 @@ for (const page of pages) {
   if (page.file === "index.html" && (html.includes("<span class=\"standard-org\"><span>") || html.includes("标准机构"))) throw new Error("index.html still contains the removed standards-body capsule");
   if (page.file === "index.html" && [...html.matchAll(/<span class="standard-org">([\s\S]*?)<\/span>/g)].some(([, content]) => !content.includes("<a href="))) throw new Error("A standards body is missing its official website link");
   if (page.file === "index.html" && (html.includes("class=\"orb\"") || html.includes("class=\"float-card") || html.includes("environment-axis") || html.includes("environment-node") || html.includes("environment-hub") || html.includes("category-rings"))) throw new Error("index.html still contains an earlier hero graphic");
+  if (page.file === "snow-settings.html" && !(html.indexOf('id="thermal-group-title"') < html.indexOf('id="air-group-title"') && html.indexOf('id="air-group-title"') < html.indexOf('id="sound-group-title"'))) throw new Error("Snow settings groups are out of order");
   for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const target = match[1];
     if (target.startsWith("#") || target.includes("://")) continue;

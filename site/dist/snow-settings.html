@@ -42,13 +42,31 @@
 
     <form id="rating-form">
       <div class="settings-scroll" tabindex="0" aria-label="评级标准列表">
-      <div class="setting-list">
+      <section class="rating-group" aria-labelledby="thermal-group-title">
+        <div class="group-heading"><span>01</span><h2 id="thermal-group-title" data-i18n="thermalGroup">热舒适度</h2></div>
+        <div class="setting-list">
+        <fieldset class="setting-card humidity-card">
+          <legend class="sr-only" data-i18n="humidityTitle">相对湿度</legend>
+          <div class="setting-head">
+            <span class="setting-icon humidity-icon" aria-hidden="true"><img src="assets/icons/material/humidity_percentage.svg" alt=""></span>
+            <div class="setting-title"><h2 data-i18n="humidityTitle">相对湿度</h2><p data-i18n="humidityDetail">选择“适宜”范围的参考依据</p></div>
+          </div>
+          <div class="option-grid two">
+            <label class="choice"><input type="radio" name="humidity" value="uba" checked><span class="choice-face"><strong>UBA</strong><small data-i18n="humidityUba">德国环境署 · 40–60%RH</small></span></label>
+            <label class="choice"><input type="radio" name="humidity" value="epa"><span class="choice-face"><strong>EPA</strong><small data-i18n="humidityEpa">美国环保署 · 30–50%RH</small></span></label>
+          </div>
+        </fieldset>
+        <div class="single-card"><span class="single-icon" aria-hidden="true"><img src="assets/icons/material/device_thermostat.svg" alt=""></span><div><strong data-i18n="thermalTitle">冷热感</strong><small data-i18n="thermalDetail">PMV / 七点热感觉</small></div><label class="single-choice"><input type="radio" name="thermal" value="iso-ashrae" checked disabled><span>ISO 7730 / ASHRAE 55</span></label></div>
+        </div>
+      </section>
+      <section class="rating-group" aria-labelledby="air-group-title">
+        <div class="group-heading"><span>02</span><h2 id="air-group-title" data-i18n="airGroup">空气质量</h2></div>
+        <div class="setting-list">
         <fieldset class="setting-card pm-card">
           <legend class="sr-only" data-i18n="pmTitle">颗粒物</legend>
           <div class="setting-head">
             <span class="setting-icon pm-icon" aria-hidden="true"><img src="assets/icons/material/blur_on.svg" alt=""></span>
             <div class="setting-title"><h2 data-i18n="pmTitle">颗粒物</h2><p data-i18n="pmDetail">PM2.5 与 PM10 共用一套标准</p></div>
-            <span class="setting-count">01</span>
           </div>
           <div class="option-grid three">
             <label class="choice"><input type="radio" name="pm" value="eea" checked><span class="choice-face"><strong>EEA</strong><small data-i18n="pmEea">欧洲空气质量指数</small></span></label>
@@ -56,13 +74,12 @@
             <label class="choice"><input type="radio" name="pm" value="epa"><span class="choice-face"><strong>EPA AQI</strong><small data-i18n="pmEpa">美国空气质量指数</small></span></label>
           </div>
         </fieldset>
-
+        <div class="single-card"><span class="single-icon" aria-hidden="true"><img src="assets/icons/material/co2.svg" alt=""></span><div><strong>CO₂</strong><small data-i18n="co2Detail">室内通风提示</small></div><label class="single-choice"><input type="radio" name="co2" value="uba" checked disabled><span>UBA 2008</span></label></div>
         <fieldset class="setting-card hcho-card">
           <legend class="sr-only" data-i18n="hchoTitle">甲醛</legend>
           <div class="setting-head">
             <span class="setting-icon hcho-icon" aria-hidden="true"><img src="assets/icons/material/science.svg" alt=""></span>
             <div class="setting-title"><h2 data-i18n="hchoTitle">甲醛</h2><p data-i18n="hchoDetail">参考浓度与平均时间随标准变化</p></div>
-            <span class="setting-count">02</span>
           </div>
           <div class="option-grid three">
             <label class="choice"><input type="radio" name="hcho" value="who" checked><span class="choice-face"><strong>WHO 2010</strong><small data-i18n="hchoWho">国际参考 · 30 分钟</small></span></label>
@@ -70,28 +87,13 @@
             <label class="choice"><input type="radio" name="hcho" value="oehha"><span class="choice-face"><strong>OEHHA 2008</strong><small data-i18n="hchoOehha">加州参考 · 1 小时</small></span></label>
           </div>
         </fieldset>
-
-        <fieldset class="setting-card humidity-card">
-          <legend class="sr-only" data-i18n="humidityTitle">相对湿度</legend>
-          <div class="setting-head">
-            <span class="setting-icon humidity-icon" aria-hidden="true"><img src="assets/icons/material/humidity_percentage.svg" alt=""></span>
-            <div class="setting-title"><h2 data-i18n="humidityTitle">相对湿度</h2><p data-i18n="humidityDetail">选择“适宜”范围的参考依据</p></div>
-            <span class="setting-count">03</span>
-          </div>
-          <div class="option-grid two">
-            <label class="choice"><input type="radio" name="humidity" value="uba" checked><span class="choice-face"><strong>UBA</strong><small data-i18n="humidityUba">德国环境署 · 40–60%RH</small></span></label>
-            <label class="choice"><input type="radio" name="humidity" value="epa"><span class="choice-face"><strong>EPA</strong><small data-i18n="humidityEpa">美国环保署 · 30–50%RH</small></span></label>
-          </div>
-        </fieldset>
-      </div>
-
-      <section class="single-section" aria-labelledby="single-title">
-        <div class="single-heading"><h2 id="single-title" data-i18n="fixed">固定依据</h2><span data-i18n="fixedHint">以下指标目前只有一种评级依据，已默认选中</span></div>
-        <div class="single-grid">
-          <div class="single-card"><span class="single-icon" aria-hidden="true"><img src="assets/icons/material/co2.svg" alt=""></span><div><strong>CO₂</strong><small data-i18n="co2Detail">室内通风提示</small></div><label class="single-choice"><input type="radio" name="co2" value="uba" checked disabled><span>UBA 2008</span></label></div>
-          <div class="single-card"><span class="single-icon" aria-hidden="true"><img src="assets/icons/material/device_thermostat.svg" alt=""></span><div><strong data-i18n="thermalTitle">冷热感</strong><small data-i18n="thermalDetail">PMV / 七点热感觉</small></div><label class="single-choice"><input type="radio" name="thermal" value="iso-ashrae" checked disabled><span>ISO 7730 / ASHRAE 55</span></label></div>
-          <div class="single-card"><span class="single-icon" aria-hidden="true"><img src="assets/icons/material/graphic_eq.svg" alt=""></span><div><strong data-i18n="noiseTitle">噪声</strong><small data-i18n="noiseDetail">住宅与睡眠场景</small></div><label class="single-choice"><input type="radio" name="noise" value="who" checked disabled><span>WHO 1999</span></label></div>
-          <div class="single-card"><span class="single-icon" aria-hidden="true"><img src="assets/icons/material/light_mode.svg" alt=""></span><div><strong data-i18n="lightTitle">照度</strong><small data-i18n="lightDetail">住宅活动参考</small></div><label class="single-choice"><input type="radio" name="light" value="rp11" checked disabled><span>ANSI/IES/ALA RP-11-26</span></label></div>
+        </div>
+      </section>
+      <section class="rating-group" aria-labelledby="sound-group-title">
+        <div class="group-heading"><span>03</span><h2 id="sound-group-title" data-i18n="soundGroup">声光环境</h2></div>
+        <div class="setting-list">
+        <div class="single-card"><span class="single-icon" aria-hidden="true"><img src="assets/icons/material/graphic_eq.svg" alt=""></span><div><strong data-i18n="noiseTitle">噪声</strong><small data-i18n="noiseDetail">住宅与睡眠场景</small></div><label class="single-choice"><input type="radio" name="noise" value="who" checked disabled><span>WHO 1999</span></label></div>
+        <div class="single-card"><span class="single-icon" aria-hidden="true"><img src="assets/icons/material/light_mode.svg" alt=""></span><div><strong data-i18n="lightTitle">照度</strong><small data-i18n="lightDetail">住宅活动参考</small></div><label class="single-choice"><input type="radio" name="light" value="rp11" checked disabled><span>ANSI/IES/ALA RP-11-26</span></label></div>
         </div>
       </section>
       </div>
