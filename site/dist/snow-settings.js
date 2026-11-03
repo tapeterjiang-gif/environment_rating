@@ -44,6 +44,65 @@ const MESSAGES = {
   }
 };
 
+const STANDARD_LABELS = {
+  "zh-Hans": {
+    "humidity-uba": ["住宅通风与湿度指南", "德国联邦环境署"],
+    "humidity-epa": ["家庭霉菌与湿度简明指南", "美国环境保护署"],
+    thermal: ["ISO 7730:2025 / ASHRAE 55", "国际标准化组织 / 美国采暖、制冷与空调工程师学会"],
+    "pm-eea": ["欧洲空气质量指数", "欧洲环境署"],
+    "pm-hj": ["HJ 633—2026 环境空气质量指数", "中国生态环境部"],
+    "pm-epa": ["美国空气质量指数（AQI）", "美国环境保护署"],
+    co2: ["室内空气中二氧化碳的健康评价", "德国联邦环境署"],
+    "hcho-who": ["WHO 室内空气质量指南：特定污染物", "世界卫生组织"],
+    "hcho-gbt": ["GB/T 18883—2022 室内空气质量标准", "国家市场监督管理总局、国家标准化管理委员会"],
+    "hcho-oehha": ["甲醛急性参考暴露水平", "加州环境健康危害评估办公室"],
+    noise: ["社区噪声指南", "世界卫生组织"],
+    light: ["RP-11-26 住宅环境照明推荐实践", "美国照明工程学会、美国照明协会"]
+  },
+  "zh-Hant": {
+    "humidity-uba": ["住宅通風與濕度指南", "德國聯邦環境署"],
+    "humidity-epa": ["家庭黴菌與濕度簡明指南", "美國環境保護署"],
+    thermal: ["ISO 7730:2025 / ASHRAE 55", "國際標準化組織 / 美國採暖、製冷與空調工程師學會"],
+    "pm-eea": ["歐洲空氣品質指數", "歐洲環境署"],
+    "pm-hj": ["HJ 633—2026 環境空氣品質指數", "中國生態環境部"],
+    "pm-epa": ["美國空氣品質指數（AQI）", "美國環境保護署"],
+    co2: ["室內空氣中二氧化碳的健康評價", "德國聯邦環境署"],
+    "hcho-who": ["WHO 室內空氣品質指南：特定污染物", "世界衛生組織"],
+    "hcho-gbt": ["GB/T 18883—2022 室內空氣品質標準", "國家市場監督管理總局、國家標準化管理委員會"],
+    "hcho-oehha": ["甲醛急性參考暴露水平", "加州環境健康危害評估辦公室"],
+    noise: ["社區噪聲指南", "世界衛生組織"],
+    light: ["RP-11-26 住宅環境照明推薦實踐", "美國照明工程學會、美國照明協會"]
+  },
+  en: {
+    "humidity-uba": ["Residential ventilation and humidity guidance", "German Environment Agency (UBA)"],
+    "humidity-epa": ["A Brief Guide to Mold, Moisture and Your Home", "U.S. Environmental Protection Agency"],
+    thermal: ["ISO 7730:2025 / ASHRAE Standard 55", "ISO / ASHRAE"],
+    "pm-eea": ["European Air Quality Index", "European Environment Agency"],
+    "pm-hj": ["HJ 633—2026 Ambient Air Quality Index", "Ministry of Ecology and Environment of China"],
+    "pm-epa": ["Air Quality Index (AQI)", "U.S. Environmental Protection Agency"],
+    co2: ["Health Evaluation of Carbon Dioxide in Indoor Air", "German Environment Agency (UBA)"],
+    "hcho-who": ["WHO Guidelines for Indoor Air Quality: Selected Pollutants", "World Health Organization"],
+    "hcho-gbt": ["GB/T 18883—2022 Standards for Indoor Air Quality", "State Administration for Market Regulation / SAC"],
+    "hcho-oehha": ["Formaldehyde Acute Reference Exposure Level", "California OEHHA"],
+    noise: ["Guidelines for Community Noise", "World Health Organization"],
+    light: ["RP-11-26 Recommended Practice for Residential Lighting", "Illuminating Engineering Society / ALA"]
+  },
+  ja: {
+    "humidity-uba": ["住宅の換気と湿度に関する指針", "ドイツ連邦環境庁"],
+    "humidity-epa": ["家庭のカビと湿気に関する簡易ガイド", "米国環境保護庁"],
+    thermal: ["ISO 7730:2025 / ASHRAE 55", "国際標準化機構 / 米国暖房冷凍空調学会"],
+    "pm-eea": ["欧州大気質指数", "欧州環境機関"],
+    "pm-hj": ["HJ 633—2026 大気質指数", "中国生態環境部"],
+    "pm-epa": ["米国大気質指数（AQI）", "米国環境保護庁"],
+    co2: ["室内空気中の二酸化炭素の健康評価", "ドイツ連邦環境庁"],
+    "hcho-who": ["WHO 室内空気質ガイドライン：特定汚染物質", "世界保健機関"],
+    "hcho-gbt": ["GB/T 18883—2022 室内空気質基準", "中国国家市場監督管理総局 / 国家標準化管理委員会"],
+    "hcho-oehha": ["ホルムアルデヒド急性参照曝露レベル", "カリフォルニア州 OEHHA"],
+    noise: ["コミュニティ騒音ガイドライン", "世界保健機関"],
+    light: ["RP-11-26 住宅環境照明推奨指針", "米国照明学会 / 米国照明協会"]
+  }
+};
+
 const form = document.getElementById("rating-form");
 const languageSelect = document.getElementById("language");
 const status = document.getElementById("save-status");
@@ -60,6 +119,11 @@ function translate() {
   document.title = `Snow · ${MESSAGES[language].title}`;
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     node.textContent = MESSAGES[language][node.dataset.i18n];
+  });
+  document.querySelectorAll("[data-standard]").forEach((node) => {
+    const [name, organization] = STANDARD_LABELS[language][node.dataset.standard];
+    node.querySelector("strong").textContent = name;
+    node.querySelector("small").textContent = organization;
   });
   languageSelect.setAttribute("aria-label", MESSAGES[language].language);
   languageSelect.value = language;
