@@ -23,6 +23,33 @@ export const ConcentrationLevel = {
 export type ConcentrationLevel =
   typeof ConcentrationLevel[keyof typeof ConcentrationLevel];
 
+export const PollenStandard = {
+  nab: "nab",
+  meteoswiss: "meteoswiss"
+} as const;
+export type PollenStandard = typeof PollenStandard[keyof typeof PollenStandard];
+
+export const PollenType = {
+  unknown: "unknown", total: "total", tree: "tree", grass: "grass",
+  weed: "weed", hazel: "hazel", alder: "alder", ash: "ash",
+  birch: "birch", hornbeam: "hornbeam", plane: "plane", oak: "oak",
+  beech: "beech", chestnut: "chestnut", sorrel: "sorrel",
+  plantain: "plantain", mugwort: "mugwort", ragweed: "ragweed"
+} as const;
+export type PollenType = typeof PollenType[keyof typeof PollenType];
+
+export const PollenRating = {
+  unknown: "unknown", absent: "absent", low: "low",
+  moderate: "moderate", high: "high", veryHigh: "very-high"
+} as const;
+export type PollenRating = typeof PollenRating[keyof typeof PollenRating];
+
+export const UVIndexRating = {
+  unknown: "unknown", low: "low", moderate: "moderate",
+  high: "high", veryHigh: "very-high", extreme: "extreme"
+} as const;
+export type UVIndexRating = typeof UVIndexRating[keyof typeof UVIndexRating];
+
 export const PMStandard = {
   eeaAQI2024: "eea-aqi-2024",
   hj6332026: "hj-633-2026",
@@ -104,7 +131,12 @@ export const EnvironmentParameter = {
   formaldehyde: "formaldehyde",
   tvoc: "tvoc",
   noise: "noise",
-  illuminance: "illuminance"
+  illuminance: "illuminance",
+  o3: "o3",
+  co: "co",
+  so2: "so2",
+  pollen: "pollen",
+  uvIndex: "uv-index"
 } as const;
 export type EnvironmentParameter =
   typeof EnvironmentParameter[keyof typeof EnvironmentParameter];
@@ -113,13 +145,18 @@ const materialIconNames: Readonly<Record<EnvironmentParameter, string>> =
   Object.freeze({
     [EnvironmentParameter.temperature]: "device_thermostat",
     [EnvironmentParameter.humidity]: "humidity_percentage",
-    [EnvironmentParameter.co2]: "co2",
+    [EnvironmentParameter.co2]: "air",
     [EnvironmentParameter.pm25]: "blur_on",
     [EnvironmentParameter.pm10]: "blur_on",
     [EnvironmentParameter.formaldehyde]: "science",
     [EnvironmentParameter.tvoc]: "speed",
     [EnvironmentParameter.noise]: "graphic_eq",
-    [EnvironmentParameter.illuminance]: "light_mode"
+    [EnvironmentParameter.illuminance]: "light_mode",
+    [EnvironmentParameter.o3]: "dehaze",
+    [EnvironmentParameter.co]: "detector_smoke",
+    [EnvironmentParameter.so2]: "foggy",
+    [EnvironmentParameter.pollen]: "local_florist",
+    [EnvironmentParameter.uvIndex]: "flare"
   });
 
 export interface MaterialIcon {
@@ -163,6 +200,24 @@ const concentrationLevelValues = [
   ConcentrationLevel.critical
 ] as const;
 
+const pollenStandardValues = [PollenStandard.nab, PollenStandard.meteoswiss] as const;
+const pollenTypeValues = [
+  PollenType.unknown, PollenType.total, PollenType.tree, PollenType.grass,
+  PollenType.weed, PollenType.hazel, PollenType.alder, PollenType.ash,
+  PollenType.birch, PollenType.hornbeam, PollenType.plane, PollenType.oak,
+  PollenType.beech, PollenType.chestnut, PollenType.sorrel,
+  PollenType.plantain, PollenType.mugwort, PollenType.ragweed
+] as const;
+const pollenRatingValues = [
+  PollenRating.unknown, PollenRating.absent, PollenRating.low,
+  PollenRating.moderate, PollenRating.high, PollenRating.veryHigh
+] as const;
+
+const uvIndexRatingValues = [
+  UVIndexRating.unknown, UVIndexRating.low, UVIndexRating.moderate,
+  UVIndexRating.high, UVIndexRating.veryHigh, UVIndexRating.extreme
+] as const;
+
 const thermalSensationValues = [
   ThermalSensation.unknown,
   ThermalSensation.cold,
@@ -201,14 +256,30 @@ const illuminanceRatingValues = [
 ] as const;
 
 interface NativeModule {
+  _pollen_rate(standard: number, type: number, concentration: number): number;
+  _uv_index_rate(uvi: number): number;
   _air_level_co2(value: number): number;
   _air_level_pm25(standard: number, value: number): number;
   _air_level_pm10(standard: number, value: number): number;
   _air_level_hcho(standard: number, value: number): number;
+  _air_level_o3_eea(oneHour: number): number;
+  _air_level_o3_hj(oneHour: number): number;
+  _air_level_o3_epa(eightHour: number, oneHour: number): number;
+  _air_level_co_hj(oneHour: number): number;
+  _air_level_co_epa(eightHour: number): number;
   _air_rate_co2(value: number): number;
   _air_rate_pm25(standard: number, value: number): number;
   _air_rate_pm10(standard: number, value: number): number;
   _air_rate_hcho(standard: number, value: number): number;
+  _air_rate_o3_eea(oneHour: number): number;
+  _air_rate_o3_hj(oneHour: number): number;
+  _air_rate_o3_epa(eightHour: number, oneHour: number): number;
+  _air_rate_co_hj(oneHour: number): number;
+  _air_rate_co_epa(eightHour: number): number;
+  _air_rate_so2_eea(oneHour: number): number;
+  _air_rate_so2_hj_hourly(oneHour: number): number;
+  _air_rate_so2_hj_daily(twentyFourHour: number): number;
+  _air_rate_so2_epa(oneHour: number, twentyFourHour: number): number;
   _air_rate_all(
     pmStandard: number,
     formaldehydeStandard: number,
@@ -285,6 +356,24 @@ export interface AirRatingApi {
     concentration: number,
     standard?: FormaldehydeStandard
   ): AirQuality;
+  /** Outdoor O₃, hourly μg/m³. */
+  o3Eea(oneHour: number): AirQuality;
+  /** Outdoor O₃, HJ real-time hourly μg/m³. */
+  o3Hj(oneHour: number): AirQuality;
+  /** Outdoor O₃, EPA ppm; one-hour value is optional. */
+  o3Epa(eightHour: number, oneHour?: number): AirQuality;
+  /** Outdoor CO, HJ real-time hourly mg/m³. */
+  coHj(oneHour: number): AirQuality;
+  /** Outdoor CO, EPA eight-hour ppm. */
+  coEpa(eightHour: number): AirQuality;
+  /** Outdoor SO₂, EEA hourly μg/m³. */
+  so2Eea(oneHour: number): AirQuality;
+  /** Outdoor SO₂, HJ real-time hourly μg/m³; capped at Poor. */
+  so2HjHourly(oneHour: number): AirQuality;
+  /** Outdoor SO₂, HJ daily 24-hour μg/m³. */
+  so2HjDaily(twentyFourHour: number): AirQuality;
+  /** Outdoor SO₂, EPA ppb; both averaging windows are required. */
+  so2Epa(oneHour: number, twentyFourHour: number): AirQuality;
   overall(input?: AirOverallInput): AirQuality;
   co2Level(ppm: number): ConcentrationLevel;
   pm25Level(concentration: number, standard?: PMStandard): ConcentrationLevel;
@@ -293,6 +382,11 @@ export interface AirRatingApi {
     concentration: number,
     standard?: FormaldehydeStandard
   ): ConcentrationLevel;
+  o3EeaLevel(oneHour: number): ConcentrationLevel;
+  o3HjLevel(oneHour: number): ConcentrationLevel;
+  o3EpaLevel(eightHour: number, oneHour?: number): ConcentrationLevel;
+  coHjLevel(oneHour: number): ConcentrationLevel;
+  coEpaLevel(eightHour: number): ConcentrationLevel;
 }
 
 export interface ThermalComfortApi {
@@ -303,6 +397,16 @@ export interface ThermalComfortApi {
 export interface SoundLightRatingApi {
   noise(decibels: number, scene: NoiseScene): NoiseRating;
   illuminance(lux: number): IlluminanceRating;
+}
+
+export interface PollenRatingApi {
+  /** Daily mean grains/m³; standard and measured taxon/group must match. */
+  rate(concentration: number, type: PollenType, standard: PollenStandard): PollenRating;
+}
+
+export interface UVIndexRatingApi {
+  /** Global Solar UVI, rounded to the nearest integer for WHO categories. */
+  rate(uvi: number): UVIndexRating;
 }
 
 export interface ParameterColors {
@@ -330,6 +434,8 @@ export interface EnvironmentRating {
   readonly air: AirRatingApi;
   readonly thermal: ThermalComfortApi;
   readonly soundLight: SoundLightRatingApi;
+  readonly pollen: PollenRatingApi;
+  readonly uvIndex: UVIndexRatingApi;
   readonly colors: EnvironmentColorsApi;
 }
 
@@ -356,6 +462,11 @@ function environmentParameterValue(parameter: EnvironmentParameter): number {
     case EnvironmentParameter.tvoc: return 6;
     case EnvironmentParameter.noise: return 7;
     case EnvironmentParameter.illuminance: return 8;
+    case EnvironmentParameter.o3: return 9;
+    case EnvironmentParameter.co: return 10;
+    case EnvironmentParameter.so2: return 11;
+    case EnvironmentParameter.pollen: return 12;
+    case EnvironmentParameter.uvIndex: return 13;
     default: return -1;
   }
 }
@@ -418,6 +529,28 @@ function createAirApi(native: NativeModule): AirRatingApi {
         numeric(concentration)
       )
     ),
+    o3Eea: (oneHour: number) =>
+      enumValue(airQualityValues, native._air_rate_o3_eea(numeric(oneHour))),
+    o3Hj: (oneHour: number) =>
+      enumValue(airQualityValues, native._air_rate_o3_hj(numeric(oneHour))),
+    o3Epa: (eightHour: number, oneHour?: number) =>
+      enumValue(airQualityValues, native._air_rate_o3_epa(
+        numeric(eightHour), oneHour === undefined ? Number.NaN : numeric(oneHour)
+      )),
+    coHj: (oneHour: number) =>
+      enumValue(airQualityValues, native._air_rate_co_hj(numeric(oneHour))),
+    coEpa: (eightHour: number) =>
+      enumValue(airQualityValues, native._air_rate_co_epa(numeric(eightHour))),
+    so2Eea: (oneHour: number) =>
+      enumValue(airQualityValues, native._air_rate_so2_eea(numeric(oneHour))),
+    so2HjHourly: (oneHour: number) =>
+      enumValue(airQualityValues, native._air_rate_so2_hj_hourly(numeric(oneHour))),
+    so2HjDaily: (twentyFourHour: number) =>
+      enumValue(airQualityValues, native._air_rate_so2_hj_daily(numeric(twentyFourHour))),
+    so2Epa: (oneHour: number, twentyFourHour: number) =>
+      enumValue(airQualityValues, native._air_rate_so2_epa(
+        numeric(oneHour), numeric(twentyFourHour)
+      )),
     overall: (input: AirOverallInput = {}) => {
       const pmStandard = input.pmStandard ?? PMStandard.eeaAQI2024;
       const formaldehydeStandard = input.formaldehydeStandard
@@ -461,7 +594,19 @@ function createAirApi(native: NativeModule): AirRatingApi {
         formaldehydeStandardValue(standard),
         numeric(concentration)
       )
-    )
+    ),
+    o3EeaLevel: (oneHour: number) =>
+      enumValue(concentrationLevelValues, native._air_level_o3_eea(numeric(oneHour))),
+    o3HjLevel: (oneHour: number) =>
+      enumValue(concentrationLevelValues, native._air_level_o3_hj(numeric(oneHour))),
+    o3EpaLevel: (eightHour: number, oneHour?: number) =>
+      enumValue(concentrationLevelValues, native._air_level_o3_epa(
+        numeric(eightHour), oneHour === undefined ? Number.NaN : numeric(oneHour)
+      )),
+    coHjLevel: (oneHour: number) =>
+      enumValue(concentrationLevelValues, native._air_level_co_hj(numeric(oneHour))),
+    coEpaLevel: (eightHour: number) =>
+      enumValue(concentrationLevelValues, native._air_level_co_epa(numeric(eightHour)))
   });
 }
 
@@ -508,6 +653,24 @@ function createSoundLightApi(native: NativeModule): SoundLightRatingApi {
         illuminanceRatingValues,
         native._illuminance_rate(numeric(lux))
       )
+  });
+}
+
+function createPollenApi(native: NativeModule): PollenRatingApi {
+  return Object.freeze({
+    rate: (concentration: number, type: PollenType, standard: PollenStandard) =>
+      enumValue(pollenRatingValues, native._pollen_rate(
+        valueIndex(pollenStandardValues, standard),
+        valueIndex(pollenTypeValues, type),
+        numeric(concentration)
+      ))
+  });
+}
+
+function createUVIndexApi(native: NativeModule): UVIndexRatingApi {
+  return Object.freeze({
+    rate: (uvi: number) =>
+      enumValue(uvIndexRatingValues, native._uv_index_rate(numeric(uvi)))
   });
 }
 
@@ -592,6 +755,8 @@ export async function createEnvironmentRating(
     air: createAirApi(native),
     thermal: createThermalApi(native),
     soundLight: createSoundLightApi(native),
+    pollen: createPollenApi(native),
+    uvIndex: createUVIndexApi(native),
     colors: createColorsApi(native)
   });
 }

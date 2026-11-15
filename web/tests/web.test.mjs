@@ -12,6 +12,10 @@ import {
   NoiseRating,
   NoiseScene,
   PMStandard,
+  PollenStandard,
+  PollenType,
+  PollenRating,
+  UVIndexRating,
   ThermalSensation,
   createEnvironmentRating,
   materialIcon
@@ -19,13 +23,49 @@ import {
 
 const rating = await createEnvironmentRating();
 
+test("UV index follows WHO five exposure categories", () => {
+  assert.equal(rating.uvIndex.rate(0), UVIndexRating.low);
+  assert.equal(rating.uvIndex.rate(2.49), UVIndexRating.low);
+  assert.equal(rating.uvIndex.rate(2.5), UVIndexRating.moderate);
+  assert.equal(rating.uvIndex.rate(5.5), UVIndexRating.high);
+  assert.equal(rating.uvIndex.rate(7.5), UVIndexRating.veryHigh);
+  assert.equal(rating.uvIndex.rate(10.5), UVIndexRating.extreme);
+  assert.equal(rating.uvIndex.rate(-1), UVIndexRating.unknown);
+  assert.equal(rating.uvIndex.rate(Number.NaN), UVIndexRating.unknown);
+});
+
+test("pollen uses daily taxon-specific C thresholds", () => {
+  assert.equal(rating.pollen.rate(0, PollenType.total, PollenStandard.nab), PollenRating.absent);
+  assert.equal(rating.pollen.rate(20, PollenType.total, PollenStandard.nab), PollenRating.unknown);
+  assert.equal(rating.pollen.rate(20, PollenType.grass, PollenStandard.nab), PollenRating.high);
+  assert.equal(rating.pollen.rate(20, PollenType.grass, PollenStandard.meteoswiss), PollenRating.moderate);
+  assert.equal(rating.pollen.rate(70, PollenType.birch, PollenStandard.meteoswiss), PollenRating.high);
+  assert.equal(rating.pollen.rate(70, PollenType.birch, PollenStandard.nab), PollenRating.unknown);
+  assert.equal(rating.pollen.rate(0, PollenType.tree, PollenStandard.meteoswiss), PollenRating.unknown);
+  assert.equal(rating.pollen.rate(-1, PollenType.grass, PollenStandard.nab), PollenRating.unknown);
+});
+
 test("Material icons expose packaged SVG assets", async () => {
   const temperature = materialIcon(EnvironmentParameter.temperature);
   assert.equal(temperature?.name, "device_thermostat");
   assert.match(await readFile(new URL(temperature.svgUrl), "utf8"), /^<svg/);
+  const co2 = materialIcon(EnvironmentParameter.co2);
+  assert.equal(co2?.name, "air");
+  assert.match(await readFile(new URL(co2.svgUrl), "utf8"), /^<svg/);
   assert.equal(materialIcon(EnvironmentParameter.pm25)?.name, "blur_on");
   assert.equal(materialIcon(EnvironmentParameter.pm10)?.svgUrl,
                materialIcon(EnvironmentParameter.pm25)?.svgUrl);
+  for (const [parameter, name] of [
+    [EnvironmentParameter.o3, "dehaze"],
+    [EnvironmentParameter.co, "detector_smoke"],
+    [EnvironmentParameter.so2, "foggy"],
+    [EnvironmentParameter.pollen, "local_florist"],
+    [EnvironmentParameter.uvIndex, "flare"]
+  ]) {
+    const icon = materialIcon(parameter);
+    assert.equal(icon?.name, name);
+    assert.match(await readFile(new URL(icon.svgUrl), "utf8"), /^<svg/);
+  }
   assert.equal(materialIcon("invalid-parameter"), null);
 });
 
@@ -78,6 +118,46 @@ test("air quality uses the C rules and defaults", () => {
     rating.air.formaldehyde(0.03, FormaldehydeStandard.oehha2008),
     AirQuality.moderate
   );
+});
+
+test("outdoor ozone follows each source's time basis", () => {
+  assert.equal(rating.air.o3Eea(60), AirQuality.good);
+  assert.equal(rating.air.o3Eea(61), AirQuality.fair);
+  assert.equal(rating.air.o3Hj(160.5), AirQuality.good);
+  assert.equal(rating.air.o3Hj(160.51), AirQuality.fair);
+  assert.equal(rating.air.o3Epa(0.055), AirQuality.fair);
+  assert.equal(rating.air.o3Epa(0.05, 0.405), AirQuality.extremelyPoor);
+  assert.equal(rating.air.o3Epa(0.201), AirQuality.unknown);
+  assert.equal(rating.air.o3EpaLevel(0.09), ConcentrationLevel.high);
+});
+
+test("outdoor carbon monoxide uses hourly HJ and eight-hour EPA bands", () => {
+  assert.equal(rating.air.coHj(5.05), AirQuality.good);
+  assert.equal(rating.air.coHj(5.051), AirQuality.fair);
+  assert.equal(rating.air.coHj(90.051), AirQuality.extremelyPoor);
+  assert.equal(rating.air.coEpa(4.499), AirQuality.good);
+  assert.equal(rating.air.coEpa(4.5), AirQuality.fair);
+  assert.equal(rating.air.coEpa(30.5), AirQuality.extremelyPoor);
+  assert.equal(rating.air.coHjLevel(35.1), ConcentrationLevel.high);
+  assert.equal(rating.air.coEpaLevel(30.5), ConcentrationLevel.critical);
+  assert.equal(rating.air.coHj(Number.NaN), AirQuality.unknown);
+  assert.equal(rating.air.coEpa(-1), AirQuality.unknown);
+});
+
+test("outdoor sulfur dioxide preserves each standard's time basis", () => {
+  assert.equal(rating.air.so2Eea(20), AirQuality.good);
+  assert.equal(rating.air.so2Eea(20.1), AirQuality.fair);
+  assert.equal(rating.air.so2Eea(276), AirQuality.extremelyPoor);
+  assert.equal(rating.air.so2HjHourly(150.5), AirQuality.good);
+  assert.equal(rating.air.so2HjHourly(150.51), AirQuality.fair);
+  assert.equal(rating.air.so2HjHourly(10000), AirQuality.poor);
+  assert.equal(rating.air.so2HjDaily(475.5), AirQuality.poor);
+  assert.equal(rating.air.so2HjDaily(1600.51), AirQuality.extremelyPoor);
+  assert.equal(rating.air.so2Epa(305, 304.9), AirQuality.poor);
+  assert.equal(rating.air.so2Epa(35, 305), AirQuality.veryPoor);
+  assert.equal(rating.air.so2Epa(35, 605), AirQuality.extremelyPoor);
+  assert.equal(rating.air.so2Epa(35, Number.NaN), AirQuality.unknown);
+  assert.equal(rating.air.so2Epa(35), AirQuality.unknown);
 });
 
 test("air quality handles missing values and LevelValue", () => {
@@ -211,6 +291,11 @@ test("colors expose parameter and rating palettes from C", () => {
     primary: "#F97316",
     background: "#FFEDD5"
   });
+  assert.deepEqual(rating.colors.parameter(EnvironmentParameter.o3), { primary: "#3A6EAA", background: "#E8F1FB" });
+  assert.deepEqual(rating.colors.parameter(EnvironmentParameter.co), { primary: "#56616D", background: "#EDF0F3" });
+  assert.deepEqual(rating.colors.parameter(EnvironmentParameter.so2), { primary: "#9A6B0A", background: "#FAF1D8" });
+  assert.deepEqual(rating.colors.parameter(EnvironmentParameter.pollen), { primary: "#3E8B5B", background: "#E5F4E7" });
+  assert.deepEqual(rating.colors.parameter(EnvironmentParameter.uvIndex), { primary: "#6853BE", background: "#EEEAFB" });
   assert.deepEqual(
     rating.colors.air(EnvironmentParameter.pm25, AirQuality.fair),
     {
@@ -222,7 +307,7 @@ test("colors expose parameter and rating palettes from C", () => {
   );
   assert.deepEqual(
     rating.colors.air(EnvironmentParameter.co2, AirQuality.moderate),
-    rating.colors.air(EnvironmentParameter.pm25, AirQuality.fair)
+    rating.colors.air(EnvironmentParameter.pm25, AirQuality.moderate)
   );
   assert.equal(
     rating.colors.air(EnvironmentParameter.co2, AirQuality.fair),

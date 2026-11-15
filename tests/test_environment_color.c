@@ -26,6 +26,16 @@ static void test_parameter_colors(void)
           UINT32_C(0x89941A));
     CHECK(env_color_parameter(ENV_PARAM_ILLUMINANCE, ENV_COLOR_BACKGROUND) ==
           UINT32_C(0xFEF9C3));
+    CHECK(env_color_parameter(ENV_PARAM_O3, ENV_COLOR_PRIMARY) ==
+          UINT32_C(0x3A6EAA));
+    CHECK(env_color_parameter(ENV_PARAM_CO, ENV_COLOR_BACKGROUND) ==
+          UINT32_C(0xEDF0F3));
+    CHECK(env_color_parameter(ENV_PARAM_SO2, ENV_COLOR_PRIMARY) ==
+          UINT32_C(0x9A6B0A));
+    CHECK(env_color_parameter(ENV_PARAM_POLLEN, ENV_COLOR_PRIMARY) ==
+          UINT32_C(0x3E8B5B));
+    CHECK(env_color_parameter(ENV_PARAM_UV_INDEX, ENV_COLOR_BACKGROUND) ==
+          UINT32_C(0xEEEAFB));
     CHECK(env_color_parameter(ENV_PARAM_CO2, ENV_COLOR_GRAPHIC) ==
           ENV_RGB_INVALID);
     CHECK(env_color_parameter((env_parameter_t)-1, ENV_COLOR_PRIMARY) ==
@@ -42,6 +52,12 @@ static void test_parameter_icons(void)
     CHECK(strcmp(env_icon_name(ENV_PARAM_HUMIDITY,
                                ENV_ICON_MATERIAL_SYMBOLS_ROUNDED),
                  "humidity_percentage") == 0);
+    CHECK(strcmp(env_icon_name(ENV_PARAM_CO2,
+                               ENV_ICON_SF_SYMBOLS),
+                 "wind") == 0);
+    CHECK(strcmp(env_icon_name(ENV_PARAM_CO2,
+                               ENV_ICON_MATERIAL_SYMBOLS_ROUNDED),
+                 "air") == 0);
     CHECK(strcmp(env_icon_name(ENV_PARAM_PM25,
                                ENV_ICON_MATERIAL_SYMBOLS_ROUNDED),
                  "blur_on") == 0);
@@ -51,6 +67,18 @@ static void test_parameter_icons(void)
     CHECK(strcmp(env_icon_name(ENV_PARAM_ILLUMINANCE,
                                ENV_ICON_SF_SYMBOLS),
                  "sun.max") == 0);
+    CHECK(strcmp(env_icon_name(ENV_PARAM_O3, ENV_ICON_SF_SYMBOLS),
+                 "sun.haze.fill") == 0);
+    CHECK(strcmp(env_icon_name(ENV_PARAM_CO,
+                               ENV_ICON_MATERIAL_SYMBOLS_ROUNDED),
+                 "detector_smoke") == 0);
+    CHECK(strcmp(env_icon_name(ENV_PARAM_SO2, ENV_ICON_SF_SYMBOLS),
+                 "cloud.fog.fill") == 0);
+    CHECK(strcmp(env_icon_name(ENV_PARAM_POLLEN,
+                               ENV_ICON_MATERIAL_SYMBOLS_ROUNDED),
+                 "local_florist") == 0);
+    CHECK(strcmp(env_icon_name(ENV_PARAM_UV_INDEX, ENV_ICON_SF_SYMBOLS),
+                 "sun.max.fill") == 0);
     CHECK(env_icon_name((env_parameter_t)-1, ENV_ICON_SF_SYMBOLS) == 0);
     CHECK(env_icon_name(ENV_PARAM_CO2, (env_icon_set_t)99) == 0);
 }
@@ -66,9 +94,13 @@ static void test_air_colors(void)
     CHECK(env_color_air(ENV_PARAM_PM25, AIR_EXTREMELY_POOR,
                         ENV_COLOR_BACKGROUND) == UINT32_C(0xF3E8FF));
     CHECK(env_color_air(ENV_PARAM_CO2, AIR_MODERATE, ENV_COLOR_PRIMARY) ==
-          UINT32_C(0x65A30D));
+          UINT32_C(0xCA8A04));
     CHECK(env_color_air(ENV_PARAM_CO2, AIR_MODERATE, ENV_COLOR_GRAPHIC) ==
-          UINT32_C(0xA3E635));
+          UINT32_C(0xFACC15));
+    CHECK(env_color_air(ENV_PARAM_CO2, AIR_MODERATE, ENV_COLOR_BACKGROUND) ==
+          UINT32_C(0xFEF9C3));
+    CHECK(env_color_air(ENV_PARAM_CO2, AIR_MODERATE, ENV_COLOR_TEXT) ==
+          UINT32_C(0x713F12));
     CHECK(env_color_air(ENV_PARAM_CO2, AIR_UNKNOWN, ENV_COLOR_PRIMARY) ==
           UINT32_C(0x64748B));
     CHECK(env_color_air(ENV_PARAM_CO2, AIR_FAIR, ENV_COLOR_PRIMARY) ==

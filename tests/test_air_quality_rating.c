@@ -167,6 +167,116 @@ static void test_invalid(void)
                        AIR_MASK_CO2) == AIR_GOOD);
 }
 
+static void test_outdoor_ozone(void)
+{
+    CHECK(air_rate_o3_eea(60) == AIR_GOOD);
+    CHECK(air_rate_o3_eea(nextafter(60, INFINITY)) == AIR_FAIR);
+    CHECK(air_rate_o3_eea(100) == AIR_FAIR);
+    CHECK(air_rate_o3_eea(120) == AIR_MODERATE);
+    CHECK(air_rate_o3_eea(160) == AIR_POOR);
+    CHECK(air_rate_o3_eea(180) == AIR_VERY_POOR);
+    CHECK(air_rate_o3_eea(180.1) == AIR_EXTREMELY_POOR);
+
+    CHECK(air_rate_o3_hj(160.5) == AIR_GOOD);
+    CHECK(air_rate_o3_hj(nextafter(160.5, INFINITY)) == AIR_FAIR);
+    CHECK(air_rate_o3_hj(200.5) == AIR_FAIR);
+    CHECK(air_rate_o3_hj(300.5) == AIR_MODERATE);
+    CHECK(air_rate_o3_hj(400.5) == AIR_POOR);
+    CHECK(air_rate_o3_hj(800.5) == AIR_VERY_POOR);
+    CHECK(air_rate_o3_hj(nextafter(800.5, INFINITY)) == AIR_EXTREMELY_POOR);
+
+    CHECK(air_rate_o3_epa(0.054999, NAN) == AIR_GOOD);
+    CHECK(air_rate_o3_epa(0.055, NAN) == AIR_FAIR);
+    CHECK(air_rate_o3_epa(0.071, NAN) == AIR_MODERATE);
+    CHECK(air_rate_o3_epa(0.086, NAN) == AIR_POOR);
+    CHECK(air_rate_o3_epa(0.106, NAN) == AIR_VERY_POOR);
+    CHECK(air_rate_o3_epa(0.201, NAN) == AIR_UNKNOWN);
+    CHECK(air_rate_o3_epa(0.05, 0.124999) == AIR_GOOD);
+    CHECK(air_rate_o3_epa(0.05, 0.125) == AIR_MODERATE);
+    CHECK(air_rate_o3_epa(0.05, 0.165) == AIR_POOR);
+    CHECK(air_rate_o3_epa(0.05, 0.205) == AIR_VERY_POOR);
+    CHECK(air_rate_o3_epa(0.05, 0.405) == AIR_EXTREMELY_POOR);
+    CHECK(air_rate_o3_epa(0.201, 0.405) == AIR_EXTREMELY_POOR);
+
+    CHECK(air_level_o3_eea(101) == AIR_LEVEL_MEDIUM);
+    CHECK(air_level_o3_hj(801) == AIR_LEVEL_CRITICAL);
+    CHECK(air_level_o3_epa(0.09, NAN) == AIR_LEVEL_HIGH);
+    CHECK(air_rate_o3_eea(NAN) == AIR_UNKNOWN);
+    CHECK(air_rate_o3_hj(INFINITY) == AIR_UNKNOWN);
+    CHECK(air_rate_o3_epa(NAN, 0.405) == AIR_UNKNOWN);
+    CHECK(air_rate_o3_epa(0.05, -1) == AIR_UNKNOWN);
+    CHECK(air_rate_o3_epa(-1, NAN) == AIR_UNKNOWN);
+}
+
+static void test_outdoor_carbon_monoxide(void)
+{
+    CHECK(air_rate_co_hj(5.0) == AIR_GOOD);
+    CHECK(air_rate_co_hj(5.05) == AIR_GOOD);
+    CHECK(air_rate_co_hj(nextafter(5.05, INFINITY)) == AIR_FAIR);
+    CHECK(air_rate_co_hj(10.05) == AIR_FAIR);
+    CHECK(air_rate_co_hj(35.05) == AIR_MODERATE);
+    CHECK(air_rate_co_hj(60.05) == AIR_POOR);
+    CHECK(air_rate_co_hj(90.05) == AIR_VERY_POOR);
+    CHECK(air_rate_co_hj(nextafter(90.05, INFINITY)) == AIR_EXTREMELY_POOR);
+
+    CHECK(air_rate_co_epa(4.4999) == AIR_GOOD);
+    CHECK(air_rate_co_epa(4.5) == AIR_FAIR);
+    CHECK(air_rate_co_epa(9.5) == AIR_MODERATE);
+    CHECK(air_rate_co_epa(12.5) == AIR_POOR);
+    CHECK(air_rate_co_epa(15.5) == AIR_VERY_POOR);
+    CHECK(air_rate_co_epa(30.5) == AIR_EXTREMELY_POOR);
+
+    CHECK(air_level_co_hj(10.1) == AIR_LEVEL_MEDIUM);
+    CHECK(air_level_co_epa(30.5) == AIR_LEVEL_CRITICAL);
+    CHECK(air_rate_co_hj(NAN) == AIR_UNKNOWN);
+    CHECK(air_rate_co_hj(INFINITY) == AIR_UNKNOWN);
+    CHECK(air_rate_co_epa(-1) == AIR_UNKNOWN);
+    CHECK(air_level_co_epa(NAN) == AIR_LEVEL_UNKNOWN);
+}
+
+static void test_outdoor_sulfur_dioxide(void)
+{
+    CHECK(air_rate_so2_eea(20) == AIR_GOOD);
+    CHECK(air_rate_so2_eea(nextafter(20, INFINITY)) == AIR_FAIR);
+    CHECK(air_rate_so2_eea(40) == AIR_FAIR);
+    CHECK(air_rate_so2_eea(125) == AIR_MODERATE);
+    CHECK(air_rate_so2_eea(190) == AIR_POOR);
+    CHECK(air_rate_so2_eea(275) == AIR_VERY_POOR);
+    CHECK(air_rate_so2_eea(275.1) == AIR_EXTREMELY_POOR);
+
+    CHECK(air_rate_so2_hj_hourly(150.5) == AIR_GOOD);
+    CHECK(air_rate_so2_hj_hourly(nextafter(150.5, INFINITY)) == AIR_FAIR);
+    CHECK(air_rate_so2_hj_hourly(500.5) == AIR_FAIR);
+    CHECK(air_rate_so2_hj_hourly(650.5) == AIR_MODERATE);
+    CHECK(air_rate_so2_hj_hourly(651) == AIR_POOR);
+    CHECK(air_rate_so2_hj_hourly(800) == AIR_POOR);
+    CHECK(air_rate_so2_hj_hourly(1000000) == AIR_POOR);
+
+    CHECK(air_rate_so2_hj_daily(50.5) == AIR_GOOD);
+    CHECK(air_rate_so2_hj_daily(150.5) == AIR_FAIR);
+    CHECK(air_rate_so2_hj_daily(nextafter(475.5, -INFINITY)) == AIR_MODERATE);
+    CHECK(air_rate_so2_hj_daily(475.5) == AIR_POOR);
+    CHECK(air_rate_so2_hj_daily(800.5) == AIR_POOR);
+    CHECK(air_rate_so2_hj_daily(1600.5) == AIR_VERY_POOR);
+    CHECK(air_rate_so2_hj_daily(nextafter(1600.5, INFINITY)) == AIR_EXTREMELY_POOR);
+
+    CHECK(air_rate_so2_epa(35.9, 0) == AIR_GOOD);
+    CHECK(air_rate_so2_epa(36, 0) == AIR_FAIR);
+    CHECK(air_rate_so2_epa(76, 0) == AIR_MODERATE);
+    CHECK(air_rate_so2_epa(186, 0) == AIR_POOR);
+    CHECK(air_rate_so2_epa(304.9, 304.9) == AIR_POOR);
+    CHECK(air_rate_so2_epa(305, 304.9) == AIR_POOR);
+    CHECK(air_rate_so2_epa(35, 305) == AIR_VERY_POOR);
+    CHECK(air_rate_so2_epa(305, 604.9) == AIR_VERY_POOR);
+    CHECK(air_rate_so2_epa(35, 605) == AIR_EXTREMELY_POOR);
+
+    CHECK(air_rate_so2_eea(NAN) == AIR_UNKNOWN);
+    CHECK(air_rate_so2_hj_hourly(INFINITY) == AIR_UNKNOWN);
+    CHECK(air_rate_so2_hj_daily(-1) == AIR_UNKNOWN);
+    CHECK(air_rate_so2_epa(35, NAN) == AIR_UNKNOWN);
+    CHECK(air_rate_so2_epa(NAN, 305) == AIR_UNKNOWN);
+}
+
 static void test_combinations(void)
 {
     /* Independent representative values and expected grades for each region.
@@ -274,6 +384,9 @@ int main(void)
     test_boundaries();
     test_levels();
     test_invalid();
+    test_outdoor_ozone();
+    test_outdoor_carbon_monoxide();
+    test_outdoor_sulfur_dioxide();
     test_combinations();
     printf("Passed %u checks\n", checks);
     return EXIT_SUCCESS;

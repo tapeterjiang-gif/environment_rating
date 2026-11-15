@@ -2,13 +2,19 @@
 
 面向普通用户的静态网页，包含：
 
-- `dist/index.html`：合并后的环境评级、图标与颜色指南
-- `dist/colors.html`：旧颜色说明链接的兼容跳转页
-- `dist/snow-settings.html`：Snow 720 × 720 环境评级标准设置示例
+- `dist/index.html`：评级方法、整体规则和评级依据
+- `dist/indicators.html`：环境指标解读，包含各参数分档图示与读数说明
+- `dist/design.html`：设计参考，提供图标 SVG、颜色值、16 套标准的名称/简介/组织，以及 14 项指标简介与可展开的分档提示
+- `dist/developer.html`：开发参考，展示文案格式、生成流程、评级映射及各平台接入示例
+- `dist/colors.html`：旧颜色说明链接的兼容跳转页，转至设计参考
 
-页面不依赖框架或外部资源，可直接静态托管，并通过页头菜单切换简体中文、繁體中文、English 和日本語。语言写入 `?lang=` 参数，可直接分享对应语言地址。在线版本：
-[环境评级指南](https://tapeterjiang-gif.github.io/environment_rating/)。
+页面不依赖框架或外部资源，可直接静态托管。PM、甲醛、O₃、CO、SO₂ 和花粉可在指标解读页切换评级依据；四个页面均支持简体中文、繁體中文、English 和日本語。语言写入 `?lang=` 参数，可分享对应语言地址。主页面保留旧分类锚点的自动跳转。发布地址为 [环境评级指南](https://tapeterjiang-gif.github.io/environment_rating/)；其他页面发布后位于同目录。
 
-[Snow 设置页示例](https://tapeterjiang-gif.github.io/environment_rating/snow-settings.html)按热舒适度、空气质量、声光环境排列设置项；每个选项显示依据名称和发布机构。颗粒物、甲醛和相对湿度可选择，CO₂、冷热感、噪声和照度的唯一依据默认选中。支持简体中文、繁體中文、英文和日语。示例将选择保存在当前浏览器，不会连接或更改设备设置。集成到 Snow 时，应把保存动作接入设备设置接口，并在切换标准时同步调整测量结果的平均时间口径。
 
 页眉采用[青萍品牌规范](https://tapeterjiang-gif.github.io/qingping-brand/)的青萍蓝 SVG 字标（`#073B53`，宽 80 px、按原比例显示），浏览器图标采用同源约 20% 圆角的 SVG favicon。两项素材均随页面本地提供；ICO 保留为兼容回退。
+
+指标简介与分档文案来自根目录 `content/`。更新四语言源文件后，执行 `node scripts/generate-copy.mjs`；生成器会同步设计参考页的文案板块与 `dist/rating-copy.js`。详见[跨平台文案资源](../content/README.md)。
+
+开发参考页从 `content/README.md` 及 `content/guides/` 的三个翻译版本生成。更新文档后运行 `node scripts/generate-developer-page.mjs`；使用 `--check` 检查网页是否同步。
+
+开发参考页的下载文件位于 `dist/downloads/`，随 GitHub Pages 一起静态发布。更新顺序：生成文案 → `node scripts/package-copy.mjs` → 生成开发参考页。打包脚本支持 `--check`，下载清单 `index.json` 记录文件大小、SHA-256 和包内文件列表。

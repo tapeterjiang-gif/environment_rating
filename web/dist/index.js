@@ -17,6 +17,25 @@ export const ConcentrationLevel = {
     high: "high",
     critical: "critical"
 };
+export const PollenStandard = {
+    nab: "nab",
+    meteoswiss: "meteoswiss"
+};
+export const PollenType = {
+    unknown: "unknown", total: "total", tree: "tree", grass: "grass",
+    weed: "weed", hazel: "hazel", alder: "alder", ash: "ash",
+    birch: "birch", hornbeam: "hornbeam", plane: "plane", oak: "oak",
+    beech: "beech", chestnut: "chestnut", sorrel: "sorrel",
+    plantain: "plantain", mugwort: "mugwort", ragweed: "ragweed"
+};
+export const PollenRating = {
+    unknown: "unknown", absent: "absent", low: "low",
+    moderate: "moderate", high: "high", veryHigh: "very-high"
+};
+export const UVIndexRating = {
+    unknown: "unknown", low: "low", moderate: "moderate",
+    high: "high", veryHigh: "very-high", extreme: "extreme"
+};
 export const PMStandard = {
     eeaAQI2024: "eea-aqi-2024",
     hj6332026: "hj-633-2026",
@@ -77,18 +96,28 @@ export const EnvironmentParameter = {
     formaldehyde: "formaldehyde",
     tvoc: "tvoc",
     noise: "noise",
-    illuminance: "illuminance"
+    illuminance: "illuminance",
+    o3: "o3",
+    co: "co",
+    so2: "so2",
+    pollen: "pollen",
+    uvIndex: "uv-index"
 };
 const materialIconNames = Object.freeze({
     [EnvironmentParameter.temperature]: "device_thermostat",
     [EnvironmentParameter.humidity]: "humidity_percentage",
-    [EnvironmentParameter.co2]: "co2",
+    [EnvironmentParameter.co2]: "air",
     [EnvironmentParameter.pm25]: "blur_on",
     [EnvironmentParameter.pm10]: "blur_on",
     [EnvironmentParameter.formaldehyde]: "science",
     [EnvironmentParameter.tvoc]: "speed",
     [EnvironmentParameter.noise]: "graphic_eq",
-    [EnvironmentParameter.illuminance]: "light_mode"
+    [EnvironmentParameter.illuminance]: "light_mode",
+    [EnvironmentParameter.o3]: "dehaze",
+    [EnvironmentParameter.co]: "detector_smoke",
+    [EnvironmentParameter.so2]: "foggy",
+    [EnvironmentParameter.pollen]: "local_florist",
+    [EnvironmentParameter.uvIndex]: "flare"
 });
 /** Material Symbols Rounded icon used by Web and other non-Apple UIs. */
 export function materialIcon(parameter) {
@@ -115,6 +144,22 @@ const concentrationLevelValues = [
     ConcentrationLevel.medium,
     ConcentrationLevel.high,
     ConcentrationLevel.critical
+];
+const pollenStandardValues = [PollenStandard.nab, PollenStandard.meteoswiss];
+const pollenTypeValues = [
+    PollenType.unknown, PollenType.total, PollenType.tree, PollenType.grass,
+    PollenType.weed, PollenType.hazel, PollenType.alder, PollenType.ash,
+    PollenType.birch, PollenType.hornbeam, PollenType.plane, PollenType.oak,
+    PollenType.beech, PollenType.chestnut, PollenType.sorrel,
+    PollenType.plantain, PollenType.mugwort, PollenType.ragweed
+];
+const pollenRatingValues = [
+    PollenRating.unknown, PollenRating.absent, PollenRating.low,
+    PollenRating.moderate, PollenRating.high, PollenRating.veryHigh
+];
+const uvIndexRatingValues = [
+    UVIndexRating.unknown, UVIndexRating.low, UVIndexRating.moderate,
+    UVIndexRating.high, UVIndexRating.veryHigh, UVIndexRating.extreme
 ];
 const thermalSensationValues = [
     ThermalSensation.unknown,
@@ -169,6 +214,11 @@ function environmentParameterValue(parameter) {
         case EnvironmentParameter.tvoc: return 6;
         case EnvironmentParameter.noise: return 7;
         case EnvironmentParameter.illuminance: return 8;
+        case EnvironmentParameter.o3: return 9;
+        case EnvironmentParameter.co: return 10;
+        case EnvironmentParameter.so2: return 11;
+        case EnvironmentParameter.pollen: return 12;
+        case EnvironmentParameter.uvIndex: return 13;
         default: return -1;
     }
 }
@@ -208,6 +258,15 @@ function createAirApi(native) {
         pm25: (concentration, standard = PMStandard.eeaAQI2024) => enumValue(airQualityValues, native._air_rate_pm25(pmStandardValue(standard), numeric(concentration))),
         pm10: (concentration, standard = PMStandard.eeaAQI2024) => enumValue(airQualityValues, native._air_rate_pm10(pmStandardValue(standard), numeric(concentration))),
         formaldehyde: (concentration, standard = FormaldehydeStandard.who2010) => enumValue(airQualityValues, native._air_rate_hcho(formaldehydeStandardValue(standard), numeric(concentration))),
+        o3Eea: (oneHour) => enumValue(airQualityValues, native._air_rate_o3_eea(numeric(oneHour))),
+        o3Hj: (oneHour) => enumValue(airQualityValues, native._air_rate_o3_hj(numeric(oneHour))),
+        o3Epa: (eightHour, oneHour) => enumValue(airQualityValues, native._air_rate_o3_epa(numeric(eightHour), oneHour === undefined ? Number.NaN : numeric(oneHour))),
+        coHj: (oneHour) => enumValue(airQualityValues, native._air_rate_co_hj(numeric(oneHour))),
+        coEpa: (eightHour) => enumValue(airQualityValues, native._air_rate_co_epa(numeric(eightHour))),
+        so2Eea: (oneHour) => enumValue(airQualityValues, native._air_rate_so2_eea(numeric(oneHour))),
+        so2HjHourly: (oneHour) => enumValue(airQualityValues, native._air_rate_so2_hj_hourly(numeric(oneHour))),
+        so2HjDaily: (twentyFourHour) => enumValue(airQualityValues, native._air_rate_so2_hj_daily(numeric(twentyFourHour))),
+        so2Epa: (oneHour, twentyFourHour) => enumValue(airQualityValues, native._air_rate_so2_epa(numeric(oneHour), numeric(twentyFourHour))),
         overall: (input = {}) => {
             const pmStandard = input.pmStandard ?? PMStandard.eeaAQI2024;
             const formaldehydeStandard = input.formaldehydeStandard
@@ -226,7 +285,12 @@ function createAirApi(native) {
         co2Level: (ppm) => enumValue(concentrationLevelValues, native._air_level_co2(numeric(ppm))),
         pm25Level: (concentration, standard = PMStandard.eeaAQI2024) => enumValue(concentrationLevelValues, native._air_level_pm25(pmStandardValue(standard), numeric(concentration))),
         pm10Level: (concentration, standard = PMStandard.eeaAQI2024) => enumValue(concentrationLevelValues, native._air_level_pm10(pmStandardValue(standard), numeric(concentration))),
-        formaldehydeLevel: (concentration, standard = FormaldehydeStandard.who2010) => enumValue(concentrationLevelValues, native._air_level_hcho(formaldehydeStandardValue(standard), numeric(concentration)))
+        formaldehydeLevel: (concentration, standard = FormaldehydeStandard.who2010) => enumValue(concentrationLevelValues, native._air_level_hcho(formaldehydeStandardValue(standard), numeric(concentration))),
+        o3EeaLevel: (oneHour) => enumValue(concentrationLevelValues, native._air_level_o3_eea(numeric(oneHour))),
+        o3HjLevel: (oneHour) => enumValue(concentrationLevelValues, native._air_level_o3_hj(numeric(oneHour))),
+        o3EpaLevel: (eightHour, oneHour) => enumValue(concentrationLevelValues, native._air_level_o3_epa(numeric(eightHour), oneHour === undefined ? Number.NaN : numeric(oneHour))),
+        coHjLevel: (oneHour) => enumValue(concentrationLevelValues, native._air_level_co_hj(numeric(oneHour))),
+        coEpaLevel: (eightHour) => enumValue(concentrationLevelValues, native._air_level_co_epa(numeric(eightHour)))
     });
 }
 function createThermalApi(native) {
@@ -251,6 +315,16 @@ function createSoundLightApi(native) {
     return Object.freeze({
         noise: (decibels, scene) => enumValue(noiseRatingValues, native._noise_rate(noiseSceneValue(scene), numeric(decibels))),
         illuminance: (lux) => enumValue(illuminanceRatingValues, native._illuminance_rate(numeric(lux)))
+    });
+}
+function createPollenApi(native) {
+    return Object.freeze({
+        rate: (concentration, type, standard) => enumValue(pollenRatingValues, native._pollen_rate(valueIndex(pollenStandardValues, standard), valueIndex(pollenTypeValues, type), numeric(concentration)))
+    });
+}
+function createUVIndexApi(native) {
+    return Object.freeze({
+        rate: (uvi) => enumValue(uvIndexRatingValues, native._uv_index_rate(numeric(uvi)))
     });
 }
 function cssColor(rawValue) {
@@ -322,6 +396,8 @@ export async function createEnvironmentRating(options = {}) {
         air: createAirApi(native),
         thermal: createThermalApi(native),
         soundLight: createSoundLightApi(native),
+        pollen: createPollenApi(native),
+        uvIndex: createUVIndexApi(native),
         colors: createColorsApi(native)
     });
 }

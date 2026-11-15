@@ -80,28 +80,38 @@ const char *env_icon_name(env_parameter_t parameter,
     static const char *const sf_symbols[] = {
         "thermometer.medium",
         "humidity.fill",
-        "carbon.dioxide.cloud",
+        "wind",
         "aqi.medium",
         "aqi.medium",
-        "atom",
+        "flask",
         "speedometer",
         "waveform",
-        "sun.max"
+        "sun.max",
+        "sun.haze.fill",
+        "smoke.fill",
+        "cloud.fog.fill",
+        "leaf.fill",
+        "sun.max.fill"
     };
     static const char *const material_symbols[] = {
         "device_thermostat",
         "humidity_percentage",
-        "co2",
+        "air",
         "blur_on",
         "blur_on",
         "science",
         "speed",
         "graphic_eq",
-        "light_mode"
+        "light_mode",
+        "dehaze",
+        "detector_smoke",
+        "foggy",
+        "local_florist",
+        "flare"
     };
 
     if ((int)parameter < (int)ENV_PARAM_TEMPERATURE ||
-        (int)parameter > (int)ENV_PARAM_ILLUMINANCE)
+        (int)parameter > (int)ENV_PARAM_UV_INDEX)
         return 0;
     if (icon_set == ENV_ICON_SF_SYMBOLS)
         return sf_symbols[(int)parameter];
@@ -122,11 +132,16 @@ env_rgb_t env_color_parameter(env_parameter_t parameter,
         { RGB(DB2777), RGB(FCE7F3) }, /* HCHO */
         { RGB(89941A), RGB(F1F5D5) }, /* tVOC */
         { RGB(9333EA), RGB(F3E8FF) }, /* Noise */
-        { RGB(F2C94C), RGB(FEF9C3) }  /* Illuminance */
+        { RGB(F2C94C), RGB(FEF9C3) }, /* Illuminance */
+        { RGB(3A6EAA), RGB(E8F1FB) }, /* Outdoor O3 */
+        { RGB(56616D), RGB(EDF0F3) }, /* Outdoor CO */
+        { RGB(9A6B0A), RGB(FAF1D8) }, /* Outdoor SO2 */
+        { RGB(3E8B5B), RGB(E5F4E7) }, /* Pollen */
+        { RGB(6853BE), RGB(EEEAFB) }  /* UV index */
     };
 
     if ((int)parameter < (int)ENV_PARAM_TEMPERATURE ||
-        (int)parameter > (int)ENV_PARAM_ILLUMINANCE)
+        (int)parameter > (int)ENV_PARAM_UV_INDEX)
         return ENV_RGB_INVALID;
     if (role == ENV_COLOR_PRIMARY || role == ENV_COLOR_BACKGROUND)
         return colors[(int)parameter][(int)role];
@@ -147,7 +162,7 @@ env_rgb_t env_color_air(env_parameter_t parameter,
         switch (quality) {
             case AIR_UNKNOWN: palette = &unknown_palette; break;
             case AIR_GOOD: palette = &air_palettes[AIR_GOOD]; break;
-            case AIR_MODERATE: palette = &air_palettes[AIR_FAIR]; break;
+            case AIR_MODERATE: palette = &air_palettes[AIR_MODERATE]; break;
             case AIR_POOR: palette = &air_palettes[AIR_POOR]; break;
             default: return ENV_RGB_INVALID;
         }

@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="逐项了解环境指标的分档边界、可选标准与评级结果。">
+  <meta name="theme-color" content="#0564A0">
+  <meta name="apple-mobile-web-app-title" content="青萍环境评级指南">
+  <title>环境指标解读｜青萍环境评级指南</title>
+  <link rel="icon" href="favicon.ico?v=rounded" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg?v=qingping-brand-20261029">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="alternate" hreflang="zh-Hans" href="https://tapeterjiang-gif.github.io/environment_rating/indicators.html">
+  <link rel="alternate" hreflang="zh-Hant" href="https://tapeterjiang-gif.github.io/environment_rating/indicators.html?lang=zh-Hant">
+  <link rel="alternate" hreflang="en" href="https://tapeterjiang-gif.github.io/environment_rating/indicators.html?lang=en">
+  <link rel="alternate" hreflang="ja" href="https://tapeterjiang-gif.github.io/environment_rating/indicators.html?lang=ja">
+  <link rel="alternate" hreflang="x-default" href="https://tapeterjiang-gif.github.io/environment_rating/indicators.html">
+  <link rel="stylesheet" href="styles.css">
+  <script src="i18n-zh-hant.js" defer></script>
+  <script src="i18n.js" defer></script>
+  <script src="site.js" defer></script>
+</head>
+<body class="metrics-page">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="主导航">
+      <a class="brand" href="index.html" aria-label="青萍环境评级指南首页">
+        <img class="brand-logo" src="qingping-wordmark-blue.svg?v=blue-073b53-20261029" alt="Qingping" width="80" height="20">
+        <span>青萍环境评级指南</span>
+      </a>
+      <div class="nav-actions">
+        <div class="nav-links"><a href="index.html">评级方法</a><a href="indicators.html" aria-current="page">指标解读</a><a href="design.html">设计参考</a><a href="developer.html">开发参考</a></div>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="interpret-hero"><div class="container interpret-hero-inner">
+      <span class="eyebrow">Environment metrics explained</span><h1>环境指标解读</h1>
+      <p class="lead">找到你关注的指标，查看读数如何分档、可选标准有何不同，以及评级结果代表什么。图标和色值收录在设计参考中。</p>
+
+    </div></section>
+    <section class="section" id="thermal">
+      <div class="container"><div class="chapter">
+        <div class="chapter-head"><div><span class="kicker">第一类</span><h3>热舒适度</h3><p>热舒适度不只看温度。PMV 会同时考虑空气温度、辐射温度、湿度、风速、活动量和衣着，给出从冷到热的七点感受；湿度另有独立提示。</p></div></div>
+        <div class="subsection"><h4>PMV 七点冷热感</h4><p>PMV 越接近 0，代表多数人在当前条件下越可能感觉中性。每个人的感受仍可能不同。</p>
+          <div class="pmv-scale" aria-label="PMV 七点冷热感">
+            <div style="--bg:#DBEAFE;--label:#1E3A8A"><b>冷</b><span>−3 至 −2.5</span></div><div style="--bg:#E0F2FE;--label:#0C4A6E"><b>凉</b><span>−2.5 至 −1.5</span></div><div style="--bg:#CFFAFE;--label:#155E75"><b>稍凉</b><span>−1.5 至 −0.5</span></div><div style="--bg:#DCFCE7;--label:#14532D"><b>中性</b><span>−0.5 至 +0.5</span></div><div style="--bg:#FEF9C3;--label:#713F12"><b>稍暖</b><span>+0.5 至 +1.5</span></div><div style="--bg:#FFEDD5;--label:#7C2D12"><b>暖</b><span>+1.5 至 +2.5</span></div><div style="--bg:#FEE2E2;--label:#7F1D1D"><b>热</b><span>+2.5 至 +3</span></div>
+          </div>
+        </div>
+        <div class="subsection"><h4>相对湿度提示</h4><p>默认参考德国 UBA 的全年建议范围。40%–60%RH 为适宜；低于该范围提示加湿，高于该范围提示通风或除湿。</p>
+          <div class="humidity-scale" aria-label="相对湿度三档提示">
+            <div style="--bg:#FEF3C7;--label:#78350F"><b>偏干</b><span>低于 40%RH</span></div><div style="--bg:#DCFCE7;--label:#14532D"><b>适宜</b><span>40%–60%RH</span></div><div style="--bg:#DBEAFE;--label:#1E3A8A"><b>偏湿</b><span>高于 60%RH</span></div>
+          </div>
+        </div>
+        <div class="subsection"><h4>为什么不做综合分数</h4><p>冷热感与湿度传达的是不同体验。分别显示更容易判断是调整温度、风速，还是需要加湿或除湿。</p></div>
+      </div></div>
+    </section>
+
+    <section class="section" id="air">
+      <div class="container">
+        <div class="chapter">
+          <div class="chapter-head"><div><span class="kicker">第二类</span><h3>空气质量</h3><p>分别观察 PM2.5、PM10、CO₂ 和甲醛。单项和整体结果使用 Matter 的六档空气质量名称；具体浓度边界来自所选的环境或健康标准。</p></div></div>
+
+          <div class="subsection">
+            <h4>CO₂ 通风提示</h4>
+            <p>参考德国 UBA 2008 CO₂ 指导值。浓度升高时，提示留意并加强通风。</p>
+            <div class="metric-scale three" aria-label="CO₂ 三档通风提示">
+              <div class="aq-good"><b>好</b><span>低于 1000 ppm</span><small class="rating-hint">通风正常</small></div><div class="aq-moderate"><b>中等</b><span>1000–2000 ppm</span><small class="rating-hint">建议通风</small></div><div class="aq-poor"><b>差</b><span>高于 2000 ppm</span><small class="rating-hint">加强通风</small></div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h4>PM2.5 和 PM10：三个可选标准</h4>
+            <p>三套标准的统计口径和平均时间不同。设备按当前选择标准的要求完成测量和平均，再应用对应的浓度分界；选择哪套标准，取决于产品希望对应的市场表达。</p>
+            <div class="standard-switcher" role="tablist" aria-label="选择颗粒物评级标准" data-standard-switcher="pm">
+              <button class="standard-option is-active" type="button" role="tab" aria-selected="true" aria-controls="pm-eea-panel" id="pm-eea-tab" tabindex="0" data-standard-option="eea"><b>欧洲 EEA · 默认</b><small>使用 European Air Quality Index 六档，保留读数小数。</small></button>
+              <button class="standard-option" type="button" role="tab" aria-selected="false" aria-controls="pm-hj-panel" id="pm-hj-tab" tabindex="-1" data-standard-option="hj"><b>中国 HJ 633—2026</b><small>对应优、良和四级污染类别，浓度先修约为整数。</small></button>
+              <button class="standard-option" type="button" role="tab" aria-selected="false" aria-controls="pm-epa-panel" id="pm-epa-tab" tabindex="-1" data-standard-option="epa"><b>美国 EPA AQI</b><small>对应美国 AQI 类别，PM2.5 截断至一位小数，PM10 截断至整数。</small></button>
+            </div>
+            <div class="standard-panel" id="pm-eea-panel" role="tabpanel" aria-labelledby="pm-eea-tab" data-standard-panel="eea" data-standard-group="pm">
+              <div class="scale-stack">
+                <div><h5>PM2.5 · EEA 默认分档（μg/m³）</h5><div class="metric-scale six" aria-label="PM2.5 EEA 六档图示"><div class="aq-good"><b>好</b><span>0–5</span></div><div class="aq-fair"><b>尚可</b><span>&gt;5–15</span></div><div class="aq-moderate"><b>中等</b><span>&gt;15–50</span></div><div class="aq-poor"><b>差</b><span>&gt;50–90</span></div><div class="aq-very-poor"><b>很差</b><span>&gt;90–140</span></div><div class="aq-extreme"><b>极差</b><span>&gt;140</span></div></div></div>
+                <div><h5>PM10 · EEA 默认分档（μg/m³）</h5><div class="metric-scale six" aria-label="PM10 EEA 六档图示"><div class="aq-good"><b>好</b><span>0–15</span></div><div class="aq-fair"><b>尚可</b><span>&gt;15–45</span></div><div class="aq-moderate"><b>中等</b><span>&gt;45–120</span></div><div class="aq-poor"><b>差</b><span>&gt;120–195</span></div><div class="aq-very-poor"><b>很差</b><span>&gt;195–270</span></div><div class="aq-extreme"><b>极差</b><span>&gt;270</span></div></div></div>
+              </div>
+            </div>
+            <div class="standard-panel" id="pm-hj-panel" role="tabpanel" aria-labelledby="pm-hj-tab" data-standard-panel="hj" data-standard-group="pm" hidden>
+              <div class="scale-stack">
+                <div><h5>PM2.5 · 中国 HJ 分档（μg/m³）</h5><div class="metric-scale six" aria-label="PM2.5 中国 HJ 六档图示"><div class="aq-good"><b>好</b><span>0–35</span></div><div class="aq-fair"><b>尚可</b><span>36–60</span></div><div class="aq-moderate"><b>中等</b><span>61–115</span></div><div class="aq-poor"><b>差</b><span>116–150</span></div><div class="aq-very-poor"><b>很差</b><span>151–250</span></div><div class="aq-extreme"><b>极差</b><span>≥251</span></div></div></div>
+                <div><h5>PM10 · 中国 HJ 分档（μg/m³）</h5><div class="metric-scale six" aria-label="PM10 中国 HJ 六档图示"><div class="aq-good"><b>好</b><span>0–50</span></div><div class="aq-fair"><b>尚可</b><span>51–120</span></div><div class="aq-moderate"><b>中等</b><span>121–250</span></div><div class="aq-poor"><b>差</b><span>251–350</span></div><div class="aq-very-poor"><b>很差</b><span>351–420</span></div><div class="aq-extreme"><b>极差</b><span>≥421</span></div></div></div>
+              </div>
+            </div>
+            <div class="standard-panel" id="pm-epa-panel" role="tabpanel" aria-labelledby="pm-epa-tab" data-standard-panel="epa" data-standard-group="pm" hidden>
+              <div class="scale-stack">
+                <div><h5>PM2.5 · 美国 EPA 分档（μg/m³）</h5><div class="metric-scale six" aria-label="PM2.5 美国 EPA 六档图示"><div class="aq-good"><b>好</b><span>0.0–9.0</span></div><div class="aq-fair"><b>尚可</b><span>9.1–35.4</span></div><div class="aq-moderate"><b>中等</b><span>35.5–55.4</span></div><div class="aq-poor"><b>差</b><span>55.5–125.4</span></div><div class="aq-very-poor"><b>很差</b><span>125.5–225.4</span></div><div class="aq-extreme"><b>极差</b><span>≥225.5</span></div></div></div>
+                <div><h5>PM10 · 美国 EPA 分档（μg/m³）</h5><div class="metric-scale six" aria-label="PM10 美国 EPA 六档图示"><div class="aq-good"><b>好</b><span>0–54</span></div><div class="aq-fair"><b>尚可</b><span>55–154</span></div><div class="aq-moderate"><b>中等</b><span>155–254</span></div><div class="aq-poor"><b>差</b><span>255–354</span></div><div class="aq-very-poor"><b>很差</b><span>355–424</span></div><div class="aq-extreme"><b>极差</b><span>≥425</span></div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h4>甲醛：三个可选参考标准</h4>
+            <p>WHO 等标准主要给出一个健康参考浓度，并没有统一的六档名称。项目以参考浓度 L 为中心，用 0.25L、0.5L、L、2L、5L 划分六档。</p>
+            <div class="standard-switcher" role="tablist" aria-label="选择甲醛评级标准" data-standard-switcher="hcho">
+              <button class="standard-option is-active" type="button" role="tab" aria-selected="true" aria-controls="hcho-who-panel" id="hcho-who-tab" tabindex="0" data-standard-option="who"><b>WHO 2010 · 默认</b><small>参考浓度 0.100 mg/m³ · 30 分钟平均</small></button>
+              <button class="standard-option" type="button" role="tab" aria-selected="false" aria-controls="hcho-gbt-panel" id="hcho-gbt-tab" tabindex="-1" data-standard-option="gbt"><b>GB/T 18883—2022</b><small>参考浓度 0.080 mg/m³ · 1 小时平均</small></button>
+              <button class="standard-option" type="button" role="tab" aria-selected="false" aria-controls="hcho-oehha-panel" id="hcho-oehha-tab" tabindex="-1" data-standard-option="oehha"><b>加州 OEHHA 2008</b><small>参考浓度 0.055 mg/m³ · 1 小时急性 REL</small></button>
+            </div>
+            <div class="standard-panel" id="hcho-who-panel" role="tabpanel" aria-labelledby="hcho-who-tab" data-standard-panel="who" data-standard-group="hcho">
+              <div class="scale-stack"><div><h5>甲醛 · WHO 2010 默认分档（mg/m³）</h5><div class="metric-scale six" aria-label="甲醛 WHO 六档图示"><div class="aq-good"><b>好</b><span>0–0.025</span></div><div class="aq-fair"><b>尚可</b><span>&gt;0.025–0.050</span></div><div class="aq-moderate"><b>中等</b><span>&gt;0.050–0.100</span></div><div class="aq-poor"><b>差</b><span>&gt;0.100–0.200</span></div><div class="aq-very-poor"><b>很差</b><span>&gt;0.200–0.500</span></div><div class="aq-extreme"><b>极差</b><span>&gt;0.500</span></div></div></div></div>
+            </div>
+            <div class="standard-panel" id="hcho-gbt-panel" role="tabpanel" aria-labelledby="hcho-gbt-tab" data-standard-panel="gbt" data-standard-group="hcho" hidden>
+              <div class="scale-stack"><div><h5>甲醛 · GB/T 18883—2022 分档（mg/m³）</h5><div class="metric-scale six" aria-label="甲醛 GB/T 六档图示"><div class="aq-good"><b>好</b><span>0–0.020</span></div><div class="aq-fair"><b>尚可</b><span>&gt;0.020–0.040</span></div><div class="aq-moderate"><b>中等</b><span>&gt;0.040–0.080</span></div><div class="aq-poor"><b>差</b><span>&gt;0.080–0.160</span></div><div class="aq-very-poor"><b>很差</b><span>&gt;0.160–0.400</span></div><div class="aq-extreme"><b>极差</b><span>&gt;0.400</span></div></div></div></div>
+            </div>
+            <div class="standard-panel" id="hcho-oehha-panel" role="tabpanel" aria-labelledby="hcho-oehha-tab" data-standard-panel="oehha" data-standard-group="hcho" hidden>
+              <div class="scale-stack"><div><h5>甲醛 · 加州 OEHHA 2008 分档（mg/m³）</h5><div class="metric-scale six" aria-label="甲醛 OEHHA 六档图示"><div class="aq-good"><b>好</b><span>0–0.01375</span></div><div class="aq-fair"><b>尚可</b><span>&gt;0.01375–0.0275</span></div><div class="aq-moderate"><b>中等</b><span>&gt;0.0275–0.055</span></div><div class="aq-poor"><b>差</b><span>&gt;0.055–0.110</span></div><div class="aq-very-poor"><b>很差</b><span>&gt;0.110–0.275</span></div><div class="aq-extreme"><b>极差</b><span>&gt;0.275</span></div></div></div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sound-light">
+      <div class="container"><div class="chapter">
+        <div class="chapter-head"><div><span class="kicker">第三类</span><h3>声光环境</h3><p>噪声提示帮助判断当前环境是否安静；照度提示说明当前光线更接近哪类住宅活动需要。两者分别显示，不合成一个分数。</p></div></div>
+        <div class="subsection"><h4>噪声 · dB(A)</h4><p>住宅与睡眠场景使用相同的四档提示，睡眠场景的边界更严格。</p>
+          <div class="scale-stack">
+            <div><h5>住宅</h5><div class="metric-scale four" aria-label="住宅噪声四档图示"><div style="--bg:#DCFCE7;--label:#14532D"><b>安静</b><span>≤35</span></div><div style="--bg:#FEF9C3;--label:#713F12"><b>偏吵</b><span>&gt;35–45</span></div><div style="--bg:#FFEDD5;--label:#7C2D12"><b>嘈杂</b><span>&gt;45–55</span></div><div style="--bg:#FEE2E2;--label:#7F1D1D"><b>很吵</b><span>&gt;55</span></div></div></div>
+            <div><h5>睡眠</h5><div class="metric-scale four" aria-label="睡眠噪声四档图示"><div style="--bg:#DCFCE7;--label:#14532D"><b>安静</b><span>≤30</span></div><div style="--bg:#FEF9C3;--label:#713F12"><b>偏吵</b><span>&gt;30–40</span></div><div style="--bg:#FFEDD5;--label:#7C2D12"><b>嘈杂</b><span>&gt;40–50</span></div><div style="--bg:#FEE2E2;--label:#7F1D1D"><b>很吵</b><span>&gt;50</span></div></div></div>
+          </div>
+        </div>
+        <div class="subsection"><h4>照度 · lx</h4><p>颜色从暗到亮表示适合的活动，并不表示好坏；当前算法没有“过亮”评级。</p>
+          <div class="metric-scale six" aria-label="照度六档活动提示"><div style="--bg:#E2E8F0;--label:#1E293B"><b>低照环境</b><span>约 54 以下</span></div><div style="--bg:#E0E7FF;--label:#3730A3"><b>氛围照明</b><span>约 54–108</span></div><div style="--bg:#E0F2FE;--label:#0C4A6E"><b>日常活动</b><span>约 108–215</span></div><div style="--bg:#CCFBF1;--label:#134E4A"><b>阅读学习</b><span>约 215–323</span></div><div style="--bg:#FEF3C7;--label:#78350F"><b>专注活动</b><span>约 323–538</span></div><div style="--bg:#FEF9C3;--label:#713F12"><b>精细作业</b><span>约 538 以上</span></div></div>
+        </div>
+        <div class="note"><strong>照度不是“越高越好”。</strong>分界参考 RP-11-26 的住宅任务照度层级，并换算为便于连续显示的活动提示。设备的单点瞬时读数不能代表整个房间达到照明标准。</div>
+      </div></div>
+    </section>
+
+    <section class="section" id="outdoor">
+      <div class="container"><div class="chapter">
+        <div class="chapter-head"><div><span class="kicker">第四类</span><h3>室外环境</h3><p>分别查看室外污染物、花粉和紫外线指数。它们使用不同的测量口径与等级，页面不生成室外综合评级。</p></div></div>
+        <div class="subsection"><h4>室外空气污染物</h4><p>O₃、CO、SO₂ 各自按照所选标准和平均时间评级。PM2.5 与 PM10 仍可使用上方的三套颗粒物标准；室外读数不加入室内整体空气质量结果。</p>
+<div class="subsection outdoor-pollutant" id="o3">
+            <h4>臭氧 O₃</h4><p>臭氧按所选标准的平均时间评级；各标准使用的浓度单位不同。</p>
+            <div class="standard-switcher" role="tablist" aria-label="选择 O₃ 评级标准" data-standard-switcher="o3">
+              <button class="standard-option is-active" type="button" role="tab" aria-selected="true" aria-controls="o3-eea-panel" id="o3-eea-tab" tabindex="0" data-standard-option="eea"><b>欧洲 EEA</b><small>1 小时平均 · μg/m³</small></button>
+              <button class="standard-option" type="button" role="tab" aria-selected="false" aria-controls="o3-hj-panel" id="o3-hj-tab" tabindex="-1" data-standard-option="hj"><b>中国 HJ 633—2026</b><small>实时报 1 小时平均 · μg/m³</small></button>
+              <button class="standard-option" type="button" role="tab" aria-selected="false" aria-controls="o3-epa-panel" id="o3-epa-tab" tabindex="-1" data-standard-option="epa"><b>美国 EPA AQI</b><small>8 小时平均，可结合 1 小时平均 · ppm</small></button>
+            </div>
+            <div class="standard-panel" id="o3-eea-panel" role="tabpanel" aria-labelledby="o3-eea-tab" data-standard-panel="eea" data-standard-group="o3">
+              <div class="metric-scale six" aria-label="臭氧 O₃ 欧洲 EEA 六档图示"><div class="aq-good"><b>好</b><span>0–60</span></div><div class="aq-fair"><b>尚可</b><span>>60–100</span></div><div class="aq-moderate"><b>中等</b><span>>100–120</span></div><div class="aq-poor"><b>差</b><span>>120–160</span></div><div class="aq-very-poor"><b>很差</b><span>>160–180</span></div><div class="aq-extreme"><b>极差</b><span>>180</span></div></div>
+              <p class="outdoor-rule">小数按连续区间比较；各档上限包含在本档。</p>
+            </div>
+            <div class="standard-panel" id="o3-hj-panel" role="tabpanel" aria-labelledby="o3-hj-tab" data-standard-panel="hj" data-standard-group="o3" hidden>
+              <div class="metric-scale six" aria-label="臭氧 O₃ 中国 HJ 633—2026 六档图示"><div class="aq-good"><b>好</b><span>0–160</span></div><div class="aq-fair"><b>尚可</b><span>161–200</span></div><div class="aq-moderate"><b>中等</b><span>201–300</span></div><div class="aq-poor"><b>差</b><span>301–400</span></div><div class="aq-very-poor"><b>很差</b><span>401–800</span></div><div class="aq-extreme"><b>极差</b><span>≥801</span></div></div>
+              <p class="outdoor-rule">评级前将浓度修约为整数；此处是实时报 1 小时口径，不是日报口径。</p>
+            </div>
+            <div class="standard-panel" id="o3-epa-panel" role="tabpanel" aria-labelledby="o3-epa-tab" data-standard-panel="epa" data-standard-group="o3" hidden>
+              <div class="metric-scale six" aria-label="臭氧 O₃ 美国 EPA AQI 六档图示"><div class="aq-good"><b>好</b><span>0.000–0.054</span></div><div class="aq-fair"><b>尚可</b><span>0.055–0.070</span></div><div class="aq-moderate"><b>中等</b><span>0.071–0.085</span></div><div class="aq-poor"><b>差</b><span>0.086–0.105</span></div><div class="aq-very-poor"><b>很差</b><span>0.106–0.200</span></div><div class="aq-extreme"><b>极差</b><span>1 小时 ≥0.405</span></div></div>
+              <p class="outdoor-rule">浓度先截断至三位小数。图示前五档列出 8 小时值；有效的 1 小时值也可能提高等级。8 小时值 >0.200 且无可用 1 小时等级时，结果未知。</p>
+            </div>
+          </div>
+<div class="subsection outdoor-pollutant" id="co">
+            <h4>一氧化碳 CO</h4><p>CO 可选中国实时报或美国 AQI；欧洲 EEA 空气质量指数没有 CO 六档。</p>
+            <div class="standard-switcher two-option" role="tablist" aria-label="选择 CO 评级标准" data-standard-switcher="co">
+              <button class="standard-option is-active" type="button" role="tab" aria-selected="true" aria-controls="co-hj-panel" id="co-hj-tab" tabindex="0" data-standard-option="hj"><b>中国 HJ 633—2026</b><small>实时报 1 小时平均 · mg/m³</small></button>
+              <button class="standard-option" type="button" role="tab" aria-selected="false" aria-controls="co-epa-panel" id="co-epa-tab" tabindex="-1" data-standard-option="epa"><b>美国 EPA AQI</b><small>8 小时平均 · ppm</small></button>
+            </div>
+            <div class="standard-panel" id="co-hj-panel" role="tabpanel" aria-labelledby="co-hj-tab" data-standard-panel="hj" data-standard-group="co">
+              <div class="metric-scale six" aria-label="一氧化碳 CO 中国 HJ 633—2026 六档图示"><div class="aq-good"><b>好</b><span>0–5.0</span></div><div class="aq-fair"><b>尚可</b><span>5.1–10.0</span></div><div class="aq-moderate"><b>中等</b><span>10.1–35.0</span></div><div class="aq-poor"><b>差</b><span>35.1–60.0</span></div><div class="aq-very-poor"><b>很差</b><span>60.1–90.0</span></div><div class="aq-extreme"><b>极差</b><span>≥90.1</span></div></div>
+              <p class="outdoor-rule">评级前将浓度修约至 0.1 mg/m³。急性风险告警应单独处理。</p>
+            </div>
+            <div class="standard-panel" id="co-epa-panel" role="tabpanel" aria-labelledby="co-epa-tab" data-standard-panel="epa" data-standard-group="co" hidden>
+              <div class="metric-scale six" aria-label="一氧化碳 CO 美国 EPA AQI 六档图示"><div class="aq-good"><b>好</b><span>0.0–4.4</span></div><div class="aq-fair"><b>尚可</b><span>4.5–9.4</span></div><div class="aq-moderate"><b>中等</b><span>9.5–12.4</span></div><div class="aq-poor"><b>差</b><span>12.5–15.4</span></div><div class="aq-very-poor"><b>很差</b><span>15.5–30.4</span></div><div class="aq-extreme"><b>极差</b><span>≥30.5</span></div></div>
+              <p class="outdoor-rule">评级前将浓度截断至 0.1 ppm。急性风险告警应单独处理。</p>
+            </div>
+          </div>
+<div class="subsection outdoor-pollutant" id="so2">
+            <h4>二氧化硫 SO₂</h4><p>SO₂ 的中国标准区分实时报与日报；美国 EPA 同时需要 1 小时和 24 小时值。</p>
+            <div class="standard-switcher four-option" role="tablist" aria-label="选择 SO₂ 评级标准" data-standard-switcher="so2">
+              <button class="standard-option is-active" type="button" role="tab" aria-selected="true" aria-controls="so2-eea-panel" id="so2-eea-tab" tabindex="0" data-standard-option="eea"><b>欧洲 EEA</b><small>1 小时平均 · μg/m³</small></button>
+              <button class="standard-option" type="button" role="tab" aria-selected="false" aria-controls="so2-hj-hourly-panel" id="so2-hj-hourly-tab" tabindex="-1" data-standard-option="hj-hourly"><b>中国 HJ 633—2026 · 实时报</b><small>1 小时平均 · μg/m³</small></button>
+              <button class="standard-option" type="button" role="tab" aria-selected="false" aria-controls="so2-hj-daily-panel" id="so2-hj-daily-tab" tabindex="-1" data-standard-option="hj-daily"><b>中国 HJ 633—2026 · 日报</b><small>24 小时平均 · μg/m³</small></button>
+              <button class="standard-option" type="button" role="tab" aria-selected="false" aria-controls="so2-epa-panel" id="so2-epa-tab" tabindex="-1" data-standard-option="epa"><b>美国 EPA AQI</b><small>1 小时及 24 小时平均 · ppb</small></button>
+            </div>
+            <div class="standard-panel" id="so2-eea-panel" role="tabpanel" aria-labelledby="so2-eea-tab" data-standard-panel="eea" data-standard-group="so2">
+              <div class="metric-scale six" aria-label="二氧化硫 SO₂ 欧洲 EEA 六档图示"><div class="aq-good"><b>好</b><span>0–20</span></div><div class="aq-fair"><b>尚可</b><span>>20–40</span></div><div class="aq-moderate"><b>中等</b><span>>40–125</span></div><div class="aq-poor"><b>差</b><span>>125–190</span></div><div class="aq-very-poor"><b>很差</b><span>>190–275</span></div><div class="aq-extreme"><b>极差</b><span>>275</span></div></div>
+              <p class="outdoor-rule">小数按连续区间比较；各档上限包含在本档。</p>
+            </div>
+            <div class="standard-panel" id="so2-hj-hourly-panel" role="tabpanel" aria-labelledby="so2-hj-hourly-tab" data-standard-panel="hj-hourly" data-standard-group="so2" hidden>
+              <div class="metric-scale six" aria-label="二氧化硫 SO₂ 中国 HJ 633—2026 · 实时报 六档图示"><div class="aq-good"><b>好</b><span>0–150</span></div><div class="aq-fair"><b>尚可</b><span>151–500</span></div><div class="aq-moderate"><b>中等</b><span>501–650</span></div><div class="aq-poor"><b>差</b><span>≥651</span></div><div class="unavailable"><b>很差</b><span>不产生</span></div><div class="unavailable"><b>极差</b><span>不产生</span></div></div>
+              <p class="outdoor-rule">评级前修约为整数。一小时值超过 800 μg/m³ 时仍归入“差”，不会产生后两档。</p>
+            </div>
+            <div class="standard-panel" id="so2-hj-daily-panel" role="tabpanel" aria-labelledby="so2-hj-daily-tab" data-standard-panel="hj-daily" data-standard-group="so2" hidden>
+              <div class="metric-scale six" aria-label="二氧化硫 SO₂ 中国 HJ 633—2026 · 日报 六档图示"><div class="aq-good"><b>好</b><span>0–50</span></div><div class="aq-fair"><b>尚可</b><span>51–150</span></div><div class="aq-moderate"><b>中等</b><span>151–475</span></div><div class="aq-poor"><b>差</b><span>476–800</span></div><div class="aq-very-poor"><b>很差</b><span>801–1600</span></div><div class="aq-extreme"><b>极差</b><span>≥1601</span></div></div>
+              <p class="outdoor-rule">评级前修约为整数；此处使用 24 小时平均值。</p>
+            </div>
+            <div class="standard-panel" id="so2-epa-panel" role="tabpanel" aria-labelledby="so2-epa-tab" data-standard-panel="epa" data-standard-group="so2" hidden>
+              <div class="metric-scale six" aria-label="二氧化硫 SO₂ 美国 EPA AQI 六档图示"><div class="aq-good"><b>好</b><span>1h 0–35</span></div><div class="aq-fair"><b>尚可</b><span>1h 36–75</span></div><div class="aq-moderate"><b>中等</b><span>1h 76–185</span></div><div class="aq-poor"><b>差</b><span>1h 186–304；或 1h ≥305、24h <305</span></div><div class="aq-very-poor"><b>很差</b><span>24h 305–604</span></div><div class="aq-extreme"><b>极差</b><span>24h ≥605</span></div></div>
+              <p class="outdoor-rule">两个时段值都必需，并先截断至整数 ppb；任一无效时结果未知。用于官方日报时，1 小时值应为当日最大一小时浓度。</p>
+            </div>
+          </div>
+        </div>
+          <div class="subsection" id="pollen">
+            <h4>室外花粉负荷</h4>
+            <p>选择花粉标准，查看对应类型的日平均浓度分档（粒/m³）。花粉单独评级，不计入空气质量整体结果。只有总花粉数而没有类型时，可显示数值和趋势；正值不评级，测得零值显示“未检出”。</p>
+            <div class="metric-scale six pollen-scale" aria-label="花粉分级图示">
+<div style="--bg:#CCFBF1;--label:#134E4A"><b>未检出</b><span>0 粒/m³</span></div>
+<div class="aq-good"><b>低</b></div><div class="aq-moderate"><b>中</b></div><div class="aq-poor"><b>高</b></div><div class="aq-very-poor"><b>极高</b></div>
+<div style="--bg:#F1F5F9;--label:#334155"><b>未知</b></div>
+</div>
+            <div class="standard-switcher pollen-switcher" role="tablist" aria-label="选择花粉评级标准" data-standard-switcher="pollen">
+              <button class="standard-option is-active" type="button" role="tab" aria-selected="true" aria-controls="pollen-nab-panel" id="pollen-nab-tab" tabindex="0" data-standard-option="nab"><b>美国 NAB</b><small>按树木、禾草、杂草类别总浓度分档</small></button>
+              <button class="standard-option" type="button" role="tab" aria-selected="false" aria-controls="pollen-meteoswiss-panel" id="pollen-meteoswiss-tab" tabindex="-1" data-standard-option="meteoswiss"><b>瑞士 MeteoSwiss</b><small>按具体花粉类型分档</small></button>
+            </div>
+            <div class="standard-panel" id="pollen-nab-panel" role="tabpanel" aria-labelledby="pollen-nab-tab" data-standard-panel="nab" data-standard-group="pollen">
+              <div class="pollen-table-wrap"><table class="pollen-table"><caption>NAB 花粉分档 · 粒/m³</caption><thead><tr><th>花粉类型</th><th>低</th><th>中</th><th>高</th><th>极高</th></tr></thead><tbody>
+                <tr><th>树木</th><td>1–14</td><td>15–89</td><td>90–1499</td><td>≥1500</td></tr>
+                <tr><th>禾草</th><td>1–4</td><td>5–19</td><td>20–199</td><td>≥200</td></tr>
+                <tr><th>杂草</th><td>1–9</td><td>10–49</td><td>50–499</td><td>≥500</td></tr>
+              </tbody></table></div>
+            </div>
+            <div class="standard-panel" id="pollen-meteoswiss-panel" role="tabpanel" aria-labelledby="pollen-meteoswiss-tab" data-standard-panel="meteoswiss" data-standard-group="pollen" hidden>
+              <div class="pollen-table-wrap"><table class="pollen-table"><caption>MeteoSwiss 花粉分档 · 粒/m³</caption><thead><tr><th>花粉类型</th><th>低</th><th>中</th><th>高</th><th>极高</th></tr></thead><tbody>
+                <tr><th>榛树、桤木、鹅耳枥</th><td>1–10</td><td>11–69</td><td>70–249</td><td>≥250</td></tr>
+                <tr><th>白蜡树</th><td>1–10</td><td>11–99</td><td>100–349</td><td>≥350</td></tr>
+                <tr><th>桦树</th><td>1–10</td><td>11–69</td><td>70–299</td><td>≥300</td></tr>
+                <tr><th>悬铃木</th><td>1–49</td><td>50–99</td><td>100–399</td><td>≥400</td></tr>
+                <tr><th>橡树、山毛榉</th><td>1–49</td><td>50–129</td><td>130–399</td><td>≥400</td></tr>
+                <tr><th>栗树</th><td>1–99</td><td>100–199</td><td>200–699</td><td>≥700</td></tr>
+                <tr><th>禾草</th><td>1–19</td><td>20–49</td><td>50–149</td><td>≥150</td></tr>
+                <tr><th>酸模、车前草</th><td>1–14</td><td>15–24</td><td>25–59</td><td>≥60</td></tr>
+                <tr><th>蒿属</th><td>1–5</td><td>6–14</td><td>15–49</td><td>≥50</td></tr>
+                <tr><th>豚草</th><td>1–5</td><td>6–10</td><td>11–39</td><td>≥40</td></tr>
+              </tbody></table></div>
+            </div>
+            <p class="pollen-note">已测得的 0 粒/m³ 为“未检出”；表中整数区间之间的小数按下一档起点连续比较，例如桦树 10.5 为低、11 为中。</p>
+          </div>
+        <div class="subsection" id="uv-index"><h4>紫外线指数 UVI</h4><p>参考 WHO《全球太阳紫外线指数：实用指南》。指数越高，太阳紫外线对皮肤和眼睛造成损伤的潜在风险越高。UVI 与照度 lux 不可互相换算。</p>
+          <div class="metric-scale five uv-scale" aria-label="WHO 紫外线指数五档图示">
+            <div style="--status:#289500;--bg:#EAF7D9;--label:#22543D"><b>低</b><span>0–2</span><small>绿色</small></div>
+            <div style="--status:#F7E400;--bg:#FFF8D1;--label:#713F12"><b>中</b><span>3–5</span><small>黄色</small></div>
+            <div style="--status:#F85900;--bg:#FFEDD5;--label:#7C2D12"><b>高</b><span>6–7</span><small>橙色</small></div>
+            <div style="--status:#D8001D;--bg:#FEE2E2;--label:#7F1D1D"><b>很高</b><span>8–10</span><small>红色</small></div>
+            <div style="--status:#6B49C8;--bg:#F3E8FF;--label:#581C87"><b>极高</b><span>≥11</span><small>紫色</small></div>
+          </div>
+          <p class="pollen-note">按 WHO 建议，UVI 对公众报告时取最近整数；预报或报告至少应标明当日最大值，当前值与当日最大值应分开标注。标签使用便于阅读的浅色背景和深色文字，具体配色见设计参考。</p>
+        </div>
+      </div></div>
+    </section>
+  </main>
+
+  <footer class="page-footer"><div class="container footer-inner"><div class="footer-top"><a class="footer-brand" href="index.html"><img src="qingping-wordmark-blue.svg?v=blue-073b53-20261029" alt="Qingping" width="80" height="20"><span>青萍环境评级指南</span></a><nav class="footer-languages" id="languages" aria-label="选择语言" translate="no"><a href="?lang=zh-Hans" data-language="zh-Hans" lang="zh-Hans" hreflang="zh-Hans">简体</a><a href="?lang=zh-Hant" data-language="zh-Hant" lang="zh-Hant" hreflang="zh-Hant">繁體</a><a href="?lang=en" data-language="en" lang="en" hreflang="en">EN</a><a href="?lang=ja" data-language="ja" lang="ja" hreflang="ja">日本語</a></nav></div><div class="footer-bottom"><small>© <span data-year></span> Qingping</small><small>environment_rating</small></div></div></footer>
+</body>
+</html>

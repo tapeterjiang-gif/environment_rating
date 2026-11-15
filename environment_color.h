@@ -34,7 +34,12 @@ typedef enum {
     ENV_PARAM_HCHO = 5,
     ENV_PARAM_TVOC = 6,
     ENV_PARAM_NOISE = 7,
-    ENV_PARAM_ILLUMINANCE = 8
+    ENV_PARAM_ILLUMINANCE = 8,
+    ENV_PARAM_O3 = 9,
+    ENV_PARAM_CO = 10,
+    ENV_PARAM_SO2 = 11,
+    ENV_PARAM_POLLEN = 12,
+    ENV_PARAM_UV_INDEX = 13
 } env_parameter_t;
 
 /* UI icon families. Apple platforms use SF Symbols; Android, Web, Linux,

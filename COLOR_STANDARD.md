@@ -1,8 +1,8 @@
 # 环境指标颜色说明
 
-**Qingping Environmental Colors V1.7｜青萍环境参数标准配色方案**
+**Qingping Environmental Colors V1.8｜青萍环境参数标准配色方案**
 
-本文定义 `environment_rating` 的界面颜色规则，适用于设备屏幕、移动端、网页、图表和状态标签。颜色是产品视觉规则，不属于 Matter、ISO、ASHRAE、WHO、EPA、EEA、UBA 或 GB/T 标准的一部分，也不改变任何评级阈值。
+本文定义 `environment_rating` 的界面颜色规则，适用于设备屏幕、移动端、网页、图表和状态标签。除紫外线五档状态色与图示色明确采用 WHO 官方 RGB 值外，其余配色属于产品视觉规则，并非引用标准的规定；配色不改变任何评级阈值。
 
 ## 1. 使用原则
 
@@ -61,10 +61,10 @@ EPA 与 UBA 的阈值不同，但相同提示使用相同颜色；UBA 不产生 
 
 | 参数 | Material 图标 | Apple · SF Symbols | Material Symbols Rounded | 色样 | 识别色 | HEX | 浅色背景 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| CO₂ | ![CO₂](assets/icons/material/co2.svg) | `carbon.dioxide.cloud` | `co2` | ![#15803D](assets/colors/15803D.svg) | 森林绿 | `#15803D` | `#DCFCE7` |
+| CO₂ | ![CO₂](assets/icons/material/air.svg) | `wind` | `air` | ![#15803D](assets/colors/15803D.svg) | 森林绿 | `#15803D` | `#DCFCE7` |
 | PM2.5 | ![PM2.5](assets/icons/material/blur_on.svg) | `aqi.medium` | `blur_on` | ![#667A83](assets/colors/667A83.svg) | 雾霾灰蓝 | `#667A83` | `#E8EEF0` |
 | PM10 | ![PM10](assets/icons/material/blur_on.svg) | `aqi.medium` | `blur_on` | ![#9A7958](assets/colors/9A7958.svg) | 沙尘灰棕 | `#9A7958` | `#F1EBE4` |
-| 甲醛 HCHO | ![甲醛](assets/icons/material/science.svg) | `atom` | `science` | ![#DB2777](assets/colors/DB2777.svg) | 警觉玫红 | `#DB2777` | `#FCE7F3` |
+| 甲醛 HCHO | ![甲醛](assets/icons/material/science.svg) | `flask` | `science` | ![#DB2777](assets/colors/DB2777.svg) | 警觉玫红 | `#DB2777` | `#FCE7F3` |
 | TVOC 指数 | ![TVOC 指数](assets/icons/material/speed.svg) | `speedometer` | `speed` | ![#89941A](assets/colors/89941A.svg) | 挥发黄绿 | `#89941A` | `#F1F5D5` |
 
 PM2.5 与 PM10 在 Apple 端共用 `aqi.medium`，在其他平台共用 `blur_on`，通过名称和识别色区分；两种识别色采用相近的低饱和自然色系，分别联想到雾霾与沙尘。TVOC 当前只定义参数识别色，项目尚未为其定义评级状态色。
@@ -76,10 +76,10 @@ PM2.5 与 PM10 在 Apple 端共用 `aqi.medium`，在其他平台共用 `blur_on
 | 状态 | 浓度 C | 色样 | 状态色 | 标签背景 | 图示色 | 标签文字 |
 | --- | --- | --- | --- | --- | --- | --- |
 | 好 Good | 0 ≤ C < 1000 | ![#16A34A](assets/colors/16A34A.svg) | `#16A34A` | `#DCFCE7` | ![#4ADE80](assets/colors/4ADE80.svg) `#4ADE80` | `#14532D` |
-| 中等 Moderate | 1000 ≤ C ≤ 2000 | ![#65A30D](assets/colors/65A30D.svg) | `#65A30D` | `#ECFCCB` | ![#A3E635](assets/colors/A3E635.svg) `#A3E635` | `#365314` |
+| 中等 Moderate | 1000 ≤ C ≤ 2000 | ![#CA8A04](assets/colors/CA8A04.svg) | `#CA8A04` | `#FEF9C3` | ![#FACC15](assets/colors/FACC15.svg) `#FACC15` | `#713F12` |
 | 差 Poor | C > 2000 | ![#EA580C](assets/colors/EA580C.svg) | `#EA580C` | `#FFEDD5` | ![#FB923C](assets/colors/FB923C.svg) `#FB923C` | `#7C2D12` |
 
-CO₂ 的 Moderate 保留原评级名称，但采用与 PM“尚可”相同的黄绿色，表达需要留意通风、尚未进入较差状态。
+CO₂ 的 Moderate 采用与 PM2.5“中等”相同的状态色、标签背景、图示色和标签文字色。
 
 ### PM2.5 状态色
 
@@ -157,7 +157,53 @@ CO₂ 的 Moderate 保留原评级名称，但采用与 PM“尚可”相同的�
 | FocusedActivity 专注活动 | 322.917313… ≤ E < 538.195521… lx | ![#D97706](assets/colors/D97706.svg) | `#D97706` | `#FEF3C7` | ![#FBBF24](assets/colors/FBBF24.svg) `#FBBF24` | `#78350F` |
 | DetailWork 精细作业 | E ≥ 538.195521… lx | ![#CA8A04](assets/colors/CA8A04.svg) | `#CA8A04` | `#FEF9C3` | ![#FACC15](assets/colors/FACC15.svg) `#FACC15` | `#713F12` |
 
-## 5. 组合展示示例
+## 5. 室外环境
+
+### 参数识别色
+
+| 参数 | Material 图标 | Apple · SF Symbols | Material Symbols Rounded | 色样 | 识别色 | HEX | 浅色背景 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 臭氧 O₃ | ![臭氧](assets/icons/material/dehaze.svg) | `sun.haze.fill` | `dehaze` | ![#3A6EAA](assets/colors/3A6EAA.svg) | 臭氧蓝 | `#3A6EAA` | `#E8F1FB` |
+| 一氧化碳 CO | ![一氧化碳](assets/icons/material/detector_smoke.svg) | `smoke.fill` | `detector_smoke` | ![#56616D](assets/colors/56616D.svg) | 石墨灰 | `#56616D` | `#EDF0F3` |
+| 二氧化硫 SO₂ | ![二氧化硫](assets/icons/material/foggy.svg) | `cloud.fog.fill` | `foggy` | ![#9A6B0A](assets/colors/9A6B0A.svg) | 硫磺金 | `#9A6B0A` | `#FAF1D8` |
+| 花粉 | ![花粉](assets/icons/material/local_florist.svg) | `leaf.fill` | `local_florist` | ![#3E8B5B](assets/colors/3E8B5B.svg) | 花粉草绿 | `#3E8B5B` | `#E5F4E7` |
+| 紫外线指数 | ![紫外线指数](assets/icons/material/flare.svg) | `sun.max.fill` | `flare` | ![#6853BE](assets/colors/6853BE.svg) | 紫外紫 | `#6853BE` | `#EEEAFB` |
+
+O₃、CO 和 SO₂ 使用不同图形与颜色，始终配合化学式文字，避免把图标误读为污染物分子结构或来源。紫外线指数的固定识别色为紫色，与 WHO 五档暴露等级的绿、黄、橙、红、紫状态提示用途不同。评级状态色不由本表的识别色推导；花粉分级配色见下表。
+
+室外 PM2.5、PM10 沿用第 3 节的颗粒物图标和识别色，不另设室外版本。
+
+### 花粉等级状态色
+
+NAB 与 MeteoSwiss 的浓度边界按类型各自确定，相同等级使用同一配色。绿色、黄色、橙色、红色依次表示低、中、高、极高；青色“未检出”仅用于测得零值，灰色“未知”用于缺失、无效或无法评级的数据。配色是产品规则，不是标准机构指定的官方颜色。
+
+| 等级 | 状态色 | 标签背景 | 图示色 | 标签文字 |
+| --- | --- | --- | --- | --- |
+| Unknown 未知 | `#64748B` | `#F1F5F9` | `#94A3B8` | `#334155` |
+| Absent 未检出 | `#0D9488` | `#CCFBF1` | `#2DD4BF` | `#134E4A` |
+| Low 低 | `#16A34A` | `#DCFCE7` | `#4ADE80` | `#14532D` |
+| Moderate 中 | `#CA8A04` | `#FEF9C3` | `#FACC15` | `#713F12` |
+| High 高 | `#EA580C` | `#FFEDD5` | `#FB923C` | `#7C2D12` |
+| VeryHigh 极高 | `#DC2626` | `#FEE2E2` | `#F87171` | `#7F1D1D` |
+
+网页图示与分档表使用本配色；目前尚未提供独立的花粉颜色查询函数。
+
+### 紫外线指数等级状态色
+
+五档的**状态色与图示色**采用 [WHO 图形配色规范](https://www.who.int/docs/default-source/inaugural-who-partners-forum/the-uv-index-sun-protection-table-notes-on-supplied-clipart.pdf)给出的 RGB 原值，换算为 HEX。标签背景与文字色为产品可读性配色，未知状态使用产品灰色。固定指标识别色仍为紫外紫 `#6853BE`，与分级状态色用途不同。
+
+| 等级 | 报告整数 UVI | 状态色 | 标签背景 | 图示色 | 标签文字 |
+| --- | --- | --- | --- | --- | --- |
+| Unknown 未知 | 无效输入 | `#64748B` | `#F1F5F9` | `#94A3B8` | `#334155` |
+| Low 低 | 0–2 | `#289500` | `#EAF7D9` | `#289500` | `#22543D` |
+| Moderate 中 | 3–5 | `#F7E400` | `#FFF8D1` | `#F7E400` | `#713F12` |
+| High 高 | 6–7 | `#F85900` | `#FFEDD5` | `#F85900` | `#7C2D12` |
+| VeryHigh 很高 | 8–10 | `#D8001D` | `#FEE2E2` | `#D8001D` | `#7F1D1D` |
+| Extreme 极高 | ≥11 | `#6B49C8` | `#F3E8FF` | `#6B49C8` | `#581C87` |
+
+WHO 同时规定基本颜色和具体 RGB 值；浅色背景、深色文字不属于 WHO 原始配色。目前尚未提供独立的紫外线状态色查询函数。
+
+## 6. 组合展示示例
 
 | 数据 | 参数识别部分 | 等级状态部分 | 图示色 |
 | --- | --- | --- | --- |
@@ -166,7 +212,7 @@ CO₂ 的 Moderate 保留原评级名称，但采用与 PM“尚可”相同的�
 | 噪声=Loud | 噪声图标和趋势线使用声波紫 `#9333EA` | Loud 标签使用橙色 `#EA580C` | ![#FB923C](assets/colors/FB923C.svg) `#FB923C` |
 | 照度=DetailWork | 照度图标使用阳光金 `#F2C94C` | 活动提示标签使用等级表中的金色 `#CA8A04` | ![#FACC15](assets/colors/FACC15.svg) `#FACC15` |
 
-## 6. 可访问性与实现要求
+## 7. 可访问性与实现要求
 
 - 标签优先使用“标签背景 + 标签文字”的组合，不在黄色、黄绿色等亮色上直接使用白字。
 - 趋势图同时使用图例、线型或数据点形状，避免仅靠颜色区分多条曲线。柱形图同时显示坐标、数值或类别标签；图示色不作为文字色使用。

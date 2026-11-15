@@ -1,3 +1,24 @@
+const legacyIndicatorHashes = new Set([
+  "thermal", "air", "sound-light", "outdoor",
+  "pollen", "uv-index", "o3", "co", "so2"
+]);
+const guidePath = window.location.pathname;
+const oldHash = window.location.hash.slice(1);
+if ((guidePath.endsWith("/") || guidePath.endsWith("/index.html")) &&
+    (legacyIndicatorHashes.has(oldHash) || oldHash === "color-principles" || oldHash === "icon-sources")) {
+  const isDesignResource = oldHash === "color-principles" || oldHash === "icon-sources";
+  const destination = new URL(isDesignResource ? "design.html" : "indicators.html", window.location.href);
+  destination.search = window.location.search;
+  destination.hash = oldHash === "color-principles" ? "color-resources" : oldHash === "icon-sources" ? "icon-resources" : window.location.hash;
+  window.location.replace(destination.href);
+}
+if (guidePath.endsWith("/indicators.html") && (oldHash === "icon-sources" || oldHash === "color-principles")) {
+  const destination = new URL("design.html", window.location.href);
+  destination.search = window.location.search;
+  destination.hash = oldHash === "icon-sources" ? "icon-resources" : "color-resources";
+  window.location.replace(destination.href);
+}
+
 document.querySelectorAll("[data-year]").forEach((node) => {
   node.textContent = new Date().getFullYear().toString();
 });

@@ -6,46 +6,91 @@ import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "dist");
-const pages = [
-  { file: "index.html", expected: ["环境评级指南", "environment-map", "category-card-stack", "category-card thermal", "category-card air", "category-card sound-light", "href=\"#thermal\"", "href=\"#air\"", "href=\"#sound-light\"", "指标识别色", "等级状态色", "颜色值怎样看", "热舒适度", "空气质量", "声光环境", "相对湿度三档提示", "CO₂ 三档通风提示", "选择颗粒物评级标准", "data-standard-switcher=\"pm\"", "data-standard-option=\"eea\"", "data-standard-option=\"hj\"", "data-standard-option=\"epa\"", "PM2.5 EEA 六档图示", "PM10 EEA 六档图示", "PM2.5 中国 HJ 六档图示", "PM10 中国 HJ 六档图示", "PM2.5 美国 EPA 六档图示", "PM10 美国 EPA 六档图示", "选择甲醛评级标准", "data-standard-switcher=\"hcho\"", "data-standard-option=\"who\"", "data-standard-option=\"gbt\"", "data-standard-option=\"oehha\"", "甲醛 WHO 六档图示", "甲醛 GB/T 六档图示", "甲醛 OEHHA 六档图示", "住宅噪声四档图示", "睡眠噪声四档图示", "照度六档活动提示", "低于 40%RH", "40%–60%RH", "高于 60%RH", "#F97316", "<span>浅色背景</span> #FFEDD5", "<span>状态色</span> #1D4ED8", "<span>标签背景</span> #DBEAFE", "<span>标签文字</span> #1E3A8A", "<span>状态色</span> #7E22CE", "<span>状态色</span> #475569", "图标来源", "图标：Material Symbols", "device_thermostat</code>", "carbon.dioxide.cloud", "aqi.medium", "graphic_eq</code>", "sun.max", "Material Symbols Rounded", "SF Symbols", "评级的依据来源是什么？", "本指南的评级依据来自国际组织、政府部门和专业机构发布的标准与指南。", "standard-org", "国际标准化组织（ISO）", "中华人民共和国生态环境部", "国家市场监督管理总局", "国家标准化管理委员会", "ISO 7730:2025", "HJ 633—2026", "德国 UBA 2008 CO₂ 指导值", "WHO《社区噪声指南》", "ANSI/IES/ALA RP-11-26", "language-select", "zh-Hant", "English", "日本語", "i18n-zh-hant.js", "i18n.js", "qingping-wordmark-blue.svg", "favicon.ico", "favicon.svg", "apple-touch-icon.png", "site.webmanifest", "device_thermostat.svg", "co2.svg", "blur_on.svg", "light_mode.svg"] },
-  { file: "colors.html", expected: ["颜色说明已合并", "index.html#color-principles", "favicon.ico", "favicon.svg", "apple-touch-icon.png"] },
-  { file: "snow-settings.html", expected: ["SNOW", "环境评级标准", "PM2.5 与 PM10 共用一套标准", "WHO 室内空气质量指南", "GB/T 18883", "甲醛急性参考暴露水平", "住宅通风与湿度指南", "室内空气中二氧化碳的健康评价", "ISO 7730:2025 / ASHRAE 55", "社区噪声指南", "RP-11-26 住宅环境照明推荐实践", "name=\"pm\"", "name=\"hcho\"", "name=\"humidity\"", "name=\"co2\"", "name=\"thermal\"", "name=\"noise\"", "name=\"light\"", "snow-settings.css", "snow-settings.js", "language"] }
-];
+const read = (file) => readFile(resolve(root, file), "utf8");
+const [guide, detail, design, developer, oldColors] = await Promise.all([
+  read("index.html"), read("indicators.html"), read("design.html"), read("developer.html"), read("colors.html")
+]);
 
-for (const page of pages) {
-  const html = await readFile(resolve(root, page.file), "utf8");
-  for (const text of page.expected) {
-    if (!html.includes(text)) throw new Error(`${page.file} is missing: ${text}`);
+function includesAll(page, name, fragments) {
+  for (const fragment of fragments) {
+    if (!page.includes(fragment)) throw new Error(`${name} is missing: ${fragment}`);
   }
-  if (page.file === "index.html" && /查看 PM(?:2\.5|10) 六档边界/.test(html)) throw new Error("index.html still contains the removed PM boundary expanders");
-  if (page.file === "index.html" && (html.includes("甲醛：以参考浓度为中心分档") || html.includes("<th>可选依据</th>"))) throw new Error("index.html still contains the replaced formaldehyde comparison table");
-  if (page.file === "index.html" && (html.includes("<span class=\"standard-org\"><span>") || html.includes("标准机构"))) throw new Error("index.html still contains the removed standards-body capsule");
-  if (page.file === "index.html" && [...html.matchAll(/<span class="standard-org">([\s\S]*?)<\/span>/g)].some(([, content]) => !content.includes("<a href="))) throw new Error("A standards body is missing its official website link");
-  if (page.file === "index.html" && (html.includes("class=\"orb\"") || html.includes("class=\"float-card") || html.includes("environment-axis") || html.includes("environment-node") || html.includes("environment-hub") || html.includes("category-rings"))) throw new Error("index.html still contains an earlier hero graphic");
-  if (page.file === "snow-settings.html" && !(html.indexOf('id="thermal-group-title"') < html.indexOf('id="air-group-title"') && html.indexOf('id="air-group-title"') < html.indexOf('id="sound-group-title"'))) throw new Error("Snow settings groups are out of order");
-  for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
+}
+
+includesAll(guide, "index.html", [
+  "环境评级指南", "id=\"how\"", "id=\"standards\"", "category-mosaic",
+  "评级的依据来源是什么？", "ISO 7730:2025", "HJ 633—2026",
+  "WHO《社区噪声指南》", "ANSI/IES/ALA RP-11-26",
+  "href=\"indicators.html\"",
+  ...["thermal", "air", "sound-light", "outdoor"].map((id) => `href="indicators.html#${id}"`)
+]);
+if (guide.includes("id=\"indicator-entry\"") || guide.includes("guide-entry-card")) {
+  throw new Error("The extra interpretation card is still on the guide");
+}
+if (guide.includes('class="category-arrow"')) {
+  throw new Error("A category arrow is still on the guide");
+}
+if (guide.includes('class="category-number"')) {
+  throw new Error("A category number is still on the guide");
+}
+if (guide.includes('href="#standards">评级依据</a>')) {
+  throw new Error("The guide navigation still links to standards");
+}
+const navigation = (page) => [...page.matchAll(/<div class="nav-links">([\s\S]*?)<\/div>/g)][0]?.[1].replace(/ aria-current="page"/g, "");
+const sharedNavigation = '<a href="index.html">评级方法</a><a href="indicators.html">指标解读</a><a href="design.html">设计参考</a><a href="developer.html">开发参考</a>';
+for (const [name, page] of [["guide", guide], ["detail", detail], ["design", design], ["developer", developer]]) {
+  if (navigation(page) !== sharedNavigation) throw new Error(`${name} does not use shared navigation`);
+}
+if (guide.includes("id=\"color-principles\"") || guide.includes("identity-grid") || guide.includes("metric-scale")) {
+  throw new Error("The guide still contains metric interpretation content");
+}
+if ((guide.match(/class="material-icon"/g) ?? []).length !== 10) throw new Error("Guide category icons are missing");
+if ([...guide.matchAll(/<span class="standard-org">([\s\S]*?)<\/span>/g)].some(([, content]) => !content.includes("<a href="))) {
+  throw new Error("A standards body is missing its official website link");
+}
+
+includesAll(detail, "indicators.html", [
+  "环境指标解读", "id=\"thermal\"", "id=\"air\"", "id=\"sound-light\"", "id=\"outdoor\"",
+  "PMV 七点冷热感", "相对湿度三档提示", "CO₂ 三档通风提示", "照度六档活动提示",
+  "WHO 紫外线指数五档图示",
+  "id=\"uv-index\"", "id=\"pollen\""
+]);
+if (detail.includes('identity-card') || detail.includes('scale-colors') || detail.includes('class="material-icon"')) throw new Error("Duplicate design resources remain in metric interpretation");
+if (detail.includes('class="icon-source"') || detail.includes('id="icon-sources"')) {
+  throw new Error("Icon source information still appears in metric interpretation");
+}
+includesAll(design, "design.html", ["id=\"icon-resources\"", "id=\"color-resources\"", "id=\"rating-copy\"", "design-i18n.js", "SF Symbols", "Apache 2.0"]);
+if ((design.match(/class="resource-card"/g) ?? []).length !== 14) throw new Error("Design icon assets are incomplete");
+if ((design.match(/class="color-resource"/g) ?? []).length !== 14) throw new Error("Design identity colors are incomplete");
+if ((design.match(/class="metric-description"/g) ?? []).length !== 14) throw new Error("Design rating copy is incomplete");
+for (const [group, options] of Object.entries({
+  pm: ["eea", "hj", "epa"], hcho: ["who", "gbt", "oehha"],
+  o3: ["eea", "hj", "epa"], co: ["hj", "epa"],
+  so2: ["eea", "hj-hourly", "hj-daily", "epa"], pollen: ["nab", "meteoswiss"]
+})) {
+  includesAll(detail, `${group} switcher`, [`data-standard-switcher="${group}"`, ...options.flatMap((option) => [
+    `aria-controls="${group}-${option}-panel"`, `id="${group}-${option}-panel"`,
+    `data-standard-panel="${option}" data-standard-group="${group}"`
+  ])]);
+}
+includesAll(oldColors, "colors.html", ["design.html#color-resources", "favicon.svg"]);
+if (oldColors.includes("index.html#color-principles")) throw new Error("Old color redirect points to the guide");
+
+includesAll(developer, "developer.html", ["开发参考", "EnvironmentCopy.xcstrings", "env_text_get_rating", "String(localized:", "context.getString", "getMetric", "developer-content.js"]);
+for (const page of [guide, detail, design, developer, oldColors]) {
+  for (const match of page.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const target = match[1];
     if (target.startsWith("#") || target.includes("://")) continue;
     accessSync(resolve(root, target.split(/[?#]/)[0]));
   }
-  for (const match of html.matchAll(/url\(['"]?([^'")]+)['"]?\)/g)) {
-    const target = match[1];
-    if (target.startsWith("#") || target.startsWith("data:") || target.includes("://")) continue;
-    accessSync(resolve(root, target));
-  }
 }
-
-const manifest = JSON.parse(await readFile(resolve(root, "site.webmanifest"), "utf8"));
-if (manifest.theme_color !== "#0564A0") throw new Error("site.webmanifest has the wrong Qingping theme color");
+const manifest = JSON.parse(await read("site.webmanifest"));
+if (manifest.theme_color !== "#0564A0") throw new Error("Wrong Qingping theme color");
 for (const icon of manifest.icons ?? []) accessSync(resolve(root, icon.src));
 
 const candidates = [
-  process.env.CHROME_BIN,
-  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-  "/usr/bin/google-chrome",
-  "/usr/bin/google-chrome-stable",
-  "/usr/bin/chromium",
-  "/usr/bin/chromium-browser"
+  process.env.CHROME_BIN, "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "/usr/bin/google-chrome", "/usr/bin/google-chrome-stable", "/usr/bin/chromium"
 ].filter(Boolean);
 const chrome = candidates.find((candidate) => {
   try { accessSync(candidate); return true; } catch { return false; }
@@ -65,27 +110,41 @@ const server = createServer((request, response) => {
 });
 await new Promise((done) => server.listen(0, "127.0.0.1", done));
 const address = server.address();
-if (typeof address === "string" || address == null) throw new Error("Unable to start preview server");
-
+if (typeof address === "string" || address == null) throw new Error("Preview server failed");
 const renderTargets = [
-  ...pages.map((page) => ({ url: page.file, expected: ["<main"] })),
-  { url: "index.html?lang=zh-Hant", expected: ["<html lang=\"zh-Hant\"", "環境評級指南", "相對濕度提示", "選擇顆粒物評級標準", "選擇甲醛評級標準", "淺色背景", "標籤背景", "標籤文字", "評級依據"] },
-  { url: "index.html?lang=en", expected: ["<html lang=\"en\"", "Environmental Rating Guide", "Thermal Comfort", "Select a particle rating standard", "Select a formaldehyde rating reference", "What are the sources behind the ratings?", "Light background", "Label background", "Label text color", "Back to top"] },
-  { url: "index.html?lang=ja", expected: ["<html lang=\"ja\"", "環境評価ガイド", "温熱快適性", "粒子状物質の評価基準を選択", "ホルムアルデヒドの評価基準を選択", "評価の根拠はどこから来ているのか？", "淡い背景色", "ラベル背景", "ラベル文字色", "ページ上部へ"] },
-  { url: "snow-settings.html?lang=zh-Hant", expected: ["<html lang=\"zh-Hant\"", "環境評級標準", "相對濕度", "歐洲環境署", "儲存設定"] },
-  { url: "snow-settings.html?lang=en", expected: ["<html lang=\"en\"", "Rating standards", "Particulate matter", "European Environment Agency", "Save settings"] },
-  { url: "snow-settings.html?lang=ja", expected: ["<html lang=\"ja\"", "環境評価基準", "粒子状物質", "欧州環境機関", "設定を保存"] }
+  ["index.html", ["看懂你身边的环境", "category-mosaic"]],
+  ["indicators.html", ["环境指标解读", "PMV 七点冷热感"]],
+  ["design.html", ["设计参考", "图标资源", "评级解读文案"]],
+  ["developer.html", ["开发参考", "统一文案源", "EnvironmentCopy.xcstrings"]],
+  ["developer.html?lang=zh-Hant", ["<html lang=\"zh-Hant\"", "開發參考", "韌體 / LVGL"]],
+  ["developer.html?lang=en", ["<html lang=\"en\"", "Developer Guide", "One source for copy", "design.html?lang=en"]],
+  ["developer.html?lang=ja", ["<html lang=\"ja\"", "開発者ガイド", "ファームウェア / LVGL"]],
+  ["colors.html", ["设计参考", "id=\"color-resources\""]],
+  ["index.html?lang=en#color-principles", ["Design Reference", "id=\"color-resources\""]],
+  ["indicators.html?lang=en#icon-sources", ["Design Reference", "id=\"icon-resources\""]],
+  ["index.html?lang=en#thermal", ["Environmental Metrics Explained", "id=\"thermal\""]],
+  ["indicators.html?lang=zh-Hant", ["<html lang=\"zh-Hant\"", "環境指標解讀", "分檔邊界"]],
+  ["indicators.html?lang=en", ["<html lang=\"en\"", "Environmental Metrics Explained", "rating boundaries"]],
+  ["indicators.html?lang=ja", ["<html lang=\"ja\"", "環境指標の読み解き", "評価区分"]],
+  ["design.html?lang=zh-Hant", ["<html lang=\"zh-Hant\"", "設計參考", "評級解讀文字"]],
+  ["design.html?lang=en", ["<html lang=\"en\"", "Design Reference", "Icon assets", "Color resources", "Rating copy", "indicators.html?lang=en"]],
+  ["design.html?lang=ja", ["<html lang=\"ja\"", "デザイン資料", "アイコン素材", "カラー資料"]],
+  ["index.html?lang=zh-Hant", ["<html lang=\"zh-Hant\"", "環境評級指南"]],
+  ["index.html?lang=en", ["<html lang=\"en\"", "Environmental Rating Guide", "Sensors provide readings", "indicators.html?lang=en"]],
+  ["index.html?lang=ja", ["<html lang=\"ja\"", "環境評価ガイド"]]
 ];
-
-for (const target of renderTargets) {
-  const output = await new Promise((done) => {
-    const child = spawn(chrome, ["--headless=new", "--no-sandbox", "--disable-gpu", "--virtual-time-budget=1000", "--dump-dom", `http://127.0.0.1:${address.port}/${target.url}`]);
-    let stdout = "";
-    child.stdout.on("data", (chunk) => { stdout += chunk; });
-    child.on("close", (code) => done({ code, stdout }));
-  });
-  if (output.code !== 0 || target.expected.some((text) => !output.stdout.includes(text))) throw new Error(`${target.url} did not render expected localized content`);
-}
-server.close();
+try {
+  for (const [url, expected] of renderTargets) {
+    const output = await new Promise((done) => {
+      const child = spawn(chrome, ["--headless=new", "--no-sandbox", "--disable-gpu", "--virtual-time-budget=1000", "--dump-dom", `http://127.0.0.1:${address.port}/${url}`]);
+      let stdout = "";
+      child.stdout.on("data", (chunk) => { stdout += chunk; });
+      child.on("close", (code) => done({ code, stdout }));
+    });
+    if (output.code !== 0 || expected.some((text) => !output.stdout.includes(text))) {
+      throw new Error(`${url} did not render expected content`);
+    }
+  }
+} finally { server.close(); }
 if (missing) throw new Error("A page requested a missing local resource");
-console.log("Environment guide pages passed browser checks");
+console.log("All four guide pages passed browser checks");

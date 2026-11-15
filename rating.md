@@ -1,6 +1,6 @@
 # 环境评级标准
 
-本文汇总当前项目已实现的热舒适度、空气质量和声光规则，与 [README.md](README.md) 及代码一致。标准规定平均时间或统计方法时，调用方先完成测量和平均，评级库再处理当前有效结果；评级结果本身不等同于完整的正式达标判定。
+本文汇总当前项目已实现的热舒适度、空气质量、声光和室外环境规则，与 [README.md](README.md) 及代码一致。标准规定平均时间或统计方法时，调用方先完成测量和平均，评级库再处理当前有效结果；评级结果本身不等同于完整的正式达标判定。
 
 ## 环境参数图标
 
@@ -10,13 +10,18 @@ Apple 平台使用 SF Symbols；Android、Web、Linux 和设备屏幕使用 Mate
 | --- | --- | --- | --- | --- |
 | 热舒适度 | 温度 | ![温度](assets/icons/material/device_thermostat.svg) | `thermometer.medium` | `device_thermostat` |
 | 热舒适度 | 相对湿度 | ![相对湿度](assets/icons/material/humidity_percentage.svg) | `humidity.fill` | `humidity_percentage` |
-| 空气质量 | CO₂ | ![CO₂](assets/icons/material/co2.svg) | `carbon.dioxide.cloud` | `co2` |
+| 空气质量 | CO₂ | ![CO₂](assets/icons/material/air.svg) | `wind` | `air` |
 | 空气质量 | PM2.5 | ![PM2.5](assets/icons/material/blur_on.svg) | `aqi.medium` | `blur_on` |
 | 空气质量 | PM10 | ![PM10](assets/icons/material/blur_on.svg) | `aqi.medium` | `blur_on` |
-| 空气质量 | 甲醛 HCHO | ![甲醛](assets/icons/material/science.svg) | `atom` | `science` |
+| 空气质量 | 甲醛 HCHO | ![甲醛](assets/icons/material/science.svg) | `flask` | `science` |
 | 空气质量 | TVOC 指数 | ![TVOC 指数](assets/icons/material/speed.svg) | `speedometer` | `speed` |
 | 声光环境 | 噪声 | ![噪声](assets/icons/material/graphic_eq.svg) | `waveform` | `graphic_eq` |
 | 声光环境 | 光照 / 照度 | ![照度](assets/icons/material/light_mode.svg) | `sun.max` | `light_mode` |
+| 室外环境 | 臭氧 O₃ | ![臭氧](assets/icons/material/dehaze.svg) | `sun.haze.fill` | `dehaze` |
+| 室外环境 | 一氧化碳 CO | ![一氧化碳](assets/icons/material/detector_smoke.svg) | `smoke.fill` | `detector_smoke` |
+| 室外环境 | 二氧化硫 SO₂ | ![二氧化硫](assets/icons/material/foggy.svg) | `cloud.fog.fill` | `foggy` |
+| 室外环境 | 花粉 | ![花粉](assets/icons/material/local_florist.svg) | `leaf.fill` | `local_florist` |
+| 室外环境 | 紫外线指数 | ![紫外线指数](assets/icons/material/flare.svg) | `sun.max.fill` | `flare` |
 
 ## 1. 热舒适度
 
@@ -185,3 +190,93 @@ CO₂ 只有三个有效档位，不输出 Critical；1000、2000 均归入 Medi
 RP-11-26 的目标值针对指定任务面和测量方向。设备的墙面单点瞬时读数只能作为场景提示，不能证明整个区域符合标准，也不评价眩光、均匀度或昼夜节律影响。
 
 来源：[ANSI/IES/ALA RP-11-26 官方说明](https://store.ies.org/product/recommended-practice-lighting-for-interior-and-exterior-residential-environments/?v=eb65bcceaa5f)、[IES Illuminance Selector 使用说明](https://ies.org/standards/lighting-library/illuminance-selector-faqs/)。
+
+## 4. 室外环境
+
+室外 O₃、CO、SO₂、花粉和紫外线指数分别评级，不生成室外整体等级。
+
+### 4.1 室外 O₃ 单项评级
+
+O₃ 不参与室内整体评级；室外也不生成整体评级。EEA 与 HJ 实时报使用 **1 小时平均 μg/m³**；EPA 使用 **8 小时平均 ppm**，可结合有效的 **1 小时平均 ppm**。对应接口为 `air_rate_o3_eea()`、`air_rate_o3_hj()`、`air_rate_o3_epa()` 和同名的 `air_level_o3_*()`。
+
+| AirQuality | LevelValue | EEA 1 小时（μg/m³） | HJ 633—2026 实时报 1 小时（μg/m³，修约后） | EPA 8 小时（ppm，截断后） |
+| --- | --- | --- | --- | --- |
+| Good | Low | 0–60 | 0–160 | 0.000–0.054 |
+| Fair | Low | >60–100 | 161–200 | 0.055–0.070 |
+| Moderate | Medium | >100–120 | 201–300 | 0.071–0.085 |
+| Poor | High | >120–160 | 301–400 | 0.086–0.105 |
+| VeryPoor | High | >160–180 | 401–800 | 0.106–0.200 |
+| ExtremelyPoor | Critical | >180 | ≥801 | 8 小时值不定义；1 小时 ≥0.405 ppm |
+
+EPA 的 1 小时 0.125–0.164、0.165–0.204、0.205–0.404 ppm 分别对应 Moderate、Poor、VeryPoor；低于 0.125 ppm 不产生该时段的等级。缺失的可选 1 小时值传 `NAN`。EPA 8 小时值超过 0.200 ppm 且无有效 1 小时等级时返回 Unknown。EEA 小数连续区间是产品规则；HJ 修约到整数、半值取偶。中国日报使用另一套 8 小时口径，本版未实现。详见 [README](README.md#41-室外-o₃-单项评级)。
+
+来源：[EEA 指数](https://airindex.eea.europa.eu/AQI/)、[HJ 633—2026](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/W020260225366493492011.pdf)、[EPA AQI 表 6](https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf)。
+
+### 4.2 室外 CO 单项评级
+
+CO 不参与室内整体评级，室外也不生成整体评级。中国 HJ 633—2026 实时报使用 **1 小时平均 mg/m³**；美国 EPA AQI 使用 **8 小时平均 ppm**。
+
+| AirQuality | LevelValue | HJ 1 小时（mg/m³，修约后） | EPA 8 小时（ppm，截断后） |
+| --- | --- | --- | --- |
+| Good | Low | 0–5.0 | 0.0–4.4 |
+| Fair | Low | 5.1–10.0 | 4.5–9.4 |
+| Moderate | Medium | 10.1–35.0 | 9.5–12.4 |
+| Poor | High | 35.1–60.0 | 12.5–15.4 |
+| VeryPoor | High | 60.1–90.0 | 15.5–30.4 |
+| ExtremelyPoor | Critical | ≥90.1 | ≥30.5 |
+
+HJ 修约至 0.1 mg/m³、半值取偶；EPA 截断至 0.1 ppm。EEA 指数不含 CO，故不设 EEA CO 六档。接口、Matter 接入及来源见 [README](README.md#42-室外-co-单项评级)。
+
+### 4.3 室外 SO₂ 单项评级
+
+SO₂ 仅作室外单项评级；EEA 与 HJ 使用 μg/m³，EPA 使用 ppb。
+
+| 等级 | EEA 1 小时 | HJ 实时报 1 小时 | HJ 日报 24 小时 | EPA 1 小时 / 24 小时 |
+| --- | --- | --- | --- | --- |
+| Good | 0–20 | 0–150 | 0–50 | 1 小时 0–35 |
+| Fair | >20–40 | 151–500 | 51–150 | 1 小时 36–75 |
+| Moderate | >40–125 | 501–650 | 151–475 | 1 小时 76–185 |
+| Poor | >125–190 | ≥651 | 476–800 | 1 小时 186–304；或 1 小时 ≥305 且 24 小时 <305 |
+| VeryPoor | >190–275 | 不产生 | 801–1600 | 24 小时 305–604 |
+| ExtremelyPoor | >275 | 不产生 | ≥1601 | 24 小时 ≥605 |
+
+HJ 先修约到整数、半值取偶；EPA 先截断到整数。EPA 两个时段的值都必须有效。Matter 1.6 没有 SO₂ 浓度测量 Cluster，因此本项没有 `LevelValue`。接口与来源见 [README](README.md#43-室外-so₂-单项评级)。
+
+### 4.4 室外花粉负荷
+
+花粉独立评级，输入为对应类别或种类的日平均浓度（粒/m³）。四档来自所选 NAB 或 MeteoSwiss 表；零值“未检出”和正值总花粉“无法评级”为产品处理规则。花粉不参与空气质量整体评级，也无 Matter 等级映射。
+
+| NAB 类型 | 低 | 中 | 高 | 极高 |
+| --- | ---: | ---: | ---: | ---: |
+| 树木 | 1–14 | 15–89 | 90–1499 | ≥1500 |
+| 禾草 | 1–4 | 5–19 | 20–199 | ≥200 |
+| 杂草 | 1–9 | 10–49 | 50–499 | ≥500 |
+
+| MeteoSwiss 类型 | 低 | 中 | 高 | 极高 |
+| --- | ---: | ---: | ---: | ---: |
+| 榛树、桤木、鹅耳枥 | 1–10 | 11–69 | 70–249 | ≥250 |
+| 白蜡树 | 1–10 | 11–99 | 100–349 | ≥350 |
+| 桦树 | 1–10 | 11–69 | 70–299 | ≥300 |
+| 悬铃木 | 1–49 | 50–99 | 100–399 | ≥400 |
+| 橡树、山毛榉 | 1–49 | 50–129 | 130–399 | ≥400 |
+| 栗树 | 1–99 | 100–199 | 200–699 | ≥700 |
+| 禾草 | 1–19 | 20–49 | 50–149 | ≥150 |
+| 酸模、车前草 | 1–14 | 15–24 | 25–59 | ≥60 |
+| 蒿属 | 1–5 | 6–14 | 15–49 | ≥50 |
+| 豚草 | 1–5 | 6–10 | 11–39 | ≥40 |
+
+有效正值小数直接按下档起点比较；例如桦树 10.5 为低、11 为中。具体接口、类型名称和不匹配输入处理见 [pollen_rating.h](pollen_rating.h)。来源：[NAB](https://pollenandmold.stlouisco.com/html/PollenLevels.html)、[MeteoSwiss](https://www.meteoswiss.admin.ch/dam/jcr%3A43b4f361-8bc1-4af7-a232-c126de0f2f80/Belastungsklassen-der-allergenen-Pollenarten_E.pdf)。
+
+### 4.5 紫外线指数（UVI）
+
+WHO 全球太阳紫外线指数五档；算法输入已测量或预报的全球太阳 UVI（无量纲），`uv_index_rate()` 不从 lux 或未加权辐照度推算 UVI。
+
+| 报告整数 UVI | 等级 | 返回枚举 |
+| --- | --- | --- |
+| 0–2 | 低 | `UV_INDEX_LOW` |
+| 3–5 | 中 | `UV_INDEX_MODERATE` |
+| 6–7 | 高 | `UV_INDEX_HIGH` |
+| 8–10 | 很高 | `UV_INDEX_VERY_HIGH` |
+| ≥11 | 极高 | `UV_INDEX_EXTREME` |
+
+函数对非负小数按报告整数的最近值分档：2.5、5.5、7.5、10.5 归入高一档，恰好半整数向上；负值、NaN、无穷大返回 `UV_INDEX_UNKNOWN`。日最大值与当前值须分别标注；不参与空气质量、照度或室外综合评级。详见 [README](README.md#45-室外紫外线指数uvi)。来源：[WHO 实用指南](https://iris.who.int/bitstream/handle/10665/42459/9241590076.pdf#page=6)。

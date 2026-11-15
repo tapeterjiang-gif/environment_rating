@@ -26,6 +26,12 @@ static int valid_value(double value)
     return isfinite(value) && value >= 0.0;
 }
 
+static int in_rounded_integer_band(double value, unsigned upper)
+{
+    double boundary = (double)upper + 0.5;
+    return value < boundary || (value == boundary && upper % 2u == 0u);
+}
+
 /* Rows: PM2.5, PM10. China/Europe store upper bounds; USA stores the
  * first concentration in each next grade after truncation.
  * Sources and product mapping: README.md (section 1.4).
@@ -121,6 +127,144 @@ air_quality_t air_rate_hcho(air_hcho_std_t standard, double hcho)
     return AIR_EXTREMELY_POOR;
 }
 
+air_quality_t air_rate_o3_eea(double one_hour)
+{
+    static const double upper[] = {60, 100, 120, 160, 180};
+    size_t i;
+    if (!valid_value(one_hour)) return AIR_UNKNOWN;
+    for (i = 0; i < 5; ++i) {
+        if (one_hour <= upper[i]) return (air_quality_t)(i + 1);
+    }
+    return AIR_EXTREMELY_POOR;
+}
+
+air_quality_t air_rate_o3_hj(double one_hour)
+{
+    static const unsigned upper[] = {160, 200, 300, 400, 800};
+    size_t i;
+    if (!valid_value(one_hour)) return AIR_UNKNOWN;
+    /* HJ 633-2026 rounds the hourly ug/m3 average to an integer.
+     * Every boundary here is even, so exact half values remain below it.
+     */
+    for (i = 0; i < 5; ++i) {
+        if (one_hour <= (double)upper[i] + 0.5)
+            return (air_quality_t)(i + 1);
+    }
+    return AIR_EXTREMELY_POOR;
+}
+
+air_quality_t air_rate_o3_epa(double eight_hour, double one_hour)
+{
+    air_quality_t eight_grade = AIR_UNKNOWN;
+    air_quality_t one_grade = AIR_UNKNOWN;
+
+    if (!valid_value(eight_hour) ||
+        (!isnan(one_hour) && !valid_value(one_hour))) return AIR_UNKNOWN;
+
+    /* EPA truncates ppm to three decimal places. Comparing with the first
+     * value of the next band gives the same grade without floating-point
+     * multiplication. Eight-hour ozone has no AQI band above 0.200 ppm.
+     */
+    if (eight_hour < 0.055) eight_grade = AIR_GOOD;
+    else if (eight_hour < 0.071) eight_grade = AIR_FAIR;
+    else if (eight_hour < 0.086) eight_grade = AIR_MODERATE;
+    else if (eight_hour < 0.106) eight_grade = AIR_POOR;
+    else if (eight_hour < 0.201) eight_grade = AIR_VERY_POOR;
+
+    /* A one-hour AQI is undefined below 0.125 ppm. EPA may report the
+     * higher one-hour or eight-hour AQI; >=301 requires the one-hour value.
+     */
+    if (valid_value(one_hour)) {
+        if (one_hour < 0.125) one_grade = AIR_UNKNOWN;
+        else if (one_hour < 0.165) one_grade = AIR_MODERATE;
+        else if (one_hour < 0.205) one_grade = AIR_POOR;
+        else if (one_hour < 0.405) one_grade = AIR_VERY_POOR;
+        else one_grade = AIR_EXTREMELY_POOR;
+    }
+    return eight_grade > one_grade ? eight_grade : one_grade;
+}
+
+air_quality_t air_rate_co_hj(double one_hour)
+{
+    static const double upper[] = {5.0, 10.0, 35.0, 60.0, 90.0};
+    size_t i;
+    if (!valid_value(one_hour)) return AIR_UNKNOWN;
+    /* HJ 633-2026 rounds CO to 0.1 mg/m3, ties to even. All upper
+     * breakpoints are whole numbers, so the exact half-tenth rounds down.
+     */
+    for (i = 0; i < 5; ++i) {
+        if (one_hour <= upper[i] + 0.05)
+            return (air_quality_t)(i + 1);
+    }
+    return AIR_EXTREMELY_POOR;
+}
+
+air_quality_t air_rate_co_epa(double eight_hour)
+{
+    static const double next[] = {4.5, 9.5, 12.5, 15.5, 30.5};
+    size_t i;
+    if (!valid_value(eight_hour)) return AIR_UNKNOWN;
+    /* Comparing to the next band's first value is equivalent to
+     * truncating non-negative ppm to one decimal before EPA lookup.
+     */
+    for (i = 0; i < 5; ++i) {
+        if (eight_hour < next[i]) return (air_quality_t)(i + 1);
+    }
+    return AIR_EXTREMELY_POOR;
+}
+
+air_quality_t air_rate_so2_eea(double one_hour)
+{
+    static const unsigned upper[] = {20, 40, 125, 190, 275};
+    size_t i;
+    if (!valid_value(one_hour)) return AIR_UNKNOWN;
+    for (i = 0; i < 5; ++i) {
+        if (one_hour <= (double)upper[i]) return (air_quality_t)(i + 1);
+    }
+    return AIR_EXTREMELY_POOR;
+}
+
+air_quality_t air_rate_so2_hj_hourly(double one_hour)
+{
+    static const unsigned upper[] = {150, 500, 650};
+    size_t i;
+    if (!valid_value(one_hour)) return AIR_UNKNOWN;
+    for (i = 0; i < 3; ++i) {
+        if (in_rounded_integer_band(one_hour, upper[i]))
+            return (air_quality_t)(i + 1);
+    }
+    /* HJ 633-2026 caps the 1-hour SO2 IAQI at 200 above 800 ug/m3. */
+    return AIR_POOR;
+}
+
+air_quality_t air_rate_so2_hj_daily(double twenty_four_hour)
+{
+    static const unsigned upper[] = {50, 150, 475, 800, 1600};
+    size_t i;
+    if (!valid_value(twenty_four_hour)) return AIR_UNKNOWN;
+    for (i = 0; i < 5; ++i) {
+        if (in_rounded_integer_band(twenty_four_hour, upper[i]))
+            return (air_quality_t)(i + 1);
+    }
+    return AIR_EXTREMELY_POOR;
+}
+
+air_quality_t air_rate_so2_epa(double one_hour, double twenty_four_hour)
+{
+    if (!valid_value(one_hour) || !valid_value(twenty_four_hour))
+        return AIR_UNKNOWN;
+    /* EPA truncates ppb to an integer. The 24-hour series determines
+     * AQI >= 201; when it stays below 305, an hourly value >=305 is
+     * capped at AQI 200 instead of creating a higher category.
+     */
+    if (twenty_four_hour >= 605.0) return AIR_EXTREMELY_POOR;
+    if (twenty_four_hour >= 305.0) return AIR_VERY_POOR;
+    if (one_hour >= 186.0) return AIR_POOR;
+    if (one_hour >= 76.0) return AIR_MODERATE;
+    if (one_hour >= 36.0) return AIR_FAIR;
+    return AIR_GOOD;
+}
+
 /* Product mapping; Matter defines the enum, not these grade conversions. */
 static air_level_t quality_to_level(air_quality_t quality)
 {
@@ -154,6 +298,31 @@ air_level_t air_level_pm10(air_pm_std_t standard, double pm10)
 air_level_t air_level_hcho(air_hcho_std_t standard, double hcho)
 {
     return quality_to_level(air_rate_hcho(standard, hcho));
+}
+
+air_level_t air_level_o3_eea(double one_hour)
+{
+    return quality_to_level(air_rate_o3_eea(one_hour));
+}
+
+air_level_t air_level_o3_hj(double one_hour)
+{
+    return quality_to_level(air_rate_o3_hj(one_hour));
+}
+
+air_level_t air_level_o3_epa(double eight_hour, double one_hour)
+{
+    return quality_to_level(air_rate_o3_epa(eight_hour, one_hour));
+}
+
+air_level_t air_level_co_hj(double one_hour)
+{
+    return quality_to_level(air_rate_co_hj(one_hour));
+}
+
+air_level_t air_level_co_epa(double eight_hour)
+{
+    return quality_to_level(air_rate_co_epa(eight_hour));
 }
 
 air_quality_t air_rate_all(air_pm_std_t pm_std, air_hcho_std_t hcho_std,

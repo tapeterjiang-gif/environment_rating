@@ -1,17 +1,20 @@
 # environment_rating
 
-环境评级库的需求、评级标准与使用指南。面向 ESP32（RTOS）、RK3506（Linux）、iOS、Android 和 Web，核心采用可重入 C99 实现，兼容 C++、Swift、Kotlin/Java 和 TypeScript。三个评级模块独立输出，颜色模块把评级结果映射为统一界面配色；所有模块均无需初始化、动态内存或历史状态。
+环境评级库的需求、评级标准与使用指南。面向 ESP32（RTOS）、RK3506（Linux）、iOS、Android 和 Web，核心采用可重入 C99 实现，兼容 C++、Swift、Kotlin/Java 和 TypeScript。热舒适度、空气质量、声光与室外环境独立输出；颜色模块为已支持的指标提供界面配色。评级模块无需初始化、动态内存或历史状态。
 
 版本：v0.58。空气质量评级标准核对日期：2026-09-12；传感器规格核对日期：2026-09-23。
 
 - [1. 热舒适度](#1-热舒适度)：PMV、PPD、冷热与湿度提示。
-- [2. 空气质量](#2-空气质量)：CO₂、PM、甲醛及整体评级。
+- [2. 空气质量](#2-空气质量)：室内 CO₂、PM、甲醛及整体评级。
 - [3. 声光](#3-声光)：噪声提示与照度活动参考。
+- [4. 室外环境](#4-室外环境)：O₃、CO、SO₂、花粉与紫外线指数单项评级。
 
 | 模块 | 文件 |
 | --- | --- |
 | 热舒适度 | [thermal_comfort.h](thermal_comfort.h) / [thermal_comfort.c](thermal_comfort.c) |
 | 空气质量 | [air_quality_rating.h](air_quality_rating.h) / [air_quality_rating.c](air_quality_rating.c) |
+| 室外花粉 | [pollen_rating.h](pollen_rating.h) / [pollen_rating.c](pollen_rating.c) |
+| 紫外线指数 | [uv_index_rating.h](uv_index_rating.h) / [uv_index_rating.c](uv_index_rating.c) |
 | 声光 | [sound_light_rating.h](sound_light_rating.h) / [sound_light_rating.c](sound_light_rating.c) |
 | 界面颜色 | [environment_color.h](environment_color.h) / [environment_color.c](environment_color.c) |
 
@@ -19,9 +22,12 @@
 
 | 文档 | 内容 |
 | --- | --- |
-| [普通用户网页（GitHub Pages）](https://tapeterjiang-gif.github.io/environment_rating/) | 在一个页面中浏览环境评级、图标和颜色说明，支持简体中文、繁體中文、English 和日本語；源文件位于 [site/dist](site/dist) |
-| [普通用户网页（备用地址）](https://environment-rating-guide.violetgleam9.chatgpt.site) | 与 GitHub Pages 展示相同的静态内容 |
-| [环境评级标准](rating.md) | 热舒适度、空气质量和声光的评级依据与分级表 |
+| [环境评级指南网页](site/dist/index.html) | 面向普通用户说明评级方法和依据；发布地址见 [GitHub Pages](https://tapeterjiang-gif.github.io/environment_rating/) |
+| [环境指标解读网页](site/dist/indicators.html) | 集中查看各参数分档、标准选项与解读；支持简体中文、繁體中文、English 和日本語 |
+| [设计参考网页](site/dist/design.html) | 图标资源、颜色值和各等级的建议说明文案 |
+| [开发参考网页](site/dist/developer.html) | 文案资源结构、生成流程与 iOS / Android / Web / LVGL 接入说明 |
+| [跨平台文案资源](content/README.md) | 四语言 JSON 文案源、iOS / Android / Web / LVGL 资源与接入示例 |
+| [环境评级标准](rating.md) | 热舒适度、空气质量、声光和室外环境的评级依据与分级表 |
 | [环境指标颜色说明](COLOR_STANDARD.md) | 参数识别色、等级状态色、实际色样和可访问性规则 |
 | [Android 使用指南](android/README.md) | Android AAR、Kotlin/Java、JNI 与 NDK/CMake 接入方法 |
 | [Web 使用指南](web/README.md) | 浏览器、Web Worker 和 Node.js 的 Wasm/TypeScript 接入方法 |
@@ -37,6 +43,11 @@
 | CO₂（co2） | ppm | 三个市场统一分档 |
 | PM2.5（pm25） | μg/m³ | 按指定 PM 标准分档 |
 | PM10（pm10） | μg/m³ | 按指定 PM 标准分档 |
+| 室外 O₃ | EEA/HJ：μg/m³；EPA：ppm | 按对应时段和标准单项评级，不参与整体评级 |
+| 室外 CO | HJ：mg/m³；EPA：ppm | 按对应时段和标准单项评级，不参与整体评级 |
+| 室外 SO₂ | EEA/HJ：μg/m³；EPA：ppb | 按对应时段和标准单项评级，不参与整体评级 |
+| 室外花粉 | 粒/m³ | 按具体类型或类别的日平均浓度单项评级，不参与整体评级 |
+| 紫外线指数 | 无量纲 | 按 WHO 五档评价太阳紫外线暴露，不参与整体评级 |
 | 甲醛（hcho） | mg/m³ | 按指定甲醛标准分档 |
 | 噪声（noise） | dB(A) | 当前 A 计权 Fast 声级，按住宅或睡眠场景分档 |
 | 照度（illuminance） | lx | 输出住宅活动参考提示 |
@@ -51,15 +62,22 @@ Apple 平台使用 SF Symbols；Android、Web、Linux 和设备屏幕使用 Mate
 | --- | --- | --- | --- | --- |
 | 热舒适度 | 温度 | ![温度](assets/icons/material/device_thermostat.svg) | `thermometer.medium` | `device_thermostat` |
 | 热舒适度 | 相对湿度 | ![相对湿度](assets/icons/material/humidity_percentage.svg) | `humidity.fill` | `humidity_percentage` |
-| 空气质量 | CO₂ | ![CO₂](assets/icons/material/co2.svg) | `carbon.dioxide.cloud` | `co2` |
+| 空气质量 | CO₂ | ![CO₂](assets/icons/material/air.svg) | `wind` | `air` |
 | 空气质量 | PM2.5 | ![PM2.5](assets/icons/material/blur_on.svg) | `aqi.medium` | `blur_on` |
 | 空气质量 | PM10 | ![PM10](assets/icons/material/blur_on.svg) | `aqi.medium` | `blur_on` |
-| 空气质量 | 甲醛 HCHO | ![甲醛](assets/icons/material/science.svg) | `atom` | `science` |
+| 空气质量 | 甲醛 HCHO | ![甲醛](assets/icons/material/science.svg) | `flask` | `science` |
 | 空气质量 | TVOC 指数 | ![TVOC 指数](assets/icons/material/speed.svg) | `speedometer` | `speed` |
 | 声光环境 | 噪声 | ![噪声](assets/icons/material/graphic_eq.svg) | `waveform` | `graphic_eq` |
 | 声光环境 | 光照 / 照度 | ![照度](assets/icons/material/light_mode.svg) | `sun.max` | `light_mode` |
+| 室外环境 | 臭氧 O₃ | ![臭氧](assets/icons/material/dehaze.svg) | `sun.haze.fill` | `dehaze` |
+| 室外环境 | 一氧化碳 CO | ![一氧化碳](assets/icons/material/detector_smoke.svg) | `smoke.fill` | `detector_smoke` |
+| 室外环境 | 二氧化硫 SO₂ | ![二氧化硫](assets/icons/material/foggy.svg) | `cloud.fog.fill` | `foggy` |
+| 室外环境 | 花粉 | ![花粉](assets/icons/material/local_florist.svg) | `leaf.fill` | `local_florist` |
+| 室外环境 | 紫外线指数 | ![紫外线指数](assets/icons/material/flare.svg) | `sun.max.fill` | `flare` |
 
 C/C++ 使用 `env_icon_name()` 查询两套名称；Swift 使用 `EnvironmentParameter.sfSymbolName`；Android 使用 `EnvironmentParameter.materialSymbolName` 和 `iconResource`；Web 使用 `materialIcon()` 取得名称及随包发布的 SVG 地址。Material SVG 原文件位于 [`assets/icons/material`](assets/icons/material)，采用 Apache 2.0 许可。
+
+室外五项当前由 C 和 Web 颜色／图标接口提供；Apple 与 Android 图标名称为跨平台设计约定，室外参数的原生包装层尚未接入。图标是便于辨认的视觉隐喻，不表示气体的分子结构或污染来源。
 
 ### 构建与验证
 
@@ -71,7 +89,7 @@ cmake --build build
 ctest --test-dir build --output-on-failure
 ```
 
-本机测试覆盖三个评级模块的分档边界、颜色映射、相邻浮点值、异常输入、PMV/PPD 参考值及 C++ 链接。ESP32、RK3506 的 SDK 交叉构建和实机验证待完成。
+本机测试覆盖空气质量、热舒适度、声光、花粉和紫外线指数的分档边界、颜色映射、异常输入、PMV/PPD 参考值及 C++ 链接。ESP32、RK3506 的 SDK 交叉构建和实机验证待完成。
 
 macOS 上还可验证 Swift Package：
 
@@ -104,8 +122,8 @@ cd android
 
 按需将上表中模块的 `.c` 文件加入工程，把根目录加入头文件搜索路径，包含对应 `.h` 即可调用。接口和参数说明以头文件注释为准。
 
-- **ESP-IDF**：将项目放入 `components/environment_rating`，在调用组件中添加 `REQUIRES environment_rating`，会编译三个评级模块和颜色模块。
-- **Linux**：使用本项目 CMake，按需链接 `air_quality_rating`、`thermal_comfort`、`sound_light_rating`、`environment_color`；也可直接编译所需源文件，使用热舒适度模块时链接数学库 `-lm`。只构建库可设置 `-DBUILD_TESTING=OFF`，无需 C++ 编译器。
+- **ESP-IDF**：将项目放入 `components/environment_rating`，在调用组件中添加 `REQUIRES environment_rating`，会编译全部评级模块和颜色模块。
+- **Linux**：使用本项目 CMake，按需链接 `air_quality_rating`、`thermal_comfort`、`sound_light_rating`、`pollen_rating`、`uv_index_rating`、`environment_color`；也可直接编译所需源文件，使用数学函数的模块需链接 `-lm`。只构建库可设置 `-DBUILD_TESTING=OFF`，无需 C++ 编译器。
 - **iOS / Swift**：支持 iOS 26 及以上。在 Xcode 的 Add Package Dependencies 中添加 `https://github.com/tapeterjiang-gif/environment_rating`，版本选择 0.58.0 或更新，产品选择 `EnvironmentRating`，然后在 Swift 文件中 `import EnvironmentRating`。
 - **Android / Kotlin/Java**：支持 Android 13（API 33）及以上。使用 `android/environment-rating` 构建 AAR，提供 `arm64-v8a`、`armeabi-v7a` 和 `x86_64`，Kotlin/Java 通过 JNI 调用同一套 C 源码；完整示例见 [Android 使用指南](android/README.md)。
 - **Web / TypeScript**：使用 `web/dist` 中的 ES Module 和 Wasm，先异步调用 `createEnvironmentRating()`，再复用返回的无状态 API。支持浏览器、Web Worker 和 Node.js 18 及以上，完整示例见 [Web 使用指南](web/README.md)。
@@ -355,7 +373,7 @@ Matter 1.6 的 Air Quality Sensor 设备类型允许在同一 Endpoint 上选配
 
 ### 2.1 目标与范围
 
-面向中国、美国和欧洲，对 CO₂、PM2.5、PM10、甲醛分别评级，并支持 Matter 1.6。整体取有效参数中最差等级；接口细节见头文件。
+面向中国、美国和欧洲，对室内 CO₂、PM2.5、PM10、甲醛分别评级，并支持 Matter 1.6。室内整体取有效参数中最差等级；室外参数见第 4 章，目前仅提供 C 和 Web 接口。
 
 空气质量评级采用与所选标准时间口径一致的测量结果。标准要求 1 小时、24 小时、NowCast 或其他统计方式时，调用方须先完成采样与平均，再把结果传给评级函数；本库只执行数值处理和阈值查表，不保存历史样本。PM 按所选标准阈值评价，CO₂ 统一参考德国 UBA 通风提示。评级结果不等同于完整的标准 AQI 数值或地区标准认证。
 
@@ -599,7 +617,126 @@ IES 照度目标通常是指定任务面上的维持照度，并可能分别规�
 
 来源：[ANSI/IES/ALA RP-11-26 官方说明](https://store.ies.org/product/recommended-practice-lighting-for-interior-and-exterior-residential-environments/?v=eb65bcceaa5f)、[IES Illuminance Selector 使用说明](https://ies.org/standards/lighting-library/illuminance-selector-faqs/)。
 
-## 4. 代码引用的标准与指南
+## 4. 室外环境
+
+室外 O₃、CO、SO₂、花粉和紫外线指数分别评级，不生成室外整体等级。花粉与紫外线指数使用独立模块；室外污染物的 C 接口仍位于 `air_quality_rating.h/.c`。
+
+### 4.1 室外 O₃ 单项评级
+
+O₃ 独立于室内 `air_rate_all()`，可选 EEA 小时指数、中国 HJ 633—2026 实时报和美国 EPA AQI。调用方先计算相应平均值；库只分档，不保存采样历史，也不计算完整官方 AQI。中欧输入单位为 **μg/m³**，EPA 输入单位为 **ppm**，接口名称明确区分，不能直接混用。
+
+| Matter `AirQuality` | `LevelValue` | EEA：1 小时 μg/m³ | HJ 实时报：1 小时 μg/m³，修约后 | EPA：8 小时 ppm，截断后 |
+| --- | --- | --- | --- | --- |
+| Good | Low | 0–60 | 0–160 | 0.000–0.054 |
+| Fair | Low | >60–100 | 161–200 | 0.055–0.070 |
+| Moderate | Medium | >100–120 | 201–300 | 0.071–0.085 |
+| Poor | High | >120–160 | 301–400 | 0.086–0.105 |
+| VeryPoor | High | >160–180 | 401–800 | 0.106–0.200 |
+| ExtremelyPoor | Critical | >180 | ≥801 | 8 小时值不定义此档；由有效 1 小时值 ≥0.405 决定 |
+
+EEA 小数边界采用与现有 PM 相同的产品连续区间规则。HJ 输入先按 GB/T 8170 修约到整数，半值取偶；本表只实现**实时报 1 小时**，不代表中国日报的日最大 8 小时评级。EPA 两个输入分别是 8 小时平均和可选的 1 小时平均；1 小时值低于 0.125 ppm 不产生分指数，0.125–0.164、0.165–0.204、0.205–0.404、≥0.405 ppm 分别对应 Moderate、Poor、VeryPoor、ExtremelyPoor。若两种时段均产生等级，取较严重者；8 小时值超过 0.200 ppm 且没有可用 1 小时等级时返回 Unknown。EPA 值截断至小数点后三位。无效必需值返回 Unknown；EPA 可选 1 小时值缺失时在 C 中传入 `NAN`，Web 中可省略。
+
+分别调用 `air_rate_o3_eea()`、`air_rate_o3_hj()`、`air_rate_o3_epa()`；对应 `air_level_o3_*()` 生成 Matter `LevelValue`。Matter 1.6 的 Ozone Concentration Measurement Cluster 为 `0x0415`，启用 `NumericMeasurement` 可报告 `MeasuredValue`；若报告用于分档的平均浓度，可启用 `AverageMeasurement` 并用 `AverageMeasuredValue`、`AverageMeasuredValueWindow` 标明值及窗口。启用 `LevelIndication` 可报告 `LevelValue`，本映射使用 Medium 和 Critical，故还需启用对应的 `MediumLevel`、`CriticalLevel` 特性。Matter 定义字段和等级名称，不规定本表的浓度阈值。室外设备若声明为 Air Quality Sensor (`0x002C`)，还须单独处理该设备类型必需的 Air Quality Cluster；本项目不以 O₃ 生成室外整体评级。
+
+来源：[EEA European Air Quality Index](https://airindex.eea.europa.eu/AQI/)、[HJ 633—2026 表 3](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/W020260225366493492011.pdf)、[EPA AQI 技术文件表 6](https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf)、[Matter 1.6 浓度测量数据模型](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/clusters/ConcentrationMeasurement.xml)。
+
+### 4.2 室外 CO 单项评级
+
+CO 使用中国 HJ 633—2026 实时报 **1 小时平均 mg/m³**，或美国 EPA AQI **8 小时平均 ppm**。调用方先计算对应平均值；本库只分档，不计算完整 AQI，也不将 CO 加入室内整体评级。
+
+| Matter `AirQuality` | `LevelValue` | HJ 实时报 1 小时（mg/m³，修约后） | EPA 8 小时（ppm，截断后） |
+| --- | --- | --- | --- |
+| Good | Low | 0–5.0 | 0.0–4.4 |
+| Fair | Low | 5.1–10.0 | 4.5–9.4 |
+| Moderate | Medium | 10.1–35.0 | 9.5–12.4 |
+| Poor | High | 35.1–60.0 | 12.5–15.4 |
+| VeryPoor | High | 60.1–90.0 | 15.5–30.4 |
+| ExtremelyPoor | Critical | ≥90.1 | ≥30.5 |
+
+HJ 输入先修约至 0.1 mg/m³，半值取偶；EPA 输入先截断至 0.1 ppm。接口为 `air_rate_co_hj()`、`air_rate_co_epa()` 和对应的 `air_level_co_*()`；负数、NaN、无穷大返回 Unknown。Matter 1.6 的 Carbon Monoxide Concentration Measurement Cluster 为 `0x040C`，等级映射采用与 O₃ 相同的 `LevelIndication`、`MediumLevel`、`CriticalLevel` 特性规则。平均测量值可使用 `AverageMeasurement` 属性及其时间窗口。
+
+EEA 欧洲空气质量指数不包含 CO；欧盟指令给出日最大 8 小时平均 10 mg/m³ 限值，但未定义六档。因此本项目不提供“EEA CO”档位；如选 EPA 分档，应明确标注标准名称。CO 的急性风险告警须由独立逻辑处理，不能仅依赖平均浓度评级。
+
+来源：[HJ 633—2026 表 3](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/W020260225366493492011.pdf)、[EPA AQI 技术文件表 6](https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf)、[EEA 指数说明](https://www.eea.europa.eu/en/about/contact-us/faqs/how-clean-is-the-air-i-am-breathing)、[欧盟环境空气质量指令](https://publications.europa.eu/resource/cellar/3e442e84-a6e2-11ef-85f0-01aa75ed71a1.0006.01/DOC_1)、[Matter 1.6 浓度测量数据模型](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/clusters/ConcentrationMeasurement.xml)。
+
+### 4.3 室外 SO₂ 单项评级
+
+SO₂ 按所选标准的时间窗口单独评级，不参与室内整体评级，也不生成室外整体评级。EEA 与 HJ 输入单位为 **μg/m³**，EPA 为 **ppb**。调用方负责计算平均值；本库只进行分档，不计算完整官方 AQI。
+
+| 本项目等级 | EEA：1 小时 | HJ 实时报：1 小时 | HJ 日报：24 小时 | EPA：1 小时 / 24 小时 |
+| --- | --- | --- | --- | --- |
+| Good | 0–20 | 0–150 | 0–50 | 1 小时 0–35 |
+| Fair | >20–40 | 151–500 | 51–150 | 1 小时 36–75 |
+| Moderate | >40–125 | 501–650 | 151–475 | 1 小时 76–185 |
+| Poor | >125–190 | ≥651 | 476–800 | 1 小时 186–304；或 1 小时 ≥305 且 24 小时 <305 |
+| VeryPoor | >190–275 | 不产生 | 801–1600 | 24 小时 305–604 |
+| ExtremelyPoor | >275 | 不产生 | ≥1601 | 24 小时 ≥605 |
+
+EEA 与 HJ 浓度单位为 μg/m³，EPA 为 ppb。EEA 小数边界采用连续、上限包含的产品规则。HJ 输入先按 GB/T 8170 修约到整数，半值取偶；HJ 实时报的一小时 SO₂ 超过 800 μg/m³ 时分指数固定为 200，因此最高只到 Poor。EPA 输入先截断至整数 ppb；24 小时平均值达到 305 ppb 时决定高两档，低于该值时依据一小时浓度。为避免缺少历史数据时低估高档，`air_rate_so2_epa()` **要求同时传入两种时段值**，任一无效即返回 Unknown。用于官方日报时，一小时参数应为当日最大一小时浓度。
+
+C 接口为 `air_rate_so2_eea()`、`air_rate_so2_hj_hourly()`、`air_rate_so2_hj_daily()`、`air_rate_so2_epa()`；Web 接口使用对应名称。Matter 1.6 的标准浓度测量 Cluster 列表中没有 SO₂，因此本项目不提供 SO₂ `LevelValue` 映射，也不将单项等级写成室外整体 `AirQuality`。
+
+来源：[EEA European Air Quality Index](https://airindex.eea.europa.eu/AQI/index.html)、[HJ 633—2026 表 3](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/W020260225366493492011.pdf)、[EPA AQI 技术文件表 6 及 SO₂ 说明](https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf)、[Matter 1.6 浓度测量数据模型](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/clusters/ConcentrationMeasurement.xml)。
+
+### 4.4 室外花粉负荷评级
+
+独立模块 `pollen_rating.h/.c` 接收已按来源要求计算的**日平均浓度**，单位为粒/m³。选择 `POLLEN_STD_NAB` 时，输入树木、禾草或杂草类别的总浓度；选择 `POLLEN_STD_METEOSWISS` 时，输入其列出的具体花粉类型（含禾草）。标准选择不代表设备地区，类型与标准不匹配时返回 `POLLEN_UNKNOWN`。桦树单项浓度不能冒充 NAB 的树木类别总浓度。
+
+NAB 分档：
+
+| 类型 | 低 | 中 | 高 | 极高 |
+| --- | ---: | ---: | ---: | ---: |
+| 树木 | 1–14 | 15–89 | 90–1499 | ≥1500 |
+| 禾草 | 1–4 | 5–19 | 20–199 | ≥200 |
+| 杂草 | 1–9 | 10–49 | 50–499 | ≥500 |
+
+MeteoSwiss 分档：
+
+| 类型 | 低 | 中 | 高 | 极高 |
+| --- | ---: | ---: | ---: | ---: |
+| 榛树、桤木、鹅耳枥 | 1–10 | 11–69 | 70–249 | ≥250 |
+| 白蜡树 | 1–10 | 11–99 | 100–349 | ≥350 |
+| 桦树 | 1–10 | 11–69 | 70–299 | ≥300 |
+| 悬铃木 | 1–49 | 50–99 | 100–399 | ≥400 |
+| 橡树、山毛榉 | 1–49 | 50–129 | 130–399 | ≥400 |
+| 栗树 | 1–99 | 100–199 | 200–699 | ≥700 |
+| 禾草 | 1–19 | 20–49 | 50–149 | ≥150 |
+| 酸模、车前草 | 1–14 | 15–24 | 25–59 | ≥60 |
+| 蒿属 | 1–5 | 6–14 | 15–49 | ≥50 |
+| 豚草 | 1–5 | 6–10 | 11–39 | ≥40 |
+
+两份来源均提供四个正值等级。本项目额外把**已测得的零值**显示为“未检出”：`POLLEN_ABSENT`；`POLLEN_UNKNOWN` 表示无法评级，二者不可混用。只有总花粉浓度时，零值可返回“未检出”，正值返回“未知”，界面仍可显示总量与趋势。无效数值和未知类型也返回“未知”。对小数采用连续区间：例如 MeteoSwiss 桦树 0<x<11 为低，11≤x<70 为中，不提前取整。这一小数处理是产品规则。
+
+```c
+pollen_rating_t level = pollen_rate(POLLEN_STD_NAB, POLLEN_GRASS, 20.0);
+/* POLLEN_HIGH；输入须为禾草类别日平均浓度，粒/m³ */
+```
+
+花粉等级只描述所选类型的浓度负荷，不预测个人过敏症状；不参与室内或室外整体空气质量，也不映射 Matter `AirQuality`、`LevelValue`。EAACI 的花粉季定义涉及连续多日数据，不用于此单日函数。
+
+来源：[NAB 网络分档](https://pollenandmold.stlouisco.com/html/PollenLevels.html)、[MeteoSwiss 花粉负荷表](https://www.meteoswiss.admin.ch/dam/jcr%3A43b4f361-8bc1-4af7-a232-c126de0f2f80/Belastungsklassen-der-allergenen-Pollenarten_E.pdf)、[EAACI 花粉季立场文件](https://onlinelibrary.wiley.com/doi/10.1111/all.13092)。
+
+### 4.5 室外紫外线指数（UVI）
+
+独立模块 `uv_index_rating.h/.c` 接收已测量或预报的**全球太阳紫外线指数**（无量纲），返回 WHO 的五档紫外线暴露等级。UVI 表示具有致红斑效应的太阳紫外线强度，不能从照度 lux 或未加权紫外辐照度直接换算。本库不计算光谱加权、平均值或日最大值。
+
+| 报告的整数 UVI | 等级 | C 枚举 |
+| --- | --- | --- |
+| 0–2 | 低 | `UV_INDEX_LOW` |
+| 3–5 | 中 | `UV_INDEX_MODERATE` |
+| 6–7 | 高 | `UV_INDEX_HIGH` |
+| 8–10 | 很高 | `UV_INDEX_VERY_HIGH` |
+| ≥11 | 极高 | `UV_INDEX_EXTREME` |
+
+WHO 建议报告时将 UVI 四舍五入为整数；本函数直接接收非负小数，在 2.5、5.5、7.5、10.5 处分档，恰好半整数时向上归档（产品约定）。例如 2.49 为低，2.50 为中；无效值返回 `UV_INDEX_UNKNOWN`。若输入已是整数，则按表直接评级。WHO 建议预报或报告至少给出**日最大 UVI**，日最大值应采用 30 分钟平均；连续观测显示短时变化可用 5–10 分钟平均。调用方负责标明输入是当前值、日最大观测值还是预报值，不能把当前值称为当日最大值。此等级不参与空气质量、照度或室外综合评级，也不映射 Matter 空气质量等级。
+
+```c
+uv_index_rating_t level = uv_index_rate(7.5); /* UV_INDEX_VERY_HIGH */
+```
+
+来源：[WHO《全球太阳紫外线指数：实用指南》，第 6 页](https://iris.who.int/bitstream/handle/10665/42459/9241590076.pdf#page=6)、[WHO 紫外线指数说明](https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-%28uv%29-index/)。
+
+## 5. 代码引用的标准与指南
 
 下表只列出直接用于代码计算方法、阈值、分级或枚举映射的标准、规范和官方指南。中国标准的英文名称采用发布机构名称；国外文件的中文名称为便于阅读所作的译名。
 
@@ -609,6 +746,9 @@ IES 照度目标通常是指定任务面上的维持照度，并可能分别规�
 | HJ 633—2026 | 环境空气质量指数（AQI）技术规定 | *Technical specifications on ambient air quality index* |
 | U.S. EPA | 每日空气质量报告技术援助文件——空气质量指数（AQI） | *Technical Assistance Document for the Reporting of Daily Air Quality – the Air Quality Index (AQI)* |
 | EEA | 欧洲空气质量指数 | *European Air Quality Index* |
+| NAB | 美国国家过敏局花粉分档 | *National Allergy Bureau pollen levels* |
+| MeteoSwiss | 过敏性花粉类型的负荷等级阈值 | *Threshold values for pollen load classes of allergenic pollen types* |
+| WHO 等，2002 | 全球太阳紫外线指数：实用指南 | *Global Solar UV Index: A Practical Guide* |
 | UBA 2008 | 室内空气中二氧化碳的健康评价 | *Health evaluation of carbon dioxide in indoor air* |
 | WHO 2010 | WHO 室内空气质量指南：特定污染物 | *WHO guidelines for indoor air quality: selected pollutants* |
 | GB/T 18883—2022 | 室内空气质量标准 | *Standards for indoor air quality* |

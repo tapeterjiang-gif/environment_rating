@@ -93,12 +93,12 @@
     "挥发黄绿 · #89941A": "Volatile Yellow Green · #89941A",
     "CO₂ 通风提示": "CO₂ ventilation guidance",
     "CO₂ 三档通风提示": "Three-level CO₂ ventilation guidance",
-    "参考德国 UBA。中等档采用较温和的黄绿色，表示需要留意通风，但尚未进入较差状态。": "Based on the German UBA guidance. The moderate level uses a mild yellow-green to indicate that ventilation deserves attention without yet being poor.",
+    "参考德国 UBA。中等档采用与 PM2.5“中等”相同的颜色，提示留意通风。": "Based on German UBA guidance. Moderate uses the same colors as PM2.5 Moderate and suggests checking ventilation.",
     "好": "Good",
     "低于 1000 ppm": "Below 1000 ppm",
     "状态色 #16A34A · 通风正常": "Status color #16A34A · Ventilation normal",
     "中等": "Moderate",
-    "状态色 #65A30D · 建议通风": "Status color #65A30D · Ventilation recommended",
+    "状态色 #CA8A04 · 建议通风": "Status color #CA8A04 · Ventilation recommended",
     "差": "Poor",
     "高于 2000 ppm": "Above 2000 ppm",
     "状态色 #EA580C · 加强通风": "Status color #EA580C · Increase ventilation",
@@ -219,6 +219,87 @@
     "一页看懂热舒适度、空气质量、噪声和照度的评级标准、图标与颜色。": "Understand thermal comfort, air quality, noise, and illuminance ratings, icons, and colors on one page."
   };
 
+  Object.assign(EN, {
+    "环境指标解读": "Environmental Metrics Explained", "指标解读": "Metric Guide", "评级指南": "Rating Guide", "评级方法": "Rating Method",
+    "传感器给出数字，环境评级把数字转成容易理解的提示。本页介绍评级方法与依据；每项指标的图标、颜色和分档解读可在“环境指标解读”中查看。": "Sensors provide readings. Environmental ratings turn them into clear guidance. This page explains the methods and their sources; the Metric Guide shows each metric's icons, colors, and rating bands.",
+    "本页介绍评级方法与依据；每项指标的图标、颜色和分档解读可在“环境指标解读”中查看。": "This page explains the rating method and its sources. Open Environmental Metrics Explained for each metric's icons, colors, and rating bands.",
+    "查看指标解读": "Explore metrics",
+    "每项指标，怎样读懂？": "How do you read each metric?",
+    "查看温度、湿度、空气污染物、花粉、紫外线、噪声和照度的图标、颜色、分档与提示含义。各项使用自己的测量单位和评级依据。": "Explore the icons, colors, rating bands, and guidance for temperature, humidity, air pollutants, pollen, UV, noise, and illuminance. Each metric uses its own unit and reference.",
+    "打开环境指标解读": "Open metric guide",
+    "了解环境评级如何工作，以及参考了哪些标准与指南。": "Learn how environmental ratings work and which standards and guides they reference.",
+    "逐项了解环境指标的图标、识别色、分档、评级说明与结果解读。": "Explore each environmental metric's icons, identity colors, rating bands, and meanings.",
+    "找到你关注的指标，了解图标和颜色代表什么、读数如何分档，以及结果应该怎样理解。": "Find the metric you care about, then see what its icons and colors mean, how readings are grouped, and how to interpret the result.",
+    "先看图标与颜色": "Start with icons and colors", "查看评级依据": "View rating references", "选择指标类别": "Choose a metric category",
+    "逐项查看环境指标的图标、颜色、分档与结果解读。": "Explore the icons, colors, rating bands, and meanings of environmental metrics.",
+    "返回评级指南 ↑": "Back to rating guide ↑",
+    "室外指标识别": "Outdoor metric identity",
+    "图标和识别色固定用于辨认指标；分档颜色另外表示当前等级。室外 PM2.5 与 PM10 沿用前述颗粒物图标和识别色。": "Icons and identity colors identify the metric; rating colors show its current level. Outdoor PM2.5 and PM10 reuse the particle icons and identity colors above.",
+    "花粉": "Pollen", "紫外线指数": "UV Index",
+    "臭氧蓝 · #3A6EAA": "Ozone blue · #3A6EAA", "石墨灰 · #56616D": "Graphite gray · #56616D", "硫磺金 · #9A6B0A": "Sulfur gold · #9A6B0A", "花粉草绿 · #3E8B5B": "Pollen green · #3E8B5B", "紫外紫 · #6853BE": "Ultraviolet purple · #6853BE",
+    "室外花粉": "Outdoor Pollen", "室外花粉负荷": "Outdoor Pollen Load",
+    "选择花粉评级标准": "Select a pollen rating standard",
+    "选择花粉标准，查看对应类型的日平均浓度分档（粒/m³）。花粉单独评级，不计入空气质量整体结果。只有总花粉数而没有类型时，可显示数值和趋势；正值不评级，测得零值显示“未检出”。": "Select a pollen reference to see daily mean concentration bands (grains/m³) by type. Pollen is rated separately from overall air quality. When only total pollen is known, display the count and trend; a positive total cannot be graded, while a measured zero is shown as Absent.",
+    "美国 NAB": "U.S. NAB", "瑞士 MeteoSwiss": "Swiss MeteoSwiss",
+    "按树木、禾草、杂草类别总浓度分档": "Bands for total tree, grass, and weed counts",
+    "按具体花粉类型分档": "Bands for individual pollen taxa",
+    "NAB 花粉分档 · 粒/m³": "NAB pollen bands · grains/m³",
+    "MeteoSwiss 花粉分档 · 粒/m³": "MeteoSwiss pollen bands · grains/m³",
+    "花粉类型": "Pollen type", "低": "Low", "中": "Moderate", "高": "High", "极高": "Very high",
+    "树木": "Trees", "禾草": "Grasses", "杂草": "Weeds",
+    "榛树、桤木、鹅耳枥": "Hazel, alder, hornbeam", "白蜡树": "Ash", "桦树": "Birch",
+    "悬铃木": "Plane", "橡树、山毛榉": "Oak, beech", "栗树": "Chestnut",
+    "酸模、车前草": "Sorrel, plantain", "蒿属": "Mugwort", "豚草": "Ragweed",
+    "已测得的 0 粒/m³ 为“未检出”；表中整数区间之间的小数按下一档起点连续比较，例如桦树 10.5 为低、11 为中。": "A measured 0 grains/m³ is Absent. Decimal values use continuous bands ending at the next band’s start; for example, birch 10.5 is Low and 11 is Moderate.",
+    "NAB 花粉等级": "NAB pollen levels", "美国国家过敏局（NAB）": "U.S. National Allergy Bureau (NAB)",
+    "美国花粉监测网络按树木、禾草、杂草类别总浓度提供四档分级。": "The U.S. pollen monitoring network provides four bands for total tree, grass, and weed concentrations.",
+    "本项目用其日平均类别浓度边界评级，不据此判断个人症状。": "This project rates daily mean group concentrations; it does not predict individual symptoms.",
+    "MeteoSwiss 花粉负荷等级": "MeteoSwiss pollen load classes", "瑞士联邦气象与气候局": "Swiss Federal Office of Meteorology and Climatology",
+    "按不同花粉类型的过敏原潜力，分别规定日平均浓度的低、中、高、极高边界。": "Defines separate Low, Moderate, High, and Very High daily mean thresholds for pollen taxa with different allergenic potential.",
+    "本项目仅对表中列出的类型评级；它不是欧盟统一标准。": "This project rates only the listed taxa; this is not an EU-wide standard."
+  });
+
+  Object.assign(EN, {
+    "一页看懂热舒适度、空气质量、声光与室外环境的评级标准。": "Understand the rating standards for thermal comfort, air quality, sound and light, and outdoor conditions.",
+    "室外环境": "Outdoor Environment", "第四类": "Category 4",
+    "紫外线 · 花粉 · 室外污染物": "UV · Pollen · Outdoor pollutants",
+    "分别查看室外污染物、花粉和紫外线指数。它们使用不同的测量口径与等级，页面不生成室外综合评级。": "Explore outdoor pollutants, pollen, and the UV index separately. Their measurement bases and grades differ, so this page does not produce an overall outdoor rating.",
+    "室外空气污染物": "Outdoor air pollutants",
+    "O₃、CO、SO₂ 各自按照所选标准和平均时间评级。PM2.5 与 PM10 仍可使用上方的三套颗粒物标准；室外读数不加入室内整体空气质量结果。": "O₃, CO, and SO₂ are rated using their selected references and averaging periods. Outdoor PM2.5 and PM10 can use the particle standards above. Outdoor readings do not affect the indoor overall air-quality result.",
+    "臭氧 O₃": "Ozone O₃", "一氧化碳 CO": "Carbon monoxide CO", "二氧化硫 SO₂": "Sulfur dioxide SO₂",
+    "欧洲 EEA、中国 HJ 633—2026、美国 EPA AQI；按所选标准使用 1 小时或 8 小时平均值。": "European EEA, Chinese HJ 633—2026, and U.S. EPA AQI; uses a one- or eight-hour average according to the reference.",
+    "中国 HJ 633—2026、美国 EPA AQI；分别使用 1 小时或 8 小时平均值。": "Chinese HJ 633—2026 or U.S. EPA AQI; uses a one- or eight-hour average respectively.",
+    "欧洲 EEA、中国 HJ 633—2026、美国 EPA AQI；按所选标准使用 1 小时或 24 小时平均值。": "European EEA, Chinese HJ 633—2026, and U.S. EPA AQI; uses a one- or 24-hour average according to the reference.",
+    "紫外线指数 UVI": "UV Index (UVI)", "WHO 紫外线指数五档图示": "WHO five-level UV Index chart",
+    "参考 WHO《全球太阳紫外线指数：实用指南》。指数越高，太阳紫外线对皮肤和眼睛造成损伤的潜在风险越高。UVI 与照度 lux 不可互相换算。": "Based on WHO's Global Solar UV Index guide. Higher UVI means greater potential harm to skin and eyes. UVI cannot be converted from illuminance in lux.",
+    "很高": "Very high", "绿色": "Green", "黄色": "Yellow", "橙色": "Orange", "红色": "Red", "紫色": "Purple",
+    "按 WHO 建议，UVI 对公众报告时取最近整数；预报或报告至少应标明当日最大值。当前观测值与当日最大值应分开标注。这里的浅色背景用于图示，WHO 指定的是五类基本颜色。": "WHO recommends reporting UVI as the nearest integer and at least providing the daily maximum. Label a current reading separately from the daily maximum. The pale fills here are illustrative; WHO specifies five basic color families.",
+    "WHO 全球太阳紫外线指数": "WHO Global Solar UV Index",
+    "全球太阳紫外线指数实用指南给出五档暴露等级、报告口径和基本颜色。": "The Global Solar UV Index guide defines five exposure categories, reporting conventions, and basic colors.",
+    "本项目按其五档对已获得的 UVI 评级，不从照度估算紫外线。": "This project rates a supplied UVI in five categories; it does not estimate UV from illuminance."
+  });
+
+  Object.assign(EN, {
+    "臭氧按所选标准的平均时间评级；各标准使用的浓度单位不同。": "Ozone uses the averaging period and units required by the selected standard.",
+    "CO 可选中国实时报或美国 AQI；欧洲 EEA 空气质量指数没有 CO 六档。": "CO uses China's real-time index or U.S. AQI; the EEA index has no six-level CO scale.",
+    "SO₂ 的中国标准区分实时报与日报；美国 EPA 同时需要 1 小时和 24 小时值。": "China distinguishes real-time and daily SO₂ ratings; EPA requires both one- and 24-hour values.",
+    "选择 O₃ 评级标准": "Select an O₃ standard", "选择 CO 评级标准": "Select a CO standard", "选择 SO₂ 评级标准": "Select an SO₂ standard",
+    "欧洲 EEA": "European EEA", "中国 HJ 633—2026": "China HJ 633—2026", "中国 HJ 633—2026 · 实时报": "China HJ 633—2026 · real-time", "中国 HJ 633—2026 · 日报": "China HJ 633—2026 · daily", "美国 EPA AQI": "U.S. EPA AQI",
+    "1 小时平均 · μg/m³": "1-hour average · μg/m³", "实时报 1 小时平均 · μg/m³": "Real-time 1-hour average · μg/m³", "8 小时平均，可结合 1 小时平均 · ppm": "8-hour average, optional 1-hour average · ppm", "实时报 1 小时平均 · mg/m³": "Real-time 1-hour average · mg/m³", "8 小时平均 · ppm": "8-hour average · ppm", "24 小时平均 · μg/m³": "24-hour average · μg/m³", "1 小时及 24 小时平均 · ppb": "1- and 24-hour averages · ppb",
+    "小数按连续区间比较；各档上限包含在本档。": "Decimals use continuous intervals; each upper bound is included in its band.",
+    "评级前将浓度修约为整数；此处是实时报 1 小时口径，不是日报口径。": "Round to an integer before rating. This is the real-time one-hour basis, not the daily basis.",
+    "浓度先截断至三位小数。图示前五档列出 8 小时值；有效的 1 小时值也可能提高等级。8 小时值 >0.200 且无可用 1 小时等级时，结果未知。": "Truncate to three decimals. The first five bands show 8-hour values; a valid 1-hour value may raise the grade. An 8-hour value >0.200 without a usable 1-hour grade returns Unknown.",
+    "评级前将浓度修约至 0.1 mg/m³。急性风险告警应单独处理。": "Round to 0.1 mg/m³ before rating. Handle acute-risk alerts separately.",
+    "评级前将浓度截断至 0.1 ppm。急性风险告警应单独处理。": "Truncate to 0.1 ppm before rating. Handle acute-risk alerts separately.",
+    "评级前修约为整数。一小时值超过 800 μg/m³ 时仍归入“差”，不会产生后两档。": "Round to an integer. One-hour values above 800 μg/m³ remain Poor; the final two grades are unused.",
+    "评级前修约为整数；此处使用 24 小时平均值。": "Round to an integer; this panel uses the 24-hour average.",
+    "两个时段值都必需，并先截断至整数 ppb；任一无效时结果未知。用于官方日报时，1 小时值应为当日最大一小时浓度。": "Both periods are required and truncated to integer ppb; invalid input returns Unknown. Official daily reports use the day's maximum one-hour concentration.",
+    "不产生": "Not used", "1 小时 ≥0.405": "1-hour ≥0.405", "1h 186–304；或 1h ≥305、24h <305": "1h 186–304; or 1h ≥305 and 24h <305",
+    "臭氧 O₃ 欧洲 EEA 六档图示": "Ozone O₃ · EEA six-level chart", "臭氧 O₃ 中国 HJ 633—2026 六档图示": "Ozone O₃ · China HJ six-level chart", "臭氧 O₃ 美国 EPA AQI 六档图示": "Ozone O₃ · U.S. EPA six-level chart",
+    "一氧化碳 CO 中国 HJ 633—2026 六档图示": "CO · China HJ six-level chart", "一氧化碳 CO 美国 EPA AQI 六档图示": "CO · U.S. EPA six-level chart",
+    "二氧化硫 SO₂ 欧洲 EEA 六档图示": "SO₂ · EEA six-level chart", "二氧化硫 SO₂ 中国 HJ 633—2026 · 实时报 六档图示": "SO₂ · China HJ real-time chart", "二氧化硫 SO₂ 中国 HJ 633—2026 · 日报 六档图示": "SO₂ · China HJ daily chart", "二氧化硫 SO₂ 美国 EPA AQI 六档图示": "SO₂ · U.S. EPA six-level chart"
+  });
+
   const JA = {
     "环境评级指南": "環境評価ガイド",
     "跳到主要内容": "メインコンテンツへ移動",
@@ -313,12 +394,12 @@
     "挥发黄绿 · #89941A": "ボラタイルイエローグリーン · #89941A",
     "CO₂ 通风提示": "CO₂換気案内",
     "CO₂ 三档通风提示": "CO₂換気3段階案内",
-    "参考德国 UBA。中等档采用较温和的黄绿色，表示需要留意通风，但尚未进入较差状态。": "ドイツUBAを参照しています。中程度には穏やかな黄緑色を使い、悪い状態ではないものの換気に注意が必要であることを示します。",
+    "参考德国 UBA。中等档采用与 PM2.5“中等”相同的颜色，提示留意通风。": "ドイツUBAに基づきます。中程度はPM2.5の「中程度」と同じ色を使い、換気への注意を促します。",
     "好": "良好",
     "低于 1000 ppm": "1000 ppm未満",
     "状态色 #16A34A · 通风正常": "状態色 #16A34A · 換気は正常",
     "中等": "中程度",
-    "状态色 #65A30D · 建议通风": "状態色 #65A30D · 換気を推奨",
+    "状态色 #CA8A04 · 建议通风": "状態色 #CA8A04 · 換気を推奨",
     "差": "悪い",
     "高于 2000 ppm": "2000 ppm超",
     "状态色 #EA580C · 加强通风": "状態色 #EA580C · 換気を強化",
@@ -439,6 +520,117 @@
     "一页看懂热舒适度、空气质量、噪声和照度的评级标准、图标与颜色。": "温熱快適性、空気質、騒音、照度の評価基準、アイコン、色を1ページで確認できます。"
   };
 
+  Object.assign(JA, {
+    "环境指标解读": "環境指標の読み解き", "指标解读": "指標の読み解き", "评级指南": "評価ガイド", "评级方法": "評価方法",
+    "传感器给出数字，环境评级把数字转成容易理解的提示。本页介绍评级方法与依据；每项指标的图标、颜色和分档解读可在“环境指标解读”中查看。": "センサーの数値を、環境評価がわかりやすい案内に変換します。このページでは評価方法とその根拠を説明します。各指標のアイコン、色、評価区分は「環境指標の読み解き」で確認できます。",
+    "本页介绍评级方法与依据；每项指标的图标、颜色和分档解读可在“环境指标解读”中查看。": "このページでは評価方法と根拠を説明します。各指標のアイコン、色、評価区分は「環境指標の読み解き」で確認できます。",
+    "查看指标解读": "指標の読み解きを見る",
+    "每项指标，怎样读懂？": "各指標をどう読み解く？",
+    "查看温度、湿度、空气污染物、花粉、紫外线、噪声和照度的图标、颜色、分档与提示含义。各项使用自己的测量单位和评级依据。": "温度、湿度、大気汚染物質、花粉、紫外線、騒音、照度のアイコン、色、評価区分と意味を確認できます。各指標には固有の単位と評価根拠があります。",
+    "打开环境指标解读": "環境指標の読み解きを開く",
+    "了解环境评级如何工作，以及参考了哪些标准与指南。": "環境評価の仕組みと参照する基準・ガイドを紹介します。",
+    "逐项了解环境指标的图标、识别色、分档、评级说明与结果解读。": "環境指標ごとのアイコン、識別色、評価区分と結果の意味を紹介します。",
+    "找到你关注的指标，了解图标和颜色代表什么、读数如何分档，以及结果应该怎样理解。": "気になる指標を選び、アイコンと色の意味、数値の区分と結果の読み方を確認できます。",
+    "先看图标与颜色": "まずアイコンと色を見る", "查看评级依据": "評価根拠を見る", "选择指标类别": "指標のカテゴリを選択",
+    "逐项查看环境指标的图标、颜色、分档与结果解读。": "環境指標ごとのアイコン、色、評価区分と結果の意味を確認できます。",
+    "返回评级指南 ↑": "評価ガイドへ戻る ↑",
+    "室外指标识别": "屋外指標の見分け方",
+    "图标和识别色固定用于辨认指标；分档颜色另外表示当前等级。室外 PM2.5 与 PM10 沿用前述颗粒物图标和识别色。": "アイコンと識別色は指標を示し、評価色は現在の段階を示します。屋外のPM2.5とPM10は上記の粒子状物質のアイコンと識別色を使用します。",
+    "花粉": "花粉", "紫外线指数": "紫外線指数",
+    "臭氧蓝 · #3A6EAA": "オゾンブルー · #3A6EAA", "石墨灰 · #56616D": "グラファイトグレー · #56616D", "硫磺金 · #9A6B0A": "硫黄金 · #9A6B0A", "花粉草绿 · #3E8B5B": "花粉グリーン · #3E8B5B", "紫外紫 · #6853BE": "紫外線パープル · #6853BE",
+    "室外花粉": "屋外花粉", "室外花粉负荷": "屋外の花粉量",
+    "选择花粉评级标准": "花粉評価の基準を選択",
+    "选择花粉标准，查看对应类型的日平均浓度分档（粒/m³）。花粉单独评级，不计入空气质量整体结果。只有总花粉数而没有类型时，可显示数值和趋势；正值不评级，测得零值显示“未检出”。": "花粉の基準を選ぶと、種類別の日平均濃度の区分（粒/m³）を確認できます。花粉は空気質の総合評価に含めません。総花粉数しか分からない場合は数値と傾向を表示し、正の値は評価せず、測定値ゼロは「検出なし」と表示します。",
+    "美国 NAB": "米国 NAB", "瑞士 MeteoSwiss": "スイス MeteoSwiss",
+    "按树木、禾草、杂草类别总浓度分档": "樹木・イネ科・雑草の種類群ごとの総濃度",
+    "按具体花粉类型分档": "花粉の種類ごとの濃度",
+    "NAB 花粉分档 · 粒/m³": "NAB 花粉区分・粒/m³",
+    "MeteoSwiss 花粉分档 · 粒/m³": "MeteoSwiss 花粉区分・粒/m³",
+    "花粉类型": "花粉の種類", "低": "低い", "中": "中程度", "高": "高い", "极高": "非常に高い",
+    "树木": "樹木", "禾草": "イネ科", "杂草": "雑草",
+    "榛树、桤木、鹅耳枥": "ハシバミ・ハンノキ・シデ", "白蜡树": "トネリコ", "桦树": "カバノキ",
+    "悬铃木": "スズカケノキ", "橡树、山毛榉": "ナラ・ブナ", "栗树": "クリ",
+    "酸模、车前草": "スイバ・オオバコ", "蒿属": "ヨモギ", "豚草": "ブタクサ",
+    "已测得的 0 粒/m³ 为“未检出”；表中整数区间之间的小数按下一档起点连续比较，例如桦树 10.5 为低、11 为中。": "測定値 0 粒/m³ は「検出なし」です。小数値は次の区分の開始値まで連続的に比較します。例えばカバノキ 10.5 は「低い」、11 は「中程度」です。",
+    "NAB 花粉等级": "NAB 花粉レベル", "美国国家过敏局（NAB）": "米国 National Allergy Bureau（NAB）",
+    "美国花粉监测网络按树木、禾草、杂草类别总浓度提供四档分级。": "米国の花粉観測ネットワークは、樹木・イネ科・雑草の総濃度を4段階で示します。",
+    "本项目用其日平均类别浓度边界评级，不据此判断个人症状。": "本プロジェクトは種類群の日平均濃度を評価し、個人の症状は予測しません。",
+    "MeteoSwiss 花粉负荷等级": "MeteoSwiss 花粉量区分", "瑞士联邦气象与气候局": "スイス連邦気象・気候局",
+    "按不同花粉类型的过敏原潜力，分别规定日平均浓度的低、中、高、极高边界。": "花粉の種類ごとのアレルゲン性に応じ、日平均濃度の4段階の境界を定めています。",
+    "本项目仅对表中列出的类型评级；它不是欧盟统一标准。": "本プロジェクトは表に載る種類のみ評価します。EU共通基準ではありません。"
+  });
+
+  Object.assign(JA, {
+    "一页看懂热舒适度、空气质量、声光与室外环境的评级标准。": "温熱快適性、空気質、音と光、屋外環境の評価基準を1ページで確認できます。",
+    "室外环境": "屋外環境", "第四类": "第4分野",
+    "紫外线 · 花粉 · 室外污染物": "紫外線・花粉・屋外汚染物質",
+    "分别查看室外污染物、花粉和紫外线指数。它们使用不同的测量口径与等级，页面不生成室外综合评级。": "屋外汚染物質、花粉、紫外線指数を別々に確認できます。測定方法と評価段階が異なるため、屋外の総合評価は生成しません。",
+    "室外空气污染物": "屋外の大気汚染物質",
+    "O₃、CO、SO₂ 各自按照所选标准和平均时间评级。PM2.5 与 PM10 仍可使用上方的三套颗粒物标准；室外读数不加入室内整体空气质量结果。": "O₃、CO、SO₂は選択した基準と平均時間で個別に評価します。屋外PM2.5とPM10には上記の粒子状物質基準を使えます。屋外の値は室内空気質の総合評価に含めません。",
+    "臭氧 O₃": "オゾン O₃", "一氧化碳 CO": "一酸化炭素 CO", "二氧化硫 SO₂": "二酸化硫黄 SO₂",
+    "欧洲 EEA、中国 HJ 633—2026、美国 EPA AQI；按所选标准使用 1 小时或 8 小时平均值。": "欧州EEA、中国HJ 633—2026、米国EPA AQI。基準に応じて1時間または8時間平均を用います。",
+    "中国 HJ 633—2026、美国 EPA AQI；分别使用 1 小时或 8 小时平均值。": "中国HJ 633—2026または米国EPA AQI。それぞれ1時間または8時間平均を用います。",
+    "欧洲 EEA、中国 HJ 633—2026、美国 EPA AQI；按所选标准使用 1 小时或 24 小时平均值。": "欧州EEA、中国HJ 633—2026、米国EPA AQI。基準に応じて1時間または24時間平均を用います。",
+    "紫外线指数 UVI": "紫外線指数 UVI", "WHO 紫外线指数五档图示": "WHO紫外線指数の5段階図",
+    "参考 WHO《全球太阳紫外线指数：实用指南》。指数越高，太阳紫外线对皮肤和眼睛造成损伤的潜在风险越高。UVI 与照度 lux 不可互相换算。": "WHO『世界太陽紫外線指数 実用ガイド』に基づきます。指数が高いほど皮膚と目への影響の可能性が高くなります。UVIと照度luxは換算できません。",
+    "很高": "非常に高い", "绿色": "緑", "黄色": "黄", "橙色": "オレンジ", "红色": "赤", "紫色": "紫",
+    "按 WHO 建议，UVI 对公众报告时取最近整数；预报或报告至少应标明当日最大值。当前观测值与当日最大值应分开标注。这里的浅色背景用于图示，WHO 指定的是五类基本颜色。": "WHOはUVIを最も近い整数で報告し、少なくとも日最大値を示すよう勧めています。現在値と日最大値を区別してください。淡い背景色は説明用で、WHOは5種類の基本色を定めています。",
+    "WHO 全球太阳紫外线指数": "WHO世界太陽紫外線指数",
+    "全球太阳紫外线指数实用指南给出五档暴露等级、报告口径和基本颜色。": "世界太陽紫外線指数実用ガイドは5段階の曝露区分、報告方法、基本色を示します。",
+    "本项目按其五档对已获得的 UVI 评级，不从照度估算紫外线。": "本プロジェクトは取得済みUVIを5段階で評価し、照度から紫外線を推定しません。"
+  });
+
+  Object.assign(JA, {
+    "臭氧按所选标准的平均时间评级；各标准使用的浓度单位不同。": "オゾンは選択した基準の平均時間と単位で評価します。",
+    "CO 可选中国实时报或美国 AQI；欧洲 EEA 空气质量指数没有 CO 六档。": "COは中国の速報または米国AQIから選べます。EEA指数にCOの6段階はありません。",
+    "SO₂ 的中国标准区分实时报与日报；美国 EPA 同时需要 1 小时和 24 小时值。": "中国のSO₂基準は速報と日報を区別し、EPAでは1時間値と24時間値の両方が必要です。",
+    "选择 O₃ 评级标准": "O₃の基準を選択", "选择 CO 评级标准": "COの基準を選択", "选择 SO₂ 评级标准": "SO₂の基準を選択",
+    "欧洲 EEA": "欧州 EEA", "中国 HJ 633—2026 · 实时报": "中国 HJ 633—2026・速報", "中国 HJ 633—2026 · 日报": "中国 HJ 633—2026・日報", "美国 EPA AQI": "米国 EPA AQI",
+    "1 小时平均 · μg/m³": "1時間平均・μg/m³", "实时报 1 小时平均 · μg/m³": "速報1時間平均・μg/m³", "8 小时平均，可结合 1 小时平均 · ppm": "8時間平均、1時間平均も併用可・ppm", "实时报 1 小时平均 · mg/m³": "速報1時間平均・mg/m³", "8 小时平均 · ppm": "8時間平均・ppm", "24 小时平均 · μg/m³": "24時間平均・μg/m³", "1 小时及 24 小时平均 · ppb": "1時間・24時間平均・ppb",
+    "小数按连续区间比较；各档上限包含在本档。": "小数値は連続区間で比較し、各区分の上限を含みます。",
+    "评级前将浓度修约为整数；此处是实时报 1 小时口径，不是日报口径。": "評価前に整数に丸めます。速報の1時間値で、日報の基準ではありません。",
+    "浓度先截断至三位小数。图示前五档列出 8 小时值；有效的 1 小时值也可能提高等级。8 小时值 >0.200 且无可用 1 小时等级时，结果未知。": "小数第3位で切り捨てます。最初の5区分は8時間値で、有効な1時間値により評価が上がる場合があります。8時間値が0.200を超え、1時間評価がない場合は不明です。",
+    "评级前将浓度修约至 0.1 mg/m³。急性风险告警应单独处理。": "評価前に0.1 mg/m³に丸めます。急性リスク警報は別途扱います。",
+    "评级前将浓度截断至 0.1 ppm。急性风险告警应单独处理。": "評価前に0.1 ppmで切り捨てます。急性リスク警報は別途扱います。",
+    "评级前修约为整数。一小时值超过 800 μg/m³ 时仍归入“差”，不会产生后两档。": "整数に丸めます。1時間値が800 μg/m³を超えても「悪い」で、最後の2段階は使いません。",
+    "评级前修约为整数；此处使用 24 小时平均值。": "整数に丸めます。このパネルは24時間平均値を使います。",
+    "两个时段值都必需，并先截断至整数 ppb；任一无效时结果未知。用于官方日报时，1 小时值应为当日最大一小时浓度。": "両方の値が必要で、整数ppbに切り捨てます。無効な値は不明です。公式日報では当日の最大1時間濃度を使います。",
+    "不产生": "該当なし", "1 小时 ≥0.405": "1時間 ≥0.405", "1h 186–304；或 1h ≥305、24h <305": "1時間 186–304、または1時間 ≥305 かつ24時間 <305",
+    "臭氧 O₃ 欧洲 EEA 六档图示": "オゾン O₃・EEA 6段階", "臭氧 O₃ 中国 HJ 633—2026 六档图示": "オゾン O₃・中国 HJ 6段階", "臭氧 O₃ 美国 EPA AQI 六档图示": "オゾン O₃・米国 EPA 6段階",
+    "一氧化碳 CO 中国 HJ 633—2026 六档图示": "CO・中国 HJ 6段階", "一氧化碳 CO 美国 EPA AQI 六档图示": "CO・米国 EPA 6段階",
+    "二氧化硫 SO₂ 欧洲 EEA 六档图示": "SO₂・EEA 6段階", "二氧化硫 SO₂ 中国 HJ 633—2026 · 实时报 六档图示": "SO₂・中国 HJ 速報", "二氧化硫 SO₂ 中国 HJ 633—2026 · 日报 六档图示": "SO₂・中国 HJ 日報", "二氧化硫 SO₂ 美国 EPA AQI 六档图示": "SO₂・米国 EPA 6段階"
+  });
+
+  Object.assign(EN, {
+    "参考德国 UBA 2008 CO₂ 指导值。浓度升高时，提示留意并加强通风。": "Based on the German UBA 2008 CO₂ guidance. Higher concentrations prompt closer attention to ventilation.",
+    "逐项了解环境指标的分档边界、可选标准与评级结果。": "Explore rating boundaries, standard options, and results for each environmental metric.",
+    "找到你关注的指标，查看读数如何分档、可选标准有何不同，以及评级结果代表什么。图标和色值收录在设计参考中。": "Find your metric to understand its rating bands, standard options, and results. Icons and color values are available in Design Reference.",
+    "逐项查看环境指标的分档与结果解读。": "Explore rating bands and results for each environmental metric."
+  });
+  Object.assign(JA, {
+    "参考德国 UBA 2008 CO₂ 指导值。浓度升高时，提示留意并加强通风。": "ドイツUBAの2008年CO₂指針を参照し、濃度の上昇に応じて換気を案内します。",
+    "逐项了解环境指标的分档边界、可选标准与评级结果。": "各環境指標の評価区分、選択できる基準と結果を確認できます。",
+    "找到你关注的指标，查看读数如何分档、可选标准有何不同，以及评级结果代表什么。图标和色值收录在设计参考中。": "気になる指標の評価区分、基準の違い、結果の意味を確認できます。アイコンと色の値はデザイン資料にまとめています。",
+    "逐项查看环境指标的分档与结果解读。": "各環境指標の評価区分と結果の意味を確認できます。"
+  });
+  Object.assign(EN, {"花粉分级图示": "Pollen rating scale", "未检出": "Not detected", "0 粒/m³": "0 grains/m³"});
+  Object.assign(JA, {"花粉分级图示": "花粉の評価区分", "未检出": "未検出", "0 粒/m³": "0 個/m³"});
+  Object.assign(window.ENV_GUIDE_ZH_HANT, {"花粉分级图示": "花粉分級圖示", "未检出": "未檢出", "0 粒/m³": "0 粒/m³"});
+  Object.assign(EN, {"按 WHO 建议，UVI 对公众报告时取最近整数；预报或报告至少应标明当日最大值，当前值与当日最大值应分开标注。色条采用 WHO 指定的 RGB 色值，浅色背景和深色文字为产品可读性配色。": "WHO recommends rounding public UVI reports to the nearest integer and showing at least the daily maximum. Label current and daily maximum readings separately. The color bars use WHO’s specified RGB values; pale backgrounds and dark text are product choices for readability.", "紫外线五档的状态色和图示色采用 WHO 指定的 RGB 原值；标签背景、文字色及未知配色为产品设计值。当前未提供独立的紫外线状态色 API。": "The five UV status and chart colors use WHO’s specified RGB values. Label backgrounds, text colors, and the Unknown palette are product design choices. There is currently no dedicated UV status color API.", "五档 + 未知": "Five levels + Unknown", "WHO 配色规范 ↗": "WHO color specification ↗"});
+  Object.assign(JA, {"按 WHO 建议，UVI 对公众报告时取最近整数；预报或报告至少应标明当日最大值，当前值与当日最大值应分开标注。色条采用 WHO 指定的 RGB 色值，浅色背景和深色文字为产品可读性配色。": "WHOはUVIを最も近い整数で報告し、少なくとも日最大値を示すよう勧めています。現在値と日最大値は区別してください。色帯にはWHO指定のRGB値を使い、淡い背景と濃い文字は読みやすさのための製品配色です。", "紫外线五档的状态色和图示色采用 WHO 指定的 RGB 原值；标签背景、文字色及未知配色为产品设计值。当前未提供独立的紫外线状态色 API。": "紫外線の5段階の状態色とグラフ色はWHO指定のRGB値です。ラベル背景、文字色、不明の配色は製品のデザイン値です。現在、専用の紫外線状態色APIはありません。", "五档 + 未知": "5段階＋不明", "WHO 配色规范 ↗": "WHO配色仕様 ↗"});
+  Object.assign(window.ENV_GUIDE_ZH_HANT, {"按 WHO 建议，UVI 对公众报告时取最近整数；预报或报告至少应标明当日最大值，当前值与当日最大值应分开标注。色条采用 WHO 指定的 RGB 色值，浅色背景和深色文字为产品可读性配色。": "依 WHO 建議，UVI 對公眾報告時取最近整數；預報或報告至少應標明當日最大值，目前值與當日最大值應分開標註。色條採用 WHO 指定的 RGB 色值，淺色背景與深色文字為產品易讀性配色。", "紫外线五档的状态色和图示色采用 WHO 指定的 RGB 原值；标签背景、文字色及未知配色为产品设计值。当前未提供独立的紫外线状态色 API。": "紫外線五檔的狀態色與圖示色採用 WHO 指定的 RGB 原值；標籤背景、文字色與未知配色為產品設計值。目前未提供獨立的紫外線狀態色 API。", "五档 + 未知": "五檔＋未知", "WHO 配色规范 ↗": "WHO 配色規範 ↗"});
+  Object.assign(EN, {"按 WHO 建议，UVI 对公众报告时取最近整数；预报或报告至少应标明当日最大值，当前值与当日最大值应分开标注。标签使用便于阅读的浅色背景和深色文字，具体配色见设计参考。": "WHO recommends rounding public UVI reports to the nearest integer and showing at least the daily maximum. Label current and daily maximum readings separately. Labels use pale backgrounds and dark text for readability; see Design Reference for color values."});
+  Object.assign(JA, {"按 WHO 建议，UVI 对公众报告时取最近整数；预报或报告至少应标明当日最大值，当前值与当日最大值应分开标注。标签使用便于阅读的浅色背景和深色文字，具体配色见设计参考。": "WHOはUVIを最も近い整数で報告し、少なくとも日最大値を示すよう勧めています。現在値と日最大値は区別してください。ラベルには読みやすい淡い背景と濃い文字を使い、配色の詳細はデザイン資料にまとめています。"});
+  Object.assign(window.ENV_GUIDE_ZH_HANT, {"按 WHO 建议，UVI 对公众报告时取最近整数；预报或报告至少应标明当日最大值，当前值与当日最大值应分开标注。标签使用便于阅读的浅色背景和深色文字，具体配色见设计参考。": "依 WHO 建議，UVI 對公眾報告時取最近整數；預報或報告至少應標明當日最大值，目前值與當日最大值應分開標註。標籤使用便於閱讀的淺色背景與深色文字，具體配色見設計參考。"});
+  EN["开发参考"] = "Developer Guide";
+  JA["开发参考"] = "開発者ガイド";
+  if (window.ENV_GUIDE_ZH_HANT) window.ENV_GUIDE_ZH_HANT["开发参考"] = "開發參考";
+  EN["设计参考"] = "Design Reference";
+  JA["设计参考"] = "デザイン資料";
+  if (window.ENV_GUIDE_ZH_HANT) window.ENV_GUIDE_ZH_HANT["设计参考"] = "設計參考";
+  Object.assign(EN, window.ENV_DESIGN_I18N?.en || {});
+  Object.assign(JA, window.ENV_DESIGN_I18N?.ja || {});
+  Object.assign(window.ENV_GUIDE_ZH_HANT || {}, window.ENV_DESIGN_I18N?.["zh-Hant"] || {});
   const localeAliases = { "zh-cn": "zh-Hans", "zh-sg": "zh-Hans", "zh-tw": "zh-Hant", "zh-hk": "zh-Hant", "zh-hant": "zh-Hant", "zh-hans": "zh-Hans", en: "en", ja: "ja", "ja-jp": "ja" };
   const requested = new URLSearchParams(window.location.search).get("lang");
   const locale = localeAliases[(requested || "zh-Hans").toLowerCase()] || "zh-Hans";
@@ -462,7 +654,7 @@
   if (locale !== "zh-Hans") {
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode(node) {
-        return node.parentElement?.closest("script, style, option") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+        return node.parentElement?.closest('script, style, option, [translate="no"], [data-copy-key]') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
       }
     });
     const nodes = [];
@@ -476,15 +668,67 @@
     document.title = translate(document.title);
   }
 
-  document.documentElement.lang = locale === "zh-Hans" ? "zh-CN" : locale === "zh-Hant" ? "zh-Hant" : locale;
-  const select = document.querySelector("#language-select");
-  if (select) {
-    select.value = locale;
-    select.addEventListener("change", () => {
-      const url = new URL(window.location.href);
-      if (select.value === "zh-Hans") url.searchParams.delete("lang");
-      else url.searchParams.set("lang", select.value);
-      window.location.assign(`${url.pathname}${url.search}${url.hash}`);
-    });
+  const developerContent = document.querySelector('[data-developer-content]');
+  if (developerContent && window.ENV_DEVELOPER_CONTENT?.[locale]) {
+    developerContent.innerHTML = window.ENV_DEVELOPER_CONTENT[locale];
+    const title = locale === 'en' ? 'Developer Guide' : locale === 'ja' ? '開発者ガイド' : locale === 'zh-Hant' ? '開發參考' : '开发参考';
+    document.title = title;
+    const metadata = window.ENV_DEVELOPER_META?.[locale];
+    if (metadata) {
+      document.querySelector('meta[name="description"]')?.setAttribute('content', metadata.description);
+      document.querySelector('meta[name="apple-mobile-web-app-title"]')?.setAttribute('content', metadata.title);
+    }
   }
+  const siteNames = {
+    "zh-Hans": "青萍环境评级指南",
+    "zh-Hant": "青萍環境評級指南",
+    en: "Qingping Environmental Rating Guide",
+    ja: "Qingping 環境評価ガイド"
+  };
+  const pageNames = {
+    "indicators.html": {"zh-Hans":"环境指标解读","zh-Hant":"環境指標解讀",en:"Environmental Metrics Explained",ja:"環境指標の読み解き"},
+    "design.html": {"zh-Hans":"设计参考","zh-Hant":"設計參考",en:"Design Reference",ja:"デザイン資料"},
+    "developer.html": {"zh-Hans":"开发参考","zh-Hant":"開發參考",en:"Developer Guide",ja:"開発者ガイド"}
+  };
+  const siteName = siteNames[locale];
+  const pageName = pageNames[window.location.pathname.split('/').pop()]?.[locale];
+  document.title = pageName ? `${pageName}${locale === 'en' ? ' | ' : '｜'}${siteName}` : siteName;
+  document.querySelector('meta[name="apple-mobile-web-app-title"]')?.setAttribute('content', siteName);
+  document.querySelectorAll('.brand > span, .footer-brand > span').forEach(node => { node.textContent = siteName; });
+  const homeLabel = locale === 'en' ? `${siteName} home` : locale === 'ja' ? `${siteName} ホーム` : `${siteName}首頁`;
+  document.querySelector('.brand')?.setAttribute('aria-label', locale === 'zh-Hans' ? `${siteName}首页` : homeLabel);
+  document.documentElement.lang = locale === "zh-Hans" ? "zh-CN" : locale === "zh-Hant" ? "zh-Hant" : locale;
+  document.querySelectorAll("[data-copy-key]").forEach((element) => {
+    const copy = window.ENV_METRIC_COPY?.[locale]?.[element.dataset.copyKey];
+    if (copy != null) element.textContent = copy;
+  });
+  document.querySelectorAll('a[href^="index.html"], a[href^="indicators.html"], a[href^="design.html"], a[href^="developer.html"]').forEach((link) => {
+    const destination = new URL(link.getAttribute("href"), window.location.href);
+    if (locale === "zh-Hans") destination.searchParams.delete("lang");
+    else destination.searchParams.set("lang", locale);
+    link.href = `${destination.pathname.split("/").pop()}${destination.search}${destination.hash}`;
+  });
+  const scrollKey = "environment-language-scroll";
+  document.querySelectorAll("[data-language]").forEach((link) => {
+    const language = link.dataset.language;
+    const destination = new URL(window.location.href);
+    if (language === "zh-Hans") destination.searchParams.delete("lang");
+    else destination.searchParams.set("lang", language);
+    link.href = `${destination.pathname}${destination.search}${destination.hash}`;
+    if (language === locale) link.setAttribute("aria-current", "true");
+    link.addEventListener("click", (event) => {
+      if (language === locale) { event.preventDefault(); return; }
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      try { sessionStorage.setItem(scrollKey, JSON.stringify({ path: destination.pathname, bottom: document.documentElement.scrollHeight - window.innerHeight - window.scrollY })); } catch {}
+    });
+  });
+  try {
+    const saved = JSON.parse(sessionStorage.getItem(scrollKey) || "null");
+    sessionStorage.removeItem(scrollKey);
+    if (saved?.path === window.location.pathname) {
+      window.addEventListener("load", () => {
+        window.scrollTo({ top: document.documentElement.scrollHeight - window.innerHeight - saved.bottom, behavior: "instant" });
+      }, { once: true });
+    }
+  } catch {}
 })();

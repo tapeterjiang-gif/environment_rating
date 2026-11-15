@@ -101,7 +101,7 @@ final class EnvironmentRatingTests: XCTestCase {
         XCTAssertEqual(pm?.text.hex, "#365314")
 
         let co2 = EnvironmentColors.air(.co2, quality: .moderate)
-        XCTAssertEqual(co2, pm)
+        XCTAssertEqual(co2, EnvironmentColors.air(.pm25, quality: .moderate))
         XCTAssertNil(EnvironmentColors.air(.co2, quality: .fair))
         XCTAssertNil(EnvironmentColors.air(.tvoc, quality: .good))
 

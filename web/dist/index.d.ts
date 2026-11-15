@@ -16,6 +16,50 @@ export declare const ConcentrationLevel: {
     readonly critical: "critical";
 };
 export type ConcentrationLevel = typeof ConcentrationLevel[keyof typeof ConcentrationLevel];
+export declare const PollenStandard: {
+    readonly nab: "nab";
+    readonly meteoswiss: "meteoswiss";
+};
+export type PollenStandard = typeof PollenStandard[keyof typeof PollenStandard];
+export declare const PollenType: {
+    readonly unknown: "unknown";
+    readonly total: "total";
+    readonly tree: "tree";
+    readonly grass: "grass";
+    readonly weed: "weed";
+    readonly hazel: "hazel";
+    readonly alder: "alder";
+    readonly ash: "ash";
+    readonly birch: "birch";
+    readonly hornbeam: "hornbeam";
+    readonly plane: "plane";
+    readonly oak: "oak";
+    readonly beech: "beech";
+    readonly chestnut: "chestnut";
+    readonly sorrel: "sorrel";
+    readonly plantain: "plantain";
+    readonly mugwort: "mugwort";
+    readonly ragweed: "ragweed";
+};
+export type PollenType = typeof PollenType[keyof typeof PollenType];
+export declare const PollenRating: {
+    readonly unknown: "unknown";
+    readonly absent: "absent";
+    readonly low: "low";
+    readonly moderate: "moderate";
+    readonly high: "high";
+    readonly veryHigh: "very-high";
+};
+export type PollenRating = typeof PollenRating[keyof typeof PollenRating];
+export declare const UVIndexRating: {
+    readonly unknown: "unknown";
+    readonly low: "low";
+    readonly moderate: "moderate";
+    readonly high: "high";
+    readonly veryHigh: "very-high";
+    readonly extreme: "extreme";
+};
+export type UVIndexRating = typeof UVIndexRating[keyof typeof UVIndexRating];
 export declare const PMStandard: {
     readonly eeaAQI2024: "eea-aqi-2024";
     readonly hj6332026: "hj-633-2026";
@@ -85,6 +129,11 @@ export declare const EnvironmentParameter: {
     readonly tvoc: "tvoc";
     readonly noise: "noise";
     readonly illuminance: "illuminance";
+    readonly o3: "o3";
+    readonly co: "co";
+    readonly so2: "so2";
+    readonly pollen: "pollen";
+    readonly uvIndex: "uv-index";
 };
 export type EnvironmentParameter = typeof EnvironmentParameter[keyof typeof EnvironmentParameter];
 export interface MaterialIcon {
@@ -126,11 +175,34 @@ export interface AirRatingApi {
     pm25(concentration: number, standard?: PMStandard): AirQuality;
     pm10(concentration: number, standard?: PMStandard): AirQuality;
     formaldehyde(concentration: number, standard?: FormaldehydeStandard): AirQuality;
+    /** Outdoor O₃, hourly μg/m³. */
+    o3Eea(oneHour: number): AirQuality;
+    /** Outdoor O₃, HJ real-time hourly μg/m³. */
+    o3Hj(oneHour: number): AirQuality;
+    /** Outdoor O₃, EPA ppm; one-hour value is optional. */
+    o3Epa(eightHour: number, oneHour?: number): AirQuality;
+    /** Outdoor CO, HJ real-time hourly mg/m³. */
+    coHj(oneHour: number): AirQuality;
+    /** Outdoor CO, EPA eight-hour ppm. */
+    coEpa(eightHour: number): AirQuality;
+    /** Outdoor SO₂, EEA hourly μg/m³. */
+    so2Eea(oneHour: number): AirQuality;
+    /** Outdoor SO₂, HJ real-time hourly μg/m³; capped at Poor. */
+    so2HjHourly(oneHour: number): AirQuality;
+    /** Outdoor SO₂, HJ daily 24-hour μg/m³. */
+    so2HjDaily(twentyFourHour: number): AirQuality;
+    /** Outdoor SO₂, EPA ppb; both averaging windows are required. */
+    so2Epa(oneHour: number, twentyFourHour: number): AirQuality;
     overall(input?: AirOverallInput): AirQuality;
     co2Level(ppm: number): ConcentrationLevel;
     pm25Level(concentration: number, standard?: PMStandard): ConcentrationLevel;
     pm10Level(concentration: number, standard?: PMStandard): ConcentrationLevel;
     formaldehydeLevel(concentration: number, standard?: FormaldehydeStandard): ConcentrationLevel;
+    o3EeaLevel(oneHour: number): ConcentrationLevel;
+    o3HjLevel(oneHour: number): ConcentrationLevel;
+    o3EpaLevel(eightHour: number, oneHour?: number): ConcentrationLevel;
+    coHjLevel(oneHour: number): ConcentrationLevel;
+    coEpaLevel(eightHour: number): ConcentrationLevel;
 }
 export interface ThermalComfortApi {
     evaluate(input: ThermalInput): ThermalResult | null;
@@ -139,6 +211,14 @@ export interface ThermalComfortApi {
 export interface SoundLightRatingApi {
     noise(decibels: number, scene: NoiseScene): NoiseRating;
     illuminance(lux: number): IlluminanceRating;
+}
+export interface PollenRatingApi {
+    /** Daily mean grains/m³; standard and measured taxon/group must match. */
+    rate(concentration: number, type: PollenType, standard: PollenStandard): PollenRating;
+}
+export interface UVIndexRatingApi {
+    /** Global Solar UVI, rounded to the nearest integer for WHO categories. */
+    rate(uvi: number): UVIndexRating;
 }
 export interface ParameterColors {
     readonly primary: string;
@@ -162,6 +242,8 @@ export interface EnvironmentRating {
     readonly air: AirRatingApi;
     readonly thermal: ThermalComfortApi;
     readonly soundLight: SoundLightRatingApi;
+    readonly pollen: PollenRatingApi;
+    readonly uvIndex: UVIndexRatingApi;
     readonly colors: EnvironmentColorsApi;
 }
 /** Initialize the Wasm module once, then reuse the returned stateless API. */

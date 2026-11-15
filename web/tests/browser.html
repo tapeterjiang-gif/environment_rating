@@ -10,6 +10,10 @@
     AirQuality,
     EnvironmentParameter,
     IlluminanceRating,
+    PollenRating,
+    PollenStandard,
+    PollenType,
+    UVIndexRating,
     ThermalSensation,
     createEnvironmentRating
   } from "../dist/index.js";
@@ -25,10 +29,15 @@
       clo: 0.5
     });
     const passed = rating.air.co2(1000) === AirQuality.moderate
+      && rating.air.so2Eea(276) === AirQuality.extremelyPoor
+      && rating.air.so2Epa(305, 304) === AirQuality.poor
+      && rating.pollen.rate(20, PollenType.grass, PollenStandard.nab) === PollenRating.high
+      && rating.uvIndex.rate(7.5) === UVIndexRating.veryHigh
       && rating.soundLight.illuminance(540) === IlluminanceRating.detailWork
       && comfort?.sensation === ThermalSensation.neutral
       && rating.colors.parameter(EnvironmentParameter.temperature)?.primary === "#F97316"
-      && rating.colors.air(EnvironmentParameter.co2, AirQuality.moderate)?.graphic === "#A3E635";
+      && rating.colors.parameter(EnvironmentParameter.uvIndex)?.primary === "#6853BE"
+      && rating.colors.air(EnvironmentParameter.co2, AirQuality.moderate)?.graphic === "#FACC15";
     document.body.dataset.result = passed ? "pass" : "fail";
     document.body.textContent = passed ? "PASS" : "FAIL";
   } catch (error) {

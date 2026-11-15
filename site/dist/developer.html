@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="将同一份环境指标文案接入 iOS、Android、青萍 Web 与 LVGL 固件。这里说明资源结构、评级映射、生成流程和各平台的使用方式。">
+  <meta name="theme-color" content="#0564A0">
+  <meta name="apple-mobile-web-app-title" content="青萍环境评级指南">
+  <title>开发参考｜青萍环境评级指南</title>
+  <link rel="icon" href="favicon.ico?v=rounded" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg?v=qingping-brand-20261029">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="alternate" hreflang="zh-Hans" href="https://tapeterjiang-gif.github.io/environment_rating/developer.html">
+  <link rel="alternate" hreflang="zh-Hant" href="https://tapeterjiang-gif.github.io/environment_rating/developer.html?lang=zh-Hant">
+  <link rel="alternate" hreflang="en" href="https://tapeterjiang-gif.github.io/environment_rating/developer.html?lang=en">
+  <link rel="alternate" hreflang="ja" href="https://tapeterjiang-gif.github.io/environment_rating/developer.html?lang=ja">
+  <link rel="alternate" hreflang="x-default" href="https://tapeterjiang-gif.github.io/environment_rating/developer.html">
+  <link rel="stylesheet" href="styles.css">
+  <script src="i18n-zh-hant.js" defer></script>
+  <script src="developer-content.js" defer></script>
+  <script src="i18n.js" defer></script>
+  <script src="site.js" defer></script>
+</head>
+<body class="developer-page">
+<a class="skip-link" href="#main">跳到主要内容</a>
+<header class="site-header">
+    <nav class="nav container" aria-label="主导航">
+      <a class="brand" href="index.html" aria-label="青萍环境评级指南首页">
+        <img class="brand-logo" src="qingping-wordmark-blue.svg?v=blue-073b53-20261029" alt="Qingping" width="80" height="20">
+        <span>青萍环境评级指南</span>
+      </a>
+      <div class="nav-actions">
+        <div class="nav-links"><a href="index.html">评级方法</a><a href="indicators.html">指标解读</a><a href="design.html">设计参考</a><a href="developer.html" aria-current="page">开发参考</a></div>
+      </div>
+    </nav>
+  </header>
+<main id="main" data-developer-content translate="no"><section class="interpret-hero"><div class="container interpret-hero-inner"><span class="eyebrow">Environment developer guide</span><h1>开发参考</h1><p class="lead">将同一份环境指标文案接入 iOS、Android、青萍 Web 与 LVGL 固件。这里说明资源结构、评级映射、生成流程和各平台的使用方式。</p></div></section>
+<section class="section"><div class="container"><article class="developer-chapter"><h2>下载文案资源</h2><p>每个包均包含简体中文、繁体中文、英文和日语。完整包包含文案源、评级映射、各端资源与接入说明；也可以只下载所需平台。</p><div class="download-grid"><a class="download-card download-complete" href="downloads/environment-copy-all.zip" download><strong>完整资源包</strong><span>文案源、全部生成资源与说明文档</span><small>下载 ZIP ↓ · 1280 KB</small></a><a class="download-card " href="downloads/environment-copy-ios.zip" download><strong>iOS</strong><span>EnvironmentCopy.xcstrings 字符串目录</span><small>下载 ZIP ↓ · 303 KB</small></a><a class="download-card " href="downloads/environment-copy-android.zip" download><strong>Android</strong><span>四语言 res 字符串资源</span><small>下载 ZIP ↓ · 205 KB</small></a><a class="download-card " href="downloads/environment-copy-web.zip" download><strong>青萍 Web</strong><span>JSON、查询模块与 TypeScript 声明</span><small>下载 ZIP ↓ · 433 KB</small></a><a class="download-card " href="downloads/environment-copy-lvgl.zip" download><strong>LVGL 固件</strong><span>C 查询接口、枚举头文件与字库字符集</span><small>下载 ZIP ↓ · 157 KB</small></a></div></article></div></section><section class="section"><div class="container"><article class="developer-chapter"><h2>统一文案源</h2><p>项目根目录下的 <code>content/</code> 是指标简介与评级解读的唯一维护来源。四种语言使用相同的指标 ID 和评级 ID：<code>zh-Hans</code>、<code>zh-Hant</code>、<code>en</code>、<code>ja</code>。UTF-8、纯文本，不写 HTML、颜色值或用于排版的换行。</p>
+<ul><li><code>zh-Hans.json</code> 等四个 JSON：人工维护的名称、简介、通用建议、分档标签、短提示与完整提示。</li><li><code>manifest.json</code>：指标分类、适用评级及对应的 <strong>C 枚举符号和数值</strong>。</li><li><code>generated/</code>：自动生成的 iOS、Android、Web 和字库资源。</li><li>根目录 <code>environment_text.h/.c</code>：自动生成的固件文案查询接口。</li></ul>
+<p>JSON 结构为 <code>metrics.co2.name / description / advice / ratings.moderate.label / summary / detail</code>。<code>summary</code> 是可独立编辑的短提示，<code>detail</code> 是完整分档解读；小屏优先使用短提示，详情界面显示简介、建议及完整提示。不要在运行时截断长段落来制作短文案。</p>
+<p>温度与 PMV 使用不同 ID：<code>temperature</code> 只有读数说明，<code>pmv</code> 才有七点冷热感评级。TVOC（<code>tvoc</code>）没有评级。花粉的 <code>unknown</code> 表示无法评级，<code>absent</code> 表示已测得零值。所有有效评级均有 <code>unknown</code> 文案。</p></article></div></section>
+<section class="section"><div class="container"><article class="developer-chapter"><h2>更新和生成</h2><p>在项目根目录执行（只需 Node.js 18 或以上，无额外依赖）：</p>
+<pre translate="no"><code class="language-sh">node scripts/generate-copy.mjs
+node scripts/generate-copy.mjs --check
+node --test tests/test_environment_copy.mjs
+node scripts/package-copy.mjs
+node scripts/package-copy.mjs --check
+node scripts/generate-developer-page.mjs
+node scripts/generate-developer-page.mjs --check</code></pre>
+<p>修改文案时编辑四个语言源文件，然后重新生成；不要直接修改生成文件。增加指标或评级时同步编辑 <code>manifest.json</code>。生成器检查语言键集合、必需字段和纯文本约束；生成的 C 代码还在编译时核对枚举值。</p>
+<p>设计参考网页的解读板块与 <code>site/dist/rating-copy.js</code> 也由此生成。网页 UI 的标题、导航、按钮仍由网页本地化文件维护。<code>--check</code> 只检查资源是否过期，不写文件。</p></article></div></section>
+<section class="section"><div class="container"><article class="developer-chapter"><h2>通用键和映射</h2><p>各端使用完全相同的键，例如：</p>
+<pre translate="no"><code class="language-text">env_co2_name
+env_co2_description
+env_co2_advice
+env_co2_rating_moderate_label
+env_co2_rating_moderate_summary
+env_co2_rating_moderate_detail</code></pre>
+<p>评级查找基于算法返回值，<strong>不是 Matter <code>LevelValue</code></strong>。例如 CO₂ 的 <code>AIR_MODERATE</code>（3）对应 <code>moderate</code>；<code>AIR_FAIR</code>（2）不用于 CO₂，会作为 <code>unknown</code> 处理。PM、甲醛、O₃、CO、SO₂ 使用六档 <code>AirQuality</code> 映射，其他指标使用各自枚举。完整映射见 <code>manifest.json</code>，不解析中文标签、不根据浓度在文案中重新分档。</p>
+<p>语言不存在时使用英文；支持 <code>zh-CN</code> / <code>zh_CN</code>、<code>zh-TW</code>、<code>zh-HK</code>、<code>en-US</code>、<code>ja-JP</code> 等常见别名。未找到文本键返回空结果，不把某个正常等级当作缺省结果。</p></article></div></section>
+<section class="section"><div class="container"><article class="developer-chapter"><h2>评级标准说明</h2><p>四个语言源文件的 <code>standards</code> 节点提供 16 套标准的 <code>name</code>（名称）、<code>description</code>（简介）、<code>organization</code>（发布组织）。稳定 ID 与出处、组织官网链接见 <code>manifest.json</code> 的 <code>standards</code>。</p>
+<p>各平台的文本键为 <code>env_standard_who_uv_index_name</code>、<code>env_standard_who_uv_index_description</code>、<code>env_standard_who_uv_index_organization</code>。多组织标准还生成带序号的 <code>organization_1</code>、<code>organization_2</code>，便于分别展示官网链接。Web 可调用 <code>getStandard('zh-Hans', 'who_uv_index')</code> 取得三项文字；固件可用 <code>env_text_get()</code> 查询相同键。</p></article></div></section>
+<section class="section"><div class="container"><article class="developer-chapter"><h2>iOS</h2><p>将 <code>generated/ios/EnvironmentCopy.xcstrings</code> 加入 App target。使用字符串目录名称 <code>EnvironmentCopy</code>：</p>
+<pre translate="no"><code class="language-swift">let label = String(localized: &quot;env_co2_rating_moderate_label&quot;,
+                   table: &quot;EnvironmentCopy&quot;)
+let detail = String(localized: &quot;env_co2_rating_moderate_detail&quot;,
+                    table: &quot;EnvironmentCopy&quot;)</code></pre>
+<p>App 语言由系统本地化处理；项目需启用相应语言。若把目录放入自己的 Swift Package，请将它声明为 package resource，并在查询时传入对应 bundle。这里生成的是可直接导入的资源，不会自动修改现有 Swift 算法包。</p></article></div></section>
+<section class="section"><div class="container"><article class="developer-chapter"><h2>Android</h2><p>将 <code>generated/android/res/</code> 下的四个语言目录合并到 App 的 <code>src/main/res/</code>，也可在 Gradle 中将该目录加入资源路径：</p>
+<pre translate="no"><code class="language-kotlin">val label = context.getString(R.string.env_co2_rating_moderate_label)
+val detail = context.getString(R.string.env_co2_rating_moderate_detail)</code></pre>
+<p><code>values/</code> 为英文缺省，另有 <code>values-b+zh+Hans</code>、<code>values-b+zh+Hant</code> 和 <code>values-ja</code>。字符串不使用格式占位符，XML 已完成引号和特殊字符转义。</p></article></div></section>
+<section class="section"><div class="container"><article class="developer-chapter"><h2>青萍 Web</h2><p>可以按语言加载 <code>generated/web/</code> 的 JSON；需要便捷查询时直接导入生成的模块，无需构建依赖：</p>
+<pre translate="no"><code class="language-js">import { getMetric, getRating, getText } from './environment-copy.mjs';
+
+const metric = getMetric('zh-Hans', 'co2');
+const copy = getRating('zh-Hans', 'co2', 3); // 或传入 'moderate'
+// metric.description / metric.advice
+// copy.label / copy.summary / copy.detail
+const name = getText('zh-Hans', 'env_co2_name');</code></pre>
+<p>模块附带 <code>.d.ts</code>，返回只读数据；非法指标/键返回 <code>null</code>，非法评级回退到该指标的 <code>unknown</code>。直接导入模块会包含四种语言；需要按需加载时使用独立 JSON 和 <code>manifest.json</code>。</p></article></div></section>
+<section class="section"><div class="container"><article class="developer-chapter"><h2>固件 / LVGL</h2><p>将根目录 <code>environment_text.c</code> 加入工程源码；它依赖本项目各评级头文件做枚举编译检查，不依赖 LVGL、不分配堆内存。CMake 工程可以链接 <code>environment_text</code> target；ESP-IDF 工程需要将该 <code>.c</code> 文件加入自己的组件 <code>SRCS</code>。</p>
+<pre translate="no"><code class="language-c">#include &quot;air_quality_rating.h&quot;
+#include &quot;environment_text.h&quot;
+
+/* rating 由评级算法按对应标准计算。 */
+air_quality_t rating = AIR_MODERATE;
+const char *text = env_text_get_rating(&quot;zh-Hans&quot;, &quot;co2&quot;, rating, &quot;summary&quot;);
+if (text != NULL) {
+    lv_label_set_text(label, text);
+}</code></pre>
+<p>简介可用 <code>env_text_get(&quot;zh-Hans&quot;, &quot;env_co2_description&quot;)</code> 查询。函数返回静态 UTF-8 字符串，生命周期覆盖整个程序；不要求运行时解析 JSON。LVGL 端自行设置字体、换行与控件宽度，勿修改返回的字符串。</p>
+<p><code>generated/fonts/</code> 提供按语言和全部语言合并的去重字符集，供字体转换流程读取。它们只覆盖这些文案；测量数值、单位、日期和其他 UI 文本需要的字符，应在制作字库时额外合并。不要把字符集文本当作字体文件。</p></article></div></section>
+<section class="section"><div class="container"><article class="developer-chapter"><h2>发布核对</h2><p>一次更新应同时交付四个源文件、映射与生成文件。原生资源已生成并通过结构检查，但仍需开发者加入具体 App target；最终排版和字库显示需在相应设备中确认。</p>
+<p>开发参考页提供完整资源包与 iOS、Android、Web、LVGL 独立 ZIP 下载，均包含四种语言。运行 <code>node scripts/package-copy.mjs</code> 可更新 <code>site/dist/downloads/</code> 下的文件及校验清单，然后重新生成开发参考页。下载包用于集成；维护文案并重新生成资源时，请在项目仓库中执行上述命令。</p></article></div></section></main>
+<footer class="page-footer"><div class="container footer-inner"><div class="footer-top"><a class="footer-brand" href="index.html"><img src="qingping-wordmark-blue.svg?v=blue-073b53-20261029" alt="Qingping" width="80" height="20"><span>青萍环境评级指南</span></a><nav class="footer-languages" id="languages" aria-label="选择语言" translate="no"><a href="?lang=zh-Hans" data-language="zh-Hans" lang="zh-Hans" hreflang="zh-Hans">简体</a><a href="?lang=zh-Hant" data-language="zh-Hant" lang="zh-Hant" hreflang="zh-Hant">繁體</a><a href="?lang=en" data-language="en" lang="en" hreflang="en">EN</a><a href="?lang=ja" data-language="ja" lang="ja" hreflang="ja">日本語</a></nav></div><div class="footer-bottom"><small>© <span data-year></span> Qingping</small><small>environment_rating</small></div></div></footer>
+</body>
+</html>

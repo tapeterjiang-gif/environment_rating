@@ -35,7 +35,7 @@ enum class EnvironmentParameter(
 ) {
     TEMPERATURE(0, "device_thermostat", R.drawable.ic_environment_temperature),
     HUMIDITY(1, "humidity_percentage", R.drawable.ic_environment_humidity),
-    CO2(2, "co2", R.drawable.ic_environment_co2),
+    CO2(2, "air", R.drawable.ic_environment_co2),
     PM25(3, "blur_on", R.drawable.ic_environment_pm),
     PM10(4, "blur_on", R.drawable.ic_environment_pm),
     HCHO(5, "science", R.drawable.ic_environment_hcho),

@@ -78,7 +78,8 @@ typedef enum {
 
 /* Matter 1.6 Concentration Measurement LevelValueEnum, not AirQualityEnum.
  * LevelIndication is required; MediumLevel enables MEDIUM and CriticalLevel
- * enables CRITICAL. CO2 uses LOW/MEDIUM/HIGH only; PM and HCHO use all four.
+ * enables CRITICAL. CO2 uses LOW/MEDIUM/HIGH only; PM, HCHO, O3 and CO
+ * use all four.
  * https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/clusters/ConcentrationMeasurement.xml
  */
 typedef enum {
@@ -89,7 +90,8 @@ typedef enum {
     AIR_LEVEL_CRITICAL = 4
 } air_level_t;
 
-/* Units: CO2 in ppm; PM in ug/m3; HCHO in mg/m3.
+/* Units: CO2 in ppm; PM in ug/m3; HCHO in mg/m3. Outdoor O3 and CO
+ * units are documented beside their separate declarations below.
  * Inputs are measurement results already averaged or otherwise processed by
  * the caller according to the applicable reference and reporting mode.
  * Reuse the corresponding air_rate_* rules, then apply this product mapping:
@@ -103,6 +105,48 @@ air_level_t air_level_co2(double co2);
 air_level_t air_level_pm25(air_pm_std_t standard, double pm25);
 air_level_t air_level_pm10(air_pm_std_t standard, double pm10);
 air_level_t air_level_hcho(air_hcho_std_t standard, double hcho);
+
+/* Outdoor ozone, rated independently from the indoor overall grade.
+ * EEA and HJ inputs are 1-hour averages in ug/m3. EPA inputs are ppm:
+ * the 8-hour average is required; pass NAN for an unavailable optional
+ * 1-hour average. The caller prepares the averaging windows.
+ * EPA 8-hour ozone does not define AQI >= 301; that grade requires a
+ * qualifying 1-hour value. Invalid required inputs return UNKNOWN.
+ * Matter's Ozone Concentration Measurement cluster is 0x0415; Matter
+ * defines LevelValue labels but does not define these thresholds.
+ */
+air_quality_t air_rate_o3_eea(double one_hour);
+air_quality_t air_rate_o3_hj(double one_hour);
+air_quality_t air_rate_o3_epa(double eight_hour, double one_hour);
+air_level_t air_level_o3_eea(double one_hour);
+air_level_t air_level_o3_hj(double one_hour);
+air_level_t air_level_o3_epa(double eight_hour, double one_hour);
+
+/* Outdoor carbon monoxide, independent of indoor overall rating.
+ * HJ 633-2026 uses a 1-hour average in mg/m3, rounded to one decimal.
+ * EPA AQI uses an 8-hour average in ppm, truncated to one decimal.
+ * The caller prepares the averaging window; invalid values return UNKNOWN.
+ * Matter's Carbon Monoxide Concentration Measurement cluster is 0x040C.
+ */
+air_quality_t air_rate_co_hj(double one_hour);
+air_quality_t air_rate_co_epa(double eight_hour);
+air_level_t air_level_co_hj(double one_hour);
+air_level_t air_level_co_epa(double eight_hour);
+
+/* Outdoor sulfur dioxide; all results are single-pollutant grades only.
+ * EEA and HJ use ug/m3; EPA uses ppb. EEA and HJ hourly inputs are
+ * 1-hour averages; HJ daily is a 24-hour average. EPA requires both the
+ * 1-hour concentration and 24-hour average. For an official daily EPA
+ * report, supply the daily maximum 1-hour concentration.
+ * HJ hourly IAQI is capped at 200 above 800 ug/m3, so it never returns
+ * VERY_POOR or EXTREMELY_POOR. Invalid inputs return UNKNOWN.
+ * Matter 1.6 has no SO2 concentration-measurement cluster; these functions
+ * do not provide a Matter LevelValue mapping.
+ */
+air_quality_t air_rate_so2_eea(double one_hour);
+air_quality_t air_rate_so2_hj_hourly(double one_hour);
+air_quality_t air_rate_so2_hj_daily(double twenty_four_hour);
+air_quality_t air_rate_so2_epa(double one_hour, double twenty_four_hour);
 
 
 /* CO2 bands reference UBA 2008, Health evaluation of carbon dioxide in

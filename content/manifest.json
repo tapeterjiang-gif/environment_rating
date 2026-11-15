@@ -1,0 +1,684 @@
+{
+  "locales": [
+    "zh-Hans",
+    "zh-Hant",
+    "en",
+    "ja"
+  ],
+  "defaultLocale": "en",
+  "metrics": {
+    "temperature": {
+      "group": "thermal",
+      "enumType": null,
+      "ratings": []
+    },
+    "pmv": {
+      "group": "thermal",
+      "enumType": "thermal_sensation_t",
+      "ratings": [
+        {
+          "id": "unknown",
+          "enum": "THERMAL_UNKNOWN",
+          "value": 0
+        },
+        {
+          "id": "cold",
+          "enum": "THERMAL_COLD",
+          "value": 1
+        },
+        {
+          "id": "cool",
+          "enum": "THERMAL_COOL",
+          "value": 2
+        },
+        {
+          "id": "slightly_cool",
+          "enum": "THERMAL_SLIGHTLY_COOL",
+          "value": 3
+        },
+        {
+          "id": "neutral",
+          "enum": "THERMAL_NEUTRAL",
+          "value": 4
+        },
+        {
+          "id": "slightly_warm",
+          "enum": "THERMAL_SLIGHTLY_WARM",
+          "value": 5
+        },
+        {
+          "id": "warm",
+          "enum": "THERMAL_WARM",
+          "value": 6
+        },
+        {
+          "id": "hot",
+          "enum": "THERMAL_HOT",
+          "value": 7
+        }
+      ]
+    },
+    "humidity": {
+      "group": "thermal",
+      "enumType": "thermal_humidity_t",
+      "ratings": [
+        {
+          "id": "unknown",
+          "enum": "THERMAL_HUMIDITY_UNKNOWN",
+          "value": 0
+        },
+        {
+          "id": "dry",
+          "enum": "THERMAL_HUMIDITY_DRY",
+          "value": 1
+        },
+        {
+          "id": "suitable",
+          "enum": "THERMAL_HUMIDITY_SUITABLE",
+          "value": 2
+        },
+        {
+          "id": "slightly_humid",
+          "enum": "THERMAL_HUMIDITY_SLIGHTLY_HUMID",
+          "value": 3
+        },
+        {
+          "id": "humid",
+          "enum": "THERMAL_HUMIDITY_HUMID",
+          "value": 4
+        }
+      ]
+    },
+    "co2": {
+      "group": "air",
+      "enumType": "air_quality_t",
+      "ratings": [
+        {
+          "id": "unknown",
+          "enum": "AIR_UNKNOWN",
+          "value": 0
+        },
+        {
+          "id": "good",
+          "enum": "AIR_GOOD",
+          "value": 1
+        },
+        {
+          "id": "moderate",
+          "enum": "AIR_MODERATE",
+          "value": 3
+        },
+        {
+          "id": "poor",
+          "enum": "AIR_POOR",
+          "value": 4
+        }
+      ]
+    },
+    "pm25": {
+      "group": "air",
+      "enumType": "air_quality_t",
+      "ratings": [
+        {
+          "id": "unknown",
+          "enum": "AIR_UNKNOWN",
+          "value": 0
+        },
+        {
+          "id": "good",
+          "enum": "AIR_GOOD",
+          "value": 1
+        },
+        {
+          "id": "fair",
+          "enum": "AIR_FAIR",
+          "value": 2
+        },
+        {
+          "id": "moderate",
+          "enum": "AIR_MODERATE",
+          "value": 3
+        },
+        {
+          "id": "poor",
+          "enum": "AIR_POOR",
+          "value": 4
+        },
+        {
+          "id": "very_poor",
+          "enum": "AIR_VERY_POOR",
+          "value": 5
+        },
+        {
+          "id": "extremely_poor",
+          "enum": "AIR_EXTREMELY_POOR",
+          "value": 6
+        }
+      ]
+    },
+    "pm10": {
+      "group": "air",
+      "enumType": "air_quality_t",
+      "ratings": [
+        {
+          "id": "unknown",
+          "enum": "AIR_UNKNOWN",
+          "value": 0
+        },
+        {
+          "id": "good",
+          "enum": "AIR_GOOD",
+          "value": 1
+        },
+        {
+          "id": "fair",
+          "enum": "AIR_FAIR",
+          "value": 2
+        },
+        {
+          "id": "moderate",
+          "enum": "AIR_MODERATE",
+          "value": 3
+        },
+        {
+          "id": "poor",
+          "enum": "AIR_POOR",
+          "value": 4
+        },
+        {
+          "id": "very_poor",
+          "enum": "AIR_VERY_POOR",
+          "value": 5
+        },
+        {
+          "id": "extremely_poor",
+          "enum": "AIR_EXTREMELY_POOR",
+          "value": 6
+        }
+      ]
+    },
+    "hcho": {
+      "group": "air",
+      "enumType": "air_quality_t",
+      "ratings": [
+        {
+          "id": "unknown",
+          "enum": "AIR_UNKNOWN",
+          "value": 0
+        },
+        {
+          "id": "good",
+          "enum": "AIR_GOOD",
+          "value": 1
+        },
+        {
+          "id": "fair",
+          "enum": "AIR_FAIR",
+          "value": 2
+        },
+        {
+          "id": "moderate",
+          "enum": "AIR_MODERATE",
+          "value": 3
+        },
+        {
+          "id": "poor",
+          "enum": "AIR_POOR",
+          "value": 4
+        },
+        {
+          "id": "very_poor",
+          "enum": "AIR_VERY_POOR",
+          "value": 5
+        },
+        {
+          "id": "extremely_poor",
+          "enum": "AIR_EXTREMELY_POOR",
+          "value": 6
+        }
+      ]
+    },
+    "tvoc": {
+      "group": "air",
+      "enumType": null,
+      "ratings": []
+    },
+    "noise": {
+      "group": "sound_light",
+      "enumType": "noise_level_t",
+      "ratings": [
+        {
+          "id": "unknown",
+          "enum": "NOISE_UNKNOWN",
+          "value": 0
+        },
+        {
+          "id": "quiet",
+          "enum": "NOISE_QUIET",
+          "value": 1
+        },
+        {
+          "id": "noticeable",
+          "enum": "NOISE_NOTICEABLE",
+          "value": 2
+        },
+        {
+          "id": "loud",
+          "enum": "NOISE_LOUD",
+          "value": 3
+        },
+        {
+          "id": "very_loud",
+          "enum": "NOISE_VERY_LOUD",
+          "value": 4
+        }
+      ]
+    },
+    "illuminance": {
+      "group": "sound_light",
+      "enumType": "illuminance_level_t",
+      "ratings": [
+        {
+          "id": "unknown",
+          "enum": "ILLUMINANCE_UNKNOWN",
+          "value": 0
+        },
+        {
+          "id": "low_light",
+          "enum": "ILLUMINANCE_LOW_LIGHT",
+          "value": 1
+        },
+        {
+          "id": "ambient",
+          "enum": "ILLUMINANCE_AMBIENT",
+          "value": 2
+        },
+        {
+          "id": "daily_activity",
+          "enum": "ILLUMINANCE_DAILY_ACTIVITY",
+          "value": 3
+        },
+        {
+          "id": "reading",
+          "enum": "ILLUMINANCE_READING",
+          "value": 4
+        },
+        {
+          "id": "focused_activity",
+          "enum": "ILLUMINANCE_FOCUSED_ACTIVITY",
+          "value": 5
+        },
+        {
+          "id": "detail_work",
+          "enum": "ILLUMINANCE_DETAIL_WORK",
+          "value": 6
+        }
+      ]
+    },
+    "o3": {
+      "group": "outdoor",
+      "enumType": "air_quality_t",
+      "ratings": [
+        {
+          "id": "unknown",
+          "enum": "AIR_UNKNOWN",
+          "value": 0
+        },
+        {
+          "id": "good",
+          "enum": "AIR_GOOD",
+          "value": 1
+        },
+        {
+          "id": "fair",
+          "enum": "AIR_FAIR",
+          "value": 2
+        },
+        {
+          "id": "moderate",
+          "enum": "AIR_MODERATE",
+          "value": 3
+        },
+        {
+          "id": "poor",
+          "enum": "AIR_POOR",
+          "value": 4
+        },
+        {
+          "id": "very_poor",
+          "enum": "AIR_VERY_POOR",
+          "value": 5
+        },
+        {
+          "id": "extremely_poor",
+          "enum": "AIR_EXTREMELY_POOR",
+          "value": 6
+        }
+      ]
+    },
+    "co": {
+      "group": "outdoor",
+      "enumType": "air_quality_t",
+      "ratings": [
+        {
+          "id": "unknown",
+          "enum": "AIR_UNKNOWN",
+          "value": 0
+        },
+        {
+          "id": "good",
+          "enum": "AIR_GOOD",
+          "value": 1
+        },
+        {
+          "id": "fair",
+          "enum": "AIR_FAIR",
+          "value": 2
+        },
+        {
+          "id": "moderate",
+          "enum": "AIR_MODERATE",
+          "value": 3
+        },
+        {
+          "id": "poor",
+          "enum": "AIR_POOR",
+          "value": 4
+        },
+        {
+          "id": "very_poor",
+          "enum": "AIR_VERY_POOR",
+          "value": 5
+        },
+        {
+          "id": "extremely_poor",
+          "enum": "AIR_EXTREMELY_POOR",
+          "value": 6
+        }
+      ]
+    },
+    "so2": {
+      "group": "outdoor",
+      "enumType": "air_quality_t",
+      "ratings": [
+        {
+          "id": "unknown",
+          "enum": "AIR_UNKNOWN",
+          "value": 0
+        },
+        {
+          "id": "good",
+          "enum": "AIR_GOOD",
+          "value": 1
+        },
+        {
+          "id": "fair",
+          "enum": "AIR_FAIR",
+          "value": 2
+        },
+        {
+          "id": "moderate",
+          "enum": "AIR_MODERATE",
+          "value": 3
+        },
+        {
+          "id": "poor",
+          "enum": "AIR_POOR",
+          "value": 4
+        },
+        {
+          "id": "very_poor",
+          "enum": "AIR_VERY_POOR",
+          "value": 5
+        },
+        {
+          "id": "extremely_poor",
+          "enum": "AIR_EXTREMELY_POOR",
+          "value": 6
+        }
+      ]
+    },
+    "pollen": {
+      "group": "outdoor",
+      "enumType": "pollen_rating_t",
+      "ratings": [
+        {
+          "id": "unknown",
+          "enum": "POLLEN_UNKNOWN",
+          "value": 0
+        },
+        {
+          "id": "absent",
+          "enum": "POLLEN_ABSENT",
+          "value": 1
+        },
+        {
+          "id": "low",
+          "enum": "POLLEN_LOW",
+          "value": 2
+        },
+        {
+          "id": "moderate",
+          "enum": "POLLEN_MODERATE",
+          "value": 3
+        },
+        {
+          "id": "high",
+          "enum": "POLLEN_HIGH",
+          "value": 4
+        },
+        {
+          "id": "very_high",
+          "enum": "POLLEN_VERY_HIGH",
+          "value": 5
+        }
+      ]
+    },
+    "uv_index": {
+      "group": "outdoor",
+      "enumType": "uv_index_rating_t",
+      "ratings": [
+        {
+          "id": "unknown",
+          "enum": "UV_INDEX_UNKNOWN",
+          "value": 0
+        },
+        {
+          "id": "low",
+          "enum": "UV_INDEX_LOW",
+          "value": 1
+        },
+        {
+          "id": "moderate",
+          "enum": "UV_INDEX_MODERATE",
+          "value": 2
+        },
+        {
+          "id": "high",
+          "enum": "UV_INDEX_HIGH",
+          "value": 3
+        },
+        {
+          "id": "very_high",
+          "enum": "UV_INDEX_VERY_HIGH",
+          "value": 4
+        },
+        {
+          "id": "extreme",
+          "enum": "UV_INDEX_EXTREME",
+          "value": 5
+        }
+      ]
+    }
+  },
+  "standards": {
+    "iso_7730_2025": {
+      "group": "thermal",
+      "url": "https://www.iso.org/standard/85803.html",
+      "organizations": [
+        {
+          "name": "国际标准化组织（ISO）",
+          "url": "https://www.iso.org/"
+        }
+      ]
+    },
+    "ashrae_55_scale": {
+      "group": "thermal",
+      "url": "https://www.ashrae.org/file%20library/technical%20resources/standards%20and%20guidelines/standards%20addenda/55_2017_d_20200731.pdf#page=17",
+      "organizations": [
+        {
+          "name": "美国采暖、制冷与空调工程师学会（ASHRAE）",
+          "url": "https://www.ashrae.org/"
+        }
+      ]
+    },
+    "epa_humidity": {
+      "group": "thermal",
+      "url": "https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home",
+      "organizations": [
+        {
+          "name": "美国环境保护署（EPA）",
+          "url": "https://www.epa.gov/"
+        }
+      ]
+    },
+    "uba_humidity": {
+      "group": "thermal",
+      "url": "https://www.umweltbundesamt.de/en/node/3086",
+      "organizations": [
+        {
+          "name": "德国联邦环境署（UBA）",
+          "url": "https://www.umweltbundesamt.de/en"
+        }
+      ]
+    },
+    "eea_aqi": {
+      "group": "air",
+      "url": "https://airindex.eea.europa.eu/AQI/",
+      "organizations": [
+        {
+          "name": "欧洲环境署（EEA）",
+          "url": "https://www.eea.europa.eu/"
+        }
+      ]
+    },
+    "hj_633_2026": {
+      "group": "air",
+      "url": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/W020260225366493492011.pdf",
+      "organizations": [
+        {
+          "name": "中华人民共和国生态环境部",
+          "url": "https://www.mee.gov.cn/"
+        }
+      ]
+    },
+    "epa_aqi": {
+      "group": "air",
+      "url": "https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf",
+      "organizations": [
+        {
+          "name": "美国环境保护署（EPA）",
+          "url": "https://www.epa.gov/"
+        }
+      ]
+    },
+    "uba_co2_2008": {
+      "group": "air",
+      "url": "https://www.umweltbundesamt.de/system/files/medien/pdfs/kohlendioxid_2008.pdf",
+      "organizations": [
+        {
+          "name": "德国联邦环境署（UBA）",
+          "url": "https://www.umweltbundesamt.de/en"
+        }
+      ]
+    },
+    "who_hcho_2010": {
+      "group": "air",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK138711/",
+      "organizations": [
+        {
+          "name": "世界卫生组织（WHO）",
+          "url": "https://www.who.int/"
+        }
+      ]
+    },
+    "gbt_18883_2022": {
+      "group": "air",
+      "url": "https://www.ndcpa.gov.cn/doc/ucap/1625444428300685312/document/20230607/ZgwODgwF.pdf",
+      "organizations": [
+        {
+          "name": "国家市场监督管理总局",
+          "url": "https://www.samr.gov.cn/"
+        },
+        {
+          "name": "国家标准化管理委员会",
+          "url": "https://www.sac.gov.cn/"
+        }
+      ]
+    },
+    "oehha_hcho_2008": {
+      "group": "air",
+      "url": "https://oehha.ca.gov/chemicals/formaldehyde",
+      "organizations": [
+        {
+          "name": "加利福尼亚州环境健康危害评估办公室（OEHHA）",
+          "url": "https://oehha.ca.gov/"
+        }
+      ]
+    },
+    "who_noise_1999": {
+      "group": "sound_light",
+      "url": "https://www.who.int/publications/i/item/a68672",
+      "organizations": [
+        {
+          "name": "世界卫生组织（WHO）",
+          "url": "https://www.who.int/"
+        }
+      ]
+    },
+    "ies_rp_11_26": {
+      "group": "sound_light",
+      "url": "https://store.ies.org/product/recommended-practice-lighting-for-interior-and-exterior-residential-environments/?v=eb65bcceaa5f",
+      "organizations": [
+        {
+          "name": "美国照明工程学会（IES）",
+          "url": "https://www.ies.org/"
+        },
+        {
+          "name": "美国照明协会（ALA）",
+          "url": "https://alalighting.com/"
+        }
+      ]
+    },
+    "nab_pollen": {
+      "group": "outdoor",
+      "url": "https://pollenandmold.stlouisco.com/html/PollenLevels.html",
+      "organizations": [
+        {
+          "name": "美国国家过敏局（NAB）",
+          "url": "https://www.aaaai.org/nab"
+        }
+      ]
+    },
+    "meteoswiss_pollen": {
+      "group": "outdoor",
+      "url": "https://www.meteoswiss.admin.ch/dam/jcr%3A43b4f361-8bc1-4af7-a232-c126de0f2f80/Belastungsklassen-der-allergenen-Pollenarten_E.pdf",
+      "organizations": [
+        {
+          "name": "瑞士联邦气象与气候局",
+          "url": "https://www.meteoswiss.admin.ch/"
+        }
+      ]
+    },
+    "who_uv_index": {
+      "group": "outdoor",
+      "url": "https://www.who.int/publications-detail-redirect/9241590076",
+      "organizations": [
+        {
+          "name": "世界卫生组织（WHO）",
+          "url": "https://www.who.int/"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "all": {
+    "file": "environment-copy-all.zip",
+    "bytes": 1310689,
+    "sha256": "085209ccf84070da41ec483afde147b86cd64b56ae8848e7c32709acde0d3449",
+    "files": [
+      "air_quality_rating.h",
+      "content/README.md",
+      "content/en.json",
+      "content/generated/android/res/values-b+zh+Hans/environment_copy.xml",
+      "content/generated/android/res/values-b+zh+Hant/environment_copy.xml",
+      "content/generated/android/res/values-ja/environment_copy.xml",
+      "content/generated/android/res/values/environment_copy.xml",
+      "content/generated/fonts/all.txt",
+      "content/generated/fonts/en.txt",
+      "content/generated/fonts/ja.txt",
+      "content/generated/fonts/zh-Hans.txt",
+      "content/generated/fonts/zh-Hant.txt",
+      "content/generated/ios/EnvironmentCopy.xcstrings",
+      "content/generated/web/en.json",
+      "content/generated/web/environment-copy.d.ts",
+      "content/generated/web/environment-copy.mjs",
+      "content/generated/web/ja.json",
+      "content/generated/web/manifest.json",
+      "content/generated/web/zh-Hans.json",
+      "content/generated/web/zh-Hant.json",
+      "content/guides/en.md",
+      "content/guides/ja.md",
+      "content/guides/zh-Hant.md",
+      "content/ja.json",
+      "content/manifest.json",
+      "content/zh-Hans.json",
+      "content/zh-Hant.json",
+      "environment_text.c",
+      "environment_text.h",
+      "pollen_rating.h",
+      "sound_light_rating.h",
+      "thermal_comfort.h",
+      "uv_index_rating.h"
+    ]
+  },
+  "ios": {
+    "file": "environment-copy-ios.zip",
+    "bytes": 309348,
+    "sha256": "1a791c74b7113c32fc505ed3615643c733a21e5138360abd437eadeb8776d180",
+    "files": [
+      "EnvironmentCopy.xcstrings"
+    ]
+  },
+  "android": {
+    "file": "environment-copy-android.zip",
+    "bytes": 209334,
+    "sha256": "7822852b07fe131574b7f5881ebc86845dc4dbe03b520d30c53cec2187bb28c4",
+    "files": [
+      "res/values-b+zh+Hans/environment_copy.xml",
+      "res/values-b+zh+Hant/environment_copy.xml",
+      "res/values-ja/environment_copy.xml",
+      "res/values/environment_copy.xml"
+    ]
+  },
+  "web": {
+    "file": "environment-copy-web.zip",
+    "bytes": 442682,
+    "sha256": "0d1996463aa8b1b93447d196cf8535390baabaeb5d9799388fbcfcc7e281b5f9",
+    "files": [
+      "en.json",
+      "environment-copy.d.ts",
+      "environment-copy.mjs",
+      "ja.json",
+      "manifest.json",
+      "zh-Hans.json",
+      "zh-Hant.json"
+    ]
+  },
+  "lvgl": {
+    "file": "environment-copy-lvgl.zip",
+    "bytes": 160760,
+    "sha256": "6c76982a72b1244978e99d7d2cec3e5e85b4d58b7be14831aa00c3868c0a4fc8",
+    "files": [
+      "air_quality_rating.h",
+      "environment_text.c",
+      "environment_text.h",
+      "fonts/all.txt",
+      "fonts/en.txt",
+      "fonts/ja.txt",
+      "fonts/zh-Hans.txt",
+      "fonts/zh-Hant.txt",
+      "pollen_rating.h",
+      "sound_light_rating.h",
+      "thermal_comfort.h",
+      "uv_index_rating.h"
+    ]
+  }
+}

@@ -3,10 +3,14 @@
 #include <cmath>
 #include "sound_light_rating.h"
 #include "environment_color.h"
+#include "pollen_rating.h"
+#include "uv_index_rating.h"
 #include <cstring>
 
 int main()
 {
+    if (pollen_rate(POLLEN_STD_NAB, POLLEN_GRASS, 20) != POLLEN_HIGH) return 1;
+    if (uv_index_rate(7.5) != UV_INDEX_VERY_HIGH) return 1;
     if (noise_rate(NOISE_SLEEP, 30) != NOISE_QUIET) return 1;
     if (illuminance_rate(125) != ILLUMINANCE_DAILY_ACTIVITY) return 1;
     if (env_color_parameter(ENV_PARAM_TEMPERATURE, ENV_COLOR_PRIMARY) !=
@@ -14,7 +18,7 @@ int main()
     if (env_color_air(ENV_PARAM_PM25, AIR_FAIR, ENV_COLOR_GRAPHIC) !=
         UINT32_C(0xA3E635)) return 1;
     if (std::strcmp(env_icon_name(ENV_PARAM_CO2, ENV_ICON_SF_SYMBOLS),
-                    "carbon.dioxide.cloud") != 0) return 1;
+                    "wind") != 0) return 1;
     return thermal_rate_humidity(THERMAL_HUMIDITY_EPA, 55) ==
                THERMAL_HUMIDITY_SLIGHTLY_HUMID &&
            std::isfinite(thermal_pmv(25,50,25,0.1,1.1,0.7)) &&
