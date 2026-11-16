@@ -2,12 +2,12 @@
 
 `content/` が指標の概要と評価説明文の共通ソースです。`zh-Hans`、`zh-Hant`、`en`、`ja` の4言語で、同じ指標IDと評価IDを使います。UTF-8のプレーンテキストとし、HTML、色の値、レイアウト用の改行は入れません。
 
-- 各言語のJSON：名称、概要、一般的な助言、評価ラベル、短い案内と詳しい説明を編集します。
+- 各言語のJSON：名称、説明、解説、評価ラベル、短いアドバイスと詳しいアドバイスを編集します。
 - `manifest.json`：分類、利用できる評価、対応するCの列挙定数と数値を定義します。
 - `generated/`：iOS、Android、Web、フォント用文字一覧の生成結果です。
 - ルートの `environment_text.h/.c`：ファームウェア用の生成されたテキスト取得関数です。
 
-構造は `metrics.co2.name / description / advice / ratings.moderate.label / summary / detail` です。`summary` は小さい画面向けに独立して編集し、詳細画面では概要、助言と `detail` を使います。長文を実行時に切り詰めて短文にしないでください。
+構造は `metrics.co2.name / description / advice / ratings.moderate.label / summary / detail` です。`description` は指標名の下の「説明」、`advice` は区分別案内内の総説カードの「解説」、各区分の `summary` / `detail` は「アドバイス」と呼びます。後者は短い版と詳しい版に対応し、小さい画面向けの短い版は独立して編集します。長文を実行時に切り詰めて短文にしないでください。
 
 温度とPMVは別のIDです。`temperature` は測定値の説明のみ、`pmv` は7段階の温冷感を持ちます。`tvoc` には評価区分がありません。花粉の `unknown` は評価不能、`absent` はゼロを測定した状態です。評価するすべての指標に不明の文言があります。
 

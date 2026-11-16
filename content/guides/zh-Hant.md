@@ -1,13 +1,13 @@
 # 跨平台環境指標文字
 
-`content/` 是指標簡介與評級解讀的統一維護來源。四種語言使用相同的指標 ID 與評級 ID：`zh-Hans`、`zh-Hant`、`en`、`ja`。使用 UTF-8 純文字，不寫 HTML、顏色值或用於排版的換行。
+`content/` 是指標說明與評級解讀的統一維護來源。四種語言使用相同的指標 ID 與評級 ID：`zh-Hans`、`zh-Hant`、`en`、`ja`。使用 UTF-8 純文字，不寫 HTML、顏色值或用於排版的換行。
 
-- 四個語言 JSON：維護名稱、簡介、通用建議、分檔標籤、短提示與完整提示。
+- 四個語言 JSON：維護名稱、說明、解讀、分檔標籤、簡短建議與完整建議。
 - `manifest.json`：指標分類、適用評級及對應的 C 列舉符號與數值。
 - `generated/`：自動產生的 iOS、Android、Web 與字庫資源。
 - 根目錄 `environment_text.h/.c`：韌體文字查詢介面。
 
-資料結構為 `metrics.co2.name / description / advice / ratings.moderate.label / summary / detail`。`summary` 為可獨立編輯的短提示，適合小螢幕；詳情畫面顯示簡介、建議與 `detail`。不要在執行時截斷長段落來製作短文字。
+資料結構為 `metrics.co2.name / description / advice / ratings.moderate.label / summary / detail`。`description` 稱為「說明」，顯示於指標名稱下方；`advice` 稱為「解讀」，顯示於「分檔提示」內的總述卡片；各檔位的 `summary` / `detail` 稱為「建議」，分別提供簡短與完整版本。小螢幕優先使用獨立編寫的簡短建議。不要在執行時截斷長段落來製作短文字。
 
 溫度與 PMV 使用不同 ID：`temperature` 只有讀數說明，`pmv` 才有七點冷熱感評級。`tvoc` 沒有評級。花粉的 `unknown` 表示無法評級，`absent` 表示測得零值。所有已評級指標都有未知文字。
 

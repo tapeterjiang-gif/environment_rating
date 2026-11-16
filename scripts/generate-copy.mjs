@@ -206,14 +206,14 @@ for(const [group,ids]of Object.entries(displayGroups)){
   html+=`<div class="copy-category"><h3>${titles[group]}</h3><div class="copy-groups">\n`;
   for(const metric of ids){
     const ratingMetric=metric==='temperature'?'pmv':metric;
-    html+=`<article class="copy-group metric-explainer"><h4>${text(`env_${metric}_name`)}</h4><p class="metric-description">${text(`env_${metric}_description`)}</p>`;
+    html+=`<article class="copy-group metric-explainer"><h4>${text(`env_${metric}_name`)}</h4><p class="metric-description"><span class="copy-field-label">说明</span>${text(`env_${metric}_description`)}</p>`;
     if(manifest.metrics[ratingMetric].ratings.length){
       html+='<details class="copy-levels"><summary>分档提示<span aria-hidden="true">＋</span></summary>';
-      if(catalogs['zh-Hans'].metrics[metric].advice)html+=`<p class="friendly-advice">${text(`env_${metric}_advice`)}</p>`;
+      if(catalogs['zh-Hans'].metrics[metric].advice)html+=`<p class="friendly-advice"><span class="copy-field-label">解读</span>${text(`env_${metric}_advice`)}</p>`;
       html+='<div class="copy-rows">';
       for(const rule of manifest.metrics[ratingMetric].ratings){
         const prefix=`env_${ratingMetric}_rating_${rule.id}`;
-        html+=`<div class="copy-row"><strong>${text(prefix+'_label')}</strong><p>${text(prefix+'_detail')}</p></div>`;
+        html+=`<div class="copy-row"><strong>${text(prefix+'_label')}</strong><p><span class="copy-field-label">建议</span>${text(prefix+'_detail')}</p></div>`;
       }
       html+='</div></details>';
     }

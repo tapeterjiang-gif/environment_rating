@@ -644,6 +644,9 @@
   Object.assign(window.ENV_GUIDE_ZH_HANT, {"AQI（中国 / 美国）": "AQI（中國 / 美國）", "EEA 指数": "EEA 指數", "PSI（新加坡）": "PSI（新加坡）", "原生等级配色": "原生等級配色", "外部指数按原生等级含义配色，不按档序号跨体系套色。以下为产品配色，并非各机构指定色。": "外部指數依原生等級含義配色，不依檔序號跨體系套色。以下為產品配色，並非各機構指定色。"});
   Object.assign(EN, {"AQI（中国 / 美国）": "AQI (China / US)", "EEA 指数": "EEA index", "PSI（新加坡）": "PSI (Singapore)", "原生等级配色": "Native category colors", "外部指数按原生等级含义配色，不按档序号跨体系套色。以下为产品配色，并非各机构指定色。": "External indices use colors matched to native category meanings, not shared ordinal numbers. These are product colors, not official agency specifications."});
   Object.assign(JA, {"AQI（中国 / 美国）": "AQI（中国 / 米国）", "EEA 指数": "EEA指数", "PSI（新加坡）": "PSI（シンガポール）", "原生等级配色": "原区分の配色", "外部指数按原生等级含义配色，不按档序号跨体系套色。以下为产品配色，并非各机构指定色。": "外部指数は区分番号ではなく各区分の意味に合わせて配色します。以下は製品配色であり、各機関の指定色ではありません。"});
+  Object.assign(window.ENV_GUIDE_ZH_HANT, {"说明": "說明", "解读": "解讀", "建议": "建議"});
+  Object.assign(EN, {"说明": "Description", "解读": "Interpretation", "建议": "Advice"});
+  Object.assign(JA, {"说明": "説明", "解读": "解説", "建议": "アドバイス"});
   const localeAliases = { "zh-cn": "zh-Hans", "zh-sg": "zh-Hans", "zh-tw": "zh-Hant", "zh-hk": "zh-Hant", "zh-hant": "zh-Hant", "zh-hans": "zh-Hans", en: "en", ja: "ja", "ja-jp": "ja" };
   const requested = new URLSearchParams(window.location.search).get("lang");
   const locale = localeAliases[(requested || "zh-Hans").toLowerCase()] || "zh-Hans";

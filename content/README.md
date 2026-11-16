@@ -1,13 +1,13 @@
 # 跨平台环境指标文案
 
-项目根目录下的 `content/` 是指标简介与评级解读的唯一维护来源。四种语言使用相同的指标 ID 和评级 ID：`zh-Hans`、`zh-Hant`、`en`、`ja`。UTF-8、纯文本，不写 HTML、颜色值或用于排版的换行。
+项目根目录下的 `content/` 是指标说明与评级解读的唯一维护来源。四种语言使用相同的指标 ID 和评级 ID：`zh-Hans`、`zh-Hant`、`en`、`ja`。UTF-8、纯文本，不写 HTML、颜色值或用于排版的换行。
 
-- `zh-Hans.json` 等四个 JSON：人工维护的名称、简介、通用建议、分档标签、短提示与完整提示。
+- `zh-Hans.json` 等四个 JSON：人工维护的名称、说明、解读、分档标签、简短建议与完整建议。
 - `manifest.json`：指标分类、适用评级及对应的 **C 枚举符号和数值**。
 - `generated/`：自动生成的 iOS、Android、Web 和字库资源。
 - 根目录 `environment_text.h/.c`：自动生成的固件文案查询接口。
 
-JSON 结构为 `metrics.co2.name / description / advice / ratings.moderate.label / summary / detail`。`summary` 是可独立编辑的短提示，`detail` 是完整分档解读；小屏优先使用短提示，详情界面显示简介、建议及完整提示。不要在运行时截断长段落来制作短文案。
+JSON 结构为 `metrics.co2.name / description / advice / ratings.moderate.label / summary / detail`。`description` 称为“说明”，展示于指标名称下方；`advice` 称为“解读”，展示于“分档提示”内的总述卡片；各档位后的 `summary` / `detail` 称为“建议”，分别用于简短与完整展示。小屏优先使用简短建议，详情界面显示说明、解读及完整建议。不要在运行时截断长段落来制作短文案。
 
 温度与 PMV 使用不同 ID：`temperature` 只有读数说明，`pmv` 才有七点冷热感评级。TVOC（`tvoc`）没有评级。花粉的 `unknown` 表示无法评级，`absent` 表示已测得零值。所有有效评级均有 `unknown` 文案。
 
@@ -108,7 +108,7 @@ if (text != NULL) {
 }
 ```
 
-简介可用 `env_text_get("zh-Hans", "env_co2_description")` 查询。函数返回静态 UTF-8 字符串，生命周期覆盖整个程序；不要求运行时解析 JSON。LVGL 端自行设置字体、换行与控件宽度，勿修改返回的字符串。
+说明可用 `env_text_get("zh-Hans", "env_co2_description")` 查询。函数返回静态 UTF-8 字符串，生命周期覆盖整个程序；不要求运行时解析 JSON。LVGL 端自行设置字体、换行与控件宽度，勿修改返回的字符串。
 
 `generated/fonts/` 提供按语言和全部语言合并的去重字符集，供字体转换流程读取。它们只覆盖这些文案；测量数值、单位、日期和其他 UI 文本需要的字符，应在制作字库时额外合并。不要把字符集文本当作字体文件。
 

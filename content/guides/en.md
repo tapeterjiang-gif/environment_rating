@@ -2,12 +2,12 @@
 
 The `content/` directory is the single source for metric descriptions and rating explanations. The four languages share the same metric and rating IDs: `zh-Hans`, `zh-Hant`, `en`, and `ja`. Use UTF-8 plain text without HTML, color values, or line breaks added for layout.
 
-- The four locale JSON files contain editable names, descriptions, general advice, rating labels, summaries, and details.
+- The four locale JSON files contain editable names, descriptions, interpretations, rating labels, short advice, and full advice.
 - `manifest.json` defines categories, available ratings, and their C enum symbols and numeric values.
 - `generated/` contains generated iOS, Android, Web, and font character resources.
 - Root-level `environment_text.h/.c` provides generated firmware lookup functions.
 
-Fields follow `metrics.co2.name / description / advice / ratings.moderate.label / summary / detail`. Write `summary` independently for small screens; show descriptions, advice, and `detail` on detail screens. Do not truncate a long paragraph to create a short message at runtime.
+Fields follow `metrics.co2.name / description / advice / ratings.moderate.label / summary / detail`. Call `description` “Description” below the metric name, `advice` “Interpretation” in the general card inside the rating section, and rating `summary` / `detail` “Advice”. The latter provide short and full versions respectively; write the short version independently for small screens. Do not truncate a long paragraph to create a short message at runtime.
 
 Temperature and PMV have separate IDs: `temperature` provides reading information; `pmv` has the seven thermal sensation ratings. `tvoc` has no ratings. For pollen, `unknown` means it cannot be rated, while `absent` means a zero count was measured. Every rated metric includes Unknown copy.
 

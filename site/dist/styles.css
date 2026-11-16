@@ -629,3 +629,5 @@ details > div { padding: 0 18px 18px; }
 
 .index-native-bands > div { border-top:3px solid var(--index-status,var(--line)); background:var(--index-bg,#f7fafb); color:var(--index-text,var(--ink)); }
 .index-native-bands > div > span { color:inherit; }
+
+.design-page .copy-field-label { display:block; margin-bottom:3px; font-size:.71rem; font-weight:600; line-height:1.5; color:var(--muted); }

@@ -1,8 +1,8 @@
 {
   "all": {
     "file": "environment-copy-all.zip",
-    "bytes": 2091479,
-    "sha256": "484ce1332b99f65ebd499fccbb3cf90965caa818ec89d4f1a3cf19e1a03495f2",
+    "bytes": 2092197,
+    "sha256": "8e056f7759a8888445ccc025e3bd3a354cbf31f6dfb4952b8f268f2cf68f888c",
     "files": [
       "air_quality_rating.h",
       "content/README.md",
