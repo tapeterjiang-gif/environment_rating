@@ -4,33 +4,33 @@
   <string name="env_co2_advice" formatted="false">CO₂ 偏高通常提示通風不足。室外空氣合適時，可以開窗或開啟新風；開門也可能改善空氣流通，但仍要有新鮮空氣補入。人越多、門窗關閉越久，越值得留意。</string>
   <string name="env_co2_description" formatted="false">二氧化碳會隨人員呼吸在室內累積，可用來觀察通風是否充足。濃度持續升高時，可考慮增加新風；它不能代表所有空氣污染物，也不能取代一氧化碳警報。</string>
   <string name="env_co2_name" formatted="false">CO₂</string>
-  <string name="env_co2_rating_good_detail" formatted="false">目前通風情況不錯，保持現有換氣習慣就好。</string>
+  <string name="env_co2_rating_good_detail" formatted="false">目前 CO₂ 濃度較低，可保持現有換氣習慣。人員增加或門窗長時間關閉時，再留意讀數變化。</string>
   <string name="env_co2_rating_good_label" formatted="false">正常</string>
-  <string name="env_co2_rating_good_summary" formatted="false">目前通風情況不錯，保持現有換氣習慣就好。</string>
-  <string name="env_co2_rating_moderate_detail" formatted="false">屋內有些悶了，試試開窗或開啟新風，再看看讀數有沒有回落。</string>
+  <string name="env_co2_rating_good_summary" formatted="false">目前 CO₂ 濃度較低，可保持現有換氣習慣。人員增加或門窗長時間關閉時，再留意讀數變化。</string>
+  <string name="env_co2_rating_moderate_detail" formatted="false">目前 CO₂ 濃度提示可以增加通風。室外空氣合適時，試試開窗或開啟新風，再看看讀數是否回落。</string>
   <string name="env_co2_rating_moderate_label" formatted="false">建議通風</string>
-  <string name="env_co2_rating_moderate_summary" formatted="false">屋內有些悶了，試試開窗或開啟新風，再看看讀數有沒有回落。</string>
-  <string name="env_co2_rating_poor_detail" formatted="false">該增加換氣了。儘快補入新鮮空氣，人多時也可以適當分散活動。</string>
+  <string name="env_co2_rating_moderate_summary" formatted="false">目前 CO₂ 濃度提示可以增加通風。室外空氣合適時，試試開窗或開啟新風，再看看讀數是否回落。</string>
+  <string name="env_co2_rating_poor_detail" formatted="false">目前 CO₂ 濃度較高，應盡快增加新鮮空氣補入。人多時可適當分散活動，換氣後繼續觀察讀數。</string>
   <string name="env_co2_rating_poor_label" formatted="false">應加強通風</string>
-  <string name="env_co2_rating_poor_summary" formatted="false">該增加換氣了。</string>
+  <string name="env_co2_rating_poor_summary" formatted="false">目前 CO₂ 濃度較高，應盡快增加新鮮空氣補入。人多時可適當分散活動，換氣後繼續觀察讀數。</string>
   <string name="env_co2_rating_unknown_detail" formatted="false">目前沒有可信的讀數。</string>
   <string name="env_co2_rating_unknown_label" formatted="false">未知</string>
   <string name="env_co2_rating_unknown_summary" formatted="false">目前沒有可信的讀數。</string>
   <string name="env_co_advice" formatted="false">這裡的分檔用於室外空氣品質提示。如果一氧化碳警報器響起，或懷疑附近存在燃燒洩漏，應立即離開可疑環境並尋求當地緊急協助，不要等評級變化，也不要只靠開窗處理。</string>
   <string name="env_co_description" formatted="false">一氧化碳是燃料不完全燃燒時可能產生的無色無味氣體。這裡依室外空氣品質標準評價相應平均濃度；急性風險需由專用警報裝置處理，不能等待空氣品質分檔升高。</string>
   <string name="env_co_name" formatted="false">一氧化碳 CO</string>
-  <string name="env_co_rating_extremely_poor_detail" formatted="false">已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。</string>
+  <string name="env_co_rating_extremely_poor_detail" formatted="false">目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。</string>
   <string name="env_co_rating_extremely_poor_label" formatted="false">極差</string>
-  <string name="env_co_rating_extremely_poor_summary" formatted="false">已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。</string>
-  <string name="env_co_rating_fair_detail" formatted="false">比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。</string>
+  <string name="env_co_rating_extremely_poor_summary" formatted="false">目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。</string>
+  <string name="env_co_rating_fair_detail" formatted="false">目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。</string>
   <string name="env_co_rating_fair_label" formatted="false">尚可</string>
-  <string name="env_co_rating_fair_summary" formatted="false">比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。</string>
+  <string name="env_co_rating_fair_summary" formatted="false">目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。</string>
   <string name="env_co_rating_good_detail" formatted="false">目前濃度較低，保持現有習慣，持續觀察就好。</string>
   <string name="env_co_rating_good_label" formatted="false">好</string>
   <string name="env_co_rating_good_summary" formatted="false">目前濃度較低，保持現有習慣，持續觀察就好。</string>
-  <string name="env_co_rating_moderate_detail" formatted="false">值得多留意一會兒，結合上面的建議做些調整，再看看讀數。</string>
+  <string name="env_co_rating_moderate_detail" formatted="false">目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。</string>
   <string name="env_co_rating_moderate_label" formatted="false">中等</string>
-  <string name="env_co_rating_moderate_summary" formatted="false">值得多留意一會兒，結合上面的建議做些調整，再看看讀數。</string>
+  <string name="env_co_rating_moderate_summary" formatted="false">目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。</string>
   <string name="env_co_rating_poor_detail" formatted="false">目前濃度偏高，先減少接觸，再依這項污染物的特點改善環境。</string>
   <string name="env_co_rating_poor_label" formatted="false">差</string>
   <string name="env_co_rating_poor_summary" formatted="false">目前濃度偏高，先減少接觸，再依這項污染物的特點改善環境。</string>
@@ -43,18 +43,18 @@
   <string name="env_hcho_advice" formatted="false">新家具或裝修材料可能持續釋放甲醛。讀數偏高時，先找來源，並在室外空氣合適時通風；如果持續偏高，可以安排專業檢測。只聞不到氣味，不能說明甲醛已經降低。</string>
   <string name="env_hcho_description" formatted="false">甲醛是可能由板材、家具等材料釋放的氣體。應依所選標準要求的平均時間觀察濃度；讀數較高時，優先排查釋放源，並在室外條件允許時通風。</string>
   <string name="env_hcho_name" formatted="false">甲醛 HCHO</string>
-  <string name="env_hcho_rating_extremely_poor_detail" formatted="false">已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。</string>
+  <string name="env_hcho_rating_extremely_poor_detail" formatted="false">目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。</string>
   <string name="env_hcho_rating_extremely_poor_label" formatted="false">極差</string>
-  <string name="env_hcho_rating_extremely_poor_summary" formatted="false">已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。</string>
-  <string name="env_hcho_rating_fair_detail" formatted="false">比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。</string>
+  <string name="env_hcho_rating_extremely_poor_summary" formatted="false">目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。</string>
+  <string name="env_hcho_rating_fair_detail" formatted="false">目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。</string>
   <string name="env_hcho_rating_fair_label" formatted="false">尚可</string>
-  <string name="env_hcho_rating_fair_summary" formatted="false">比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。</string>
+  <string name="env_hcho_rating_fair_summary" formatted="false">目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。</string>
   <string name="env_hcho_rating_good_detail" formatted="false">目前濃度較低，保持現有習慣，持續觀察就好。</string>
   <string name="env_hcho_rating_good_label" formatted="false">好</string>
   <string name="env_hcho_rating_good_summary" formatted="false">目前濃度較低，保持現有習慣，持續觀察就好。</string>
-  <string name="env_hcho_rating_moderate_detail" formatted="false">值得多留意一會兒，結合上面的建議做些調整，再看看讀數。</string>
+  <string name="env_hcho_rating_moderate_detail" formatted="false">目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。</string>
   <string name="env_hcho_rating_moderate_label" formatted="false">中等</string>
-  <string name="env_hcho_rating_moderate_summary" formatted="false">值得多留意一會兒，結合上面的建議做些調整，再看看讀數。</string>
+  <string name="env_hcho_rating_moderate_summary" formatted="false">目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。</string>
   <string name="env_hcho_rating_poor_detail" formatted="false">目前濃度偏高，先減少接觸，再依這項污染物的特點改善環境。</string>
   <string name="env_hcho_rating_poor_label" formatted="false">差</string>
   <string name="env_hcho_rating_poor_summary" formatted="false">目前濃度偏高，先減少接觸，再依這項污染物的特點改善環境。</string>
@@ -67,78 +67,78 @@
   <string name="env_humidity_advice" formatted="false">空氣偏乾時，可以適當加濕；偏濕時，先看看浴室、晾衣或漏水是否帶來水汽，再考慮排風或除濕。室外也很潮濕時，開窗未必能降濕。</string>
   <string name="env_humidity_description" formatted="false">相對濕度表示目前溫度下，空氣中的水汽量相對於飽和狀態的百分比。過乾可能帶來乾燥感，持續潮濕則有利於黴菌生長。維持所選參考範圍，有助兼顧舒適與防潮。</string>
   <string name="env_humidity_name" formatted="false">相對濕度</string>
-  <string name="env_humidity_rating_dry_detail" formatted="false">空氣偏乾，可依實際需要加濕。</string>
+  <string name="env_humidity_rating_dry_detail" formatted="false">目前濕度偏低，若感到皮膚或鼻喉乾燥，可適當加濕並觀察讀數，避免持續過度加濕。</string>
   <string name="env_humidity_rating_dry_label" formatted="false">偏乾</string>
-  <string name="env_humidity_rating_dry_summary" formatted="false">空氣偏乾，可依實際需要加濕。</string>
-  <string name="env_humidity_rating_humid_detail" formatted="false">濕度偏高，可考慮通風或除濕。</string>
+  <string name="env_humidity_rating_dry_summary" formatted="false">目前濕度偏低，若感到皮膚或鼻喉乾燥，可適當加濕並觀察讀數，避免持續過度加濕。</string>
+  <string name="env_humidity_rating_humid_detail" formatted="false">目前濕度偏高，可排查水氣來源並考慮除濕。若室外也很潮濕，開窗未必有效，調整後再看讀數。</string>
   <string name="env_humidity_rating_humid_label" formatted="false">偏濕</string>
-  <string name="env_humidity_rating_humid_summary" formatted="false">濕度偏高，可考慮通風或除濕。</string>
-  <string name="env_humidity_rating_slightly_humid_detail" formatted="false">濕度稍高，可留意通風與凝結水。</string>
+  <string name="env_humidity_rating_humid_summary" formatted="false">目前濕度偏高，可排查水氣來源並考慮除濕。若室外也很潮濕，開窗未必有效，調整後再看讀數。</string>
+  <string name="env_humidity_rating_slightly_humid_detail" formatted="false">目前濕度略高，可留意窗邊凝結水、晾衣等水氣來源；室外條件合適時通風，並觀察是否回落。</string>
   <string name="env_humidity_rating_slightly_humid_label" formatted="false">略濕</string>
-  <string name="env_humidity_rating_slightly_humid_summary" formatted="false">濕度稍高，可留意通風與凝結水。</string>
-  <string name="env_humidity_rating_suitable_detail" formatted="false">濕度處於所選參考範圍內。</string>
+  <string name="env_humidity_rating_slightly_humid_summary" formatted="false">目前濕度略高，可留意窗邊凝結水、晾衣等水氣來源；室外條件合適時通風，並觀察是否回落。</string>
+  <string name="env_humidity_rating_suitable_detail" formatted="false">目前濕度處於所選參考範圍內，保持現有習慣即可。若窗邊或牆角仍有凝結水，也應留意局部潮濕。</string>
   <string name="env_humidity_rating_suitable_label" formatted="false">適宜</string>
-  <string name="env_humidity_rating_suitable_summary" formatted="false">濕度處於所選參考範圍內。</string>
+  <string name="env_humidity_rating_suitable_summary" formatted="false">目前濕度處於所選參考範圍內，保持現有習慣即可。若窗邊或牆角仍有凝結水，也應留意局部潮濕。</string>
   <string name="env_humidity_rating_unknown_detail" formatted="false">目前沒有可信的讀數。</string>
   <string name="env_humidity_rating_unknown_label" formatted="false">未知</string>
   <string name="env_humidity_rating_unknown_summary" formatted="false">目前沒有可信的讀數。</string>
   <string name="env_illuminance_advice" formatted="false">閱讀、寫字或做手工時，可以在實際使用的位置補一盞燈，再調整燈的位置，避免手影與刺眼反光。裝置處的照度與桌面可能不同，不必單純追求更高的數字。</string>
   <string name="env_illuminance_description" formatted="false">照度表示落在單位面積上的可見光多少，單位為 lx。不同活動需要的照度不同，並非越亮越好。裝置單點讀數僅作場景提示，閱讀或作業時還應確認實際工作面的光照。</string>
   <string name="env_illuminance_name" formatted="false">光照 / 照度</string>
-  <string name="env_illuminance_rating_ambient_detail" formatted="false">目前讀數接近氛圍照明的照度層級。</string>
+  <string name="env_illuminance_rating_ambient_detail" formatted="false">目前讀數接近氛圍照明的照度層級。可營造柔和氛圍；若要閱讀或做手工，請在實際使用位置補光。</string>
   <string name="env_illuminance_rating_ambient_label" formatted="false">氛圍照明</string>
-  <string name="env_illuminance_rating_ambient_summary" formatted="false">目前讀數接近氛圍照明的照度層級。</string>
-  <string name="env_illuminance_rating_daily_activity_detail" formatted="false">目前讀數接近日常活動的照度層級。</string>
+  <string name="env_illuminance_rating_ambient_summary" formatted="false">目前讀數接近氛圍照明的照度層級。可營造柔和氛圍；若要閱讀或做手工，請在實際使用位置補光。</string>
+  <string name="env_illuminance_rating_daily_activity_detail" formatted="false">目前讀數接近日常活動的照度層級。可作為一般活動的參考，閱讀寫字時仍應確認桌面是否足夠明亮。</string>
   <string name="env_illuminance_rating_daily_activity_label" formatted="false">日常活動</string>
-  <string name="env_illuminance_rating_daily_activity_summary" formatted="false">目前讀數接近日常活動的照度層級。</string>
-  <string name="env_illuminance_rating_detail_work_detail" formatted="false">該讀數接近精細作業的照度層級。</string>
+  <string name="env_illuminance_rating_daily_activity_summary" formatted="false">目前讀數接近日常活動的照度層級。可作為一般活動的參考，閱讀寫字時仍應確認桌面是否足夠明亮。</string>
+  <string name="env_illuminance_rating_detail_work_detail" formatted="false">目前讀數顯示：該讀數接近精細作業的照度層級。精細工作仍需確認實際工作面的照度、均勻度與反光，不必一味增加亮度。</string>
   <string name="env_illuminance_rating_detail_work_label" formatted="false">精細作業</string>
-  <string name="env_illuminance_rating_detail_work_summary" formatted="false">該讀數接近精細作業的照度層級。</string>
-  <string name="env_illuminance_rating_focused_activity_detail" formatted="false">目前讀數接近專注活動的照度層級。</string>
+  <string name="env_illuminance_rating_detail_work_summary" formatted="false">目前讀數顯示：該讀數接近精細作業的照度層級。精細工作仍需確認實際工作面的照度、均勻度與反光，不必一味增加亮度。</string>
+  <string name="env_illuminance_rating_focused_activity_detail" formatted="false">目前讀數接近專注活動的照度層級。進行需要專注的活動時，可調整燈的位置，避免局部過暗或眩光。</string>
   <string name="env_illuminance_rating_focused_activity_label" formatted="false">專注活動</string>
-  <string name="env_illuminance_rating_focused_activity_summary" formatted="false">目前讀數接近專注活動的照度層級。</string>
-  <string name="env_illuminance_rating_low_light_detail" formatted="false">目前讀數較低，需在活動位置確認照度。</string>
+  <string name="env_illuminance_rating_focused_activity_summary" formatted="false">目前讀數接近專注活動的照度層級。進行需要專注的活動時，可調整燈的位置，避免局部過暗或眩光。</string>
+  <string name="env_illuminance_rating_low_light_detail" formatted="false">目前讀數較低，需在活動位置確認照度。走動或尋找物品時可補充照明，閱讀前請確認桌面光線。</string>
   <string name="env_illuminance_rating_low_light_label" formatted="false">低照環境</string>
-  <string name="env_illuminance_rating_low_light_summary" formatted="false">目前讀數較低，需在活動位置確認照度。</string>
-  <string name="env_illuminance_rating_reading_detail" formatted="false">目前讀數接近閱讀學習的照度層級。</string>
+  <string name="env_illuminance_rating_low_light_summary" formatted="false">目前讀數較低，需在活動位置確認照度。走動或尋找物品時可補充照明，閱讀前請確認桌面光線。</string>
+  <string name="env_illuminance_rating_reading_detail" formatted="false">目前讀數接近閱讀學習的照度層級。閱讀寫字時，也請檢查桌面照明是否均勻，並避開手影與刺眼反光。</string>
   <string name="env_illuminance_rating_reading_label" formatted="false">閱讀學習</string>
-  <string name="env_illuminance_rating_reading_summary" formatted="false">目前讀數接近閱讀學習的照度層級。</string>
+  <string name="env_illuminance_rating_reading_summary" formatted="false">目前讀數接近閱讀學習的照度層級。閱讀寫字時，也請檢查桌面照明是否均勻，並避開手影與刺眼反光。</string>
   <string name="env_illuminance_rating_unknown_detail" formatted="false">目前沒有可信的讀數。</string>
   <string name="env_illuminance_rating_unknown_label" formatted="false">未知</string>
   <string name="env_illuminance_rating_unknown_summary" formatted="false">目前沒有可信的讀數。</string>
   <string name="env_noise_advice" formatted="false">如果聲音影響了專注或休息，可以先關小音量、移動發聲設備，或去更安靜的位置。睡覺時更容易被聲音打擾，可以切換到睡眠場景查看提示。</string>
   <string name="env_noise_description" formatted="false">噪聲讀數反映測量位置的聲音強弱，A 加權較接近人耳對不同頻率的敏感程度。是否影響休息還取決於持續時間與場景；睡眠提示採用更嚴格的邊界。</string>
   <string name="env_noise_name" formatted="false">噪聲</string>
-  <string name="env_noise_rating_loud_detail" formatted="false">環境較吵，可嘗試降低噪聲來源。</string>
+  <string name="env_noise_rating_loud_detail" formatted="false">目前環境較嘈雜，可先降低或遠離噪聲來源。若需要專注或休息，盡量選較安靜的位置，再看調整後的讀數。</string>
   <string name="env_noise_rating_loud_label" formatted="false">嘈雜</string>
-  <string name="env_noise_rating_loud_summary" formatted="false">環境較吵，可嘗試降低噪聲來源。</string>
-  <string name="env_noise_rating_noticeable_detail" formatted="false">聲音較明顯，可能影響專注或休息。</string>
+  <string name="env_noise_rating_loud_summary" formatted="false">目前環境較嘈雜，可先降低或遠離噪聲來源。若需要專注或休息，盡量選較安靜的位置，再看調整後的讀數。</string>
+  <string name="env_noise_rating_noticeable_detail" formatted="false">目前聲音較明顯，可能影響專注或休息。若覺得受打擾，可先調低音量、關門或移到較安靜的位置。</string>
   <string name="env_noise_rating_noticeable_label" formatted="false">偏吵</string>
-  <string name="env_noise_rating_noticeable_summary" formatted="false">聲音較明顯，可能影響專注或休息。</string>
-  <string name="env_noise_rating_quiet_detail" formatted="false">目前聲級較低，適合安靜的活動。</string>
+  <string name="env_noise_rating_noticeable_summary" formatted="false">目前聲音較明顯，可能影響專注或休息。若覺得受打擾，可先調低音量、關門或移到較安靜的位置。</string>
+  <string name="env_noise_rating_quiet_detail" formatted="false">目前聲級較低，適合安靜的活動。若準備休息或睡眠，也可留意聲音是否持續或突然出現。</string>
   <string name="env_noise_rating_quiet_label" formatted="false">安靜</string>
-  <string name="env_noise_rating_quiet_summary" formatted="false">目前聲級較低，適合安靜的活動。</string>
+  <string name="env_noise_rating_quiet_summary" formatted="false">目前聲級較低，適合安靜的活動。若準備休息或睡眠，也可留意聲音是否持續或突然出現。</string>
   <string name="env_noise_rating_unknown_detail" formatted="false">目前沒有可信的讀數。</string>
   <string name="env_noise_rating_unknown_label" formatted="false">未知</string>
   <string name="env_noise_rating_unknown_summary" formatted="false">目前沒有可信的讀數。</string>
-  <string name="env_noise_rating_very_loud_detail" formatted="false">環境很吵，建議減少持續暴露。</string>
+  <string name="env_noise_rating_very_loud_detail" formatted="false">目前環境很吵，建議減少持續停留，優先降低噪聲或到較安靜的位置；除了單次讀數，也要留意持續時間。</string>
   <string name="env_noise_rating_very_loud_label" formatted="false">很吵</string>
-  <string name="env_noise_rating_very_loud_summary" formatted="false">環境很吵，建議減少持續暴露。</string>
+  <string name="env_noise_rating_very_loud_summary" formatted="false">目前環境很吵，建議減少持續停留，優先降低噪聲或到較安靜的位置；除了單次讀數，也要留意持續時間。</string>
   <string name="env_o3_advice" formatted="false">臭氧偏高時，可以把跑步、騎行等較費力的戶外活動改到預報較低的時段，或縮短活動時間。開窗前也看看室外臭氧情況，不要僅靠「空氣聞起來清新」來判斷。</string>
   <string name="env_o3_description" formatted="false">這裡關注近地面的臭氧，而非高空中起保護作用的臭氧層。它可由其他污染物在陽光下反應形成。濃度較高時，可參考當地預報調整戶外活動時間與強度。</string>
   <string name="env_o3_name" formatted="false">臭氧 O₃</string>
-  <string name="env_o3_rating_extremely_poor_detail" formatted="false">已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。</string>
+  <string name="env_o3_rating_extremely_poor_detail" formatted="false">目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。</string>
   <string name="env_o3_rating_extremely_poor_label" formatted="false">極差</string>
-  <string name="env_o3_rating_extremely_poor_summary" formatted="false">已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。</string>
-  <string name="env_o3_rating_fair_detail" formatted="false">比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。</string>
+  <string name="env_o3_rating_extremely_poor_summary" formatted="false">目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。</string>
+  <string name="env_o3_rating_fair_detail" formatted="false">目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。</string>
   <string name="env_o3_rating_fair_label" formatted="false">尚可</string>
-  <string name="env_o3_rating_fair_summary" formatted="false">比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。</string>
+  <string name="env_o3_rating_fair_summary" formatted="false">目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。</string>
   <string name="env_o3_rating_good_detail" formatted="false">目前濃度較低，保持現有習慣，持續觀察就好。</string>
   <string name="env_o3_rating_good_label" formatted="false">好</string>
   <string name="env_o3_rating_good_summary" formatted="false">目前濃度較低，保持現有習慣，持續觀察就好。</string>
-  <string name="env_o3_rating_moderate_detail" formatted="false">值得多留意一會兒，結合上面的建議做些調整，再看看讀數。</string>
+  <string name="env_o3_rating_moderate_detail" formatted="false">目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。</string>
   <string name="env_o3_rating_moderate_label" formatted="false">中等</string>
-  <string name="env_o3_rating_moderate_summary" formatted="false">值得多留意一會兒，結合上面的建議做些調整，再看看讀數。</string>
+  <string name="env_o3_rating_moderate_summary" formatted="false">目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。</string>
   <string name="env_o3_rating_poor_detail" formatted="false">目前濃度偏高，先減少接觸，再依這項污染物的特點改善環境。</string>
   <string name="env_o3_rating_poor_label" formatted="false">差</string>
   <string name="env_o3_rating_poor_summary" formatted="false">目前濃度偏高，先減少接觸，再依這項污染物的特點改善環境。</string>
@@ -151,18 +151,18 @@
   <string name="env_pm10_advice" formatted="false">打掃、走動或揚塵天氣都可能讓 PM10 升高。可以用濕擦代替乾掃，減少室內揚塵，並檢查過濾設備；室外沙塵較大時，先減少開窗。</string>
   <string name="env_pm10_description" formatted="false">PM10 是空氣中空氣動力學直徑通常不超過 10 微米的可吸入顆粒物，包含 PM2.5。揚塵、道路與施工活動都可能使讀數升高；可結合室外情況減少揚塵並改善過濾。</string>
   <string name="env_pm10_name" formatted="false">PM10</string>
-  <string name="env_pm10_rating_extremely_poor_detail" formatted="false">已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。</string>
+  <string name="env_pm10_rating_extremely_poor_detail" formatted="false">目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。</string>
   <string name="env_pm10_rating_extremely_poor_label" formatted="false">極差</string>
-  <string name="env_pm10_rating_extremely_poor_summary" formatted="false">已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。</string>
-  <string name="env_pm10_rating_fair_detail" formatted="false">比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。</string>
+  <string name="env_pm10_rating_extremely_poor_summary" formatted="false">目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。</string>
+  <string name="env_pm10_rating_fair_detail" formatted="false">目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。</string>
   <string name="env_pm10_rating_fair_label" formatted="false">尚可</string>
-  <string name="env_pm10_rating_fair_summary" formatted="false">比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。</string>
+  <string name="env_pm10_rating_fair_summary" formatted="false">目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。</string>
   <string name="env_pm10_rating_good_detail" formatted="false">目前濃度較低，保持現有習慣，持續觀察就好。</string>
   <string name="env_pm10_rating_good_label" formatted="false">好</string>
   <string name="env_pm10_rating_good_summary" formatted="false">目前濃度較低，保持現有習慣，持續觀察就好。</string>
-  <string name="env_pm10_rating_moderate_detail" formatted="false">值得多留意一會兒，結合上面的建議做些調整，再看看讀數。</string>
+  <string name="env_pm10_rating_moderate_detail" formatted="false">目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。</string>
   <string name="env_pm10_rating_moderate_label" formatted="false">中等</string>
-  <string name="env_pm10_rating_moderate_summary" formatted="false">值得多留意一會兒，結合上面的建議做些調整，再看看讀數。</string>
+  <string name="env_pm10_rating_moderate_summary" formatted="false">目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。</string>
   <string name="env_pm10_rating_poor_detail" formatted="false">目前濃度偏高，先減少接觸，再依這項污染物的特點改善環境。</string>
   <string name="env_pm10_rating_poor_label" formatted="false">差</string>
   <string name="env_pm10_rating_poor_summary" formatted="false">目前濃度偏高，先減少接觸，再依這項污染物的特點改善環境。</string>
@@ -175,18 +175,18 @@
   <string name="env_pm25_advice" formatted="false">做飯、點香或吸菸後讀數升高，可以先減少煙霧來源、打開抽油煙機，或開啟顆粒物淨化設備。準備開窗前，先看看室外空氣；外面污染較重時，開窗可能把顆粒物帶進來。</string>
   <string name="env_pm25_description" formatted="false">PM2.5 是空氣中空氣動力學直徑通常不超過 2.5 微米的細顆粒物，可來自燃燒、烹飪或室外污染。細顆粒物能進入肺部，需結合濃度、持續時間與室外情況，考慮過濾或減少污染來源。</string>
   <string name="env_pm25_name" formatted="false">PM2.5</string>
-  <string name="env_pm25_rating_extremely_poor_detail" formatted="false">已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。</string>
+  <string name="env_pm25_rating_extremely_poor_detail" formatted="false">目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。</string>
   <string name="env_pm25_rating_extremely_poor_label" formatted="false">極差</string>
-  <string name="env_pm25_rating_extremely_poor_summary" formatted="false">已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。</string>
-  <string name="env_pm25_rating_fair_detail" formatted="false">比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。</string>
+  <string name="env_pm25_rating_extremely_poor_summary" formatted="false">目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。</string>
+  <string name="env_pm25_rating_fair_detail" formatted="false">目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。</string>
   <string name="env_pm25_rating_fair_label" formatted="false">尚可</string>
-  <string name="env_pm25_rating_fair_summary" formatted="false">比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。</string>
+  <string name="env_pm25_rating_fair_summary" formatted="false">目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。</string>
   <string name="env_pm25_rating_good_detail" formatted="false">目前濃度較低，保持現有習慣，持續觀察就好。</string>
   <string name="env_pm25_rating_good_label" formatted="false">好</string>
   <string name="env_pm25_rating_good_summary" formatted="false">目前濃度較低，保持現有習慣，持續觀察就好。</string>
-  <string name="env_pm25_rating_moderate_detail" formatted="false">值得多留意一會兒，結合上面的建議做些調整，再看看讀數。</string>
+  <string name="env_pm25_rating_moderate_detail" formatted="false">目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。</string>
   <string name="env_pm25_rating_moderate_label" formatted="false">中等</string>
-  <string name="env_pm25_rating_moderate_summary" formatted="false">值得多留意一會兒，結合上面的建議做些調整，再看看讀數。</string>
+  <string name="env_pm25_rating_moderate_summary" formatted="false">目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。</string>
   <string name="env_pm25_rating_poor_detail" formatted="false">目前濃度偏高，先減少接觸，再依這項污染物的特點改善環境。</string>
   <string name="env_pm25_rating_poor_label" formatted="false">差</string>
   <string name="env_pm25_rating_poor_summary" formatted="false">目前濃度偏高，先減少接觸，再依這項污染物的特點改善環境。</string>
@@ -199,66 +199,66 @@
   <string name="env_pmv_advice" formatted="false">感覺冷或熱時，可以先從衣著、空調與風扇做小幅調整，等一會兒再看體感是否改善。每個人的舒適點不同，不必為了追求「中性」反覆調節。</string>
   <string name="env_pmv_description" formatted="false">PMV 根據空氣溫度、輻射溫度、濕度、風速、活動量與衣著，估計一群人的平均冷熱感。負值偏冷，正值偏熱，接近 0 表示中性；個人的實際感受仍可能不同。</string>
   <string name="env_pmv_name" formatted="false">PMV 冷熱感</string>
-  <string name="env_pmv_rating_cold_detail" formatted="false">環境明顯偏冷，可考慮加強供暖或保暖。</string>
+  <string name="env_pmv_rating_cold_detail" formatted="false">目前估計的冷熱感明顯偏冷，可增加衣物或適當提高供暖，稍後再看體感是否改善。</string>
   <string name="env_pmv_rating_cold_label" formatted="false">冷</string>
-  <string name="env_pmv_rating_cold_summary" formatted="false">環境明顯偏冷，可考慮加強供暖或保暖。</string>
-  <string name="env_pmv_rating_cool_detail" formatted="false">環境偏涼，可依個人感受增加衣物。</string>
+  <string name="env_pmv_rating_cold_summary" formatted="false">目前估計的冷熱感明顯偏冷，可增加衣物或適當提高供暖，稍後再看體感是否改善。</string>
+  <string name="env_pmv_rating_cool_detail" formatted="false">目前估計的冷熱感偏涼，可依個人感受增加衣物，久坐時尤其留意保暖。</string>
   <string name="env_pmv_rating_cool_label" formatted="false">涼</string>
-  <string name="env_pmv_rating_cool_summary" formatted="false">環境偏涼，可依個人感受增加衣物。</string>
-  <string name="env_pmv_rating_hot_detail" formatted="false">環境明顯偏熱，可考慮降溫。</string>
+  <string name="env_pmv_rating_cool_summary" formatted="false">目前估計的冷熱感偏涼，可依個人感受增加衣物，久坐時尤其留意保暖。</string>
+  <string name="env_pmv_rating_hot_detail" formatted="false">目前估計的冷熱感明顯偏熱，可到較涼爽的位置休息，並適當降溫；調整後再查看讀數與自身感受。</string>
   <string name="env_pmv_rating_hot_label" formatted="false">熱</string>
-  <string name="env_pmv_rating_hot_summary" formatted="false">環境明顯偏熱，可考慮降溫。</string>
-  <string name="env_pmv_rating_neutral_detail" formatted="false">多數人可能感到冷熱適中。</string>
+  <string name="env_pmv_rating_hot_summary" formatted="false">目前估計的冷熱感明顯偏熱，可到較涼爽的位置休息，並適當降溫；調整後再查看讀數與自身感受。</string>
+  <string name="env_pmv_rating_neutral_detail" formatted="false">目前估計的冷熱感接近中性，多數人可能覺得適中。若你也感到舒適，保持現有設定即可，不必反覆調節。</string>
   <string name="env_pmv_rating_neutral_label" formatted="false">中性</string>
-  <string name="env_pmv_rating_neutral_summary" formatted="false">多數人可能感到冷熱適中。</string>
-  <string name="env_pmv_rating_slightly_cool_detail" formatted="false">略感涼意，可留意衣著與活動量。</string>
+  <string name="env_pmv_rating_neutral_summary" formatted="false">目前估計的冷熱感接近中性，多數人可能覺得適中。若你也感到舒適，保持現有設定即可，不必反覆調節。</string>
+  <string name="env_pmv_rating_slightly_cool_detail" formatted="false">目前估計的冷熱感稍涼，可留意衣著與活動量；若久坐時覺得冷，可添一件薄外套，不必急著大幅調高室溫。</string>
   <string name="env_pmv_rating_slightly_cool_label" formatted="false">稍涼</string>
-  <string name="env_pmv_rating_slightly_cool_summary" formatted="false">略感涼意，可留意衣著與活動量。</string>
-  <string name="env_pmv_rating_slightly_warm_detail" formatted="false">略感暖意，可觀察是否需要降低室溫。</string>
+  <string name="env_pmv_rating_slightly_cool_summary" formatted="false">目前估計的冷熱感稍涼，可留意衣著與活動量；若久坐時覺得冷，可添一件薄外套，不必急著大幅調高室溫。</string>
+  <string name="env_pmv_rating_slightly_warm_detail" formatted="false">目前估計的冷熱感稍暖，可先減少一層衣物或小幅調整空調，再觀察體感，不必急著大幅降溫。</string>
   <string name="env_pmv_rating_slightly_warm_label" formatted="false">稍暖</string>
-  <string name="env_pmv_rating_slightly_warm_summary" formatted="false">略感暖意，可觀察是否需要降低室溫。</string>
+  <string name="env_pmv_rating_slightly_warm_summary" formatted="false">目前估計的冷熱感稍暖，可先減少一層衣物或小幅調整空調，再觀察體感，不必急著大幅降溫。</string>
   <string name="env_pmv_rating_unknown_detail" formatted="false">目前沒有可信的讀數。</string>
   <string name="env_pmv_rating_unknown_label" formatted="false">未知</string>
   <string name="env_pmv_rating_unknown_summary" formatted="false">目前沒有可信的讀數。</string>
-  <string name="env_pmv_rating_warm_detail" formatted="false">環境偏暖，可考慮通風或減少保暖。</string>
+  <string name="env_pmv_rating_warm_detail" formatted="false">目前估計的冷熱感偏暖，可減少保暖、使用風扇或適當降溫；通風前先確認室外空氣與溫度是否合適。</string>
   <string name="env_pmv_rating_warm_label" formatted="false">暖</string>
-  <string name="env_pmv_rating_warm_summary" formatted="false">環境偏暖，可考慮通風或減少保暖。</string>
+  <string name="env_pmv_rating_warm_summary" formatted="false">目前估計的冷熱感偏暖，可減少保暖、使用風扇或適當降溫；通風前先確認室外空氣與溫度是否合適。</string>
   <string name="env_pollen_advice" formatted="false">對花粉敏感的話，可以把這項讀數與自己的反應一起看。花粉較多時，減少長時間開窗，外出後更換外衣；同樣的濃度，不同花粉類型帶來的感受可能不同。</string>
   <string name="env_pollen_description" formatted="false">花粉讀數表示單位體積空氣中的花粉數量，不同種類的致敏潛力不同，分檔也隨類型與標準變化。敏感者可結合個人反應安排出行；只有總數而沒有類型時，不應推斷具體負荷等級。</string>
   <string name="env_pollen_name" formatted="false">花粉</string>
-  <string name="env_pollen_rating_absent_detail" formatted="false">本次測得花粉數為零。</string>
+  <string name="env_pollen_rating_absent_detail" formatted="false">本次測得花粉數為零。這僅代表本次採樣結果，不表示周邊一直沒有花粉，出行時仍可參考當地預報。</string>
   <string name="env_pollen_rating_absent_label" formatted="false">未檢出</string>
-  <string name="env_pollen_rating_absent_summary" formatted="false">本次測得花粉數為零。</string>
-  <string name="env_pollen_rating_high_detail" formatted="false">花粉負荷較高，敏感者宜留意出行安排。</string>
+  <string name="env_pollen_rating_absent_summary" formatted="false">本次測得花粉數為零。這僅代表本次採樣結果，不表示周邊一直沒有花粉，出行時仍可參考當地預報。</string>
+  <string name="env_pollen_rating_high_detail" formatted="false">目前讀數顯示：花粉負荷較高，敏感者宜留意出行安排。對該類型花粉敏感時，可減少長時間戶外活動與開窗，外出後更換外衣。</string>
   <string name="env_pollen_rating_high_label" formatted="false">高</string>
-  <string name="env_pollen_rating_high_summary" formatted="false">花粉負荷較高，敏感者宜留意出行安排。</string>
-  <string name="env_pollen_rating_low_detail" formatted="false">該類型花粉負荷較低。</string>
+  <string name="env_pollen_rating_high_summary" formatted="false">目前讀數顯示：花粉負荷較高，敏感者宜留意出行安排。對該類型花粉敏感時，可減少長時間戶外活動與開窗，外出後更換外衣。</string>
+  <string name="env_pollen_rating_low_detail" formatted="false">目前讀數顯示：該類型花粉負荷較低。可依自己的敏感程度安排活動；負荷較低也不代表每個人都不會有反應。</string>
   <string name="env_pollen_rating_low_label" formatted="false">低</string>
-  <string name="env_pollen_rating_low_summary" formatted="false">該類型花粉負荷較低。</string>
-  <string name="env_pollen_rating_moderate_detail" formatted="false">花粉負荷升高，敏感者可留意個人反應。</string>
+  <string name="env_pollen_rating_low_summary" formatted="false">目前讀數顯示：該類型花粉負荷較低。可依自己的敏感程度安排活動；負荷較低也不代表每個人都不會有反應。</string>
+  <string name="env_pollen_rating_moderate_detail" formatted="false">目前讀數顯示：花粉負荷處於中等區間，敏感者可留意個人反應。外出前可查看當地預報，並依自身反應調整戶外停留時間。</string>
   <string name="env_pollen_rating_moderate_label" formatted="false">中</string>
-  <string name="env_pollen_rating_moderate_summary" formatted="false">花粉負荷升高，敏感者可留意個人反應。</string>
+  <string name="env_pollen_rating_moderate_summary" formatted="false">目前讀數顯示：花粉負荷處於中等區間，敏感者可留意個人反應。外出前可查看當地預報，並依自身反應調整戶外停留時間。</string>
   <string name="env_pollen_rating_unknown_detail" formatted="false">目前沒有可信的讀數。</string>
   <string name="env_pollen_rating_unknown_label" formatted="false">未知</string>
   <string name="env_pollen_rating_unknown_summary" formatted="false">目前沒有可信的讀數。</string>
-  <string name="env_pollen_rating_very_high_detail" formatted="false">花粉負荷極高，敏感者應留意防護。</string>
+  <string name="env_pollen_rating_very_high_detail" formatted="false">目前讀數顯示：花粉負荷極高，敏感者應留意防護。對該類型花粉敏感時，盡量減少不必要的接觸，依當地預報調整出行與開窗安排。</string>
   <string name="env_pollen_rating_very_high_label" formatted="false">極高</string>
-  <string name="env_pollen_rating_very_high_summary" formatted="false">花粉負荷極高，敏感者應留意防護。</string>
+  <string name="env_pollen_rating_very_high_summary" formatted="false">目前讀數顯示：花粉負荷極高，敏感者應留意防護。對該類型花粉敏感時，盡量減少不必要的接觸，依當地預報調整出行與開窗安排。</string>
   <string name="env_so2_advice" formatted="false">室外 SO₂ 偏高時，可以少在污染較重的地方停留，把戶外活動改到空氣較好的時段。是否通風也要結合室外讀數，濃度高時不要盲目開窗。</string>
   <string name="env_so2_description" formatted="false">二氧化硫主要與含硫燃料燃燒及部分工業排放有關，也可能影響呼吸道。讀數應依所選標準的平均時間理解；濃度較高時，可結合當地提示減少相關暴露。</string>
   <string name="env_so2_name" formatted="false">二氧化硫 SO₂</string>
-  <string name="env_so2_rating_extremely_poor_detail" formatted="false">已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。</string>
+  <string name="env_so2_rating_extremely_poor_detail" formatted="false">目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。</string>
   <string name="env_so2_rating_extremely_poor_label" formatted="false">極差</string>
-  <string name="env_so2_rating_extremely_poor_summary" formatted="false">已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。</string>
-  <string name="env_so2_rating_fair_detail" formatted="false">比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。</string>
+  <string name="env_so2_rating_extremely_poor_summary" formatted="false">目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。</string>
+  <string name="env_so2_rating_fair_detail" formatted="false">目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。</string>
   <string name="env_so2_rating_fair_label" formatted="false">尚可</string>
-  <string name="env_so2_rating_fair_summary" formatted="false">比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。</string>
+  <string name="env_so2_rating_fair_summary" formatted="false">目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。</string>
   <string name="env_so2_rating_good_detail" formatted="false">目前濃度較低，保持現有習慣，持續觀察就好。</string>
   <string name="env_so2_rating_good_label" formatted="false">好</string>
   <string name="env_so2_rating_good_summary" formatted="false">目前濃度較低，保持現有習慣，持續觀察就好。</string>
-  <string name="env_so2_rating_moderate_detail" formatted="false">值得多留意一會兒，結合上面的建議做些調整，再看看讀數。</string>
+  <string name="env_so2_rating_moderate_detail" formatted="false">目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。</string>
   <string name="env_so2_rating_moderate_label" formatted="false">中等</string>
-  <string name="env_so2_rating_moderate_summary" formatted="false">值得多留意一會兒，結合上面的建議做些調整，再看看讀數。</string>
+  <string name="env_so2_rating_moderate_summary" formatted="false">目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。</string>
   <string name="env_so2_rating_poor_detail" formatted="false">目前濃度偏高，先減少接觸，再依這項污染物的特點改善環境。</string>
   <string name="env_so2_rating_poor_label" formatted="false">差</string>
   <string name="env_so2_rating_poor_summary" formatted="false">目前濃度偏高，先減少接觸，再依這項污染物的特點改善環境。</string>
@@ -268,69 +268,69 @@
   <string name="env_so2_rating_very_poor_detail" formatted="false">目前濃度很高，盡量減少停留，並關注當地提示或進一步排查來源。</string>
   <string name="env_so2_rating_very_poor_label" formatted="false">很差</string>
   <string name="env_so2_rating_very_poor_summary" formatted="false">目前濃度很高，盡量減少停留，並關注當地提示或進一步排查來源。</string>
-  <string name="env_standard_ashrae_55_scale_description" formatted="false">ASHRAE Standard 55 的七點熱感覺標尺，以「冷、涼、稍涼、中性、稍暖、暖、熱」表達 −3 到 +3 的冷熱感，比單看溫度數字更直覺。本專案以這七個名稱展示 PMV，並將連續數值分成易讀區間；這些顯示區間屬於產品規則，不能單憑標籤判斷房間是否符合整項標準。</string>
+  <string name="env_standard_ashrae_55_scale_description" formatted="false">ASHRAE Standard 55 的七點熱感覺標尺，以「冷、涼、稍涼、中性、稍暖、暖、熱」表達 −3 到 +3 的冷熱感。本專案以這些名稱展示 PMV，並劃分易讀區間；區間屬於產品規則，不能僅憑標籤判斷房間是否符合整項標準。</string>
   <string name="env_standard_ashrae_55_scale_name" formatted="false">ASHRAE Standard 55 七點標尺</string>
   <string name="env_standard_ashrae_55_scale_organization" formatted="false">美國採暖、製冷與空調工程師學會（ASHRAE）</string>
   <string name="env_standard_ashrae_55_scale_organization_1" formatted="false">美國採暖、製冷與空調工程師學會（ASHRAE）</string>
-  <string name="env_standard_eea_aqi_description" formatted="false">歐洲空氣品質指數由歐洲環境署提供，以六個等級將不同污染物濃度轉為易讀提示，協助公眾理解短期空氣狀況。本專案預設用它評價 PM2.5 與 PM10，也提供臭氧及二氧化硫的對應分檔；這裡展示各項污染物的結果，並非完整的歐洲官方綜合指數。</string>
+  <string name="env_standard_eea_aqi_description" formatted="false">歐洲環境署的空氣品質指數以六個等級描述污染物濃度，協助理解短期空氣狀況。本專案預設用於 PM2.5 與 PM10，也提供臭氧及二氧化硫分檔；顯示單項污染物的結果，並非完整的歐洲官方綜合指數。</string>
   <string name="env_standard_eea_aqi_name" formatted="false">EEA European Air Quality Index</string>
   <string name="env_standard_eea_aqi_organization" formatted="false">歐洲環境署（EEA）</string>
   <string name="env_standard_eea_aqi_organization_1" formatted="false">歐洲環境署（EEA）</string>
-  <string name="env_standard_epa_aqi_description" formatted="false">美國 EPA AQI 以六個類別向公眾報告空氣品質，協助判斷何時需要多關注污染狀況、調整戶外活動。本專案採用其中已支援污染物的濃度分界，提供另一套可選評級依據。不同污染物的平均時間與數值處理規則各有不同，因此同一讀數在不同標準下可能得到不同等級。</string>
+  <string name="env_standard_epa_aqi_description" formatted="false">美國 EPA AQI 以六個類別報告空氣品質，協助公眾關注污染、調整戶外活動。本專案採用已支援污染物的濃度分界，作為可選評級依據。各污染物的平均時間與數值處理規則不同，同一讀數在不同標準下可能得到不同等級。</string>
   <string name="env_standard_epa_aqi_name" formatted="false">美國 EPA AQI</string>
   <string name="env_standard_epa_aqi_organization" formatted="false">美國環境保護署（EPA）</string>
   <string name="env_standard_epa_aqi_organization_1" formatted="false">美國環境保護署（EPA）</string>
-  <string name="env_standard_epa_humidity_description" formatted="false">美國 EPA 的濕度建議主要協助家庭減少潮濕與黴菌問題。它建議盡可能將室內相對濕度保持在 30%–50%，並控制在 60% 以下。本專案將這份建議作為可選依據，以「偏乾、適宜、略濕、偏濕」協助判斷是否需要加濕、通風或除濕。</string>
+  <string name="env_standard_epa_humidity_description" formatted="false">美國 EPA 的濕度建議協助家庭減少潮濕與黴菌，建議室內相對濕度盡可能保持在 30%–50%，並低於 60%。本專案提供這套可選依據，以「偏乾、適宜、略濕、偏濕」提示是否需要加濕、通風或除濕。</string>
   <string name="env_standard_epa_humidity_name" formatted="false">美國 EPA 濕度指南</string>
   <string name="env_standard_epa_humidity_organization" formatted="false">美國環境保護署（EPA）</string>
   <string name="env_standard_epa_humidity_organization_1" formatted="false">美國環境保護署（EPA）</string>
-  <string name="env_standard_gbt_18883_2022_description" formatted="false">GB/T 18883—2022 是中國的室內空氣品質標準，約定污染物限值與檢驗方法。甲醛限值為 0.08 mg/m³，對應 1 小時平均。本專案將它作為可選甲醛依據；頁面六檔提示是依此限值設計的產品規則，不等同一次完整的室內空氣品質達標檢測。</string>
+  <string name="env_standard_gbt_18883_2022_description" formatted="false">GB/T 18883—2022 是中國室內空氣品質標準，約定污染物限值與檢驗方法。甲醛限值為 0.08 mg/m³，採 1 小時平均。本專案提供此可選依據；六檔提示是依限值設計的產品規則，不等同完整的達標檢測。</string>
   <string name="env_standard_gbt_18883_2022_name" formatted="false">GB/T 18883—2022</string>
   <string name="env_standard_gbt_18883_2022_organization" formatted="false">國家市場監督管理總局、國家標準化管理委員會</string>
   <string name="env_standard_gbt_18883_2022_organization_1" formatted="false">國家市場監督管理總局</string>
   <string name="env_standard_gbt_18883_2022_organization_2" formatted="false">國家標準化管理委員會</string>
-  <string name="env_standard_hj_633_2026_description" formatted="false">HJ 633—2026 是中國環境空氣品質指數的技術規定，說明如何依污染物濃度計算 AQI、劃分污染級別與報告結果。本專案參考其中的濃度分界，提供顆粒物及已支援室外氣體的評級選項。讀數還須符合標準的平均時間，例如小時值與日平均值不能直接混用。</string>
+  <string name="env_standard_hj_633_2026_description" formatted="false">HJ 633—2026 是中國環境空氣品質指數的技術規定，約定 AQI 計算、污染分級與報告方法。本專案參考其濃度分界，提供顆粒物和已支援室外氣體的評級選項。讀數須符合規定的平均時間，小時值與日平均值不能混用。</string>
   <string name="env_standard_hj_633_2026_name" formatted="false">HJ 633—2026</string>
   <string name="env_standard_hj_633_2026_organization" formatted="false">中華人民共和國生態環境部</string>
   <string name="env_standard_hj_633_2026_organization_1" formatted="false">中華人民共和國生態環境部</string>
-  <string name="env_standard_ies_rp_11_26_description" formatted="false">ANSI/IES/ALA RP-11-26 是住宅室內外照明的推薦實務，依空間、活動與實際工作面提供照度及設計建議。本專案參考其中的照度層級，整理成從氛圍照明到精細作業的活動提示，協助理解目前光線接近哪類需要；裝置位置的單點讀數仍不能代表書桌或整個房間的照明條件。</string>
+  <string name="env_standard_ies_rp_11_26_description" formatted="false">ANSI/IES/ALA RP-11-26 是住宅室內外照明的推薦實務，依空間、活動與工作面提供照度建議。本專案參考其照度層級，設計從氛圍照明到精細作業的活動提示；裝置位置的單點讀數不能代表書桌或整個房間的照明。</string>
   <string name="env_standard_ies_rp_11_26_name" formatted="false">ANSI/IES/ALA RP-11-26</string>
   <string name="env_standard_ies_rp_11_26_organization" formatted="false">美國照明工程學會（IES）、美國照明協會（ALA）</string>
   <string name="env_standard_ies_rp_11_26_organization_1" formatted="false">美國照明工程學會（IES）</string>
   <string name="env_standard_ies_rp_11_26_organization_2" formatted="false">美國照明協會（ALA）</string>
-  <string name="env_standard_iso_7730_2025_description" formatted="false">ISO 7730 是協助理解人體冷熱感的國際標準。它不只看室溫，還結合濕度、風速、輻射溫度、衣著與活動量，以 PMV 和 PPD 估計一群人的熱感覺與不滿意比例。本專案採用這些計算方法，協助你理解目前環境為何偏冷、偏熱或接近中性。</string>
+  <string name="env_standard_iso_7730_2025_description" formatted="false">ISO 7730 是理解人體冷熱感的國際標準，結合溫度、濕度、風速、輻射溫度、衣著與活動量，以 PMV 和 PPD 估計人群的熱感覺與不滿意比例。本專案採用這些方法，協助你理解環境為何偏冷、偏熱或接近中性。</string>
   <string name="env_standard_iso_7730_2025_name" formatted="false">ISO 7730:2025</string>
   <string name="env_standard_iso_7730_2025_organization" formatted="false">國際標準化組織（ISO）</string>
   <string name="env_standard_iso_7730_2025_organization_1" formatted="false">國際標準化組織（ISO）</string>
-  <string name="env_standard_meteoswiss_pollen_description" formatted="false">瑞士 MeteoSwiss 的花粉負荷分級，進一步區分樺樹、禾草、豚草等類型，並依各類花粉的致敏潛力設定不同濃度邊界。本專案採用表中列出的類型，展示對應的日平均負荷等級。它比單一總數提供更細的參考，但不是歐盟統一標準，也不能只靠一個等級預測每個人的過敏反應。</string>
+  <string name="env_standard_meteoswiss_pollen_description" formatted="false">瑞士 MeteoSwiss 依樺樹、禾草、豚草等類型與致敏潛力，設定不同的花粉濃度邊界。本專案採用表中類型，展示日平均負荷等級；它不是歐盟統一標準，也不能僅憑等級預測個人的過敏反應。</string>
   <string name="env_standard_meteoswiss_pollen_name" formatted="false">MeteoSwiss 花粉負荷等級</string>
   <string name="env_standard_meteoswiss_pollen_organization" formatted="false">瑞士聯邦氣象與氣候局</string>
   <string name="env_standard_meteoswiss_pollen_organization_1" formatted="false">瑞士聯邦氣象與氣候局</string>
-  <string name="env_standard_nab_pollen_description" formatted="false">美國國家過敏局的花粉監測網絡，以樹木、禾草、雜草等類別的花粉濃度描述空氣中的花粉負荷。本專案採用各類別的日平均濃度邊界，提供低、中、高、極高四檔提示，協助安排日常活動；若只有未分類的總花粉數，不能直接套用其中一類的分檔。</string>
+  <string name="env_standard_nab_pollen_description" formatted="false">美國國家過敏局依樹木、禾草與雜草等類別監測花粉濃度。本專案採用各類別的日平均濃度邊界，提供低、中、高、極高四檔提示，協助安排日常活動；未分類的總花粉數不能直接套用某一類的分檔。</string>
   <string name="env_standard_nab_pollen_name" formatted="false">NAB 花粉等級</string>
   <string name="env_standard_nab_pollen_organization" formatted="false">美國國家過敏局（NAB）</string>
   <string name="env_standard_nab_pollen_organization_1" formatted="false">美國國家過敏局（NAB）</string>
-  <string name="env_standard_oehha_hcho_2008_description" formatted="false">加州 OEHHA 發布參考暴露水平，協助評估接觸空氣污染物的健康風險。甲醛的 1 小時急性參考值為 0.055 mg/m³。本專案提供這套可選依據，供需要採用加州參考口徑的產品使用；它並非全美國通用的法規限值，頁面六檔也屬於產品映射。</string>
+  <string name="env_standard_oehha_hcho_2008_description" formatted="false">加州 OEHHA 的參考暴露水平用於評估空氣污染物的健康風險，甲醛的 1 小時急性參考值為 0.055 mg/m³。本專案提供此可選依據；它並非全美通用的法規限值，六檔提示也屬於產品映射。</string>
   <string name="env_standard_oehha_hcho_2008_name" formatted="false">加州 OEHHA 2008</string>
   <string name="env_standard_oehha_hcho_2008_organization" formatted="false">加利福尼亞州環境健康危害評估辦公室（OEHHA）</string>
   <string name="env_standard_oehha_hcho_2008_organization_1" formatted="false">加利福尼亞州環境健康危害評估辦公室（OEHHA）</string>
-  <string name="env_standard_uba_co2_2008_description" formatted="false">德國聯邦環境署的 CO₂ 指導值，主要協助判斷室內換氣是否需要關注。它以 1000 ppm 與 2000 ppm 為分界，劃分三個區間。本專案據此提供「正常、建議通風、應加強通風」提示，協助判斷何時可以開窗或增加新風；這不是評價一氧化碳等其他污染物的標準。</string>
+  <string name="env_standard_uba_co2_2008_description" formatted="false">德國聯邦環境署的 CO₂ 指導值用於提示室內換氣狀況，以 1000 ppm 與 2000 ppm 劃分三個區間。本專案據此提供「正常、建議通風、應加強通風」提示，協助判斷何時開窗或增加新風。</string>
   <string name="env_standard_uba_co2_2008_name" formatted="false">德國 UBA 2008 CO₂ 指導值</string>
   <string name="env_standard_uba_co2_2008_organization" formatted="false">德國聯邦環境署（UBA）</string>
   <string name="env_standard_uba_co2_2008_organization_1" formatted="false">德國聯邦環境署（UBA）</string>
-  <string name="env_standard_uba_humidity_description" formatted="false">德國聯邦環境署的濕度指南從日常通風與住宅防潮出發，建議全年將相對濕度保持在約 40%–60%。這為居家濕度提供容易理解的參考範圍。本專案預設採用此依據：低於範圍提示偏乾，高於範圍提示偏濕，方便依讀數調整加濕或除濕。</string>
+  <string name="env_standard_uba_humidity_description" formatted="false">德國聯邦環境署的濕度指南從通風與住宅防潮出發，建議全年相對濕度保持在約 40%–60%。本專案預設採用此依據：低於範圍提示偏乾，高於範圍提示偏濕，協助你調整加濕或除濕。</string>
   <string name="env_standard_uba_humidity_name" formatted="false">德國 UBA 濕度指南</string>
   <string name="env_standard_uba_humidity_organization" formatted="false">德國聯邦環境署（UBA）</string>
   <string name="env_standard_uba_humidity_organization_1" formatted="false">德國聯邦環境署（UBA）</string>
-  <string name="env_standard_who_hcho_2010_description" formatted="false">WHO 室內空氣品質指南從健康角度為多種室內污染物提供參考。甲醛的參考濃度為 0.10 mg/m³，依 30 分鐘平均值理解。本專案將它作為甲醛預設依據，並圍繞參考值設計六檔提示；六檔屬於產品表達方式，並非 WHO 原文規定的六個等級。</string>
+  <string name="env_standard_who_hcho_2010_description" formatted="false">WHO 室內空氣品質指南為室內污染物提供健康參考，甲醛參考值為 0.10 mg/m³，採 30 分鐘平均。本專案預設採用此依據，並圍繞參考值設計六檔提示；六檔屬於產品規則，並非 WHO 規定的等級。</string>
   <string name="env_standard_who_hcho_2010_name" formatted="false">WHO 2010 室內空氣質量指南</string>
   <string name="env_standard_who_hcho_2010_organization" formatted="false">世界衛生組織（WHO）</string>
   <string name="env_standard_who_hcho_2010_organization_1" formatted="false">世界衛生組織（WHO）</string>
-  <string name="env_standard_who_noise_1999_description" formatted="false">WHO《社區噪聲指南》關注聲音如何影響生活、休息與睡眠，並為不同場景提供參考。相關參考值採用長期等效聲級等測量方式。本專案參考住宅與睡眠場景，設計易讀的噪聲提示；目前聲級讀數的四檔顯示屬於產品規則，不取代指南要求的完整長期測量。</string>
+  <string name="env_standard_who_noise_1999_description" formatted="false">WHO《社區噪聲指南》關注聲音對生活、休息與睡眠的影響，參考值採用長期等效聲級等測量方式。本專案參考住宅與睡眠場景設計噪聲提示；目前讀數的四檔顯示屬於產品規則，不取代完整的長期測量。</string>
   <string name="env_standard_who_noise_1999_name" formatted="false">WHO《社區噪聲指南》</string>
   <string name="env_standard_who_noise_1999_organization" formatted="false">世界衛生組織（WHO）</string>
   <string name="env_standard_who_noise_1999_organization_1" formatted="false">世界衛生組織（WHO）</string>
-  <string name="env_standard_who_uv_index_description" formatted="false">WHO《全球太陽紫外線指數：實用指南》以低、中、高、很高、極高五個等級，協助理解太陽紫外線對皮膚與眼睛的潛在影響，並安排防曬與遮蔽。本專案採用此分級，狀態色與圖示色也使用 WHO 指定的 RGB 值。查看時應留意是目前指數還是當日最大值，它與照度讀數並非同一回事。</string>
+  <string name="env_standard_who_uv_index_description" formatted="false">WHO《全球太陽紫外線指數：實用指南》以低、中、高、很高、極高五檔提示紫外線對皮膚與眼睛的潛在影響。本專案採用其分級及指定 RGB 配色。請留意顯示目前指數或當日最大值；紫外線指數與照度不同。</string>
   <string name="env_standard_who_uv_index_name" formatted="false">WHO 全球太陽紫外線指數</string>
   <string name="env_standard_who_uv_index_organization" formatted="false">世界衛生組織（WHO）</string>
   <string name="env_standard_who_uv_index_organization_1" formatted="false">世界衛生組織（WHO）</string>
@@ -343,22 +343,22 @@
   <string name="env_uv_index_advice" formatted="false">出門前看看紫外線指數，準備遮陽帽、衣物或防曬用品；指數較高時，可以多走陰涼處，減少正午曝曬。天氣涼爽或有雲，也不一定代表紫外線很低。</string>
   <string name="env_uv_index_description" formatted="false">紫外線指數反映太陽紫外線對皮膚與眼睛產生損傷的潛在強度，與可見光照度不同。指數越高，越應留意防曬與遮蔽；查看時應區分目前值與當日最大值。</string>
   <string name="env_uv_index_name" formatted="false">紫外線指數</string>
-  <string name="env_uv_index_rating_extreme_detail" formatted="false">紫外線極強，盡量減少不必要的戶外暴露。</string>
+  <string name="env_uv_index_rating_extreme_detail" formatted="false">目前讀數顯示：紫外線極強，盡量減少不必要的戶外暴露。優先減少不必要的戶外曝曬；必須外出時，盡量在遮蔽處活動並做好完整防曬。</string>
   <string name="env_uv_index_rating_extreme_label" formatted="false">極高</string>
-  <string name="env_uv_index_rating_extreme_summary" formatted="false">紫外線極強，盡量減少不必要的戶外暴露。</string>
-  <string name="env_uv_index_rating_high_detail" formatted="false">紫外線較強，戶外活動需做好防曬。</string>
+  <string name="env_uv_index_rating_extreme_summary" formatted="false">目前讀數顯示：紫外線極強，盡量減少不必要的戶外暴露。優先減少不必要的戶外曝曬；必須外出時，盡量在遮蔽處活動並做好完整防曬。</string>
+  <string name="env_uv_index_rating_high_detail" formatted="false">目前讀數顯示：紫外線較強，戶外活動需做好防曬。戶外活動請做好遮陽與防曬，盡量避免正午長時間曝曬。</string>
   <string name="env_uv_index_rating_high_label" formatted="false">高</string>
-  <string name="env_uv_index_rating_high_summary" formatted="false">紫外線較強，戶外活動需做好防曬。</string>
-  <string name="env_uv_index_rating_low_detail" formatted="false">紫外線強度較低。</string>
+  <string name="env_uv_index_rating_high_summary" formatted="false">目前讀數顯示：紫外線較強，戶外活動需做好防曬。戶外活動請做好遮陽與防曬，盡量避免正午長時間曝曬。</string>
+  <string name="env_uv_index_rating_low_detail" formatted="false">目前讀數顯示：紫外線強度較低。短時間外出可依需要防曬；長時間在戶外時，仍應留意遮陽與指數變化。</string>
   <string name="env_uv_index_rating_low_label" formatted="false">低</string>
-  <string name="env_uv_index_rating_low_summary" formatted="false">紫外線強度較低。</string>
-  <string name="env_uv_index_rating_moderate_detail" formatted="false">紫外線處於中等級別，請留意暴露時間。</string>
+  <string name="env_uv_index_rating_low_summary" formatted="false">目前讀數顯示：紫外線強度較低。短時間外出可依需要防曬；長時間在戶外時，仍應留意遮陽與指數變化。</string>
+  <string name="env_uv_index_rating_moderate_detail" formatted="false">目前讀數顯示：紫外線處於中等級別，請留意暴露時間。外出可準備遮陽帽、衣物與防曬用品，停留較久時盡量選擇陰涼處。</string>
   <string name="env_uv_index_rating_moderate_label" formatted="false">中</string>
-  <string name="env_uv_index_rating_moderate_summary" formatted="false">紫外線處於中等級別，請留意暴露時間。</string>
+  <string name="env_uv_index_rating_moderate_summary" formatted="false">目前讀數顯示：紫外線處於中等級別，請留意暴露時間。外出可準備遮陽帽、衣物與防曬用品，停留較久時盡量選擇陰涼處。</string>
   <string name="env_uv_index_rating_unknown_detail" formatted="false">目前沒有可信的讀數。</string>
   <string name="env_uv_index_rating_unknown_label" formatted="false">未知</string>
   <string name="env_uv_index_rating_unknown_summary" formatted="false">目前沒有可信的讀數。</string>
-  <string name="env_uv_index_rating_very_high_detail" formatted="false">紫外線很強，盡量減少正午暴露。</string>
+  <string name="env_uv_index_rating_very_high_detail" formatted="false">目前讀數顯示：紫外線很強，盡量減少正午暴露。盡量調整戶外活動時間，避開正午，並同時使用遮陽衣物與防曬用品。</string>
   <string name="env_uv_index_rating_very_high_label" formatted="false">很高</string>
-  <string name="env_uv_index_rating_very_high_summary" formatted="false">紫外線很強，盡量減少正午暴露。</string>
+  <string name="env_uv_index_rating_very_high_summary" formatted="false">目前讀數顯示：紫外線很強，盡量減少正午暴露。盡量調整戶外活動時間，避開正午，並同時使用遮陽衣物與防曬用品。</string>
 </resources>

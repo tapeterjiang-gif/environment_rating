@@ -90,25 +90,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前通风情况不错，保持现有换气习惯就好。"
+            "value": "当前 CO₂ 浓度较低，可保持现有换气习惯。人员增加或门窗长时间关闭时，再留意读数变化。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前通風情況不錯，保持現有換氣習慣就好。"
+            "value": "目前 CO₂ 濃度較低，可保持現有換氣習慣。人員增加或門窗長時間關閉時，再留意讀數變化。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ventilation looks good for now. Keep your usual fresh-air routine."
+            "value": "The current CO₂ concentration is low. Keep your ventilation routine and watch the reading when more people arrive or windows stay closed."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "今の換気状況は良好です。普段の換気を続けましょう。"
+            "value": "現在のCO₂濃度は低めです。今の換気習慣を保ち、人が増えたり窓を長く閉めたりした際は値を確認しましょう。"
           }
         }
       }
@@ -146,25 +146,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前通风情况不错，保持现有换气习惯就好。"
+            "value": "当前 CO₂ 浓度较低，可保持现有换气习惯。人员增加或门窗长时间关闭时，再留意读数变化。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前通風情況不錯，保持現有換氣習慣就好。"
+            "value": "目前 CO₂ 濃度較低，可保持現有換氣習慣。人員增加或門窗長時間關閉時，再留意讀數變化。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ventilation looks good for now."
+            "value": "The current CO₂ concentration is low. Keep your ventilation routine and watch the reading when more people arrive or windows stay closed."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "今の換気状況は良好です。"
+            "value": "現在のCO₂濃度は低めです。今の換気習慣を保ち、人が増えたり窓を長く閉めたりした際は値を確認しましょう。"
           }
         }
       }
@@ -174,25 +174,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "屋里有些闷了，试试开窗或开启新风，再看看读数有没有回落。"
+            "value": "当前 CO₂ 浓度提示可以增加通风。室外空气合适时，试试开窗或开启新风，再看看读数是否回落。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "屋內有些悶了，試試開窗或開啟新風，再看看讀數有沒有回落。"
+            "value": "目前 CO₂ 濃度提示可以增加通風。室外空氣合適時，試試開窗或開啟新風，再看看讀數是否回落。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Try opening a window or bringing in fresh air, then check whether the reading falls."
+            "value": "The current CO₂ reading suggests more ventilation. If outdoor air is suitable, open a window or use fresh-air ventilation, then check whether the reading falls."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "窓を開けるなど外気を取り入れて、値が下がるか確認しましょう。"
+            "value": "現在のCO₂値は換気を増やす目安です。屋外の空気が適していれば窓開けや外気導入を行い、値が下がるか確認しましょう。"
           }
         }
       }
@@ -230,25 +230,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "屋里有些闷了，试试开窗或开启新风，再看看读数有没有回落。"
+            "value": "当前 CO₂ 浓度提示可以增加通风。室外空气合适时，试试开窗或开启新风，再看看读数是否回落。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "屋內有些悶了，試試開窗或開啟新風，再看看讀數有沒有回落。"
+            "value": "目前 CO₂ 濃度提示可以增加通風。室外空氣合適時，試試開窗或開啟新風，再看看讀數是否回落。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Try opening a window or bringing in fresh air, then check whether the reading falls."
+            "value": "The current CO₂ reading suggests more ventilation. If outdoor air is suitable, open a window or use fresh-air ventilation, then check whether the reading falls."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "窓を開けるなど外気を取り入れて、値が下がるか確認しましょう。"
+            "value": "現在のCO₂値は換気を増やす目安です。屋外の空気が適していれば窓開けや外気導入を行い、値が下がるか確認しましょう。"
           }
         }
       }
@@ -258,25 +258,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "该增加换气了。尽快补入新鲜空气，人多时也可以适当分散活动。"
+            "value": "当前 CO₂ 浓度较高，应尽快增加新鲜空气补入。人多时可适当分散活动，换气后继续观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "該增加換氣了。儘快補入新鮮空氣，人多時也可以適當分散活動。"
+            "value": "目前 CO₂ 濃度較高，應盡快增加新鮮空氣補入。人多時可適當分散活動，換氣後繼續觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Increase fresh-air supply soon. In a crowded room, spreading people out may also help."
+            "value": "The current CO₂ concentration is high. Increase fresh-air supply soon; if crowded, spread activities across spaces and check readings after ventilation."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "新鮮な空気を早めに取り入れましょう。混み合っている場合は、人を分散させることも役立ちます。"
+            "value": "現在のCO₂濃度は高めです。早めに外気を取り入れ、混雑時は活動場所を分散するなどして、換気後も値を確認しましょう。"
           }
         }
       }
@@ -314,25 +314,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "该增加换气了。"
+            "value": "当前 CO₂ 浓度较高，应尽快增加新鲜空气补入。人多时可适当分散活动，换气后继续观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "該增加換氣了。"
+            "value": "目前 CO₂ 濃度較高，應盡快增加新鮮空氣補入。人多時可適當分散活動，換氣後繼續觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Increase fresh-air supply soon."
+            "value": "The current CO₂ concentration is high. Increase fresh-air supply soon; if crowded, spread activities across spaces and check readings after ventilation."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "新鮮な空気を早めに取り入れましょう。"
+            "value": "現在のCO₂濃度は高めです。早めに外気を取り入れ、混雑時は活動場所を分散するなどして、換気後も値を確認しましょう。"
           }
         }
       }
@@ -510,25 +510,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高评级区间，优先离开污染较重的环境，并按相关提示处理。"
+            "value": "当前浓度已处于最高评级区间，优先离开污染较重的位置，关注当地提示，并在环境改善后继续观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。"
+            "value": "目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This is the highest rating band. Prioritize leaving the polluted area and follow relevant guidance."
+            "value": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も高い評価区分です。汚染の多い場所から離れることを優先し、関連する案内に従ってください。"
+            "value": "現在の濃度は最も高い評価区分です。汚染の強い場所から離れることを優先し、地域の案内と環境改善後の値を確認しましょう。"
           }
         }
       }
@@ -566,25 +566,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高评级区间，优先离开污染较重的环境，并按相关提示处理。"
+            "value": "当前浓度已处于最高评级区间，优先离开污染较重的位置，关注当地提示，并在环境改善后继续观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。"
+            "value": "目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This is the highest rating band."
+            "value": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も高い評価区分です。"
+            "value": "現在の濃度は最も高い評価区分です。汚染の強い場所から離れることを優先し、地域の案内と環境改善後の値を確認しましょう。"
           }
         }
       }
@@ -594,25 +594,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低档高一些，可以先看看是否有明显来源或近期活动影响。"
+            "value": "当前浓度高于最低评级区间，可结合近期活动和周边环境，观察是否有污染来源，并留意后续读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。"
+            "value": "目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Above the lowest band. Check for an obvious source or a recent activity that may explain it."
+            "value": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も低い区分より少し高めです。目立つ発生源や直前の活動を確認してみましょう。"
+            "value": "現在の濃度は最も低い評価区分を上回っています。最近の活動や周辺の発生源を確認し、今後の値にも注意しましょう。"
           }
         }
       }
@@ -650,25 +650,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低档高一些，可以先看看是否有明显来源或近期活动影响。"
+            "value": "当前浓度高于最低评级区间，可结合近期活动和周边环境，观察是否有污染来源，并留意后续读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。"
+            "value": "目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Above the lowest band."
+            "value": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も低い区分より少し高めです。"
+            "value": "現在の濃度は最も低い評価区分を上回っています。最近の活動や周辺の発生源を確認し、今後の値にも注意しましょう。"
           }
         }
       }
@@ -746,7 +746,7 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is low."
+            "value": "At this reading, the concentration is low."
           }
         },
         "ja": {
@@ -762,25 +762,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一会儿，结合上面的建议做些调整，再看看读数。"
+            "value": "当前浓度处于中等评级区间，值得多留意。可结合这项污染物的来源与室外情况调整活动或通风，再观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一會兒，結合上面的建議做些調整，再看看讀數。"
+            "value": "目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pay a little more attention. Try the steps above and check the reading again."
+            "value": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "少し注意して見てみましょう。上の対策を試してから、もう一度確認してください。"
+            "value": "現在の濃度は中程度の区分です。物質の発生源と屋外の状況に合わせて活動や換気を調整し、値を再確認しましょう。"
           }
         }
       }
@@ -818,25 +818,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一会儿，结合上面的建议做些调整，再看看读数。"
+            "value": "当前浓度处于中等评级区间，值得多留意。可结合这项污染物的来源与室外情况调整活动或通风，再观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一會兒，結合上面的建議做些調整，再看看讀數。"
+            "value": "目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pay a little more attention."
+            "value": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "少し注意して見てみましょう。"
+            "value": "現在の濃度は中程度の区分です。物質の発生源と屋外の状況に合わせて活動や換気を調整し、値を再確認しましょう。"
           }
         }
       }
@@ -858,13 +858,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is high. Reduce exposure first, then follow the advice for this pollutant."
+            "value": "At this reading, the concentration is high. Reduce exposure first, then follow the advice for this pollutant."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が高めです。まず曝露を減らし、この物質に合った対策をしましょう。"
+            "value": "現在の測定値では、濃度が高めです。まず曝露を減らし、この物質に合った対策をしましょう。"
           }
         }
       }
@@ -914,13 +914,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is high."
+            "value": "At this reading, the concentration is high."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が高めです。"
+            "value": "現在の測定値では、濃度が高めです。"
           }
         }
       }
@@ -1026,13 +1026,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
+            "value": "At this reading, the concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が非常に高い状態です。その場所での滞在を減らし、地域の案内や発生源を確認しましょう。"
+            "value": "現在の測定値では、濃度が非常に高い状態です。その場所での滞在を減らし、地域の案内や発生源を確認しましょう。"
           }
         }
       }
@@ -1082,13 +1082,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is very high."
+            "value": "At this reading, the concentration is very high."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が非常に高い状態です。"
+            "value": "現在の測定値では、濃度が非常に高い状態です。"
           }
         }
       }
@@ -1182,25 +1182,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高评级区间，优先离开污染较重的环境，并按相关提示处理。"
+            "value": "当前浓度已处于最高评级区间，优先离开污染较重的位置，关注当地提示，并在环境改善后继续观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。"
+            "value": "目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This is the highest rating band. Prioritize leaving the polluted area and follow relevant guidance."
+            "value": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も高い評価区分です。汚染の多い場所から離れることを優先し、関連する案内に従ってください。"
+            "value": "現在の濃度は最も高い評価区分です。汚染の強い場所から離れることを優先し、地域の案内と環境改善後の値を確認しましょう。"
           }
         }
       }
@@ -1238,25 +1238,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高评级区间，优先离开污染较重的环境，并按相关提示处理。"
+            "value": "当前浓度已处于最高评级区间，优先离开污染较重的位置，关注当地提示，并在环境改善后继续观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。"
+            "value": "目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This is the highest rating band."
+            "value": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も高い評価区分です。"
+            "value": "現在の濃度は最も高い評価区分です。汚染の強い場所から離れることを優先し、地域の案内と環境改善後の値を確認しましょう。"
           }
         }
       }
@@ -1266,25 +1266,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低档高一些，可以先看看是否有明显来源或近期活动影响。"
+            "value": "当前浓度高于最低评级区间，可结合近期活动和周边环境，观察是否有污染来源，并留意后续读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。"
+            "value": "目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Above the lowest band. Check for an obvious source or a recent activity that may explain it."
+            "value": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も低い区分より少し高めです。目立つ発生源や直前の活動を確認してみましょう。"
+            "value": "現在の濃度は最も低い評価区分を上回っています。最近の活動や周辺の発生源を確認し、今後の値にも注意しましょう。"
           }
         }
       }
@@ -1322,25 +1322,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低档高一些，可以先看看是否有明显来源或近期活动影响。"
+            "value": "当前浓度高于最低评级区间，可结合近期活动和周边环境，观察是否有污染来源，并留意后续读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。"
+            "value": "目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Above the lowest band."
+            "value": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も低い区分より少し高めです。"
+            "value": "現在の濃度は最も低い評価区分を上回っています。最近の活動や周辺の発生源を確認し、今後の値にも注意しましょう。"
           }
         }
       }
@@ -1418,7 +1418,7 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is low."
+            "value": "At this reading, the concentration is low."
           }
         },
         "ja": {
@@ -1434,25 +1434,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一会儿，结合上面的建议做些调整，再看看读数。"
+            "value": "当前浓度处于中等评级区间，值得多留意。可结合这项污染物的来源与室外情况调整活动或通风，再观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一會兒，結合上面的建議做些調整，再看看讀數。"
+            "value": "目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pay a little more attention. Try the steps above and check the reading again."
+            "value": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "少し注意して見てみましょう。上の対策を試してから、もう一度確認してください。"
+            "value": "現在の濃度は中程度の区分です。物質の発生源と屋外の状況に合わせて活動や換気を調整し、値を再確認しましょう。"
           }
         }
       }
@@ -1490,25 +1490,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一会儿，结合上面的建议做些调整，再看看读数。"
+            "value": "当前浓度处于中等评级区间，值得多留意。可结合这项污染物的来源与室外情况调整活动或通风，再观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一會兒，結合上面的建議做些調整，再看看讀數。"
+            "value": "目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pay a little more attention."
+            "value": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "少し注意して見てみましょう。"
+            "value": "現在の濃度は中程度の区分です。物質の発生源と屋外の状況に合わせて活動や換気を調整し、値を再確認しましょう。"
           }
         }
       }
@@ -1530,13 +1530,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is high. Reduce exposure first, then follow the advice for this pollutant."
+            "value": "At this reading, the concentration is high. Reduce exposure first, then follow the advice for this pollutant."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が高めです。まず曝露を減らし、この物質に合った対策をしましょう。"
+            "value": "現在の測定値では、濃度が高めです。まず曝露を減らし、この物質に合った対策をしましょう。"
           }
         }
       }
@@ -1586,13 +1586,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is high."
+            "value": "At this reading, the concentration is high."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が高めです。"
+            "value": "現在の測定値では、濃度が高めです。"
           }
         }
       }
@@ -1698,13 +1698,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
+            "value": "At this reading, the concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が非常に高い状態です。その場所での滞在を減らし、地域の案内や発生源を確認しましょう。"
+            "value": "現在の測定値では、濃度が非常に高い状態です。その場所での滞在を減らし、地域の案内や発生源を確認しましょう。"
           }
         }
       }
@@ -1754,13 +1754,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is very high."
+            "value": "At this reading, the concentration is very high."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が非常に高い状態です。"
+            "value": "現在の測定値では、濃度が非常に高い状態です。"
           }
         }
       }
@@ -1854,25 +1854,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "空气偏干，可根据实际需要加湿。"
+            "value": "当前湿度偏低，若感到皮肤或鼻喉干燥，可适当加湿，并观察读数，避免持续过度加湿。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "空氣偏乾，可依實際需要加濕。"
+            "value": "目前濕度偏低，若感到皮膚或鼻喉乾燥，可適當加濕並觀察讀數，避免持續過度加濕。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The air is dry. Humidify if needed."
+            "value": "The current humidity is low. If your skin or throat feels dry, consider humidification and watch the reading to avoid adding too much moisture."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "空気が乾燥しています。必要に応じて加湿してください。"
+            "value": "現在の湿度は低めです。肌や喉の乾燥が気になる場合は加湿し、加湿しすぎないよう測定値を確認しましょう。"
           }
         }
       }
@@ -1910,25 +1910,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "空气偏干，可根据实际需要加湿。"
+            "value": "当前湿度偏低，若感到皮肤或鼻喉干燥，可适当加湿，并观察读数，避免持续过度加湿。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "空氣偏乾，可依實際需要加濕。"
+            "value": "目前濕度偏低，若感到皮膚或鼻喉乾燥，可適當加濕並觀察讀數，避免持續過度加濕。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The air is dry."
+            "value": "The current humidity is low. If your skin or throat feels dry, consider humidification and watch the reading to avoid adding too much moisture."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "空気が乾燥しています。"
+            "value": "現在の湿度は低めです。肌や喉の乾燥が気になる場合は加湿し、加湿しすぎないよう測定値を確認しましょう。"
           }
         }
       }
@@ -1938,25 +1938,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "湿度偏高，可考虑通风或除湿。"
+            "value": "当前湿度偏高，可排查水汽来源并考虑除湿。若室外也很潮湿，开窗未必有效，调整后再看读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "濕度偏高，可考慮通風或除濕。"
+            "value": "目前濕度偏高，可排查水氣來源並考慮除濕。若室外也很潮濕，開窗未必有效，調整後再看讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Humidity is high. Consider ventilation or dehumidification."
+            "value": "The current humidity is high. Check moisture sources and consider dehumidification; opening windows may not help when outdoor air is also damp."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "湿度が高めです。換気や除湿を検討してください。"
+            "value": "現在の湿度は高めです。水分の発生源を確認し、必要なら除湿を。屋外も湿っている場合、窓開けで改善するとは限りません。"
           }
         }
       }
@@ -1994,25 +1994,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "湿度偏高，可考虑通风或除湿。"
+            "value": "当前湿度偏高，可排查水汽来源并考虑除湿。若室外也很潮湿，开窗未必有效，调整后再看读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "濕度偏高，可考慮通風或除濕。"
+            "value": "目前濕度偏高，可排查水氣來源並考慮除濕。若室外也很潮濕，開窗未必有效，調整後再看讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Humidity is high."
+            "value": "The current humidity is high. Check moisture sources and consider dehumidification; opening windows may not help when outdoor air is also damp."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "湿度が高めです。"
+            "value": "現在の湿度は高めです。水分の発生源を確認し、必要なら除湿を。屋外も湿っている場合、窓開けで改善するとは限りません。"
           }
         }
       }
@@ -2022,25 +2022,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "湿度稍高，可留意通风与冷凝。"
+            "value": "当前湿度略高，可留意窗边冷凝、晾衣等水汽来源；室外条件合适时通风，并观察是否回落。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "濕度稍高，可留意通風與凝結水。"
+            "value": "目前濕度略高，可留意窗邊凝結水、晾衣等水氣來源；室外條件合適時通風，並觀察是否回落。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Humidity is slightly high. Watch ventilation and condensation."
+            "value": "The current humidity is slightly high. Check condensation and moisture from drying clothes; ventilate when outdoor conditions suit, then watch for improvement."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "湿度がやや高めです。換気や結露に注意してください。"
+            "value": "現在の湿度はやや高めです。結露や室内干しなどを確認し、屋外の条件がよければ換気して変化を見ましょう。"
           }
         }
       }
@@ -2078,25 +2078,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "湿度稍高，可留意通风与冷凝。"
+            "value": "当前湿度略高，可留意窗边冷凝、晾衣等水汽来源；室外条件合适时通风，并观察是否回落。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "濕度稍高，可留意通風與凝結水。"
+            "value": "目前濕度略高，可留意窗邊凝結水、晾衣等水氣來源；室外條件合適時通風，並觀察是否回落。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Humidity is slightly high."
+            "value": "The current humidity is slightly high. Check condensation and moisture from drying clothes; ventilate when outdoor conditions suit, then watch for improvement."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "湿度がやや高めです。"
+            "value": "現在の湿度はやや高めです。結露や室内干しなどを確認し、屋外の条件がよければ換気して変化を見ましょう。"
           }
         }
       }
@@ -2106,25 +2106,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "湿度处于所选参考范围内。"
+            "value": "当前湿度处于所选参考范围内，保持现有习惯即可。若窗边或墙角仍有冷凝，也应留意局部潮湿。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "濕度處於所選參考範圍內。"
+            "value": "目前濕度處於所選參考範圍內，保持現有習慣即可。若窗邊或牆角仍有凝結水，也應留意局部潮濕。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Humidity is within the selected reference range."
+            "value": "The current humidity is within your selected range. Keep your routine, while checking for local dampness if windows or corners show condensation."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "湿度は選択した基準範囲内です。"
+            "value": "現在の湿度は選択した目安の範囲内です。今の習慣を保ちつつ、窓や隅に結露があれば局所的な湿気にも注意しましょう。"
           }
         }
       }
@@ -2162,25 +2162,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "湿度处于所选参考范围内。"
+            "value": "当前湿度处于所选参考范围内，保持现有习惯即可。若窗边或墙角仍有冷凝，也应留意局部潮湿。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "濕度處於所選參考範圍內。"
+            "value": "目前濕度處於所選參考範圍內，保持現有習慣即可。若窗邊或牆角仍有凝結水，也應留意局部潮濕。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Humidity is within the selected reference range."
+            "value": "The current humidity is within your selected range. Keep your routine, while checking for local dampness if windows or corners show condensation."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "湿度は選択した基準範囲内です。"
+            "value": "現在の湿度は選択した目安の範囲内です。今の習慣を保ちつつ、窓や隅に結露があれば局所的な湿気にも注意しましょう。"
           }
         }
       }
@@ -2358,25 +2358,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "当前读数接近氛围照明的照度层级。"
+            "value": "当前读数接近氛围照明的照度层级。可营造柔和氛围；若要阅读或做手工，请在实际使用位置补光。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前讀數接近氛圍照明的照度層級。"
+            "value": "目前讀數接近氛圍照明的照度層級。可營造柔和氛圍；若要閱讀或做手工，請在實際使用位置補光。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This reading is near the illuminance level for ambient lighting."
+            "value": "At this reading, this reading is near the illuminance level for ambient lighting. This can support a soft atmosphere; add task lighting for reading or crafts."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "この測定値は雰囲気照明の照度段階に近い値です。"
+            "value": "現在の測定値は雰囲気照明の照度段階に近い値です。落ち着いた雰囲気の目安です。読書や手作業には作業場所で照明を補いましょう。"
           }
         }
       }
@@ -2414,25 +2414,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "当前读数接近氛围照明的照度层级。"
+            "value": "当前读数接近氛围照明的照度层级。可营造柔和氛围；若要阅读或做手工，请在实际使用位置补光。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前讀數接近氛圍照明的照度層級。"
+            "value": "目前讀數接近氛圍照明的照度層級。可營造柔和氛圍；若要閱讀或做手工，請在實際使用位置補光。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This reading is near the illuminance level for ambient lighting."
+            "value": "At this reading, this reading is near the illuminance level for ambient lighting. This can support a soft atmosphere; add task lighting for reading or crafts."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "この測定値は雰囲気照明の照度段階に近い値です。"
+            "value": "現在の測定値は雰囲気照明の照度段階に近い値です。落ち着いた雰囲気の目安です。読書や手作業には作業場所で照明を補いましょう。"
           }
         }
       }
@@ -2442,25 +2442,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "当前读数接近日常活动的照度层级。"
+            "value": "当前读数接近日常活动的照度层级。可作为一般活动的参考，阅读写字时仍应确认桌面是否足够明亮。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前讀數接近日常活動的照度層級。"
+            "value": "目前讀數接近日常活動的照度層級。可作為一般活動的參考，閱讀寫字時仍應確認桌面是否足夠明亮。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This reading is near the illuminance level for general activity."
+            "value": "At this reading, this reading is near the illuminance level for general activity. Use this as a reference for everyday activities; check desk lighting separately for reading or writing."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "この測定値は日常活動の照度段階に近い値です。"
+            "value": "現在の測定値は日常活動の照度段階に近い値です。日常活動の目安とし、読み書きでは机上の明るさを別途確認しましょう。"
           }
         }
       }
@@ -2498,25 +2498,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "当前读数接近日常活动的照度层级。"
+            "value": "当前读数接近日常活动的照度层级。可作为一般活动的参考，阅读写字时仍应确认桌面是否足够明亮。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前讀數接近日常活動的照度層級。"
+            "value": "目前讀數接近日常活動的照度層級。可作為一般活動的參考，閱讀寫字時仍應確認桌面是否足夠明亮。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This reading is near the illuminance level for general activity."
+            "value": "At this reading, this reading is near the illuminance level for general activity. Use this as a reference for everyday activities; check desk lighting separately for reading or writing."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "この測定値は日常活動の照度段階に近い値です。"
+            "value": "現在の測定値は日常活動の照度段階に近い値です。日常活動の目安とし、読み書きでは机上の明るさを別途確認しましょう。"
           }
         }
       }
@@ -2526,25 +2526,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "该读数接近精细作业的照度层级。"
+            "value": "当前读数提示：该读数接近精细作业的照度层级。精细工作还需确认实际任务面的照度、均匀度与反光，不必一味增加亮度。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "該讀數接近精細作業的照度層級。"
+            "value": "目前讀數顯示：該讀數接近精細作業的照度層級。精細工作仍需確認實際工作面的照度、均勻度與反光，不必一味增加亮度。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This reading approaches the illuminance level for detail work."
+            "value": "At this reading, this reading approaches the illuminance level for detail work. For detail work, check light on the task surface, evenness, and reflections rather than simply increasing brightness."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "この測定値は精密作業向けの照度段階に近い値です。"
+            "value": "現在の測定値は精密作業向けの照度段階に近い値です。精密作業では作業面の照度、均一さ、反射を確認し、明るさだけを増やさないようにしましょう。"
           }
         }
       }
@@ -2582,25 +2582,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "该读数接近精细作业的照度层级。"
+            "value": "当前读数提示：该读数接近精细作业的照度层级。精细工作还需确认实际任务面的照度、均匀度与反光，不必一味增加亮度。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "該讀數接近精細作業的照度層級。"
+            "value": "目前讀數顯示：該讀數接近精細作業的照度層級。精細工作仍需確認實際工作面的照度、均勻度與反光，不必一味增加亮度。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This reading approaches the illuminance level for detail work."
+            "value": "At this reading, this reading approaches the illuminance level for detail work. For detail work, check light on the task surface, evenness, and reflections rather than simply increasing brightness."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "この測定値は精密作業向けの照度段階に近い値です。"
+            "value": "現在の測定値は精密作業向けの照度段階に近い値です。精密作業では作業面の照度、均一さ、反射を確認し、明るさだけを増やさないようにしましょう。"
           }
         }
       }
@@ -2610,25 +2610,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "当前读数接近专注活动的照度层级。"
+            "value": "当前读数接近专注活动的照度层级。进行需要专注的活动时，可调整灯的位置，避免局部过暗或眩光。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前讀數接近專注活動的照度層級。"
+            "value": "目前讀數接近專注活動的照度層級。進行需要專注的活動時，可調整燈的位置，避免局部過暗或眩光。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This reading is near the illuminance level for focused activity."
+            "value": "At this reading, this reading is near the illuminance level for focused activity. For focused tasks, adjust the light position to avoid dark patches and glare."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "この測定値は集中作業の照度段階に近い値です。"
+            "value": "現在の測定値は集中作業の照度段階に近い値です。集中する作業では照明の位置を調整し、暗い部分やまぶしさを避けましょう。"
           }
         }
       }
@@ -2666,25 +2666,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "当前读数接近专注活动的照度层级。"
+            "value": "当前读数接近专注活动的照度层级。进行需要专注的活动时，可调整灯的位置，避免局部过暗或眩光。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前讀數接近專注活動的照度層級。"
+            "value": "目前讀數接近專注活動的照度層級。進行需要專注的活動時，可調整燈的位置，避免局部過暗或眩光。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This reading is near the illuminance level for focused activity."
+            "value": "At this reading, this reading is near the illuminance level for focused activity. For focused tasks, adjust the light position to avoid dark patches and glare."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "この測定値は集中作業の照度段階に近い値です。"
+            "value": "現在の測定値は集中作業の照度段階に近い値です。集中する作業では照明の位置を調整し、暗い部分やまぶしさを避けましょう。"
           }
         }
       }
@@ -2694,25 +2694,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "当前读数较低，需在活动位置确认照度。"
+            "value": "当前读数较低，需在活动位置确认照度。走动或寻找物品时可补充照明，阅读前请确认桌面光线。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前讀數較低，需在活動位置確認照度。"
+            "value": "目前讀數較低，需在活動位置確認照度。走動或尋找物品時可補充照明，閱讀前請確認桌面光線。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This reading is low. Check illuminance at the activity location."
+            "value": "At this reading, this reading is low. Check illuminance at the activity location. Add light for moving around or finding things, and check the desk surface before reading."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "この測定値は低めです。活動する場所で照度を確認してください。"
+            "value": "現在の測定値は低めです。活動する場所で照度を確認してください。移動や物探しには照明を補い、読書前に机上の明るさを確認しましょう。"
           }
         }
       }
@@ -2750,25 +2750,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "当前读数较低，需在活动位置确认照度。"
+            "value": "当前读数较低，需在活动位置确认照度。走动或寻找物品时可补充照明，阅读前请确认桌面光线。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前讀數較低，需在活動位置確認照度。"
+            "value": "目前讀數較低，需在活動位置確認照度。走動或尋找物品時可補充照明，閱讀前請確認桌面光線。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This reading is low."
+            "value": "At this reading, this reading is low. Add light for moving around or finding things, and check the desk surface before reading."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "この測定値は低めです。"
+            "value": "現在の測定値は低めです。移動や物探しには照明を補い、読書前に机上の明るさを確認しましょう。"
           }
         }
       }
@@ -2778,25 +2778,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "当前读数接近阅读学习的照度层级。"
+            "value": "当前读数接近阅读学习的照度层级。阅读写字时，也请检查桌面照明是否均匀，并避开手影与刺眼反光。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前讀數接近閱讀學習的照度層級。"
+            "value": "目前讀數接近閱讀學習的照度層級。閱讀寫字時，也請檢查桌面照明是否均勻，並避開手影與刺眼反光。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This reading is near the illuminance level for reading and study."
+            "value": "At this reading, this reading is near the illuminance level for reading and study. For reading or writing, check even lighting at the desk and avoid hand shadows or glare."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "この測定値は読書・学習の照度段階に近い値です。"
+            "value": "現在の測定値は読書・学習の照度段階に近い値です。読み書きでは机上の明るさのむら、手の影、まぶしい反射も確認しましょう。"
           }
         }
       }
@@ -2834,25 +2834,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "当前读数接近阅读学习的照度层级。"
+            "value": "当前读数接近阅读学习的照度层级。阅读写字时，也请检查桌面照明是否均匀，并避开手影与刺眼反光。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前讀數接近閱讀學習的照度層級。"
+            "value": "目前讀數接近閱讀學習的照度層級。閱讀寫字時，也請檢查桌面照明是否均勻，並避開手影與刺眼反光。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This reading is near the illuminance level for reading and study."
+            "value": "At this reading, this reading is near the illuminance level for reading and study. For reading or writing, check even lighting at the desk and avoid hand shadows or glare."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "この測定値は読書・学習の照度段階に近い値です。"
+            "value": "現在の測定値は読書・学習の照度段階に近い値です。読み書きでは机上の明るさのむら、手の影、まぶしい反射も確認しましょう。"
           }
         }
       }
@@ -3030,25 +3030,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "环境较吵，可尝试降低噪声来源。"
+            "value": "当前环境较嘈杂，可先降低或远离噪声来源。若需要专注或休息，尽量选择较安静的位置，再看调整后的读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "環境較吵，可嘗試降低噪聲來源。"
+            "value": "目前環境較嘈雜，可先降低或遠離噪聲來源。若需要專注或休息，盡量選較安靜的位置，再看調整後的讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The space is loud. Try reducing noise at its source."
+            "value": "The current environment is loud. Reduce or move away from the source, and choose a quieter place for focus or rest before checking again."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "騒がしい環境です。音の発生源を減らしてみてください。"
+            "value": "現在は騒がしい状態です。音源を弱めるか離れ、集中や休息には静かな場所を選んで、調整後の値を確認しましょう。"
           }
         }
       }
@@ -3086,25 +3086,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "环境较吵，可尝试降低噪声来源。"
+            "value": "当前环境较嘈杂，可先降低或远离噪声来源。若需要专注或休息，尽量选择较安静的位置，再看调整后的读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "環境較吵，可嘗試降低噪聲來源。"
+            "value": "目前環境較嘈雜，可先降低或遠離噪聲來源。若需要專注或休息，盡量選較安靜的位置，再看調整後的讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The space is loud."
+            "value": "The current environment is loud. Reduce or move away from the source, and choose a quieter place for focus or rest before checking again."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "騒がしい環境です。"
+            "value": "現在は騒がしい状態です。音源を弱めるか離れ、集中や休息には静かな場所を選んで、調整後の値を確認しましょう。"
           }
         }
       }
@@ -3114,25 +3114,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "声音较明显，可能影响专注或休息。"
+            "value": "当前声音较明显，可能影响专注或休息。若觉得受打扰，可先关小音量、关门或移到较安静的位置。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "聲音較明顯，可能影響專注或休息。"
+            "value": "目前聲音較明顯，可能影響專注或休息。若覺得受打擾，可先調低音量、關門或移到較安靜的位置。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sound is noticeable and may affect focus or rest."
+            "value": "The current sound is noticeable and may interrupt focus or rest. If it bothers you, lower the source volume, close a door, or move somewhere quieter."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "音が目立ち、集中や休息に影響する可能性があります。"
+            "value": "現在は音が目立ち、集中や休息を妨げる場合があります。気になるときは音量を下げたり、ドアを閉めたり、静かな場所へ移りましょう。"
           }
         }
       }
@@ -3170,25 +3170,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "声音较明显，可能影响专注或休息。"
+            "value": "当前声音较明显，可能影响专注或休息。若觉得受打扰，可先关小音量、关门或移到较安静的位置。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "聲音較明顯，可能影響專注或休息。"
+            "value": "目前聲音較明顯，可能影響專注或休息。若覺得受打擾，可先調低音量、關門或移到較安靜的位置。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sound is noticeable and may affect focus or rest."
+            "value": "The current sound is noticeable and may interrupt focus or rest. If it bothers you, lower the source volume, close a door, or move somewhere quieter."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "音が目立ち、集中や休息に影響する可能性があります。"
+            "value": "現在は音が目立ち、集中や休息を妨げる場合があります。気になるときは音量を下げたり、ドアを閉めたり、静かな場所へ移りましょう。"
           }
         }
       }
@@ -3198,25 +3198,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "当前声级较低，适合安静的活动。"
+            "value": "当前声级较低，适合安静的活动。若准备休息或睡眠，还可结合声音是否持续、是否突然出现来判断。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前聲級較低，適合安靜的活動。"
+            "value": "目前聲級較低，適合安靜的活動。若準備休息或睡眠，也可留意聲音是否持續或突然出現。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sound levels are low and suit quiet activities."
+            "value": "The current sound level is low for quiet activities. For rest or sleep, also consider whether sounds are steady or sudden."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "音量が低く、静かな活動に向いています。"
+            "value": "現在の音量は低めで、静かな活動に向いています。休息や睡眠では、音の持続や突発的な音にも目を向けましょう。"
           }
         }
       }
@@ -3254,25 +3254,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "当前声级较低，适合安静的活动。"
+            "value": "当前声级较低，适合安静的活动。若准备休息或睡眠，还可结合声音是否持续、是否突然出现来判断。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "目前聲級較低，適合安靜的活動。"
+            "value": "目前聲級較低，適合安靜的活動。若準備休息或睡眠，也可留意聲音是否持續或突然出現。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sound levels are low and suit quiet activities."
+            "value": "The current sound level is low for quiet activities. For rest or sleep, also consider whether sounds are steady or sudden."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "音量が低く、静かな活動に向いています。"
+            "value": "現在の音量は低めで、静かな活動に向いています。休息や睡眠では、音の持続や突発的な音にも目を向けましょう。"
           }
         }
       }
@@ -3366,25 +3366,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "环境很吵，建议减少持续暴露。"
+            "value": "当前环境很吵，建议减少持续停留，优先降低噪声或到较安静的位置；不要只看一次读数，也要留意持续时间。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "環境很吵，建議減少持續暴露。"
+            "value": "目前環境很吵，建議減少持續停留，優先降低噪聲或到較安靜的位置；除了單次讀數，也要留意持續時間。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The space is very loud. Limit prolonged exposure."
+            "value": "The current environment is very loud. Limit time there and reduce the source or move somewhere quieter; duration matters as well as this reading."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "非常に騒がしい環境です。長時間の曝露を減らしてください。"
+            "value": "現在は非常に騒がしい状態です。滞在を短くし、音源を弱めるか静かな場所へ移りましょう。値だけでなく継続時間も大切です。"
           }
         }
       }
@@ -3422,25 +3422,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "环境很吵，建议减少持续暴露。"
+            "value": "当前环境很吵，建议减少持续停留，优先降低噪声或到较安静的位置；不要只看一次读数，也要留意持续时间。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "環境很吵，建議減少持續暴露。"
+            "value": "目前環境很吵，建議減少持續停留，優先降低噪聲或到較安靜的位置；除了單次讀數，也要留意持續時間。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The space is very loud."
+            "value": "The current environment is very loud. Limit time there and reduce the source or move somewhere quieter; duration matters as well as this reading."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "非常に騒がしい環境です。"
+            "value": "現在は非常に騒がしい状態です。滞在を短くし、音源を弱めるか静かな場所へ移りましょう。値だけでなく継続時間も大切です。"
           }
         }
       }
@@ -3534,25 +3534,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高评级区间，优先离开污染较重的环境，并按相关提示处理。"
+            "value": "当前浓度已处于最高评级区间，优先离开污染较重的位置，关注当地提示，并在环境改善后继续观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。"
+            "value": "目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This is the highest rating band. Prioritize leaving the polluted area and follow relevant guidance."
+            "value": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も高い評価区分です。汚染の多い場所から離れることを優先し、関連する案内に従ってください。"
+            "value": "現在の濃度は最も高い評価区分です。汚染の強い場所から離れることを優先し、地域の案内と環境改善後の値を確認しましょう。"
           }
         }
       }
@@ -3590,25 +3590,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高评级区间，优先离开污染较重的环境，并按相关提示处理。"
+            "value": "当前浓度已处于最高评级区间，优先离开污染较重的位置，关注当地提示，并在环境改善后继续观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。"
+            "value": "目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This is the highest rating band."
+            "value": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も高い評価区分です。"
+            "value": "現在の濃度は最も高い評価区分です。汚染の強い場所から離れることを優先し、地域の案内と環境改善後の値を確認しましょう。"
           }
         }
       }
@@ -3618,25 +3618,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低档高一些，可以先看看是否有明显来源或近期活动影响。"
+            "value": "当前浓度高于最低评级区间，可结合近期活动和周边环境，观察是否有污染来源，并留意后续读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。"
+            "value": "目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Above the lowest band. Check for an obvious source or a recent activity that may explain it."
+            "value": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も低い区分より少し高めです。目立つ発生源や直前の活動を確認してみましょう。"
+            "value": "現在の濃度は最も低い評価区分を上回っています。最近の活動や周辺の発生源を確認し、今後の値にも注意しましょう。"
           }
         }
       }
@@ -3674,25 +3674,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低档高一些，可以先看看是否有明显来源或近期活动影响。"
+            "value": "当前浓度高于最低评级区间，可结合近期活动和周边环境，观察是否有污染来源，并留意后续读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。"
+            "value": "目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Above the lowest band."
+            "value": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も低い区分より少し高めです。"
+            "value": "現在の濃度は最も低い評価区分を上回っています。最近の活動や周辺の発生源を確認し、今後の値にも注意しましょう。"
           }
         }
       }
@@ -3770,7 +3770,7 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is low."
+            "value": "At this reading, the concentration is low."
           }
         },
         "ja": {
@@ -3786,25 +3786,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一会儿，结合上面的建议做些调整，再看看读数。"
+            "value": "当前浓度处于中等评级区间，值得多留意。可结合这项污染物的来源与室外情况调整活动或通风，再观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一會兒，結合上面的建議做些調整，再看看讀數。"
+            "value": "目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pay a little more attention. Try the steps above and check the reading again."
+            "value": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "少し注意して見てみましょう。上の対策を試してから、もう一度確認してください。"
+            "value": "現在の濃度は中程度の区分です。物質の発生源と屋外の状況に合わせて活動や換気を調整し、値を再確認しましょう。"
           }
         }
       }
@@ -3842,25 +3842,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一会儿，结合上面的建议做些调整，再看看读数。"
+            "value": "当前浓度处于中等评级区间，值得多留意。可结合这项污染物的来源与室外情况调整活动或通风，再观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一會兒，結合上面的建議做些調整，再看看讀數。"
+            "value": "目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pay a little more attention."
+            "value": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "少し注意して見てみましょう。"
+            "value": "現在の濃度は中程度の区分です。物質の発生源と屋外の状況に合わせて活動や換気を調整し、値を再確認しましょう。"
           }
         }
       }
@@ -3882,13 +3882,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is high. Reduce exposure first, then follow the advice for this pollutant."
+            "value": "At this reading, the concentration is high. Reduce exposure first, then follow the advice for this pollutant."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が高めです。まず曝露を減らし、この物質に合った対策をしましょう。"
+            "value": "現在の測定値では、濃度が高めです。まず曝露を減らし、この物質に合った対策をしましょう。"
           }
         }
       }
@@ -3938,13 +3938,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is high."
+            "value": "At this reading, the concentration is high."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が高めです。"
+            "value": "現在の測定値では、濃度が高めです。"
           }
         }
       }
@@ -4050,13 +4050,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
+            "value": "At this reading, the concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が非常に高い状態です。その場所での滞在を減らし、地域の案内や発生源を確認しましょう。"
+            "value": "現在の測定値では、濃度が非常に高い状態です。その場所での滞在を減らし、地域の案内や発生源を確認しましょう。"
           }
         }
       }
@@ -4106,13 +4106,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is very high."
+            "value": "At this reading, the concentration is very high."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が非常に高い状態です。"
+            "value": "現在の測定値では、濃度が非常に高い状態です。"
           }
         }
       }
@@ -4206,25 +4206,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高评级区间，优先离开污染较重的环境，并按相关提示处理。"
+            "value": "当前浓度已处于最高评级区间，优先离开污染较重的位置，关注当地提示，并在环境改善后继续观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。"
+            "value": "目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This is the highest rating band. Prioritize leaving the polluted area and follow relevant guidance."
+            "value": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も高い評価区分です。汚染の多い場所から離れることを優先し、関連する案内に従ってください。"
+            "value": "現在の濃度は最も高い評価区分です。汚染の強い場所から離れることを優先し、地域の案内と環境改善後の値を確認しましょう。"
           }
         }
       }
@@ -4262,25 +4262,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高评级区间，优先离开污染较重的环境，并按相关提示处理。"
+            "value": "当前浓度已处于最高评级区间，优先离开污染较重的位置，关注当地提示，并在环境改善后继续观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。"
+            "value": "目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This is the highest rating band."
+            "value": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も高い評価区分です。"
+            "value": "現在の濃度は最も高い評価区分です。汚染の強い場所から離れることを優先し、地域の案内と環境改善後の値を確認しましょう。"
           }
         }
       }
@@ -4290,25 +4290,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低档高一些，可以先看看是否有明显来源或近期活动影响。"
+            "value": "当前浓度高于最低评级区间，可结合近期活动和周边环境，观察是否有污染来源，并留意后续读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。"
+            "value": "目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Above the lowest band. Check for an obvious source or a recent activity that may explain it."
+            "value": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も低い区分より少し高めです。目立つ発生源や直前の活動を確認してみましょう。"
+            "value": "現在の濃度は最も低い評価区分を上回っています。最近の活動や周辺の発生源を確認し、今後の値にも注意しましょう。"
           }
         }
       }
@@ -4346,25 +4346,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低档高一些，可以先看看是否有明显来源或近期活动影响。"
+            "value": "当前浓度高于最低评级区间，可结合近期活动和周边环境，观察是否有污染来源，并留意后续读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。"
+            "value": "目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Above the lowest band."
+            "value": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も低い区分より少し高めです。"
+            "value": "現在の濃度は最も低い評価区分を上回っています。最近の活動や周辺の発生源を確認し、今後の値にも注意しましょう。"
           }
         }
       }
@@ -4442,7 +4442,7 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is low."
+            "value": "At this reading, the concentration is low."
           }
         },
         "ja": {
@@ -4458,25 +4458,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一会儿，结合上面的建议做些调整，再看看读数。"
+            "value": "当前浓度处于中等评级区间，值得多留意。可结合这项污染物的来源与室外情况调整活动或通风，再观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一會兒，結合上面的建議做些調整，再看看讀數。"
+            "value": "目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pay a little more attention. Try the steps above and check the reading again."
+            "value": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "少し注意して見てみましょう。上の対策を試してから、もう一度確認してください。"
+            "value": "現在の濃度は中程度の区分です。物質の発生源と屋外の状況に合わせて活動や換気を調整し、値を再確認しましょう。"
           }
         }
       }
@@ -4514,25 +4514,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一会儿，结合上面的建议做些调整，再看看读数。"
+            "value": "当前浓度处于中等评级区间，值得多留意。可结合这项污染物的来源与室外情况调整活动或通风，再观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一會兒，結合上面的建議做些調整，再看看讀數。"
+            "value": "目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pay a little more attention."
+            "value": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "少し注意して見てみましょう。"
+            "value": "現在の濃度は中程度の区分です。物質の発生源と屋外の状況に合わせて活動や換気を調整し、値を再確認しましょう。"
           }
         }
       }
@@ -4554,13 +4554,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is high. Reduce exposure first, then follow the advice for this pollutant."
+            "value": "At this reading, the concentration is high. Reduce exposure first, then follow the advice for this pollutant."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が高めです。まず曝露を減らし、この物質に合った対策をしましょう。"
+            "value": "現在の測定値では、濃度が高めです。まず曝露を減らし、この物質に合った対策をしましょう。"
           }
         }
       }
@@ -4610,13 +4610,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is high."
+            "value": "At this reading, the concentration is high."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が高めです。"
+            "value": "現在の測定値では、濃度が高めです。"
           }
         }
       }
@@ -4722,13 +4722,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
+            "value": "At this reading, the concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が非常に高い状態です。その場所での滞在を減らし、地域の案内や発生源を確認しましょう。"
+            "value": "現在の測定値では、濃度が非常に高い状態です。その場所での滞在を減らし、地域の案内や発生源を確認しましょう。"
           }
         }
       }
@@ -4778,13 +4778,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is very high."
+            "value": "At this reading, the concentration is very high."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が非常に高い状態です。"
+            "value": "現在の測定値では、濃度が非常に高い状態です。"
           }
         }
       }
@@ -4878,25 +4878,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高评级区间，优先离开污染较重的环境，并按相关提示处理。"
+            "value": "当前浓度已处于最高评级区间，优先离开污染较重的位置，关注当地提示，并在环境改善后继续观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。"
+            "value": "目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This is the highest rating band. Prioritize leaving the polluted area and follow relevant guidance."
+            "value": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も高い評価区分です。汚染の多い場所から離れることを優先し、関連する案内に従ってください。"
+            "value": "現在の濃度は最も高い評価区分です。汚染の強い場所から離れることを優先し、地域の案内と環境改善後の値を確認しましょう。"
           }
         }
       }
@@ -4934,25 +4934,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高评级区间，优先离开污染较重的环境，并按相关提示处理。"
+            "value": "当前浓度已处于最高评级区间，优先离开污染较重的位置，关注当地提示，并在环境改善后继续观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。"
+            "value": "目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This is the highest rating band."
+            "value": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も高い評価区分です。"
+            "value": "現在の濃度は最も高い評価区分です。汚染の強い場所から離れることを優先し、地域の案内と環境改善後の値を確認しましょう。"
           }
         }
       }
@@ -4962,25 +4962,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低档高一些，可以先看看是否有明显来源或近期活动影响。"
+            "value": "当前浓度高于最低评级区间，可结合近期活动和周边环境，观察是否有污染来源，并留意后续读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。"
+            "value": "目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Above the lowest band. Check for an obvious source or a recent activity that may explain it."
+            "value": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も低い区分より少し高めです。目立つ発生源や直前の活動を確認してみましょう。"
+            "value": "現在の濃度は最も低い評価区分を上回っています。最近の活動や周辺の発生源を確認し、今後の値にも注意しましょう。"
           }
         }
       }
@@ -5018,25 +5018,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低档高一些，可以先看看是否有明显来源或近期活动影响。"
+            "value": "当前浓度高于最低评级区间，可结合近期活动和周边环境，观察是否有污染来源，并留意后续读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。"
+            "value": "目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Above the lowest band."
+            "value": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も低い区分より少し高めです。"
+            "value": "現在の濃度は最も低い評価区分を上回っています。最近の活動や周辺の発生源を確認し、今後の値にも注意しましょう。"
           }
         }
       }
@@ -5114,7 +5114,7 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is low."
+            "value": "At this reading, the concentration is low."
           }
         },
         "ja": {
@@ -5130,25 +5130,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一会儿，结合上面的建议做些调整，再看看读数。"
+            "value": "当前浓度处于中等评级区间，值得多留意。可结合这项污染物的来源与室外情况调整活动或通风，再观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一會兒，結合上面的建議做些調整，再看看讀數。"
+            "value": "目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pay a little more attention. Try the steps above and check the reading again."
+            "value": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "少し注意して見てみましょう。上の対策を試してから、もう一度確認してください。"
+            "value": "現在の濃度は中程度の区分です。物質の発生源と屋外の状況に合わせて活動や換気を調整し、値を再確認しましょう。"
           }
         }
       }
@@ -5186,25 +5186,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一会儿，结合上面的建议做些调整，再看看读数。"
+            "value": "当前浓度处于中等评级区间，值得多留意。可结合这项污染物的来源与室外情况调整活动或通风，再观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一會兒，結合上面的建議做些調整，再看看讀數。"
+            "value": "目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pay a little more attention."
+            "value": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "少し注意して見てみましょう。"
+            "value": "現在の濃度は中程度の区分です。物質の発生源と屋外の状況に合わせて活動や換気を調整し、値を再確認しましょう。"
           }
         }
       }
@@ -5226,13 +5226,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is high. Reduce exposure first, then follow the advice for this pollutant."
+            "value": "At this reading, the concentration is high. Reduce exposure first, then follow the advice for this pollutant."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が高めです。まず曝露を減らし、この物質に合った対策をしましょう。"
+            "value": "現在の測定値では、濃度が高めです。まず曝露を減らし、この物質に合った対策をしましょう。"
           }
         }
       }
@@ -5282,13 +5282,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is high."
+            "value": "At this reading, the concentration is high."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が高めです。"
+            "value": "現在の測定値では、濃度が高めです。"
           }
         }
       }
@@ -5394,13 +5394,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
+            "value": "At this reading, the concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が非常に高い状態です。その場所での滞在を減らし、地域の案内や発生源を確認しましょう。"
+            "value": "現在の測定値では、濃度が非常に高い状態です。その場所での滞在を減らし、地域の案内や発生源を確認しましょう。"
           }
         }
       }
@@ -5450,13 +5450,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is very high."
+            "value": "At this reading, the concentration is very high."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が非常に高い状態です。"
+            "value": "現在の測定値では、濃度が非常に高い状態です。"
           }
         }
       }
@@ -5550,25 +5550,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "环境明显偏冷，可考虑提高供暖或保暖。"
+            "value": "当前估计的冷热感明显偏冷，可增加衣物或适当提高供暖，稍后再看体感是否改善。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "環境明顯偏冷，可考慮加強供暖或保暖。"
+            "value": "目前估計的冷熱感明顯偏冷，可增加衣物或適當提高供暖，稍後再看體感是否改善。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The space feels cold. Consider more heating or warmer clothing."
+            "value": "The current estimate is cold. Add clothing or adjust heating, then check how you feel after a while."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "明らかに寒い環境です。暖房や防寒を検討してください。"
+            "value": "現在の推定では明らかに寒い状態です。衣服や暖房を調整し、少し待って体感を確かめましょう。"
           }
         }
       }
@@ -5606,25 +5606,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "环境明显偏冷，可考虑提高供暖或保暖。"
+            "value": "当前估计的冷热感明显偏冷，可增加衣物或适当提高供暖，稍后再看体感是否改善。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "環境明顯偏冷，可考慮加強供暖或保暖。"
+            "value": "目前估計的冷熱感明顯偏冷，可增加衣物或適當提高供暖，稍後再看體感是否改善。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The space feels cold."
+            "value": "The current estimate is cold. Add clothing or adjust heating, then check how you feel after a while."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "明らかに寒い環境です。"
+            "value": "現在の推定では明らかに寒い状態です。衣服や暖房を調整し、少し待って体感を確かめましょう。"
           }
         }
       }
@@ -5634,25 +5634,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "环境偏凉，可按个人感受增加衣物。"
+            "value": "当前估计的冷热感偏凉，可按个人感受增加衣物，久坐时尤其留意保暖。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "環境偏涼，可依個人感受增加衣物。"
+            "value": "目前估計的冷熱感偏涼，可依個人感受增加衣物，久坐時尤其留意保暖。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The space feels cool. Add clothing if needed."
+            "value": "The current estimate is cool. Add a layer if needed, especially when sitting still for a long time."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "涼しく感じる環境です。必要に応じて衣服を増やしてください。"
+            "value": "現在の推定では涼しく感じる状態です。必要に応じて一枚羽織り、長く座るときは冷えに気をつけましょう。"
           }
         }
       }
@@ -5690,25 +5690,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "环境偏凉，可按个人感受增加衣物。"
+            "value": "当前估计的冷热感偏凉，可按个人感受增加衣物，久坐时尤其留意保暖。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "環境偏涼，可依個人感受增加衣物。"
+            "value": "目前估計的冷熱感偏涼，可依個人感受增加衣物，久坐時尤其留意保暖。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The space feels cool."
+            "value": "The current estimate is cool. Add a layer if needed, especially when sitting still for a long time."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "涼しく感じる環境です。"
+            "value": "現在の推定では涼しく感じる状態です。必要に応じて一枚羽織り、長く座るときは冷えに気をつけましょう。"
           }
         }
       }
@@ -5718,25 +5718,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "环境明显偏热，可考虑降温。"
+            "value": "当前估计的冷热感明显偏热，可到较凉爽的位置休息，并适当降温；调整后再查看读数与自身感受。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "環境明顯偏熱，可考慮降溫。"
+            "value": "目前估計的冷熱感明顯偏熱，可到較涼爽的位置休息，並適當降溫；調整後再查看讀數與自身感受。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The space feels hot. Consider cooling it."
+            "value": "The current estimate is hot. Rest somewhere cooler and adjust cooling as needed, then check both the reading and how you feel."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "明らかに暑い環境です。冷却を検討してください。"
+            "value": "現在の推定では明らかに暑い状態です。涼しい場所で休み、冷房などを調整してから測定値と体感を確かめましょう。"
           }
         }
       }
@@ -5774,25 +5774,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "环境明显偏热，可考虑降温。"
+            "value": "当前估计的冷热感明显偏热，可到较凉爽的位置休息，并适当降温；调整后再查看读数与自身感受。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "環境明顯偏熱，可考慮降溫。"
+            "value": "目前估計的冷熱感明顯偏熱，可到較涼爽的位置休息，並適當降溫；調整後再查看讀數與自身感受。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The space feels hot."
+            "value": "The current estimate is hot. Rest somewhere cooler and adjust cooling as needed, then check both the reading and how you feel."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "明らかに暑い環境です。"
+            "value": "現在の推定では明らかに暑い状態です。涼しい場所で休み、冷房などを調整してから測定値と体感を確かめましょう。"
           }
         }
       }
@@ -5802,25 +5802,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "多数人可能感觉冷热适中。"
+            "value": "当前估计的冷热感接近中性，多数人可能觉得适中。若你也感到舒适，保持现有设置即可，不必反复调节。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "多數人可能感到冷熱適中。"
+            "value": "目前估計的冷熱感接近中性，多數人可能覺得適中。若你也感到舒適，保持現有設定即可，不必反覆調節。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Most people may find the temperature neutral."
+            "value": "The current estimate is near neutral for most people. If you feel comfortable too, keep your settings rather than adjusting them repeatedly."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "多くの人が暑さ寒さを感じにくい状態です。"
+            "value": "現在の推定は中立に近く、多くの人が暑さ寒さを感じにくい状態です。快適なら設定を保ち、繰り返し調整しなくても大丈夫です。"
           }
         }
       }
@@ -5858,25 +5858,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "多数人可能感觉冷热适中。"
+            "value": "当前估计的冷热感接近中性，多数人可能觉得适中。若你也感到舒适，保持现有设置即可，不必反复调节。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "多數人可能感到冷熱適中。"
+            "value": "目前估計的冷熱感接近中性，多數人可能覺得適中。若你也感到舒適，保持現有設定即可，不必反覆調節。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Most people may find the temperature neutral."
+            "value": "The current estimate is near neutral for most people. If you feel comfortable too, keep your settings rather than adjusting them repeatedly."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "多くの人が暑さ寒さを感じにくい状態です。"
+            "value": "現在の推定は中立に近く、多くの人が暑さ寒さを感じにくい状態です。快適なら設定を保ち、繰り返し調整しなくても大丈夫です。"
           }
         }
       }
@@ -5886,25 +5886,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "略感凉，适合留意衣着与活动量。"
+            "value": "当前估计的冷热感稍凉，可留意衣着与活动量；若久坐时觉得冷，添一件薄外套即可，不必急着大幅调高室温。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "略感涼意，可留意衣著與活動量。"
+            "value": "目前估計的冷熱感稍涼，可留意衣著與活動量；若久坐時覺得冷，可添一件薄外套，不必急著大幅調高室溫。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "It feels slightly cool. Clothing and activity may affect comfort."
+            "value": "The current estimate is slightly cool. Consider your clothing and activity; a light layer may help when sitting, without a large change to room temperature."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "やや涼しく感じます。服装や活動量によって快適さが変わります。"
+            "value": "現在の推定ではやや涼しい状態です。服装や活動量に合わせ、座っていて冷えるなら薄手の上着を。室温を大きく変える必要はありません。"
           }
         }
       }
@@ -5942,25 +5942,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "略感凉，适合留意衣着与活动量。"
+            "value": "当前估计的冷热感稍凉，可留意衣着与活动量；若久坐时觉得冷，添一件薄外套即可，不必急着大幅调高室温。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "略感涼意，可留意衣著與活動量。"
+            "value": "目前估計的冷熱感稍涼，可留意衣著與活動量；若久坐時覺得冷，可添一件薄外套，不必急著大幅調高室溫。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "It feels slightly cool."
+            "value": "The current estimate is slightly cool. Consider your clothing and activity; a light layer may help when sitting, without a large change to room temperature."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "やや涼しく感じます。"
+            "value": "現在の推定ではやや涼しい状態です。服装や活動量に合わせ、座っていて冷えるなら薄手の上着を。室温を大きく変える必要はありません。"
           }
         }
       }
@@ -5970,25 +5970,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "略感暖，可观察是否需要降低室温。"
+            "value": "当前估计的冷热感稍暖，可先减少一层衣物或小幅调整空调，再观察体感，不必急着大幅降温。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "略感暖意，可觀察是否需要降低室溫。"
+            "value": "目前估計的冷熱感稍暖，可先減少一層衣物或小幅調整空調，再觀察體感，不必急著大幅降溫。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "It feels slightly warm. Consider whether to lower the temperature."
+            "value": "The current estimate is slightly warm. Try a lighter layer or a small cooling adjustment, then reassess before lowering the temperature further."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "やや暖かく感じます。室温を下げる必要があるか確認してください。"
+            "value": "現在の推定ではやや暖かい状態です。衣服を一枚減らすなど小さく調整し、大きく冷やす前に体感を確かめましょう。"
           }
         }
       }
@@ -6026,25 +6026,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "略感暖，可观察是否需要降低室温。"
+            "value": "当前估计的冷热感稍暖，可先减少一层衣物或小幅调整空调，再观察体感，不必急着大幅降温。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "略感暖意，可觀察是否需要降低室溫。"
+            "value": "目前估計的冷熱感稍暖，可先減少一層衣物或小幅調整空調，再觀察體感，不必急著大幅降溫。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "It feels slightly warm."
+            "value": "The current estimate is slightly warm. Try a lighter layer or a small cooling adjustment, then reassess before lowering the temperature further."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "やや暖かく感じます。"
+            "value": "現在の推定ではやや暖かい状態です。衣服を一枚減らすなど小さく調整し、大きく冷やす前に体感を確かめましょう。"
           }
         }
       }
@@ -6138,25 +6138,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "环境偏暖，可考虑通风或减少保暖。"
+            "value": "当前估计的冷热感偏暖，可减少保暖、使用风扇或适当降温；通风前先确认室外空气与温度是否合适。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "環境偏暖，可考慮通風或減少保暖。"
+            "value": "目前估計的冷熱感偏暖，可減少保暖、使用風扇或適當降溫；通風前先確認室外空氣與溫度是否合適。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The space feels warm. Ventilation or lighter clothing may help."
+            "value": "The current estimate is warm. Use lighter clothing, a fan, or cooling as needed; check outdoor air and temperature before ventilating."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "暖かめの環境です。換気や薄着を検討してください。"
+            "value": "現在の推定では暖かめです。衣服、扇風機、冷房で調整し、換気する前に屋外の空気や温度を確認しましょう。"
           }
         }
       }
@@ -6194,25 +6194,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "环境偏暖，可考虑通风或减少保暖。"
+            "value": "当前估计的冷热感偏暖，可减少保暖、使用风扇或适当降温；通风前先确认室外空气与温度是否合适。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "環境偏暖，可考慮通風或減少保暖。"
+            "value": "目前估計的冷熱感偏暖，可減少保暖、使用風扇或適當降溫；通風前先確認室外空氣與溫度是否合適。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The space feels warm."
+            "value": "The current estimate is warm. Use lighter clothing, a fan, or cooling as needed; check outdoor air and temperature before ventilating."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "暖かめの環境です。"
+            "value": "現在の推定では暖かめです。衣服、扇風機、冷房で調整し、換気する前に屋外の空気や温度を確認しましょう。"
           }
         }
       }
@@ -6306,25 +6306,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "本次测得花粉数为零。"
+            "value": "本次测得花粉数为零。这仅代表本次采样结果，不表示周边一直没有花粉，出行时仍可结合当地预报。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "本次測得花粉數為零。"
+            "value": "本次測得花粉數為零。這僅代表本次採樣結果，不表示周邊一直沒有花粉，出行時仍可參考當地預報。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The measured pollen count is zero."
+            "value": "At this reading, the measured pollen count is zero. This reflects this sample, not a lasting absence nearby; check local forecasts when planning trips."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "今回の花粉測定数はゼロです。"
+            "value": "今回の花粉測定数はゼロです。今回の試料の結果であり、周辺に常に花粉がないとは限りません。外出時は地域の予報も確認しましょう。"
           }
         }
       }
@@ -6362,25 +6362,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "本次测得花粉数为零。"
+            "value": "本次测得花粉数为零。这仅代表本次采样结果，不表示周边一直没有花粉，出行时仍可结合当地预报。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "本次測得花粉數為零。"
+            "value": "本次測得花粉數為零。這僅代表本次採樣結果，不表示周邊一直沒有花粉，出行時仍可參考當地預報。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The measured pollen count is zero."
+            "value": "At this reading, the measured pollen count is zero. This reflects this sample, not a lasting absence nearby; check local forecasts when planning trips."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "今回の花粉測定数はゼロです。"
+            "value": "今回の花粉測定数はゼロです。今回の試料の結果であり、周辺に常に花粉がないとは限りません。外出時は地域の予報も確認しましょう。"
           }
         }
       }
@@ -6390,25 +6390,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉负荷较高，敏感者宜留意出行安排。"
+            "value": "当前读数提示：花粉负荷较高，敏感者宜留意出行安排。对该类型花粉敏感时，可减少长时间户外活动和开窗，外出后更换外衣。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉負荷較高，敏感者宜留意出行安排。"
+            "value": "目前讀數顯示：花粉負荷較高，敏感者宜留意出行安排。對該類型花粉敏感時，可減少長時間戶外活動與開窗，外出後更換外衣。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pollen load is high. Sensitive people may wish to plan outdoor activities."
+            "value": "At this reading, pollen load is high. Sensitive people may wish to plan outdoor activities. If sensitive to this pollen type, shorten outdoor activities and window-opening time, and change outer clothing after outings."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉量が高い状態です。敏感な方は外出予定に注意してください。"
+            "value": "現在の測定値では、花粉量が高い状態です。敏感な方は外出予定に注意してください。この種類に敏感な場合は長い屋外活動や窓開けを控え、帰宅後に上着を替えるなど工夫しましょう。"
           }
         }
       }
@@ -6446,25 +6446,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉负荷较高，敏感者宜留意出行安排。"
+            "value": "当前读数提示：花粉负荷较高，敏感者宜留意出行安排。对该类型花粉敏感时，可减少长时间户外活动和开窗，外出后更换外衣。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉負荷較高，敏感者宜留意出行安排。"
+            "value": "目前讀數顯示：花粉負荷較高，敏感者宜留意出行安排。對該類型花粉敏感時，可減少長時間戶外活動與開窗，外出後更換外衣。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pollen load is high."
+            "value": "At this reading, pollen load is high. If sensitive to this pollen type, shorten outdoor activities and window-opening time, and change outer clothing after outings."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉量が高い状態です。"
+            "value": "現在の測定値では、花粉量が高い状態です。この種類に敏感な場合は長い屋外活動や窓開けを控え、帰宅後に上着を替えるなど工夫しましょう。"
           }
         }
       }
@@ -6474,25 +6474,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "该类型花粉负荷较低。"
+            "value": "当前读数提示：该类型花粉负荷较低。可结合自己的敏感程度安排活动；负荷较低也不代表每个人都不会有反应。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "該類型花粉負荷較低。"
+            "value": "目前讀數顯示：該類型花粉負荷較低。可依自己的敏感程度安排活動；負荷較低也不代表每個人都不會有反應。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The load of this pollen type is low."
+            "value": "At this reading, the load of this pollen type is low. Plan activities around your sensitivity; a low load does not rule out individual reactions."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "この種類の花粉量は低い状態です。"
+            "value": "現在の測定値では、この種類の花粉量は低い状態です。自身の敏感さに合わせて活動を決めましょう。少ない場合でも反応には個人差があります。"
           }
         }
       }
@@ -6530,25 +6530,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "该类型花粉负荷较低。"
+            "value": "当前读数提示：该类型花粉负荷较低。可结合自己的敏感程度安排活动；负荷较低也不代表每个人都不会有反应。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "該類型花粉負荷較低。"
+            "value": "目前讀數顯示：該類型花粉負荷較低。可依自己的敏感程度安排活動；負荷較低也不代表每個人都不會有反應。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The load of this pollen type is low."
+            "value": "At this reading, the load of this pollen type is low. Plan activities around your sensitivity; a low load does not rule out individual reactions."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "この種類の花粉量は低い状態です。"
+            "value": "現在の測定値では、この種類の花粉量は低い状態です。自身の敏感さに合わせて活動を決めましょう。少ない場合でも反応には個人差があります。"
           }
         }
       }
@@ -6558,25 +6558,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉负荷升高，敏感者可留意个人反应。"
+            "value": "当前读数提示：花粉负荷处于中等区间，敏感者可留意个人反应。外出前可查看当地预报，并结合自身反应调整在户外停留的时间。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉負荷升高，敏感者可留意個人反應。"
+            "value": "目前讀數顯示：花粉負荷處於中等區間，敏感者可留意個人反應。外出前可查看當地預報，並依自身反應調整戶外停留時間。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pollen load has risen. Sensitive people can watch their symptoms."
+            "value": "At this reading, pollen load is moderate. Sensitive people can watch their symptoms. Check local forecasts before going out and adjust time outdoors to your own response."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉量が増えています。敏感な方は体調の変化に注意してください。"
+            "value": "現在の測定値では、花粉量は中程度です。敏感な方は体調の変化に注意してください。外出前に地域の予報を確認し、自身の反応に合わせて屋外で過ごす時間を調整しましょう。"
           }
         }
       }
@@ -6614,25 +6614,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉负荷升高，敏感者可留意个人反应。"
+            "value": "当前读数提示：花粉负荷处于中等区间，敏感者可留意个人反应。外出前可查看当地预报，并结合自身反应调整在户外停留的时间。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉負荷升高，敏感者可留意個人反應。"
+            "value": "目前讀數顯示：花粉負荷處於中等區間，敏感者可留意個人反應。外出前可查看當地預報，並依自身反應調整戶外停留時間。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pollen load has risen."
+            "value": "At this reading, pollen load is moderate. Check local forecasts before going out and adjust time outdoors to your own response."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉量が増えています。"
+            "value": "現在の測定値では、花粉量は中程度です。外出前に地域の予報を確認し、自身の反応に合わせて屋外で過ごす時間を調整しましょう。"
           }
         }
       }
@@ -6726,25 +6726,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉负荷极高，敏感者应留意防护。"
+            "value": "当前读数提示：花粉负荷极高，敏感者应留意防护。对该类型花粉敏感时，尽量减少不必要的接触，结合当地预报调整出行与开窗安排。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉負荷極高，敏感者應留意防護。"
+            "value": "目前讀數顯示：花粉負荷極高，敏感者應留意防護。對該類型花粉敏感時，盡量減少不必要的接觸，依當地預報調整出行與開窗安排。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pollen load is extreme. Sensitive people should consider protection."
+            "value": "At this reading, pollen load is extreme. Sensitive people should consider protection. If sensitive to this pollen type, reduce unnecessary exposure and use local forecasts to plan outings and ventilation."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉量が極めて高い状態です。敏感な方は対策に注意してください。"
+            "value": "現在の測定値では、花粉量が極めて高い状態です。敏感な方は対策に注意してください。この種類に敏感な場合は不要な接触を減らし、地域の予報に合わせて外出や換気を調整しましょう。"
           }
         }
       }
@@ -6782,25 +6782,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉负荷极高，敏感者应留意防护。"
+            "value": "当前读数提示：花粉负荷极高，敏感者应留意防护。对该类型花粉敏感时，尽量减少不必要的接触，结合当地预报调整出行与开窗安排。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉負荷極高，敏感者應留意防護。"
+            "value": "目前讀數顯示：花粉負荷極高，敏感者應留意防護。對該類型花粉敏感時，盡量減少不必要的接觸，依當地預報調整出行與開窗安排。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pollen load is extreme."
+            "value": "At this reading, pollen load is extreme. If sensitive to this pollen type, reduce unnecessary exposure and use local forecasts to plan outings and ventilation."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "花粉量が極めて高い状態です。"
+            "value": "現在の測定値では、花粉量が極めて高い状態です。この種類に敏感な場合は不要な接触を減らし、地域の予報に合わせて外出や換気を調整しましょう。"
           }
         }
       }
@@ -6894,25 +6894,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高评级区间，优先离开污染较重的环境，并按相关提示处理。"
+            "value": "当前浓度已处于最高评级区间，优先离开污染较重的位置，关注当地提示，并在环境改善后继续观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。"
+            "value": "目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This is the highest rating band. Prioritize leaving the polluted area and follow relevant guidance."
+            "value": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も高い評価区分です。汚染の多い場所から離れることを優先し、関連する案内に従ってください。"
+            "value": "現在の濃度は最も高い評価区分です。汚染の強い場所から離れることを優先し、地域の案内と環境改善後の値を確認しましょう。"
           }
         }
       }
@@ -6950,25 +6950,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高评级区间，优先离开污染较重的环境，并按相关提示处理。"
+            "value": "当前浓度已处于最高评级区间，优先离开污染较重的位置，关注当地提示，并在环境改善后继续观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "已到最高評級區間，優先離開污染較重的環境，並依相關提示處理。"
+            "value": "目前濃度已處於最高評級區間，優先離開污染較重的位置，留意當地提示，並在環境改善後繼續觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This is the highest rating band."
+            "value": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も高い評価区分です。"
+            "value": "現在の濃度は最も高い評価区分です。汚染の強い場所から離れることを優先し、地域の案内と環境改善後の値を確認しましょう。"
           }
         }
       }
@@ -6978,25 +6978,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低档高一些，可以先看看是否有明显来源或近期活动影响。"
+            "value": "当前浓度高于最低评级区间，可结合近期活动和周边环境，观察是否有污染来源，并留意后续读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。"
+            "value": "目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Above the lowest band. Check for an obvious source or a recent activity that may explain it."
+            "value": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も低い区分より少し高めです。目立つ発生源や直前の活動を確認してみましょう。"
+            "value": "現在の濃度は最も低い評価区分を上回っています。最近の活動や周辺の発生源を確認し、今後の値にも注意しましょう。"
           }
         }
       }
@@ -7034,25 +7034,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低档高一些，可以先看看是否有明显来源或近期活动影响。"
+            "value": "当前浓度高于最低评级区间，可结合近期活动和周边环境，观察是否有污染来源，并留意后续读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "比最低檔高一些，可以先看看是否有明顯來源或近期活動影響。"
+            "value": "目前濃度高於最低評級區間，可參考近期活動與周邊環境，觀察是否有污染來源，並留意後續讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Above the lowest band."
+            "value": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "最も低い区分より少し高めです。"
+            "value": "現在の濃度は最も低い評価区分を上回っています。最近の活動や周辺の発生源を確認し、今後の値にも注意しましょう。"
           }
         }
       }
@@ -7130,7 +7130,7 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is low."
+            "value": "At this reading, the concentration is low."
           }
         },
         "ja": {
@@ -7146,25 +7146,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一会儿，结合上面的建议做些调整，再看看读数。"
+            "value": "当前浓度处于中等评级区间，值得多留意。可结合这项污染物的来源与室外情况调整活动或通风，再观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一會兒，結合上面的建議做些調整，再看看讀數。"
+            "value": "目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pay a little more attention. Try the steps above and check the reading again."
+            "value": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "少し注意して見てみましょう。上の対策を試してから、もう一度確認してください。"
+            "value": "現在の濃度は中程度の区分です。物質の発生源と屋外の状況に合わせて活動や換気を調整し、値を再確認しましょう。"
           }
         }
       }
@@ -7202,25 +7202,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一会儿，结合上面的建议做些调整，再看看读数。"
+            "value": "当前浓度处于中等评级区间，值得多留意。可结合这项污染物的来源与室外情况调整活动或通风，再观察读数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "值得多留意一會兒，結合上面的建議做些調整，再看看讀數。"
+            "value": "目前濃度處於中等評級區間，值得多留意。可依該污染物來源與室外狀況調整活動或通風，再觀察讀數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pay a little more attention."
+            "value": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "少し注意して見てみましょう。"
+            "value": "現在の濃度は中程度の区分です。物質の発生源と屋外の状況に合わせて活動や換気を調整し、値を再確認しましょう。"
           }
         }
       }
@@ -7242,13 +7242,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is high. Reduce exposure first, then follow the advice for this pollutant."
+            "value": "At this reading, the concentration is high. Reduce exposure first, then follow the advice for this pollutant."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が高めです。まず曝露を減らし、この物質に合った対策をしましょう。"
+            "value": "現在の測定値では、濃度が高めです。まず曝露を減らし、この物質に合った対策をしましょう。"
           }
         }
       }
@@ -7298,13 +7298,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is high."
+            "value": "At this reading, the concentration is high."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が高めです。"
+            "value": "現在の測定値では、濃度が高めです。"
           }
         }
       }
@@ -7410,13 +7410,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
+            "value": "At this reading, the concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が非常に高い状態です。その場所での滞在を減らし、地域の案内や発生源を確認しましょう。"
+            "value": "現在の測定値では、濃度が非常に高い状態です。その場所での滞在を減らし、地域の案内や発生源を確認しましょう。"
           }
         }
       }
@@ -7466,13 +7466,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The concentration is very high."
+            "value": "At this reading, the concentration is very high."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "濃度が非常に高い状態です。"
+            "value": "現在の測定値では、濃度が非常に高い状態です。"
           }
         }
       }
@@ -7482,25 +7482,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "ASHRAE Standard 55 中的七点热感觉标尺，用“冷、凉、稍凉、中性、稍暖、暖、热”表达从 −3 到 +3 的冷热感，比单看一个温度数字更直观。本项目用这七个名称展示 PMV，并将连续数值分成方便阅读的区间；这些显示区间是产品规则，不能单凭一个标签判断房间是否符合整项标准。"
+            "value": "ASHRAE Standard 55 的七点热感觉标尺，用“冷、凉、稍凉、中性、稍暖、暖、热”表达 −3 到 +3 的冷热感。本项目用这些名称展示 PMV，并划分易读区间；区间属于产品规则，不能仅凭标签判断房间是否符合整项标准。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "ASHRAE Standard 55 的七點熱感覺標尺，以「冷、涼、稍涼、中性、稍暖、暖、熱」表達 −3 到 +3 的冷熱感，比單看溫度數字更直覺。本專案以這七個名稱展示 PMV，並將連續數值分成易讀區間；這些顯示區間屬於產品規則，不能單憑標籤判斷房間是否符合整項標準。"
+            "value": "ASHRAE Standard 55 的七點熱感覺標尺，以「冷、涼、稍涼、中性、稍暖、暖、熱」表達 −3 到 +3 的冷熱感。本專案以這些名稱展示 PMV，並劃分易讀區間；區間屬於產品規則，不能僅憑標籤判斷房間是否符合整項標準。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The seven-point thermal sensation scale used in ASHRAE Standard 55 describes sensations from Cold through Neutral to Hot, on a scale from −3 to +3. This gives a more familiar meaning to a PMV number. The project uses these names with its own continuous display bands; a label alone does not establish that a room meets the full standard."
+            "value": "ASHRAE Standard 55’s seven-point thermal sensation scale describes Cold through Neutral to Hot, from −3 to +3. The project uses these names to make PMV easier to understand. Its continuous display bands are product rules; a label alone does not establish compliance with the full standard."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "ASHRAE Standard 55の7段階の温冷感尺度は、−3から＋3を「寒い、涼しい、やや涼しい、中立、やや暖かい、暖かい、暑い」で表します。PMVの数値を身近な言葉で理解しやすくします。本製品の連続表示区分は製品の規則であり、ラベルだけで部屋の規格適合を判断するものではありません。"
+            "value": "ASHRAE Standard 55の7段階尺度は、−3から＋3を「寒い、涼しい、やや涼しい、中立、やや暖かい、暖かい、暑い」で表します。本製品はこの名称でPMVを表示します。表示区分は製品規則であり、ラベルだけで規格適合を判断できません。"
           }
         }
       }
@@ -7594,25 +7594,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "欧洲空气质量指数由欧洲环境署提供，用六个等级把不同污染物的浓度转成容易阅读的空气质量提示。它适合帮助公众理解短期空气状况。本项目默认用它评价 PM2.5 和 PM10，也提供臭氧与二氧化硫的对应分档；这里展示的是各项污染物的结果，不是一个完整的欧洲官方综合指数。"
+            "value": "欧洲环境署的空气质量指数用六个等级描述污染物浓度，帮助公众理解短期空气状况。本项目默认用于 PM2.5 和 PM10，也提供臭氧与二氧化硫分档；显示的是单项污染物结果，并非完整的欧洲官方综合指数。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "歐洲空氣品質指數由歐洲環境署提供，以六個等級將不同污染物濃度轉為易讀提示，協助公眾理解短期空氣狀況。本專案預設用它評價 PM2.5 與 PM10，也提供臭氧及二氧化硫的對應分檔；這裡展示各項污染物的結果，並非完整的歐洲官方綜合指數。"
+            "value": "歐洲環境署的空氣品質指數以六個等級描述污染物濃度，協助理解短期空氣狀況。本專案預設用於 PM2.5 與 PM10，也提供臭氧及二氧化硫分檔；顯示單項污染物的結果，並非完整的歐洲官方綜合指數。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The European Air Quality Index, provided by the European Environment Agency, translates pollutant concentrations into six easy-to-read levels for understanding short-term air conditions. It is the project’s default for PM2.5 and PM10, with corresponding ozone and sulfur dioxide bands also available. The displayed results describe individual pollutants, rather than a complete official European aggregate index."
+            "value": "The European Environment Agency’s Air Quality Index describes short-term pollution in six levels. It is the default for PM2.5 and PM10, with ozone and sulfur dioxide bands also available. Results describe individual pollutants, rather than a complete official European aggregate index."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "欧州大気質指数は欧州環境庁が提供し、汚染物質の濃度を6段階の読みやすい案内に変え、短期的な大気の状況を伝えます。本製品ではPM2.5とPM10の既定の基準として使い、オゾンと二酸化硫黄の区分も用意しています。表示するのは個別物質の結果であり、欧州公式の総合指数そのものではありません。"
+            "value": "欧州環境庁の大気質指数は、汚染物質濃度を6段階で示し、短期的な大気の状況を伝えます。本製品ではPM2.5とPM10の既定基準とし、オゾンと二酸化硫黄の区分も提供します。個別物質の結果であり、欧州公式の総合指数ではありません。"
           }
         }
       }
@@ -7706,25 +7706,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "美国 EPA AQI 用六个类别向公众报告空气质量，帮助人们判断何时需要多关注污染情况、调整户外活动。本项目采用其中已支持污染物的浓度分界，提供另一套可选择的评级依据。不同污染物有各自的平均时间和数值处理规则，因此同一个读数在不同标准下，等级可能不完全相同。"
+            "value": "美国 EPA AQI 用六个类别报告空气质量，帮助公众关注污染、调整户外活动。本项目采用已支持污染物的浓度分界，作为可选评级依据。各污染物的平均时间和数值处理规则不同，同一读数在不同标准下可能得到不同等级。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "美國 EPA AQI 以六個類別向公眾報告空氣品質，協助判斷何時需要多關注污染狀況、調整戶外活動。本專案採用其中已支援污染物的濃度分界，提供另一套可選評級依據。不同污染物的平均時間與數值處理規則各有不同，因此同一讀數在不同標準下可能得到不同等級。"
+            "value": "美國 EPA AQI 以六個類別報告空氣品質，協助公眾關注污染、調整戶外活動。本專案採用已支援污染物的濃度分界，作為可選評級依據。各污染物的平均時間與數值處理規則不同，同一讀數在不同標準下可能得到不同等級。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The US EPA AQI reports air quality in six categories to help people decide when to pay closer attention to pollution or adjust outdoor activities. The project offers its concentration boundaries for supported pollutants as an alternative reference. Averaging periods and numeric processing differ by pollutant, so the same reading may receive a different rating under another reference."
+            "value": "The US EPA AQI reports air quality in six categories to guide pollution awareness and outdoor activities. The project offers its concentration boundaries for supported pollutants as an alternative reference. Averaging periods and numeric processing differ, so ratings may vary between references."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "米国EPAのAQIは大気質を6区分で伝え、汚染に注意したり屋外活動を調整する時期を考える助けになります。本製品では対応する物質の濃度境界を選択肢として提供します。物質ごとに平均時間や数値処理が異なるため、同じ読数でも別の基準では評価が変わることがあります。"
+            "value": "米国EPAのAQIは大気質を6区分で伝え、汚染への注意や屋外活動の調整に役立てます。本製品では対応物質の濃度境界を選択肢として提供します。物質ごとに平均時間や数値処理が異なり、基準によって評価が変わる場合があります。"
           }
         }
       }
@@ -7818,25 +7818,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "美国 EPA 的湿度建议主要帮助家庭减少潮湿和霉菌问题。它建议尽可能将室内相对湿度保持在 30%–50%，并控制在 60% 以下。本项目将这份建议作为可选依据，用“偏干、适宜、略湿、偏湿”帮助你判断是否需要加湿、通风或除湿。"
+            "value": "美国 EPA 的湿度建议帮助家庭减少潮湿和霉菌，建议室内相对湿度尽可能保持在 30%–50%，并低于 60%。本项目提供这套可选依据，以“偏干、适宜、略湿、偏湿”提示是否需要加湿、通风或除湿。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "美國 EPA 的濕度建議主要協助家庭減少潮濕與黴菌問題。它建議盡可能將室內相對濕度保持在 30%–50%，並控制在 60% 以下。本專案將這份建議作為可選依據，以「偏乾、適宜、略濕、偏濕」協助判斷是否需要加濕、通風或除濕。"
+            "value": "美國 EPA 的濕度建議協助家庭減少潮濕與黴菌，建議室內相對濕度盡可能保持在 30%–50%，並低於 60%。本專案提供這套可選依據，以「偏乾、適宜、略濕、偏濕」提示是否需要加濕、通風或除濕。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The US EPA’s humidity guidance helps households manage dampness and mold. It recommends keeping indoor relative humidity around 30–50% where possible, and below 60%. The project offers this as an optional reference, using Dry, Suitable, Slightly Humid, and Humid messages to help you consider humidification, ventilation, or dehumidification."
+            "value": "The US EPA’s humidity guidance helps households reduce dampness and mold, recommending indoor relative humidity of 30–50% where possible, and below 60%. This optional reference uses Dry, Suitable, Slightly Humid, and Humid messages to guide humidification, ventilation, or dehumidification."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "米国EPAの湿度の助言は、家庭の湿気やカビの管理に役立つものです。可能なら相対湿度を30～50%程度に保ち、60%未満に抑えることを勧めています。本製品では選択できる目安として、乾燥気味・適切・やや多湿・多湿を表示し、加湿、換気、除湿を考える手助けにします。"
+            "value": "米国EPAは家庭の湿気やカビを減らすため、相対湿度を可能なら30～50%程度、60%未満に保つことを勧めています。本製品では選択可能な目安として、乾燥気味・適切・やや多湿・多湿を示し、加湿や換気、除湿の判断に役立てます。"
           }
         }
       }
@@ -7930,25 +7930,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "GB/T 18883—2022 是中国的室内空气质量标准，对室内污染物限值和检验方法作出约定。甲醛限值为 0.08 mg/m³，对应 1 小时平均。本项目将它作为甲醛的可选依据，方便产品采用这套参考口径；页面中的六档提示是产品根据该限值设计的，不等于一次完整的室内空气质量达标检测。"
+            "value": "GB/T 18883—2022 是中国室内空气质量标准，约定污染物限值和检验方法。甲醛限值为 0.08 mg/m³，按 1 小时平均。本项目提供这套可选依据；六档提示是基于限值的产品规则，不等同完整的达标检测。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "GB/T 18883—2022 是中國的室內空氣品質標準，約定污染物限值與檢驗方法。甲醛限值為 0.08 mg/m³，對應 1 小時平均。本專案將它作為可選甲醛依據；頁面六檔提示是依此限值設計的產品規則，不等同一次完整的室內空氣品質達標檢測。"
+            "value": "GB/T 18883—2022 是中國室內空氣品質標準，約定污染物限值與檢驗方法。甲醛限值為 0.08 mg/m³，採 1 小時平均。本專案提供此可選依據；六檔提示是依限值設計的產品規則，不等同完整的達標檢測。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "GB/T 18883—2022 is China’s indoor air quality standard, covering pollutant limits and test methods. Its formaldehyde limit is 0.08 mg/m³ as a one-hour average. The project offers it as an optional formaldehyde reference. Its six display bands are product rules based on that limit; the display is not a complete indoor air quality compliance test."
+            "value": "GB/T 18883—2022 is China’s indoor air quality standard, covering pollutant limits and test methods. Its formaldehyde limit is 0.08 mg/m³ over one hour. The project offers this optional reference with six product-defined bands; these do not constitute a full compliance test."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "GB/T 18883—2022は中国の室内空気質規格で、汚染物質の限度値と検査方法を定めています。ホルムアルデヒドの限度値は1時間平均で0.08 mg/m³です。本製品では選択できる参考基準としています。画面の6段階はその限度値に基づく製品規則であり、室内空気質の適合検査全体を行うものではありません。"
+            "value": "GB/T 18883—2022は中国の室内空気質規格で、限度値と検査方法を定めます。ホルムアルデヒドは1時間平均で0.08 mg/m³です。本製品では選択可能な基準とし、6段階は限度値に基づく製品規則で、適合検査の代わりにはなりません。"
           }
         }
       }
@@ -8070,25 +8070,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "HJ 633—2026 是中国环境空气质量指数的技术规定，说明如何根据污染物浓度计算 AQI、划分污染级别并报告结果。本项目参考其中的浓度分界，为颗粒物及已支持的室外气体提供评级选项。使用时还要对应标准要求的平均时间；例如小时值和日平均值，不能直接混用。"
+            "value": "HJ 633—2026 是中国环境空气质量指数的技术规定，约定 AQI 计算、污染分级与报告方法。本项目参考其浓度分界，为颗粒物和已支持的室外气体提供评级选项。读数须符合规定的平均时间，小时值与日平均值不能混用。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "HJ 633—2026 是中國環境空氣品質指數的技術規定，說明如何依污染物濃度計算 AQI、劃分污染級別與報告結果。本專案參考其中的濃度分界，提供顆粒物及已支援室外氣體的評級選項。讀數還須符合標準的平均時間，例如小時值與日平均值不能直接混用。"
+            "value": "HJ 633—2026 是中國環境空氣品質指數的技術規定，約定 AQI 計算、污染分級與報告方法。本專案參考其濃度分界，提供顆粒物和已支援室外氣體的評級選項。讀數須符合規定的平均時間，小時值與日平均值不能混用。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "HJ 633—2026 sets out China’s technical rules for calculating AQI from pollutant concentrations, assigning pollution categories, and reporting results. The project uses its concentration boundaries for particulate matter and supported outdoor gases. Readings must also match the required averaging period: an hourly value and a daily average are not interchangeable."
+            "value": "HJ 633—2026 defines China’s rules for calculating AQI, assigning pollution categories, and reporting results. The project uses its concentration boundaries for particulate matter and supported outdoor gases. Readings must match the required averaging period: hourly and daily averages are not interchangeable."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "HJ 633—2026は、中国の大気質指数について、濃度からのAQI計算、汚染区分、報告方法を定めた技術規定です。本製品はその濃度境界を粒子状物質と対応する屋外気体の評価に使います。必要な平均時間も合わせる必要があり、1時間値と日平均値をそのまま置き換えることはできません。"
+            "value": "HJ 633—2026は中国のAQI計算、汚染区分、報告方法を定める技術規定です。本製品は濃度境界を粒子状物質と対応する屋外気体の評価に使います。平均時間も合わせる必要があり、1時間値と日平均値は置き換えられません。"
           }
         }
       }
@@ -8182,25 +8182,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "ANSI/IES/ALA RP-11-26 是面向住宅室内外照明的推荐实践，按空间、活动和实际任务面给出照度与设计建议。本项目参考其中的照度层级，整理成从氛围照明到精细作业的活动提示。这样可以帮助你理解当前光线更接近哪类需要，但设备位置的单点读数，仍不能代表书桌或整个房间的照明条件。"
+            "value": "ANSI/IES/ALA RP-11-26 是住宅室内外照明的推荐实践，按空间、活动和任务面提供照度建议。本项目参考其照度层级，设计从氛围照明到精细作业的活动提示；设备位置的单点读数不能代表书桌或整个房间的照明。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "ANSI/IES/ALA RP-11-26 是住宅室內外照明的推薦實務，依空間、活動與實際工作面提供照度及設計建議。本專案參考其中的照度層級，整理成從氛圍照明到精細作業的活動提示，協助理解目前光線接近哪類需要；裝置位置的單點讀數仍不能代表書桌或整個房間的照明條件。"
+            "value": "ANSI/IES/ALA RP-11-26 是住宅室內外照明的推薦實務，依空間、活動與工作面提供照度建議。本專案參考其照度層級，設計從氛圍照明到精細作業的活動提示；裝置位置的單點讀數不能代表書桌或整個房間的照明。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "ANSI/IES/ALA RP-11-26 is a recommended practice for indoor and outdoor residential lighting, with guidance for spaces, activities, and actual task surfaces. The project uses selected illuminance levels to describe activities from ambient lighting to detail work. This makes a reading easier to understand, while recognizing that one device location does not represent a desk surface or an entire room."
+            "value": "ANSI/IES/ALA RP-11-26 recommends residential lighting by space, activity, and task surface. The project uses selected illuminance levels for messages from ambient lighting to detail work. A reading at one device location does not represent lighting across a desk or an entire room."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "ANSI/IES/ALA RP-11-26は住宅の屋内外照明の推奨指針で、空間、活動、実際の作業面に応じた照度や設計を案内します。本製品では照度の段階を参考に、雰囲気照明から精密作業までの活動の目安に整理しています。ただし、機器位置の一点の測定値は、机上や部屋全体の照明を表すものではありません。"
+            "value": "ANSI/IES/ALA RP-11-26は住宅の屋内外照明の推奨指針で、空間、活動、作業面に応じた照度を案内します。本製品は雰囲気照明から精密作業までの目安に整理します。機器位置の一点の測定値は、机上や部屋全体の照明を表しません。"
           }
         }
       }
@@ -8322,25 +8322,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "ISO 7730 是一套帮助理解人体冷热感的国际标准。它不只看室温，还结合湿度、风速、辐射温度、衣着和活动量，用 PMV 与 PPD 估计一群人的热感觉和不满意比例。本项目采用这些计算方法，帮助你理解当前环境为什么偏冷、偏热或接近中性。"
+            "value": "ISO 7730 是理解人体冷热感的国际标准，结合温度、湿度、风速、辐射温度、衣着和活动量，用 PMV 与 PPD 估计人群的热感觉和不满意比例。本项目采用这些方法，帮助你理解环境为何偏冷、偏热或接近中性。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "ISO 7730 是協助理解人體冷熱感的國際標準。它不只看室溫，還結合濕度、風速、輻射溫度、衣著與活動量，以 PMV 和 PPD 估計一群人的熱感覺與不滿意比例。本專案採用這些計算方法，協助你理解目前環境為何偏冷、偏熱或接近中性。"
+            "value": "ISO 7730 是理解人體冷熱感的國際標準，結合溫度、濕度、風速、輻射溫度、衣著與活動量，以 PMV 和 PPD 估計人群的熱感覺與不滿意比例。本專案採用這些方法，協助你理解環境為何偏冷、偏熱或接近中性。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "ISO 7730 is an international standard for understanding how people experience the thermal environment. It looks beyond air temperature to humidity, air speed, radiant temperature, clothing, and activity. PMV and PPD estimate a group’s thermal sensation and the proportion likely to be dissatisfied; this project uses those methods to explain cooler, warmer, or near-neutral conditions."
+            "value": "ISO 7730 explains how people experience the thermal environment, considering temperature, humidity, air speed, radiant temperature, clothing, and activity. PMV and PPD estimate a group’s thermal sensation and likely dissatisfaction. The project uses these methods to describe cooler, warmer, or near-neutral conditions."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "ISO 7730は、人が熱環境をどう感じるかを理解するための国際規格です。室温だけでなく、湿度、風速、放射温度、服装、活動量も考慮します。PMVとPPDで集団の温冷感と不満足者の割合を推定し、本製品では寒い側・暑い側・中立に近い状態を説明するために使います。"
+            "value": "ISO 7730は温冷感を理解する国際規格で、温度、湿度、風速、放射温度、服装、活動量を考慮します。PMVとPPDで集団の温冷感と不満足者の割合を推定し、本製品では寒い側・暑い側・中立に近い状態を説明します。"
           }
         }
       }
@@ -8434,25 +8434,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "瑞士 MeteoSwiss 的花粉负荷分级，进一步区分桦树、禾草、豚草等具体类型，并根据各类花粉的致敏潜力设置不同浓度边界。本项目采用表中已列出的类型，展示对应的日平均负荷等级。它能提供比单一总数更细的参考，但不是欧盟统一标准，也不能单靠一个等级预测每个人的过敏反应。"
+            "value": "瑞士 MeteoSwiss 按桦树、禾草、豚草等类型及致敏潜力，设置不同的花粉浓度边界。本项目采用表中类型，展示日平均负荷等级；它不是欧盟统一标准，也不能仅凭等级预测个人的过敏反应。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "瑞士 MeteoSwiss 的花粉負荷分級，進一步區分樺樹、禾草、豚草等類型，並依各類花粉的致敏潛力設定不同濃度邊界。本專案採用表中列出的類型，展示對應的日平均負荷等級。它比單一總數提供更細的參考，但不是歐盟統一標準，也不能只靠一個等級預測每個人的過敏反應。"
+            "value": "瑞士 MeteoSwiss 依樺樹、禾草、豚草等類型與致敏潛力，設定不同的花粉濃度邊界。本專案採用表中類型，展示日平均負荷等級；它不是歐盟統一標準，也不能僅憑等級預測個人的過敏反應。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "MeteoSwiss pollen load classes distinguish specific types such as birch, grasses, and ragweed, with different concentration boundaries reflecting their allergenic potential. The project supports the types listed in the reference and shows their daily-average load class. This provides more context than a total count alone, but it is not a common EU standard or a prediction of an individual’s allergic reaction."
+            "value": "MeteoSwiss distinguishes pollen types such as birch, grasses, and ragweed, with concentration boundaries reflecting allergenic potential. The project shows daily-average load classes for supported types. These are not a common EU standard or predictions of an individual’s allergic reaction."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "スイスMeteoSwissの花粉量区分は、カバノキ、イネ科、ブタクサなどを分け、アレルゲン性に応じて異なる濃度境界を設けています。本製品は表にある種類について日平均の負荷段階を示します。総数だけより詳しい目安ですが、EU統一基準ではなく、個人のアレルギー反応を予測するものでもありません。"
+            "value": "MeteoSwissはカバノキ、イネ科、ブタクサなどの種類とアレルゲン性に応じて濃度境界を設けます。本製品は対応する種類の日平均負荷を示します。EU統一基準ではなく、個人のアレルギー反応を予測するものでもありません。"
           }
         }
       }
@@ -8546,25 +8546,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "美国国家过敏局的花粉监测网络，以树木、禾草和杂草等类别的花粉浓度描述空气中的花粉负荷。本项目采用这些类别的日平均浓度边界，提供低、中、高、极高四档提示。它适合在已知花粉类别时帮助安排日常活动；没有类别的总花粉数，不能直接套用其中某一类的分档。"
+            "value": "美国国家过敏局按树木、禾草和杂草等类别监测花粉浓度。本项目采用各类别的日平均浓度边界，提供低、中、高、极高四档提示，帮助安排日常活动；未分类的总花粉数不能直接套用某一类的分档。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "美國國家過敏局的花粉監測網絡，以樹木、禾草、雜草等類別的花粉濃度描述空氣中的花粉負荷。本專案採用各類別的日平均濃度邊界，提供低、中、高、極高四檔提示，協助安排日常活動；若只有未分類的總花粉數，不能直接套用其中一類的分檔。"
+            "value": "美國國家過敏局依樹木、禾草與雜草等類別監測花粉濃度。本專案採用各類別的日平均濃度邊界，提供低、中、高、極高四檔提示，協助安排日常活動；未分類的總花粉數不能直接套用某一類的分檔。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The US National Allergy Bureau’s monitoring network describes pollen load using concentrations for categories such as trees, grasses, and weeds. The project uses daily-average category boundaries to provide Low, Moderate, High, and Very High messages. These can help with daily planning when the pollen category is known. An unclassified total count cannot simply use one category’s thresholds."
+            "value": "The US National Allergy Bureau monitors pollen concentrations by category, including trees, grasses, and weeds. The project uses daily-average boundaries for Low, Moderate, High, and Very High messages to help daily planning. Unclassified total counts cannot use a single category’s thresholds."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "米国National Allergy Bureauの監視ネットワークは、樹木、イネ科、雑草などの分類別濃度で花粉量を表します。本製品は日平均の分類別境界から、低い・中程度・高い・非常に高いの4段階を示します。種類の分類がわかるときの日常活動の目安となり、分類のない総数に特定分類の境界をそのまま適用することはできません。"
+            "value": "米国National Allergy Bureauは樹木、イネ科、雑草などの分類別に花粉濃度を監視します。本製品は日平均の境界から低い・中程度・高い・非常に高いの4段階を示します。未分類の総数に特定分類の境界は適用できません。"
           }
         }
       }
@@ -8658,25 +8658,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "加州 OEHHA 发布参考暴露水平，用于帮助评估接触空气污染物的健康风险。其中甲醛的 1 小时急性参考值为 0.055 mg/m³。本项目提供这套可选依据，供需要采用加州参考口径的产品使用；它是加州的健康参考，不是全美国通用的法规限值，页面六档也属于产品映射。"
+            "value": "加州 OEHHA 的参考暴露水平用于评估空气污染物的健康风险，甲醛的 1 小时急性参考值为 0.055 mg/m³。本项目提供这套可选依据；它不是全美通用的法规限值，六档提示也属于产品映射。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "加州 OEHHA 發布參考暴露水平，協助評估接觸空氣污染物的健康風險。甲醛的 1 小時急性參考值為 0.055 mg/m³。本專案提供這套可選依據，供需要採用加州參考口徑的產品使用；它並非全美國通用的法規限值，頁面六檔也屬於產品映射。"
+            "value": "加州 OEHHA 的參考暴露水平用於評估空氣污染物的健康風險，甲醛的 1 小時急性參考值為 0.055 mg/m³。本專案提供此可選依據；它並非全美通用的法規限值，六檔提示也屬於產品映射。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "California OEHHA publishes reference exposure levels to support assessment of health risks from air pollutants. Its one-hour acute reference value for formaldehyde is 0.055 mg/m³. The project offers this option for products using the California reference. It is not a nationwide US legal limit, and the six displayed bands are the project’s own mapping."
+            "value": "California OEHHA’s reference exposure levels support health risk assessment. Its one-hour acute formaldehyde reference is 0.055 mg/m³. The project offers this option with six product-defined bands. It is a California health reference, not a nationwide US legal limit."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "カリフォルニア州OEHHAは、大気汚染物質への曝露による健康リスク評価を支援する参考曝露レベルを示します。ホルムアルデヒドの1時間急性参考値は0.055 mg/m³です。本製品ではこの目安を使う場合の選択肢として提供します。米国全体の法的限度値ではなく、6段階の表示も製品の対応付けです。"
+            "value": "カリフォルニア州OEHHAの参考曝露レベルは健康リスク評価に用いられ、ホルムアルデヒドの1時間急性参考値は0.055 mg/m³です。本製品は選択肢として提供します。米国全体の法的限度値ではなく、6段階も製品の対応付けです。"
           }
         }
       }
@@ -8770,25 +8770,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "德国联邦环境署的 CO₂ 指导值，主要帮助判断室内换气是否值得关注。它以 1000 ppm 和 2000 ppm 为分界，将情况分为三个区间。本项目据此提供“正常、建议通风、应加强通风”的提示，让你知道什么时候可以开窗或增加新风；这不是用来判断一氧化碳等其他污染物的标准。"
+            "value": "德国联邦环境署的 CO₂ 指导值用于提示室内换气状况，以 1000 ppm 和 2000 ppm 划分三个区间。本项目据此提供“正常、建议通风、应加强通风”提示，帮助你判断何时开窗或增加新风。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "德國聯邦環境署的 CO₂ 指導值，主要協助判斷室內換氣是否需要關注。它以 1000 ppm 與 2000 ppm 為分界，劃分三個區間。本專案據此提供「正常、建議通風、應加強通風」提示，協助判斷何時可以開窗或增加新風；這不是評價一氧化碳等其他污染物的標準。"
+            "value": "德國聯邦環境署的 CO₂ 指導值用於提示室內換氣狀況，以 1000 ppm 與 2000 ppm 劃分三個區間。本專案據此提供「正常、建議通風、應加強通風」提示，協助判斷何時開窗或增加新風。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The German Environment Agency’s CO₂ guidance helps identify indoor ventilation conditions that deserve attention. It uses 1000 and 2000 ppm as the boundaries between three ranges. The project turns these into Normal, Ventilate, and Increase Ventilation messages, helping you consider opening windows or adding fresh air. The reference does not assess other pollutants such as carbon monoxide."
+            "value": "The German Environment Agency’s CO₂ guidance uses 1000 and 2000 ppm to divide indoor ventilation conditions into three ranges. The project presents these as Normal, Ventilate, and Increase Ventilation, helping you decide when to open windows or introduce more fresh air."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "ドイツ連邦環境庁のCO₂指針は、室内換気に注意が必要かを考えるための目安です。1000 ppmと2000 ppmで3つの範囲を分けます。本製品では正常・換気を推奨・換気を強化という案内にして、窓開けや外気導入を考える助けにします。一酸化炭素など別の物質を評価する基準ではありません。"
+            "value": "ドイツ連邦環境庁のCO₂指針は、室内換気の状況を1000 ppmと2000 ppmで3区分に分けます。本製品は正常・換気を推奨・換気を強化と表示し、窓開けや外気導入のタイミングを考える目安にします。"
           }
         }
       }
@@ -8882,25 +8882,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "德国联邦环境署的湿度指南从日常通风和住宅防潮出发，建议全年将相对湿度保持在约 40%–60%。这为家中湿度提供了一个容易理解的参考范围。本项目默认采用这套依据：低于范围提示偏干，高于范围提示偏湿，方便你根据读数调整加湿或除湿。"
+            "value": "德国联邦环境署的湿度指南从通风和住宅防潮出发，建议全年相对湿度保持在约 40%–60%。本项目默认采用这套依据：低于范围提示偏干，高于范围提示偏湿，帮助你调整加湿或除湿。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "德國聯邦環境署的濕度指南從日常通風與住宅防潮出發，建議全年將相對濕度保持在約 40%–60%。這為居家濕度提供容易理解的參考範圍。本專案預設採用此依據：低於範圍提示偏乾，高於範圍提示偏濕，方便依讀數調整加濕或除濕。"
+            "value": "德國聯邦環境署的濕度指南從通風與住宅防潮出發，建議全年相對濕度保持在約 40%–60%。本專案預設採用此依據：低於範圍提示偏乾，高於範圍提示偏濕，協助你調整加濕或除濕。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The German Environment Agency’s humidity guidance approaches moisture through everyday ventilation and damp prevention, suggesting roughly 40–60% relative humidity throughout the year. It provides a simple reference range for the home. This is the project’s default: readings below the range are Dry and those above it Humid, helping you decide whether to add or remove moisture."
+            "value": "The German Environment Agency recommends roughly 40–60% relative humidity year-round to support ventilation and damp prevention at home. This is the project’s default humidity reference: readings below the range are Dry and those above it Humid, helping you decide whether to add or remove moisture."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "ドイツ連邦環境庁の湿度ガイドは、日常の換気と住宅の防湿の観点から、通年で相対湿度40～60%程度を勧めています。家庭で使いやすい目安の範囲です。本製品の既定値として、この範囲より低ければ乾燥気味、高ければ多湿と示し、加湿や除湿の判断に役立てます。"
+            "value": "ドイツ連邦環境庁は換気と住宅の防湿の観点から、通年で相対湿度40～60%程度を勧めています。本製品の既定の目安として、範囲より低ければ乾燥気味、高ければ多湿と示し、加湿や除湿の判断に役立てます。"
           }
         }
       }
@@ -8994,25 +8994,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "WHO 的室内空气质量指南，从健康角度为多种室内污染物提供参考。对于甲醛，指南给出的参考浓度是 0.10 mg/m³，按 30 分钟平均值理解。本项目将它作为甲醛默认依据，并围绕参考值设计六档提示；六档是产品的表达方式，并不是 WHO 原文规定的六个等级。"
+            "value": "WHO 室内空气质量指南为室内污染物提供健康参考，甲醛参考值为 0.10 mg/m³，按 30 分钟平均。本项目默认采用此依据，并围绕参考值设计六档提示；六档属于产品规则，并非 WHO 规定的等级。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "WHO 室內空氣品質指南從健康角度為多種室內污染物提供參考。甲醛的參考濃度為 0.10 mg/m³，依 30 分鐘平均值理解。本專案將它作為甲醛預設依據，並圍繞參考值設計六檔提示；六檔屬於產品表達方式，並非 WHO 原文規定的六個等級。"
+            "value": "WHO 室內空氣品質指南為室內污染物提供健康參考，甲醛參考值為 0.10 mg/m³，採 30 分鐘平均。本專案預設採用此依據，並圍繞參考值設計六檔提示；六檔屬於產品規則，並非 WHO 規定的等級。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The WHO indoor air quality guidelines provide health-based references for several indoor pollutants. For formaldehyde, the reference is 0.10 mg/m³ over a 30-minute averaging period. This is the project’s default formaldehyde reference. The project builds six messages around that value; those six bands are a product presentation, not six categories prescribed by WHO."
+            "value": "The WHO indoor air quality guidelines provide health-based references, including 0.10 mg/m³ over 30 minutes for formaldehyde. This is the project’s default formaldehyde reference. Its six display bands are product rules around that value, not categories prescribed by WHO."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "WHOの室内空気質ガイドラインは、複数の室内汚染物質について健康に基づく参考値を示します。ホルムアルデヒドは30分平均で0.10 mg/m³です。本製品ではこれを既定の基準とし、参考値を中心に6段階の案内を設けています。この6段階は製品の表現方法であり、WHOが定めた6区分ではありません。"
+            "value": "WHOの室内空気質ガイドラインは健康に基づく参考値を示し、ホルムアルデヒドは30分平均で0.10 mg/m³です。本製品では既定の基準として6段階を設けます。この区分は製品規則であり、WHOが定めた6区分ではありません。"
           }
         }
       }
@@ -9106,25 +9106,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "WHO《社区噪声指南》关注声音如何影响日常生活、休息和睡眠，并为不同场景给出参考。指南中的相关参考值以长期等效声级等测量口径表达。本项目借用住宅和睡眠场景的参考，设计便于理解的噪声提示；当前声级读数的四档显示属于产品规则，不代替指南要求的完整长期测量。"
+            "value": "WHO《社区噪声指南》关注声音对生活、休息与睡眠的影响，参考值采用长期等效声级等测量口径。本项目参考住宅和睡眠场景设计噪声提示；当前读数的四档显示属于产品规则，不代替完整的长期测量。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "WHO《社區噪聲指南》關注聲音如何影響生活、休息與睡眠，並為不同場景提供參考。相關參考值採用長期等效聲級等測量方式。本專案參考住宅與睡眠場景，設計易讀的噪聲提示；目前聲級讀數的四檔顯示屬於產品規則，不取代指南要求的完整長期測量。"
+            "value": "WHO《社區噪聲指南》關注聲音對生活、休息與睡眠的影響，參考值採用長期等效聲級等測量方式。本專案參考住宅與睡眠場景設計噪聲提示；目前讀數的四檔顯示屬於產品規則，不取代完整的長期測量。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The WHO Guidelines for Community Noise consider how sound affects everyday life, rest, and sleep, and provide references for different settings. Relevant values use measures such as long-term equivalent sound levels. The project draws on home and sleep references for understandable noise messages. Its four bands for current sound readings are product rules and do not replace the guideline’s full long-term measurements."
+            "value": "The WHO Guidelines for Community Noise address daily life, rest, and sleep using measures such as long-term equivalent sound levels. The project draws on home and sleep references for noise messages. Its four bands for current readings are product rules, not substitutes for full long-term measurements."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "WHOの環境騒音ガイドラインは、音が日常生活、休息、睡眠にどう影響するかを扱い、場面別の参考値を示します。関連する値には長時間の等価騒音レベルなどを使います。本製品は住宅と睡眠の目安を参考に案内を作っています。現在の音量の4段階表示は製品規則であり、必要な長時間測定の代わりにはなりません。"
+            "value": "WHOの環境騒音ガイドラインは生活、休息、睡眠への影響を扱い、長時間の等価騒音レベルなどで参考値を示します。本製品は住宅と睡眠の目安を参考にします。現在値の4段階表示は製品規則であり、長時間測定の代わりにはなりません。"
           }
         }
       }
@@ -9218,25 +9218,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "WHO《全球太阳紫外线指数：实用指南》用低、中、高、很高、极高五个等级，帮助公众理解太阳紫外线对皮肤和眼睛的潜在影响，并据此安排防晒与遮蔽。本项目采用这套分级，状态色与图示色也使用 WHO 指定的 RGB 值。查看时应留意显示的是当前指数还是当日最大值，它与照度读数并不是同一回事。"
+            "value": "WHO《全球太阳紫外线指数：实用指南》用低、中、高、很高、极高五档提示紫外线对皮肤和眼睛的潜在影响。本项目采用其分级及指定 RGB 配色。请留意显示的是当前指数还是当日最大值；紫外线指数与照度不同。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "WHO《全球太陽紫外線指數：實用指南》以低、中、高、很高、極高五個等級，協助理解太陽紫外線對皮膚與眼睛的潛在影響，並安排防曬與遮蔽。本專案採用此分級，狀態色與圖示色也使用 WHO 指定的 RGB 值。查看時應留意是目前指數還是當日最大值，它與照度讀數並非同一回事。"
+            "value": "WHO《全球太陽紫外線指數：實用指南》以低、中、高、很高、極高五檔提示紫外線對皮膚與眼睛的潛在影響。本專案採用其分級及指定 RGB 配色。請留意顯示目前指數或當日最大值；紫外線指數與照度不同。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The WHO Global Solar UV Index practical guide uses five exposure levels to explain the potential effects of solar UV on skin and eyes and help people plan sun protection and shade. The project adopts these levels and WHO’s specified RGB values for status and chart colors. Check whether a display shows the current index or the daily maximum; the UV Index is different from illuminance."
+            "value": "The WHO Global Solar UV Index guide uses five exposure levels to explain potential effects on skin and eyes and guide sun protection. The project adopts these levels and WHO’s RGB colors. Check whether readings show the current index or daily maximum; UV Index differs from illuminance."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "WHOの世界太陽紫外線指数実用ガイドは、5段階の曝露区分で皮膚や目への潜在的な影響を伝え、日焼け対策や日陰の利用を考える助けにします。本製品はこの区分を使い、状態色とグラフ色もWHO指定のRGB値を採用します。現在値か日最大値かを確認してください。紫外線指数は照度とは別の指標です。"
+            "value": "WHOの世界太陽紫外線指数実用ガイドは、5段階で皮膚や目への影響を伝え、日焼け対策に役立てます。本製品はこの区分とWHO指定のRGB色を使います。現在値か日最大値かを確認してください。紫外線指数と照度は別の指標です。"
           }
         }
       }
@@ -9582,25 +9582,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外线极强，尽量减少不必要的户外暴露。"
+            "value": "当前读数提示：紫外线极强，尽量减少不必要的户外暴露。优先减少不必要的户外暴露；必须外出时，尽量在遮蔽处活动并做好全面防晒。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線極強，盡量減少不必要的戶外暴露。"
+            "value": "目前讀數顯示：紫外線極強，盡量減少不必要的戶外暴露。優先減少不必要的戶外曝曬；必須外出時，盡量在遮蔽處活動並做好完整防曬。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "UV is extreme. Avoid unnecessary outdoor exposure."
+            "value": "At this reading, uV is extreme. Avoid unnecessary outdoor exposure. Reduce unnecessary outdoor exposure; when going out is essential, seek shelter and use comprehensive sun protection."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線が極めて強い状態です。不要な屋外での曝露を避けてください。"
+            "value": "現在の測定値では、紫外線が極めて強い状態です。不要な屋外での曝露を避けてください。不要な屋外での曝露を減らし、外出が必要な場合は日差しを避け、十分な対策をしましょう。"
           }
         }
       }
@@ -9638,25 +9638,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外线极强，尽量减少不必要的户外暴露。"
+            "value": "当前读数提示：紫外线极强，尽量减少不必要的户外暴露。优先减少不必要的户外暴露；必须外出时，尽量在遮蔽处活动并做好全面防晒。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線極強，盡量減少不必要的戶外暴露。"
+            "value": "目前讀數顯示：紫外線極強，盡量減少不必要的戶外暴露。優先減少不必要的戶外曝曬；必須外出時，盡量在遮蔽處活動並做好完整防曬。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "UV is extreme."
+            "value": "At this reading, uV is extreme. Reduce unnecessary outdoor exposure; when going out is essential, seek shelter and use comprehensive sun protection."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線が極めて強い状態です。"
+            "value": "現在の測定値では、紫外線が極めて強い状態です。不要な屋外での曝露を減らし、外出が必要な場合は日差しを避け、十分な対策をしましょう。"
           }
         }
       }
@@ -9666,25 +9666,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外线较强，户外活动需做好防晒。"
+            "value": "当前读数提示：紫外线较强，户外活动需做好防晒。户外活动请做好遮阳与防晒，尽量避开正午长时间暴晒。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線較強，戶外活動需做好防曬。"
+            "value": "目前讀數顯示：紫外線較強，戶外活動需做好防曬。戶外活動請做好遮陽與防曬，盡量避免正午長時間曝曬。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "UV is high. Use sun protection outdoors."
+            "value": "At this reading, uV is high. Use sun protection outdoors. Use shade and sun protection outdoors, and avoid prolonged exposure around midday."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線が強めです。屋外では日焼け対策をしてください。"
+            "value": "現在の測定値では、紫外線が強めです。屋外では日焼け対策をしてください。屋外では日陰や日焼け対策を利用し、正午前後に長く日差しを浴びることを避けましょう。"
           }
         }
       }
@@ -9722,25 +9722,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外线较强，户外活动需做好防晒。"
+            "value": "当前读数提示：紫外线较强，户外活动需做好防晒。户外活动请做好遮阳与防晒，尽量避开正午长时间暴晒。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線較強，戶外活動需做好防曬。"
+            "value": "目前讀數顯示：紫外線較強，戶外活動需做好防曬。戶外活動請做好遮陽與防曬，盡量避免正午長時間曝曬。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "UV is high."
+            "value": "At this reading, uV is high. Use shade and sun protection outdoors, and avoid prolonged exposure around midday."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線が強めです。"
+            "value": "現在の測定値では、紫外線が強めです。屋外では日陰や日焼け対策を利用し、正午前後に長く日差しを浴びることを避けましょう。"
           }
         }
       }
@@ -9750,25 +9750,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外线强度较低。"
+            "value": "当前读数提示：紫外线强度较低。短时外出可按需要防晒；长时间停留在户外时，仍应留意遮阳和指数变化。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線強度較低。"
+            "value": "目前讀數顯示：紫外線強度較低。短時間外出可依需要防曬；長時間在戶外時，仍應留意遮陽與指數變化。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "UV intensity is low."
+            "value": "At this reading, uV intensity is low. Consider protection for your activity; on longer outings, keep shade and changing index values in mind."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線の強さは低い状態です。"
+            "value": "現在の測定値では、紫外線の強さは低い状態です。活動に合わせて対策し、長く屋外にいる場合は日陰や指数の変化にも注意しましょう。"
           }
         }
       }
@@ -9806,25 +9806,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外线强度较低。"
+            "value": "当前读数提示：紫外线强度较低。短时外出可按需要防晒；长时间停留在户外时，仍应留意遮阳和指数变化。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線強度較低。"
+            "value": "目前讀數顯示：紫外線強度較低。短時間外出可依需要防曬；長時間在戶外時，仍應留意遮陽與指數變化。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "UV intensity is low."
+            "value": "At this reading, uV intensity is low. Consider protection for your activity; on longer outings, keep shade and changing index values in mind."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線の強さは低い状態です。"
+            "value": "現在の測定値では、紫外線の強さは低い状態です。活動に合わせて対策し、長く屋外にいる場合は日陰や指数の変化にも注意しましょう。"
           }
         }
       }
@@ -9834,25 +9834,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外线处于中等级别，留意暴露时间。"
+            "value": "当前读数提示：紫外线处于中等级别，留意暴露时间。外出可准备遮阳帽、衣物和防晒用品，停留较久时尽量选择阴凉处。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線處於中等級別，請留意暴露時間。"
+            "value": "目前讀數顯示：紫外線處於中等級別，請留意暴露時間。外出可準備遮陽帽、衣物與防曬用品，停留較久時盡量選擇陰涼處。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "UV is moderate. Keep exposure time in mind."
+            "value": "At this reading, uV is moderate. Keep exposure time in mind. Bring a hat, covering clothing, and sunscreen; seek shade during longer stays outdoors."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線は中程度です。曝露時間に注意してください。"
+            "value": "現在の測定値では、紫外線は中程度です。曝露時間に注意してください。帽子、衣服、日焼け止めを用意し、長く屋外にいるときは日陰を選びましょう。"
           }
         }
       }
@@ -9890,25 +9890,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外线处于中等级别，留意暴露时间。"
+            "value": "当前读数提示：紫外线处于中等级别，留意暴露时间。外出可准备遮阳帽、衣物和防晒用品，停留较久时尽量选择阴凉处。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線處於中等級別，請留意暴露時間。"
+            "value": "目前讀數顯示：紫外線處於中等級別，請留意暴露時間。外出可準備遮陽帽、衣物與防曬用品，停留較久時盡量選擇陰涼處。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "UV is moderate."
+            "value": "At this reading, uV is moderate. Bring a hat, covering clothing, and sunscreen; seek shade during longer stays outdoors."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線は中程度です。"
+            "value": "現在の測定値では、紫外線は中程度です。帽子、衣服、日焼け止めを用意し、長く屋外にいるときは日陰を選びましょう。"
           }
         }
       }
@@ -10002,25 +10002,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外线很强，尽量减少正午暴露。"
+            "value": "当前读数提示：紫外线很强，尽量减少正午暴露。尽量调整户外活动时间，避开正午，并同时使用遮阳衣物和防晒用品。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線很強，盡量減少正午暴露。"
+            "value": "目前讀數顯示：紫外線很強，盡量減少正午暴露。盡量調整戶外活動時間，避開正午，並同時使用遮陽衣物與防曬用品。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "UV is very high. Limit midday exposure."
+            "value": "At this reading, uV is very high. Limit midday exposure. Reschedule outdoor activities away from midday where possible, and combine covering clothing with sunscreen."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線が非常に強い状態です。正午前後の曝露を減らしてください。"
+            "value": "現在の測定値では、紫外線が非常に強い状態です。正午前後の曝露を減らしてください。可能なら正午前後を避けて活動し、肌を覆う衣服と日焼け止めを組み合わせましょう。"
           }
         }
       }
@@ -10058,25 +10058,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外线很强，尽量减少正午暴露。"
+            "value": "当前读数提示：紫外线很强，尽量减少正午暴露。尽量调整户外活动时间，避开正午，并同时使用遮阳衣物和防晒用品。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線很強，盡量減少正午暴露。"
+            "value": "目前讀數顯示：紫外線很強，盡量減少正午暴露。盡量調整戶外活動時間，避開正午，並同時使用遮陽衣物與防曬用品。"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "UV is very high."
+            "value": "At this reading, uV is very high. Reschedule outdoor activities away from midday where possible, and combine covering clothing with sunscreen."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "紫外線が非常に強い状態です。"
+            "value": "現在の測定値では、紫外線が非常に強い状態です。可能なら正午前後を避けて活動し、肌を覆う衣服と日焼け止めを組み合わせましょう。"
           }
         }
       }

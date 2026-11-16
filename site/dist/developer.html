@@ -16,11 +16,11 @@
   <link rel="alternate" hreflang="en" href="https://tapeterjiang-gif.github.io/environment_rating/developer.html?lang=en">
   <link rel="alternate" hreflang="ja" href="https://tapeterjiang-gif.github.io/environment_rating/developer.html?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://tapeterjiang-gif.github.io/environment_rating/developer.html">
-  <link rel="stylesheet" href="styles.css">
-  <script src="i18n-zh-hant.js" defer></script>
-  <script src="developer-content.js" defer></script>
-  <script src="i18n.js" defer></script>
-  <script src="site.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=82fa9d216abb">
+  <script src="i18n-zh-hant.js?v=11c342856284" defer></script>
+  <script src="developer-content.js?v=0ae9b524fc9c" defer></script>
+  <script src="i18n.js?v=da0d34f3eee2" defer></script>
+  <script src="site.js?v=21e98f00e22d" defer></script>
 </head>
 <body class="developer-page">
 <a class="skip-link" href="#main">跳到主要内容</a>
@@ -36,7 +36,7 @@
     </nav>
   </header>
 <main id="main" data-developer-content translate="no"><section class="interpret-hero"><div class="container interpret-hero-inner"><span class="eyebrow">Environment developer guide</span><h1>开发参考</h1><p class="lead">将同一份环境指标文案接入 iOS、Android、青萍 Web 与 LVGL 固件。这里说明资源结构、评级映射、生成流程和各平台的使用方式。</p></div></section>
-<section class="section"><div class="container"><article class="developer-chapter"><h2>下载文案资源</h2><p>每个包均包含简体中文、繁体中文、英文和日语。完整包包含文案源、评级映射、各端资源与接入说明；也可以只下载所需平台。</p><div class="download-grid"><a class="download-card download-complete" href="downloads/environment-copy-all.zip" download><strong>完整资源包</strong><span>文案源、全部生成资源与说明文档</span><small>下载 ZIP ↓ · 1280 KB</small></a><a class="download-card " href="downloads/environment-copy-ios.zip" download><strong>iOS</strong><span>EnvironmentCopy.xcstrings 字符串目录</span><small>下载 ZIP ↓ · 303 KB</small></a><a class="download-card " href="downloads/environment-copy-android.zip" download><strong>Android</strong><span>四语言 res 字符串资源</span><small>下载 ZIP ↓ · 205 KB</small></a><a class="download-card " href="downloads/environment-copy-web.zip" download><strong>青萍 Web</strong><span>JSON、查询模块与 TypeScript 声明</span><small>下载 ZIP ↓ · 433 KB</small></a><a class="download-card " href="downloads/environment-copy-lvgl.zip" download><strong>LVGL 固件</strong><span>C 查询接口、枚举头文件与字库字符集</span><small>下载 ZIP ↓ · 157 KB</small></a></div></article></div></section><section class="section"><div class="container"><article class="developer-chapter"><h2>统一文案源</h2><p>项目根目录下的 <code>content/</code> 是指标简介与评级解读的唯一维护来源。四种语言使用相同的指标 ID 和评级 ID：<code>zh-Hans</code>、<code>zh-Hant</code>、<code>en</code>、<code>ja</code>。UTF-8、纯文本，不写 HTML、颜色值或用于排版的换行。</p>
+<section class="section"><div class="container"><article class="developer-chapter"><h2>下载文案资源</h2><p>每个包均包含简体中文、繁体中文、英文和日语。完整包包含文案源、评级映射、各端资源与接入说明；也可以只下载所需平台。</p><div class="download-grid"><a class="download-card download-complete" href="downloads/environment-copy-all.zip" download><strong>完整资源包</strong><span>文案源、全部生成资源与说明文档</span><small>下载 ZIP ↓ · 1512 KB</small></a><a class="download-card " href="downloads/environment-copy-ios.zip" download><strong>iOS</strong><span>EnvironmentCopy.xcstrings 字符串目录</span><small>下载 ZIP ↓ · 336 KB</small></a><a class="download-card " href="downloads/environment-copy-android.zip" download><strong>Android</strong><span>四语言 res 字符串资源</span><small>下载 ZIP ↓ · 238 KB</small></a><a class="download-card " href="downloads/environment-copy-web.zip" download><strong>青萍 Web</strong><span>JSON、查询模块与 TypeScript 声明</span><small>下载 ZIP ↓ · 532 KB</small></a><a class="download-card " href="downloads/environment-copy-lvgl.zip" download><strong>LVGL 固件</strong><span>C 查询接口、枚举头文件与字库字符集</span><small>下载 ZIP ↓ · 190 KB</small></a></div></article></div></section><section class="section"><div class="container"><article class="developer-chapter"><h2>统一文案源</h2><p>项目根目录下的 <code>content/</code> 是指标简介与评级解读的唯一维护来源。四种语言使用相同的指标 ID 和评级 ID：<code>zh-Hans</code>、<code>zh-Hant</code>、<code>en</code>、<code>ja</code>。UTF-8、纯文本，不写 HTML、颜色值或用于排版的换行。</p>
 <ul><li><code>zh-Hans.json</code> 等四个 JSON：人工维护的名称、简介、通用建议、分档标签、短提示与完整提示。</li><li><code>manifest.json</code>：指标分类、适用评级及对应的 <strong>C 枚举符号和数值</strong>。</li><li><code>generated/</code>：自动生成的 iOS、Android、Web 和字库资源。</li><li>根目录 <code>environment_text.h/.c</code>：自动生成的固件文案查询接口。</li></ul>
 <p>JSON 结构为 <code>metrics.co2.name / description / advice / ratings.moderate.label / summary / detail</code>。<code>summary</code> 是可独立编辑的短提示，<code>detail</code> 是完整分档解读；小屏优先使用短提示，详情界面显示简介、建议及完整提示。不要在运行时截断长段落来制作短文案。</p>
 <p>温度与 PMV 使用不同 ID：<code>temperature</code> 只有读数说明，<code>pmv</code> 才有七点冷热感评级。TVOC（<code>tvoc</code>）没有评级。花粉的 <code>unknown</code> 表示无法评级，<code>absent</code> 表示已测得零值。所有有效评级均有 <code>unknown</code> 文案。</p></article></div></section>

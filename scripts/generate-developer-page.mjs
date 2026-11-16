@@ -62,6 +62,7 @@ const base=await read('site/dist/index.html');
 let head=base.match(/<head>([\s\S]*?)<\/head>/)[1];
 head=head.replace(/<title>.*?<\/title>/,'<title>开发参考｜青萍环境评级指南</title>').replace(/(<meta name="description" content=")[^"]*/,'$1'+locales['zh-Hans'].lead).replace(/(<meta name="apple-mobile-web-app-title" content=")[^"]*/,'$1青萍环境评级指南');
 head=head.replaceAll('environment_rating/?','environment_rating/developer.html?').replaceAll('environment_rating/"','environment_rating/developer.html"');
+head=head.replace(/\?v=[a-f0-9]{12}(?=")/g,'');
 head=head.replace('<script src="i18n.js"','<script src="developer-content.js" defer></script>\n  <script src="i18n.js"');
 const header=base.match(/<header class="site-header">[\s\S]*?<\/header>/)[0].replace('<a href="index.html" aria-current="page">','<a href="index.html">').replace('<a href="developer.html">','<a href="developer.html" aria-current="page">');
 const footer=base.match(/<footer class="page-footer">[\s\S]*?<\/footer>/)[0];
@@ -71,7 +72,8 @@ const outputs={'site/dist/developer.html':page,'site/dist/developer-content.js':
 let changed=0;
 for(const [path,data]of Object.entries(outputs)){
   let old;try{old=await read(path);}catch{}
-  if(old===data)continue;changed++;
+  const unversioned=value=>value?.replace(/\?v=[a-f0-9]{12}(?=")/g,'');
+  if(unversioned(old)===unversioned(data))continue;changed++;
   if(check){console.error(`Outdated developer page: ${path}`);continue;}
   await writeFile(resolve(root,path),data);
 }

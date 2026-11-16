@@ -14,6 +14,13 @@
 
 int main(void)
 {
+    static const double boundaries[] = {2.5, 5.5, 7.5, 10.5};
+    unsigned int i;
+    for (i = 0; i < sizeof(boundaries) / sizeof(boundaries[0]); ++i) {
+        CHECK(nextafter(boundaries[i], -INFINITY), (uv_index_rating_t)(i + 1));
+        CHECK(boundaries[i], (uv_index_rating_t)(i + 2));
+        CHECK(nextafter(boundaries[i], INFINITY), (uv_index_rating_t)(i + 2));
+    }
     CHECK(0, UV_INDEX_LOW);
     CHECK(2.499999, UV_INDEX_LOW);
     CHECK(2.5, UV_INDEX_MODERATE);

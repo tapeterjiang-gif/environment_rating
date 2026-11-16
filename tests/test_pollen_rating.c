@@ -37,6 +37,14 @@ int main(void)
     };
     unsigned int i;
     for (i = 0; i < sizeof(swiss) / sizeof(swiss[0]); ++i) {
+        const double boundaries[] = {swiss[i].moderate, swiss[i].high, swiss[i].very_high};
+        unsigned int j;
+        for (j = 0; j < 3; ++j) {
+            CHECK(POLLEN_STD_METEOSWISS, swiss[i].type,
+                  nextafter(boundaries[j], -INFINITY), (pollen_rating_t)(j + 2));
+            CHECK(POLLEN_STD_METEOSWISS, swiss[i].type,
+                  nextafter(boundaries[j], INFINITY), (pollen_rating_t)(j + 3));
+        }
         CHECK(POLLEN_STD_METEOSWISS, swiss[i].type, 0, POLLEN_ABSENT);
         CHECK(POLLEN_STD_METEOSWISS, swiss[i].type,
               swiss[i].moderate - 0.5, POLLEN_LOW);

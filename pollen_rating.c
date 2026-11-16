@@ -2,6 +2,10 @@
 
 #include <math.h>
 
+#if defined(__FAST_MATH__) || (defined(__FINITE_MATH_ONLY__) && __FINITE_MATH_ONLY__ > 0)
+#error "pollen_rating requires finite-math-only and fast-math to be disabled"
+#endif
+
 typedef struct {
     pollen_type_t type;
     double moderate;

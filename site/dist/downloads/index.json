@@ -1,8 +1,8 @@
 {
   "all": {
     "file": "environment-copy-all.zip",
-    "bytes": 1310689,
-    "sha256": "085209ccf84070da41ec483afde147b86cd64b56ae8848e7c32709acde0d3449",
+    "bytes": 1547265,
+    "sha256": "a065a8cf185569349617b798f39b9f02e372111dbe1e4185567d0fa634c183c6",
     "files": [
       "air_quality_rating.h",
       "content/README.md",
@@ -41,16 +41,16 @@
   },
   "ios": {
     "file": "environment-copy-ios.zip",
-    "bytes": 309348,
-    "sha256": "1a791c74b7113c32fc505ed3615643c733a21e5138360abd437eadeb8776d180",
+    "bytes": 343145,
+    "sha256": "ab82a6b4be5aa65ac6aa130ecf4ef8ac6a4c8dc7bf473d760d59727bd8976d8d",
     "files": [
       "EnvironmentCopy.xcstrings"
     ]
   },
   "android": {
     "file": "environment-copy-android.zip",
-    "bytes": 209334,
-    "sha256": "7822852b07fe131574b7f5881ebc86845dc4dbe03b520d30c53cec2187bb28c4",
+    "bytes": 243131,
+    "sha256": "4882119260fc839ddab9043ae224bfece7f5f8c384e77b73902e0acced5bd04f",
     "files": [
       "res/values-b+zh+Hans/environment_copy.xml",
       "res/values-b+zh+Hant/environment_copy.xml",
@@ -60,8 +60,8 @@
   },
   "web": {
     "file": "environment-copy-web.zip",
-    "bytes": 442682,
-    "sha256": "0d1996463aa8b1b93447d196cf8535390baabaeb5d9799388fbcfcc7e281b5f9",
+    "bytes": 544073,
+    "sha256": "4ec039ae33cabec712f7a9155d529a126af4d903752a9ba31e38f8c4ed759b6c",
     "files": [
       "en.json",
       "environment-copy.d.ts",
@@ -74,8 +74,8 @@
   },
   "lvgl": {
     "file": "environment-copy-lvgl.zip",
-    "bytes": 160760,
-    "sha256": "6c76982a72b1244978e99d7d2cec3e5e85b4d58b7be14831aa00c3868c0a4fc8",
+    "bytes": 194554,
+    "sha256": "81fcd230b9de0cec59768755c437c769f706846674e4cb4dc33210387ded1b95",
     "files": [
       "air_quality_rating.h",
       "environment_text.c",

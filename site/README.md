@@ -18,3 +18,5 @@
 开发参考页从 `content/README.md` 及 `content/guides/` 的三个翻译版本生成。更新文档后运行 `node scripts/generate-developer-page.mjs`；使用 `--check` 检查网页是否同步。
 
 开发参考页的下载文件位于 `dist/downloads/`，随 GitHub Pages 一起静态发布。更新顺序：生成文案 → `node scripts/package-copy.mjs` → 生成开发参考页。打包脚本支持 `--check`，下载清单 `index.json` 记录文件大小、SHA-256 和包内文件列表。
+
+发布前运行 `node scripts/version-site-assets.mjs`，为各页面引用的 CSS 和 JavaScript 添加基于内容的版本号，避免新版页面使用缓存中的旧资源。GitHub Pages 部署流程也会自动执行。

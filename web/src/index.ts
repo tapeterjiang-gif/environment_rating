@@ -535,7 +535,8 @@ function createAirApi(native: NativeModule): AirRatingApi {
       enumValue(airQualityValues, native._air_rate_o3_hj(numeric(oneHour))),
     o3Epa: (eightHour: number, oneHour?: number) =>
       enumValue(airQualityValues, native._air_rate_o3_epa(
-        numeric(eightHour), oneHour === undefined ? Number.NaN : numeric(oneHour)
+        numeric(eightHour), oneHour === undefined ? Number.NaN :
+          typeof oneHour === "number" ? oneHour : -1
       )),
     coHj: (oneHour: number) =>
       enumValue(airQualityValues, native._air_rate_co_hj(numeric(oneHour))),
@@ -601,7 +602,8 @@ function createAirApi(native: NativeModule): AirRatingApi {
       enumValue(concentrationLevelValues, native._air_level_o3_hj(numeric(oneHour))),
     o3EpaLevel: (eightHour: number, oneHour?: number) =>
       enumValue(concentrationLevelValues, native._air_level_o3_epa(
-        numeric(eightHour), oneHour === undefined ? Number.NaN : numeric(oneHour)
+        numeric(eightHour), oneHour === undefined ? Number.NaN :
+          typeof oneHour === "number" ? oneHour : -1
       )),
     coHjLevel: (oneHour: number) =>
       enumValue(concentrationLevelValues, native._air_level_co_hj(numeric(oneHour))),

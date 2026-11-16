@@ -328,3 +328,47 @@ test("multiple instances remain independent", async () => {
   assert.equal(second.air.co2(2500), AirQuality.poor);
   assert.equal(rating.air.co2(500), AirQuality.good);
 });
+
+// Explicit malformed optional values must not be interpreted as missing samples.
+test("ozone optional hourly input distinguishes missing from invalid runtime values", () => {
+  for (const invalid of [null, "0.405", {}, false, -1, Infinity, -Infinity]) {
+    assert.equal(rating.air.o3Epa(0.05, invalid), AirQuality.unknown);
+    assert.equal(rating.air.o3EpaLevel(0.05, invalid), ConcentrationLevel.unknown);
+  }
+  for (const missing of [undefined, NaN]) {
+    assert.equal(rating.air.o3Epa(0.05, missing), AirQuality.good);
+  }
+});
+
+test("outdoor APIs reject invalid required measurements", () => {
+  const methods = ["o3Eea", "o3Hj", "coHj", "coEpa", "so2Eea", "so2HjHourly", "so2HjDaily"];
+  for (const invalid of [null, undefined, "10", {}, false, -1, NaN, Infinity, -Infinity]) {
+    for (const method of methods) assert.equal(rating.air[method](invalid), AirQuality.unknown);
+    assert.equal(rating.air.o3Epa(invalid), AirQuality.unknown);
+    assert.equal(rating.air.so2Epa(invalid, 0), AirQuality.unknown);
+    assert.equal(rating.air.so2Epa(0, invalid), AirQuality.unknown);
+    assert.equal(rating.uvIndex.rate(invalid), UVIndexRating.unknown);
+    assert.equal(rating.pollen.rate(invalid, PollenType.grass, PollenStandard.nab), PollenRating.unknown);
+  }
+  for (const invalid of [undefined, null, "invalid", -1, 99]) {
+    assert.equal(rating.pollen.rate(0, invalid, PollenStandard.nab), PollenRating.unknown);
+    assert.equal(rating.pollen.rate(0, PollenType.grass, invalid), PollenRating.unknown);
+  }
+});
+
+test("outdoor gas boundary transitions preserve all six grades", () => {
+  const grades = [AirQuality.good, AirQuality.fair, AirQuality.moderate, AirQuality.poor, AirQuality.veryPoor, AirQuality.extremelyPoor];
+  for (const [method, boundaries, upperInclusive] of [
+    ["o3Eea", [60,100,120,160,180], true],
+    ["o3Hj", [160.5,200.5,300.5,400.5,800.5], true],
+    ["coHj", [5.05,10.05,35.05,60.05,90.05], true],
+    ["coEpa", [4.5,9.5,12.5,15.5,30.5], false],
+    ["so2Eea", [20,40,125,190,275], true]
+  ]) {
+    boundaries.forEach((value, i) => {
+      assert.equal(rating.air[method](value - 1e-8), grades[i]);
+      assert.equal(rating.air[method](value), grades[upperInclusive ? i : i+1]);
+      assert.equal(rating.air[method](value + 1e-8), grades[i+1]);
+    });
+  }
+});

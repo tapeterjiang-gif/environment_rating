@@ -19,38 +19,38 @@
         },
         "cold": {
           "label": "Cold",
-          "summary": "The space feels cold.",
-          "detail": "The space feels cold. Consider more heating or warmer clothing."
+          "summary": "The current estimate is cold. Add clothing or adjust heating, then check how you feel after a while.",
+          "detail": "The current estimate is cold. Add clothing or adjust heating, then check how you feel after a while."
         },
         "cool": {
           "label": "Cool",
-          "summary": "The space feels cool.",
-          "detail": "The space feels cool. Add clothing if needed."
+          "summary": "The current estimate is cool. Add a layer if needed, especially when sitting still for a long time.",
+          "detail": "The current estimate is cool. Add a layer if needed, especially when sitting still for a long time."
         },
         "slightly_cool": {
           "label": "Slightly cool",
-          "summary": "It feels slightly cool.",
-          "detail": "It feels slightly cool. Clothing and activity may affect comfort."
+          "summary": "The current estimate is slightly cool. Consider your clothing and activity; a light layer may help when sitting, without a large change to room temperature.",
+          "detail": "The current estimate is slightly cool. Consider your clothing and activity; a light layer may help when sitting, without a large change to room temperature."
         },
         "neutral": {
           "label": "Neutral",
-          "summary": "Most people may find the temperature neutral.",
-          "detail": "Most people may find the temperature neutral."
+          "summary": "The current estimate is near neutral for most people. If you feel comfortable too, keep your settings rather than adjusting them repeatedly.",
+          "detail": "The current estimate is near neutral for most people. If you feel comfortable too, keep your settings rather than adjusting them repeatedly."
         },
         "slightly_warm": {
           "label": "Slightly warm",
-          "summary": "It feels slightly warm.",
-          "detail": "It feels slightly warm. Consider whether to lower the temperature."
+          "summary": "The current estimate is slightly warm. Try a lighter layer or a small cooling adjustment, then reassess before lowering the temperature further.",
+          "detail": "The current estimate is slightly warm. Try a lighter layer or a small cooling adjustment, then reassess before lowering the temperature further."
         },
         "warm": {
           "label": "Warm",
-          "summary": "The space feels warm.",
-          "detail": "The space feels warm. Ventilation or lighter clothing may help."
+          "summary": "The current estimate is warm. Use lighter clothing, a fan, or cooling as needed; check outdoor air and temperature before ventilating.",
+          "detail": "The current estimate is warm. Use lighter clothing, a fan, or cooling as needed; check outdoor air and temperature before ventilating."
         },
         "hot": {
           "label": "Hot",
-          "summary": "The space feels hot.",
-          "detail": "The space feels hot. Consider cooling it."
+          "summary": "The current estimate is hot. Rest somewhere cooler and adjust cooling as needed, then check both the reading and how you feel.",
+          "detail": "The current estimate is hot. Rest somewhere cooler and adjust cooling as needed, then check both the reading and how you feel."
         }
       }
     },
@@ -66,23 +66,23 @@
         },
         "dry": {
           "label": "Dry",
-          "summary": "The air is dry.",
-          "detail": "The air is dry. Humidify if needed."
+          "summary": "The current humidity is low. If your skin or throat feels dry, consider humidification and watch the reading to avoid adding too much moisture.",
+          "detail": "The current humidity is low. If your skin or throat feels dry, consider humidification and watch the reading to avoid adding too much moisture."
         },
         "suitable": {
           "label": "Suitable",
-          "summary": "Humidity is within the selected reference range.",
-          "detail": "Humidity is within the selected reference range."
+          "summary": "The current humidity is within your selected range. Keep your routine, while checking for local dampness if windows or corners show condensation.",
+          "detail": "The current humidity is within your selected range. Keep your routine, while checking for local dampness if windows or corners show condensation."
         },
         "slightly_humid": {
           "label": "Slightly humid",
-          "summary": "Humidity is slightly high.",
-          "detail": "Humidity is slightly high. Watch ventilation and condensation."
+          "summary": "The current humidity is slightly high. Check condensation and moisture from drying clothes; ventilate when outdoor conditions suit, then watch for improvement.",
+          "detail": "The current humidity is slightly high. Check condensation and moisture from drying clothes; ventilate when outdoor conditions suit, then watch for improvement."
         },
         "humid": {
           "label": "Humid",
-          "summary": "Humidity is high.",
-          "detail": "Humidity is high. Consider ventilation or dehumidification."
+          "summary": "The current humidity is high. Check moisture sources and consider dehumidification; opening windows may not help when outdoor air is also damp.",
+          "detail": "The current humidity is high. Check moisture sources and consider dehumidification; opening windows may not help when outdoor air is also damp."
         }
       }
     },
@@ -98,18 +98,18 @@
         },
         "good": {
           "label": "Normal",
-          "summary": "Ventilation looks good for now.",
-          "detail": "Ventilation looks good for now. Keep your usual fresh-air routine."
+          "summary": "The current CO₂ concentration is low. Keep your ventilation routine and watch the reading when more people arrive or windows stay closed.",
+          "detail": "The current CO₂ concentration is low. Keep your ventilation routine and watch the reading when more people arrive or windows stay closed."
         },
         "moderate": {
           "label": "Ventilate",
-          "summary": "Try opening a window or bringing in fresh air, then check whether the reading falls.",
-          "detail": "Try opening a window or bringing in fresh air, then check whether the reading falls."
+          "summary": "The current CO₂ reading suggests more ventilation. If outdoor air is suitable, open a window or use fresh-air ventilation, then check whether the reading falls.",
+          "detail": "The current CO₂ reading suggests more ventilation. If outdoor air is suitable, open a window or use fresh-air ventilation, then check whether the reading falls."
         },
         "poor": {
           "label": "Increase ventilation",
-          "summary": "Increase fresh-air supply soon.",
-          "detail": "Increase fresh-air supply soon. In a crowded room, spreading people out may also help."
+          "summary": "The current CO₂ concentration is high. Increase fresh-air supply soon; if crowded, spread activities across spaces and check readings after ventilation.",
+          "detail": "The current CO₂ concentration is high. Increase fresh-air supply soon; if crowded, spread activities across spaces and check readings after ventilation."
         }
       }
     },
@@ -125,33 +125,33 @@
         },
         "good": {
           "label": "Good",
-          "summary": "The concentration is low.",
+          "summary": "At this reading, the concentration is low.",
           "detail": "The concentration is low. Keep your current routine and check it from time to time."
         },
         "fair": {
           "label": "Fair",
-          "summary": "Above the lowest band.",
-          "detail": "Above the lowest band. Check for an obvious source or a recent activity that may explain it."
+          "summary": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings.",
+          "detail": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
         },
         "moderate": {
           "label": "Moderate",
-          "summary": "Pay a little more attention.",
-          "detail": "Pay a little more attention. Try the steps above and check the reading again."
+          "summary": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again.",
+          "detail": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
         },
         "poor": {
           "label": "Poor",
-          "summary": "The concentration is high.",
-          "detail": "The concentration is high. Reduce exposure first, then follow the advice for this pollutant."
+          "summary": "At this reading, the concentration is high.",
+          "detail": "At this reading, the concentration is high. Reduce exposure first, then follow the advice for this pollutant."
         },
         "very_poor": {
           "label": "Very poor",
-          "summary": "The concentration is very high.",
-          "detail": "The concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
+          "summary": "At this reading, the concentration is very high.",
+          "detail": "At this reading, the concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
         },
         "extremely_poor": {
           "label": "Extremely poor",
-          "summary": "This is the highest rating band.",
-          "detail": "This is the highest rating band. Prioritize leaving the polluted area and follow relevant guidance."
+          "summary": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve.",
+          "detail": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
         }
       }
     },
@@ -167,33 +167,33 @@
         },
         "good": {
           "label": "Good",
-          "summary": "The concentration is low.",
+          "summary": "At this reading, the concentration is low.",
           "detail": "The concentration is low. Keep your current routine and check it from time to time."
         },
         "fair": {
           "label": "Fair",
-          "summary": "Above the lowest band.",
-          "detail": "Above the lowest band. Check for an obvious source or a recent activity that may explain it."
+          "summary": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings.",
+          "detail": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
         },
         "moderate": {
           "label": "Moderate",
-          "summary": "Pay a little more attention.",
-          "detail": "Pay a little more attention. Try the steps above and check the reading again."
+          "summary": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again.",
+          "detail": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
         },
         "poor": {
           "label": "Poor",
-          "summary": "The concentration is high.",
-          "detail": "The concentration is high. Reduce exposure first, then follow the advice for this pollutant."
+          "summary": "At this reading, the concentration is high.",
+          "detail": "At this reading, the concentration is high. Reduce exposure first, then follow the advice for this pollutant."
         },
         "very_poor": {
           "label": "Very poor",
-          "summary": "The concentration is very high.",
-          "detail": "The concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
+          "summary": "At this reading, the concentration is very high.",
+          "detail": "At this reading, the concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
         },
         "extremely_poor": {
           "label": "Extremely poor",
-          "summary": "This is the highest rating band.",
-          "detail": "This is the highest rating band. Prioritize leaving the polluted area and follow relevant guidance."
+          "summary": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve.",
+          "detail": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
         }
       }
     },
@@ -209,33 +209,33 @@
         },
         "good": {
           "label": "Good",
-          "summary": "The concentration is low.",
+          "summary": "At this reading, the concentration is low.",
           "detail": "The concentration is low. Keep your current routine and check it from time to time."
         },
         "fair": {
           "label": "Fair",
-          "summary": "Above the lowest band.",
-          "detail": "Above the lowest band. Check for an obvious source or a recent activity that may explain it."
+          "summary": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings.",
+          "detail": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
         },
         "moderate": {
           "label": "Moderate",
-          "summary": "Pay a little more attention.",
-          "detail": "Pay a little more attention. Try the steps above and check the reading again."
+          "summary": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again.",
+          "detail": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
         },
         "poor": {
           "label": "Poor",
-          "summary": "The concentration is high.",
-          "detail": "The concentration is high. Reduce exposure first, then follow the advice for this pollutant."
+          "summary": "At this reading, the concentration is high.",
+          "detail": "At this reading, the concentration is high. Reduce exposure first, then follow the advice for this pollutant."
         },
         "very_poor": {
           "label": "Very poor",
-          "summary": "The concentration is very high.",
-          "detail": "The concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
+          "summary": "At this reading, the concentration is very high.",
+          "detail": "At this reading, the concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
         },
         "extremely_poor": {
           "label": "Extremely poor",
-          "summary": "This is the highest rating band.",
-          "detail": "This is the highest rating band. Prioritize leaving the polluted area and follow relevant guidance."
+          "summary": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve.",
+          "detail": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
         }
       }
     },
@@ -257,23 +257,23 @@
         },
         "quiet": {
           "label": "Quiet",
-          "summary": "Sound levels are low and suit quiet activities.",
-          "detail": "Sound levels are low and suit quiet activities."
+          "summary": "The current sound level is low for quiet activities. For rest or sleep, also consider whether sounds are steady or sudden.",
+          "detail": "The current sound level is low for quiet activities. For rest or sleep, also consider whether sounds are steady or sudden."
         },
         "noticeable": {
           "label": "Noticeable",
-          "summary": "Sound is noticeable and may affect focus or rest.",
-          "detail": "Sound is noticeable and may affect focus or rest."
+          "summary": "The current sound is noticeable and may interrupt focus or rest. If it bothers you, lower the source volume, close a door, or move somewhere quieter.",
+          "detail": "The current sound is noticeable and may interrupt focus or rest. If it bothers you, lower the source volume, close a door, or move somewhere quieter."
         },
         "loud": {
           "label": "Loud",
-          "summary": "The space is loud.",
-          "detail": "The space is loud. Try reducing noise at its source."
+          "summary": "The current environment is loud. Reduce or move away from the source, and choose a quieter place for focus or rest before checking again.",
+          "detail": "The current environment is loud. Reduce or move away from the source, and choose a quieter place for focus or rest before checking again."
         },
         "very_loud": {
           "label": "Very loud",
-          "summary": "The space is very loud.",
-          "detail": "The space is very loud. Limit prolonged exposure."
+          "summary": "The current environment is very loud. Limit time there and reduce the source or move somewhere quieter; duration matters as well as this reading.",
+          "detail": "The current environment is very loud. Limit time there and reduce the source or move somewhere quieter; duration matters as well as this reading."
         }
       }
     },
@@ -289,33 +289,33 @@
         },
         "low_light": {
           "label": "Low light",
-          "summary": "This reading is low.",
-          "detail": "This reading is low. Check illuminance at the activity location."
+          "summary": "At this reading, this reading is low. Add light for moving around or finding things, and check the desk surface before reading.",
+          "detail": "At this reading, this reading is low. Check illuminance at the activity location. Add light for moving around or finding things, and check the desk surface before reading."
         },
         "ambient": {
           "label": "Ambient lighting",
-          "summary": "This reading is near the illuminance level for ambient lighting.",
-          "detail": "This reading is near the illuminance level for ambient lighting."
+          "summary": "At this reading, this reading is near the illuminance level for ambient lighting. This can support a soft atmosphere; add task lighting for reading or crafts.",
+          "detail": "At this reading, this reading is near the illuminance level for ambient lighting. This can support a soft atmosphere; add task lighting for reading or crafts."
         },
         "daily_activity": {
           "label": "Daily activity",
-          "summary": "This reading is near the illuminance level for general activity.",
-          "detail": "This reading is near the illuminance level for general activity."
+          "summary": "At this reading, this reading is near the illuminance level for general activity. Use this as a reference for everyday activities; check desk lighting separately for reading or writing.",
+          "detail": "At this reading, this reading is near the illuminance level for general activity. Use this as a reference for everyday activities; check desk lighting separately for reading or writing."
         },
         "reading": {
           "label": "Reading and study",
-          "summary": "This reading is near the illuminance level for reading and study.",
-          "detail": "This reading is near the illuminance level for reading and study."
+          "summary": "At this reading, this reading is near the illuminance level for reading and study. For reading or writing, check even lighting at the desk and avoid hand shadows or glare.",
+          "detail": "At this reading, this reading is near the illuminance level for reading and study. For reading or writing, check even lighting at the desk and avoid hand shadows or glare."
         },
         "focused_activity": {
           "label": "Focused activity",
-          "summary": "This reading is near the illuminance level for focused activity.",
-          "detail": "This reading is near the illuminance level for focused activity."
+          "summary": "At this reading, this reading is near the illuminance level for focused activity. For focused tasks, adjust the light position to avoid dark patches and glare.",
+          "detail": "At this reading, this reading is near the illuminance level for focused activity. For focused tasks, adjust the light position to avoid dark patches and glare."
         },
         "detail_work": {
           "label": "Detail work",
-          "summary": "This reading approaches the illuminance level for detail work.",
-          "detail": "This reading approaches the illuminance level for detail work."
+          "summary": "At this reading, this reading approaches the illuminance level for detail work. For detail work, check light on the task surface, evenness, and reflections rather than simply increasing brightness.",
+          "detail": "At this reading, this reading approaches the illuminance level for detail work. For detail work, check light on the task surface, evenness, and reflections rather than simply increasing brightness."
         }
       }
     },
@@ -331,33 +331,33 @@
         },
         "good": {
           "label": "Good",
-          "summary": "The concentration is low.",
+          "summary": "At this reading, the concentration is low.",
           "detail": "The concentration is low. Keep your current routine and check it from time to time."
         },
         "fair": {
           "label": "Fair",
-          "summary": "Above the lowest band.",
-          "detail": "Above the lowest band. Check for an obvious source or a recent activity that may explain it."
+          "summary": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings.",
+          "detail": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
         },
         "moderate": {
           "label": "Moderate",
-          "summary": "Pay a little more attention.",
-          "detail": "Pay a little more attention. Try the steps above and check the reading again."
+          "summary": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again.",
+          "detail": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
         },
         "poor": {
           "label": "Poor",
-          "summary": "The concentration is high.",
-          "detail": "The concentration is high. Reduce exposure first, then follow the advice for this pollutant."
+          "summary": "At this reading, the concentration is high.",
+          "detail": "At this reading, the concentration is high. Reduce exposure first, then follow the advice for this pollutant."
         },
         "very_poor": {
           "label": "Very poor",
-          "summary": "The concentration is very high.",
-          "detail": "The concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
+          "summary": "At this reading, the concentration is very high.",
+          "detail": "At this reading, the concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
         },
         "extremely_poor": {
           "label": "Extremely poor",
-          "summary": "This is the highest rating band.",
-          "detail": "This is the highest rating band. Prioritize leaving the polluted area and follow relevant guidance."
+          "summary": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve.",
+          "detail": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
         }
       }
     },
@@ -373,33 +373,33 @@
         },
         "good": {
           "label": "Good",
-          "summary": "The concentration is low.",
+          "summary": "At this reading, the concentration is low.",
           "detail": "The concentration is low. Keep your current routine and check it from time to time."
         },
         "fair": {
           "label": "Fair",
-          "summary": "Above the lowest band.",
-          "detail": "Above the lowest band. Check for an obvious source or a recent activity that may explain it."
+          "summary": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings.",
+          "detail": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
         },
         "moderate": {
           "label": "Moderate",
-          "summary": "Pay a little more attention.",
-          "detail": "Pay a little more attention. Try the steps above and check the reading again."
+          "summary": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again.",
+          "detail": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
         },
         "poor": {
           "label": "Poor",
-          "summary": "The concentration is high.",
-          "detail": "The concentration is high. Reduce exposure first, then follow the advice for this pollutant."
+          "summary": "At this reading, the concentration is high.",
+          "detail": "At this reading, the concentration is high. Reduce exposure first, then follow the advice for this pollutant."
         },
         "very_poor": {
           "label": "Very poor",
-          "summary": "The concentration is very high.",
-          "detail": "The concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
+          "summary": "At this reading, the concentration is very high.",
+          "detail": "At this reading, the concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
         },
         "extremely_poor": {
           "label": "Extremely poor",
-          "summary": "This is the highest rating band.",
-          "detail": "This is the highest rating band. Prioritize leaving the polluted area and follow relevant guidance."
+          "summary": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve.",
+          "detail": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
         }
       }
     },
@@ -415,33 +415,33 @@
         },
         "good": {
           "label": "Good",
-          "summary": "The concentration is low.",
+          "summary": "At this reading, the concentration is low.",
           "detail": "The concentration is low. Keep your current routine and check it from time to time."
         },
         "fair": {
           "label": "Fair",
-          "summary": "Above the lowest band.",
-          "detail": "Above the lowest band. Check for an obvious source or a recent activity that may explain it."
+          "summary": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings.",
+          "detail": "The current concentration is above the lowest rating band. Consider recent activities and nearby sources, and watch subsequent readings."
         },
         "moderate": {
           "label": "Moderate",
-          "summary": "Pay a little more attention.",
-          "detail": "Pay a little more attention. Try the steps above and check the reading again."
+          "summary": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again.",
+          "detail": "The current concentration is in the moderate band. Consider this pollutant’s sources and outdoor conditions before adjusting activities or ventilation, then check again."
         },
         "poor": {
           "label": "Poor",
-          "summary": "The concentration is high.",
-          "detail": "The concentration is high. Reduce exposure first, then follow the advice for this pollutant."
+          "summary": "At this reading, the concentration is high.",
+          "detail": "At this reading, the concentration is high. Reduce exposure first, then follow the advice for this pollutant."
         },
         "very_poor": {
           "label": "Very poor",
-          "summary": "The concentration is very high.",
-          "detail": "The concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
+          "summary": "At this reading, the concentration is very high.",
+          "detail": "At this reading, the concentration is very high. Limit time in the affected area and check local guidance or investigate sources."
         },
         "extremely_poor": {
           "label": "Extremely poor",
-          "summary": "This is the highest rating band.",
-          "detail": "This is the highest rating band. Prioritize leaving the polluted area and follow relevant guidance."
+          "summary": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve.",
+          "detail": "The current concentration is in the highest rating band. Move away from heavily polluted locations, follow local advisories, and check readings as conditions improve."
         }
       }
     },
@@ -457,28 +457,28 @@
         },
         "absent": {
           "label": "Not detected",
-          "summary": "The measured pollen count is zero.",
-          "detail": "The measured pollen count is zero."
+          "summary": "At this reading, the measured pollen count is zero. This reflects this sample, not a lasting absence nearby; check local forecasts when planning trips.",
+          "detail": "At this reading, the measured pollen count is zero. This reflects this sample, not a lasting absence nearby; check local forecasts when planning trips."
         },
         "low": {
           "label": "Low",
-          "summary": "The load of this pollen type is low.",
-          "detail": "The load of this pollen type is low."
+          "summary": "At this reading, the load of this pollen type is low. Plan activities around your sensitivity; a low load does not rule out individual reactions.",
+          "detail": "At this reading, the load of this pollen type is low. Plan activities around your sensitivity; a low load does not rule out individual reactions."
         },
         "moderate": {
           "label": "Moderate",
-          "summary": "Pollen load has risen.",
-          "detail": "Pollen load has risen. Sensitive people can watch their symptoms."
+          "summary": "At this reading, pollen load is moderate. Check local forecasts before going out and adjust time outdoors to your own response.",
+          "detail": "At this reading, pollen load is moderate. Sensitive people can watch their symptoms. Check local forecasts before going out and adjust time outdoors to your own response."
         },
         "high": {
           "label": "High",
-          "summary": "Pollen load is high.",
-          "detail": "Pollen load is high. Sensitive people may wish to plan outdoor activities."
+          "summary": "At this reading, pollen load is high. If sensitive to this pollen type, shorten outdoor activities and window-opening time, and change outer clothing after outings.",
+          "detail": "At this reading, pollen load is high. Sensitive people may wish to plan outdoor activities. If sensitive to this pollen type, shorten outdoor activities and window-opening time, and change outer clothing after outings."
         },
         "very_high": {
           "label": "Extreme",
-          "summary": "Pollen load is extreme.",
-          "detail": "Pollen load is extreme. Sensitive people should consider protection."
+          "summary": "At this reading, pollen load is extreme. If sensitive to this pollen type, reduce unnecessary exposure and use local forecasts to plan outings and ventilation.",
+          "detail": "At this reading, pollen load is extreme. Sensitive people should consider protection. If sensitive to this pollen type, reduce unnecessary exposure and use local forecasts to plan outings and ventilation."
         }
       }
     },
@@ -494,28 +494,28 @@
         },
         "low": {
           "label": "Low",
-          "summary": "UV intensity is low.",
-          "detail": "UV intensity is low."
+          "summary": "At this reading, uV intensity is low. Consider protection for your activity; on longer outings, keep shade and changing index values in mind.",
+          "detail": "At this reading, uV intensity is low. Consider protection for your activity; on longer outings, keep shade and changing index values in mind."
         },
         "moderate": {
           "label": "Moderate",
-          "summary": "UV is moderate.",
-          "detail": "UV is moderate. Keep exposure time in mind."
+          "summary": "At this reading, uV is moderate. Bring a hat, covering clothing, and sunscreen; seek shade during longer stays outdoors.",
+          "detail": "At this reading, uV is moderate. Keep exposure time in mind. Bring a hat, covering clothing, and sunscreen; seek shade during longer stays outdoors."
         },
         "high": {
           "label": "High",
-          "summary": "UV is high.",
-          "detail": "UV is high. Use sun protection outdoors."
+          "summary": "At this reading, uV is high. Use shade and sun protection outdoors, and avoid prolonged exposure around midday.",
+          "detail": "At this reading, uV is high. Use sun protection outdoors. Use shade and sun protection outdoors, and avoid prolonged exposure around midday."
         },
         "very_high": {
           "label": "Very high",
-          "summary": "UV is very high.",
-          "detail": "UV is very high. Limit midday exposure."
+          "summary": "At this reading, uV is very high. Reschedule outdoor activities away from midday where possible, and combine covering clothing with sunscreen.",
+          "detail": "At this reading, uV is very high. Limit midday exposure. Reschedule outdoor activities away from midday where possible, and combine covering clothing with sunscreen."
         },
         "extreme": {
           "label": "Extreme",
-          "summary": "UV is extreme.",
-          "detail": "UV is extreme. Avoid unnecessary outdoor exposure."
+          "summary": "At this reading, uV is extreme. Reduce unnecessary outdoor exposure; when going out is essential, seek shelter and use comprehensive sun protection.",
+          "detail": "At this reading, uV is extreme. Avoid unnecessary outdoor exposure. Reduce unnecessary outdoor exposure; when going out is essential, seek shelter and use comprehensive sun protection."
         }
       }
     }
@@ -523,82 +523,82 @@
   "standards": {
     "iso_7730_2025": {
       "name": "ISO 7730:2025",
-      "description": "ISO 7730 is an international standard for understanding how people experience the thermal environment. It looks beyond air temperature to humidity, air speed, radiant temperature, clothing, and activity. PMV and PPD estimate a group’s thermal sensation and the proportion likely to be dissatisfied; this project uses those methods to explain cooler, warmer, or near-neutral conditions.",
+      "description": "ISO 7730 explains how people experience the thermal environment, considering temperature, humidity, air speed, radiant temperature, clothing, and activity. PMV and PPD estimate a group’s thermal sensation and likely dissatisfaction. The project uses these methods to describe cooler, warmer, or near-neutral conditions.",
       "organization": "International Organization for Standardization (ISO)"
     },
     "ashrae_55_scale": {
       "name": "ASHRAE Standard 55 seven-point scale",
-      "description": "The seven-point thermal sensation scale used in ASHRAE Standard 55 describes sensations from Cold through Neutral to Hot, on a scale from −3 to +3. This gives a more familiar meaning to a PMV number. The project uses these names with its own continuous display bands; a label alone does not establish that a room meets the full standard.",
+      "description": "ASHRAE Standard 55’s seven-point thermal sensation scale describes Cold through Neutral to Hot, from −3 to +3. The project uses these names to make PMV easier to understand. Its continuous display bands are product rules; a label alone does not establish compliance with the full standard.",
       "organization": "American Society of Heating, Refrigerating and Air-Conditioning Engineers (ASHRAE)"
     },
     "epa_humidity": {
       "name": "U.S. EPA humidity guidance",
-      "description": "The US EPA’s humidity guidance helps households manage dampness and mold. It recommends keeping indoor relative humidity around 30–50% where possible, and below 60%. The project offers this as an optional reference, using Dry, Suitable, Slightly Humid, and Humid messages to help you consider humidification, ventilation, or dehumidification.",
+      "description": "The US EPA’s humidity guidance helps households reduce dampness and mold, recommending indoor relative humidity of 30–50% where possible, and below 60%. This optional reference uses Dry, Suitable, Slightly Humid, and Humid messages to guide humidification, ventilation, or dehumidification.",
       "organization": "U.S. Environmental Protection Agency (EPA)"
     },
     "uba_humidity": {
       "name": "German UBA humidity guidance",
-      "description": "The German Environment Agency’s humidity guidance approaches moisture through everyday ventilation and damp prevention, suggesting roughly 40–60% relative humidity throughout the year. It provides a simple reference range for the home. This is the project’s default: readings below the range are Dry and those above it Humid, helping you decide whether to add or remove moisture.",
+      "description": "The German Environment Agency recommends roughly 40–60% relative humidity year-round to support ventilation and damp prevention at home. This is the project’s default humidity reference: readings below the range are Dry and those above it Humid, helping you decide whether to add or remove moisture.",
       "organization": "German Environment Agency (UBA)"
     },
     "eea_aqi": {
       "name": "EEA European Air Quality Index",
-      "description": "The European Air Quality Index, provided by the European Environment Agency, translates pollutant concentrations into six easy-to-read levels for understanding short-term air conditions. It is the project’s default for PM2.5 and PM10, with corresponding ozone and sulfur dioxide bands also available. The displayed results describe individual pollutants, rather than a complete official European aggregate index.",
+      "description": "The European Environment Agency’s Air Quality Index describes short-term pollution in six levels. It is the default for PM2.5 and PM10, with ozone and sulfur dioxide bands also available. Results describe individual pollutants, rather than a complete official European aggregate index.",
       "organization": "European Environment Agency (EEA)"
     },
     "hj_633_2026": {
       "name": "HJ 633—2026",
-      "description": "HJ 633—2026 sets out China’s technical rules for calculating AQI from pollutant concentrations, assigning pollution categories, and reporting results. The project uses its concentration boundaries for particulate matter and supported outdoor gases. Readings must also match the required averaging period: an hourly value and a daily average are not interchangeable.",
+      "description": "HJ 633—2026 defines China’s rules for calculating AQI, assigning pollution categories, and reporting results. The project uses its concentration boundaries for particulate matter and supported outdoor gases. Readings must match the required averaging period: hourly and daily averages are not interchangeable.",
       "organization": "Ministry of Ecology and Environment of the People's Republic of China"
     },
     "epa_aqi": {
       "name": "U.S. EPA AQI",
-      "description": "The US EPA AQI reports air quality in six categories to help people decide when to pay closer attention to pollution or adjust outdoor activities. The project offers its concentration boundaries for supported pollutants as an alternative reference. Averaging periods and numeric processing differ by pollutant, so the same reading may receive a different rating under another reference.",
+      "description": "The US EPA AQI reports air quality in six categories to guide pollution awareness and outdoor activities. The project offers its concentration boundaries for supported pollutants as an alternative reference. Averaging periods and numeric processing differ, so ratings may vary between references.",
       "organization": "U.S. Environmental Protection Agency (EPA)"
     },
     "uba_co2_2008": {
       "name": "German UBA 2008 CO₂ guidance",
-      "description": "The German Environment Agency’s CO₂ guidance helps identify indoor ventilation conditions that deserve attention. It uses 1000 and 2000 ppm as the boundaries between three ranges. The project turns these into Normal, Ventilate, and Increase Ventilation messages, helping you consider opening windows or adding fresh air. The reference does not assess other pollutants such as carbon monoxide.",
+      "description": "The German Environment Agency’s CO₂ guidance uses 1000 and 2000 ppm to divide indoor ventilation conditions into three ranges. The project presents these as Normal, Ventilate, and Increase Ventilation, helping you decide when to open windows or introduce more fresh air.",
       "organization": "German Environment Agency (UBA)"
     },
     "who_hcho_2010": {
       "name": "WHO 2010 Guidelines for Indoor Air Quality",
-      "description": "The WHO indoor air quality guidelines provide health-based references for several indoor pollutants. For formaldehyde, the reference is 0.10 mg/m³ over a 30-minute averaging period. This is the project’s default formaldehyde reference. The project builds six messages around that value; those six bands are a product presentation, not six categories prescribed by WHO.",
+      "description": "The WHO indoor air quality guidelines provide health-based references, including 0.10 mg/m³ over 30 minutes for formaldehyde. This is the project’s default formaldehyde reference. Its six display bands are product rules around that value, not categories prescribed by WHO.",
       "organization": "World Health Organization (WHO)"
     },
     "gbt_18883_2022": {
       "name": "GB/T 18883—2022",
-      "description": "GB/T 18883—2022 is China’s indoor air quality standard, covering pollutant limits and test methods. Its formaldehyde limit is 0.08 mg/m³ as a one-hour average. The project offers it as an optional formaldehyde reference. Its six display bands are product rules based on that limit; the display is not a complete indoor air quality compliance test.",
+      "description": "GB/T 18883—2022 is China’s indoor air quality standard, covering pollutant limits and test methods. Its formaldehyde limit is 0.08 mg/m³ over one hour. The project offers this optional reference with six product-defined bands; these do not constitute a full compliance test.",
       "organization": "State Administration for Market Regulation / Standardization Administration of China"
     },
     "oehha_hcho_2008": {
       "name": "California OEHHA 2008",
-      "description": "California OEHHA publishes reference exposure levels to support assessment of health risks from air pollutants. Its one-hour acute reference value for formaldehyde is 0.055 mg/m³. The project offers this option for products using the California reference. It is not a nationwide US legal limit, and the six displayed bands are the project’s own mapping.",
+      "description": "California OEHHA’s reference exposure levels support health risk assessment. Its one-hour acute formaldehyde reference is 0.055 mg/m³. The project offers this option with six product-defined bands. It is a California health reference, not a nationwide US legal limit.",
       "organization": "California Office of Environmental Health Hazard Assessment (OEHHA)"
     },
     "who_noise_1999": {
       "name": "WHO Guidelines for Community Noise",
-      "description": "The WHO Guidelines for Community Noise consider how sound affects everyday life, rest, and sleep, and provide references for different settings. Relevant values use measures such as long-term equivalent sound levels. The project draws on home and sleep references for understandable noise messages. Its four bands for current sound readings are product rules and do not replace the guideline’s full long-term measurements.",
+      "description": "The WHO Guidelines for Community Noise address daily life, rest, and sleep using measures such as long-term equivalent sound levels. The project draws on home and sleep references for noise messages. Its four bands for current readings are product rules, not substitutes for full long-term measurements.",
       "organization": "World Health Organization (WHO)"
     },
     "ies_rp_11_26": {
       "name": "ANSI/IES/ALA RP-11-26",
-      "description": "ANSI/IES/ALA RP-11-26 is a recommended practice for indoor and outdoor residential lighting, with guidance for spaces, activities, and actual task surfaces. The project uses selected illuminance levels to describe activities from ambient lighting to detail work. This makes a reading easier to understand, while recognizing that one device location does not represent a desk surface or an entire room.",
+      "description": "ANSI/IES/ALA RP-11-26 recommends residential lighting by space, activity, and task surface. The project uses selected illuminance levels for messages from ambient lighting to detail work. A reading at one device location does not represent lighting across a desk or an entire room.",
       "organization": "Illuminating Engineering Society (IES) / American Lighting Association (ALA)"
     },
     "nab_pollen": {
       "name": "NAB pollen levels",
-      "description": "The US National Allergy Bureau’s monitoring network describes pollen load using concentrations for categories such as trees, grasses, and weeds. The project uses daily-average category boundaries to provide Low, Moderate, High, and Very High messages. These can help with daily planning when the pollen category is known. An unclassified total count cannot simply use one category’s thresholds.",
+      "description": "The US National Allergy Bureau monitors pollen concentrations by category, including trees, grasses, and weeds. The project uses daily-average boundaries for Low, Moderate, High, and Very High messages to help daily planning. Unclassified total counts cannot use a single category’s thresholds.",
       "organization": "U.S. National Allergy Bureau (NAB)"
     },
     "meteoswiss_pollen": {
       "name": "MeteoSwiss pollen load classes",
-      "description": "MeteoSwiss pollen load classes distinguish specific types such as birch, grasses, and ragweed, with different concentration boundaries reflecting their allergenic potential. The project supports the types listed in the reference and shows their daily-average load class. This provides more context than a total count alone, but it is not a common EU standard or a prediction of an individual’s allergic reaction.",
+      "description": "MeteoSwiss distinguishes pollen types such as birch, grasses, and ragweed, with concentration boundaries reflecting allergenic potential. The project shows daily-average load classes for supported types. These are not a common EU standard or predictions of an individual’s allergic reaction.",
       "organization": "Swiss Federal Office of Meteorology and Climatology"
     },
     "who_uv_index": {
       "name": "WHO Global Solar UV Index",
-      "description": "The WHO Global Solar UV Index practical guide uses five exposure levels to explain the potential effects of solar UV on skin and eyes and help people plan sun protection and shade. The project adopts these levels and WHO’s specified RGB values for status and chart colors. Check whether a display shows the current index or the daily maximum; the UV Index is different from illuminance.",
+      "description": "The WHO Global Solar UV Index guide uses five exposure levels to explain potential effects on skin and eyes and guide sun protection. The project adopts these levels and WHO’s RGB colors. Check whether readings show the current index or daily maximum; UV Index differs from illuminance.",
       "organization": "World Health Organization (WHO)"
     }
   }

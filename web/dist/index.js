@@ -260,7 +260,8 @@ function createAirApi(native) {
         formaldehyde: (concentration, standard = FormaldehydeStandard.who2010) => enumValue(airQualityValues, native._air_rate_hcho(formaldehydeStandardValue(standard), numeric(concentration))),
         o3Eea: (oneHour) => enumValue(airQualityValues, native._air_rate_o3_eea(numeric(oneHour))),
         o3Hj: (oneHour) => enumValue(airQualityValues, native._air_rate_o3_hj(numeric(oneHour))),
-        o3Epa: (eightHour, oneHour) => enumValue(airQualityValues, native._air_rate_o3_epa(numeric(eightHour), oneHour === undefined ? Number.NaN : numeric(oneHour))),
+        o3Epa: (eightHour, oneHour) => enumValue(airQualityValues, native._air_rate_o3_epa(numeric(eightHour), oneHour === undefined ? Number.NaN :
+            typeof oneHour === "number" ? oneHour : -1)),
         coHj: (oneHour) => enumValue(airQualityValues, native._air_rate_co_hj(numeric(oneHour))),
         coEpa: (eightHour) => enumValue(airQualityValues, native._air_rate_co_epa(numeric(eightHour))),
         so2Eea: (oneHour) => enumValue(airQualityValues, native._air_rate_so2_eea(numeric(oneHour))),
@@ -288,7 +289,8 @@ function createAirApi(native) {
         formaldehydeLevel: (concentration, standard = FormaldehydeStandard.who2010) => enumValue(concentrationLevelValues, native._air_level_hcho(formaldehydeStandardValue(standard), numeric(concentration))),
         o3EeaLevel: (oneHour) => enumValue(concentrationLevelValues, native._air_level_o3_eea(numeric(oneHour))),
         o3HjLevel: (oneHour) => enumValue(concentrationLevelValues, native._air_level_o3_hj(numeric(oneHour))),
-        o3EpaLevel: (eightHour, oneHour) => enumValue(concentrationLevelValues, native._air_level_o3_epa(numeric(eightHour), oneHour === undefined ? Number.NaN : numeric(oneHour))),
+        o3EpaLevel: (eightHour, oneHour) => enumValue(concentrationLevelValues, native._air_level_o3_epa(numeric(eightHour), oneHour === undefined ? Number.NaN :
+            typeof oneHour === "number" ? oneHour : -1)),
         coHjLevel: (oneHour) => enumValue(concentrationLevelValues, native._air_level_co_hj(numeric(oneHour))),
         coEpaLevel: (eightHour) => enumValue(concentrationLevelValues, native._air_level_co_epa(numeric(eightHour)))
     });
