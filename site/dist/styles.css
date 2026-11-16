@@ -607,3 +607,25 @@ details > div { padding: 0 18px 18px; }
 .standard-copy-card dt { font-size: .73rem; color: var(--muted); margin-bottom: 4px; }
 .standard-copy-card dd { margin: 0; font-size: .8rem; line-height: 1.7; }
 @media (max-width: 850px) { .standard-copy-grid { grid-template-columns: 1fr; } }
+
+/* Native index categories are intentionally presented without invented colors. */
+.index-native-bands { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin:14px 0; }
+.index-native-bands > div { min-width:0; border:1px solid var(--line); border-radius:12px; padding:12px; background:#f7fafb; }
+.index-native-bands b,.index-native-bands > div > span { display:block; overflow-wrap:anywhere; }
+.index-native-bands b { font-size:.86rem; line-height:1.5; }
+.index-native-bands > div > span { font-size:.82rem; color:var(--muted); margin-top:5px; }
+@media(max-width:620px) { .index-native-bands { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+#outdoor-index .standard-switcher { grid-template-columns:repeat(2,minmax(0,1fr)); }
+@media(max-width:620px) { #outdoor-index .standard-switcher { grid-template-columns:1fr; } }
+
+/* Compact links associate each source with its implemented metrics. */
+.method-page .standard-metrics { order:1; margin-top:12px; }
+.method-page .standard-metrics > span { display:block; color:var(--muted); font-size:.72rem; margin-bottom:6px; }
+.method-page .standard-metrics ul { list-style:none; display:flex; flex-wrap:wrap; gap:5px 7px; padding:0; margin:0; }
+.method-page .standard-metrics li { margin:0; min-width:0; }
+.method-page .standard-metrics a { display:block; padding:3px 8px; border:1px solid rgba(5,100,160,.1); border-radius:6px; background:rgba(255,255,255,.8); font-size:.74rem; line-height:1.5; color:var(--brand-dark); text-decoration:none; overflow-wrap:anywhere; }
+.method-page .standard-metrics a:hover { text-decoration:underline; }
+.method-page .standard-metrics a:focus-visible { outline:2px solid var(--brand); outline-offset:2px; }
+
+.index-native-bands > div { border-top:3px solid var(--index-status,var(--line)); background:var(--index-bg,#f7fafb); color:var(--index-text,var(--ink)); }
+.index-native-bands > div > span { color:inherit; }

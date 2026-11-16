@@ -20,6 +20,7 @@ Apple 平台使用 SF Symbols；Android、Web、Linux 和设备屏幕使用 Mate
 | 室外环境 | 臭氧 O₃ | ![臭氧](assets/icons/material/dehaze.svg) | `sun.haze.fill` | `dehaze` |
 | 室外环境 | 一氧化碳 CO | ![一氧化碳](assets/icons/material/detector_smoke.svg) | `smoke.fill` | `detector_smoke` |
 | 室外环境 | 二氧化硫 SO₂ | ![二氧化硫](assets/icons/material/foggy.svg) | `cloud.fog.fill` | `foggy` |
+| 室外环境 | 二氧化氮 NO₂ | ![二氧化氮](assets/icons/material/directions_car.svg) | `car.side.fill` | `directions_car` |
 | 室外环境 | 花粉 | ![花粉](assets/icons/material/local_florist.svg) | `leaf.fill` | `local_florist` |
 | 室外环境 | 紫外线指数 | ![紫外线指数](assets/icons/material/flare.svg) | `sun.max.fill` | `flare` |
 
@@ -193,7 +194,7 @@ RP-11-26 的目标值针对指定任务面和测量方向。设备的墙面单�
 
 ## 4. 室外环境
 
-室外 O₃、CO、SO₂、花粉和紫外线指数分别评级，不生成室外整体等级。
+室外 O₃、CO、SO₂、花粉和紫外线指数分别评级，不合并成整体等级；外部 AQI、PSI、EEA 指数单独接入，见 4.6。
 
 ### 4.1 室外 O₃ 单项评级
 
@@ -280,3 +281,47 @@ WHO 全球太阳紫外线指数五档；算法输入已测量或预报的全球�
 | ≥11 | 极高 | `UV_INDEX_EXTREME` |
 
 函数对非负小数按报告整数的最近值分档：2.5、5.5、7.5、10.5 归入高一档，恰好半整数向上；负值、NaN、无穷大返回 `UV_INDEX_UNKNOWN`。日最大值与当前值须分别标注；不参与空气质量、照度或室外综合评级。详见 [README](README.md#45-室外紫外线指数uvi)。来源：[WHO 实用指南](https://iris.who.int/bitstream/handle/10665/42459/9241590076.pdf#page=6)。
+
+### 4.6 外部空气质量指数（独立于污染物浓度评级）
+
+输入为外部已发布的整数指数；本库不重新计算综合指数。各体系保留原生名称，不映射 Matter 等级。
+
+| AQI 范围 | HJ 633—2026 | US EPA AQI |
+|---|---|---|
+| 0–50 | 优 | Good |
+| 51–100 | 良 | Moderate |
+| 101–150 | 轻度污染 | Unhealthy for Sensitive Groups |
+| 151–200 | 中度污染 | Unhealthy |
+| 201–300 | 重度污染 | Very Unhealthy |
+| 301–500 | 严重污染 | Hazardous |
+
+| 24 小时 PSI 范围 | 新加坡 NEA 原生等级 |
+|---|---|
+| 0–50 | Good |
+| 51–100 | Moderate |
+| 101–200 | Unhealthy |
+| 201–300 | Very Unhealthy |
+| >300 | Hazardous |
+
+EEA 仅接收 Good / Fair / Moderate / Poor / Very Poor / Extremely Poor 六档，接口使用 1–6 编码，不存在本库定义的欧洲数值 AQI。HJ/EPA 超过支持范围 0–500、小数及无效输入均返回未知。NEA 保留五档，不能套用 AQI 六档名称。来源见 README 4.6。
+
+### 4.7 室外 NO₂ 单项评级
+
+`air_rate_no2_eea()`、`air_rate_no2_hj_hourly()`、`air_rate_no2_hj_daily()`、`air_rate_no2_epa()` 返回独立单项六档，不加入室内整体评级，不重新计算外部 AQI/PSI，也不提供 Matter LevelValue 映射。
+
+| 单项等级 | EEA · 1 小时 μg/m³ | HJ 633—2026 · 1 小时 μg/m³ | HJ 633—2026 · 24 小时 μg/m³ | EPA · 1 小时 ppb |
+|---|---|---|---|---|
+| Good | 0–10 | 0–100 | 0–40 | 0–53 |
+| Fair | >10–25 | 101–200 | 41–80 | 54–100 |
+| Moderate | >25–60 | 201–700 | 81–180 | 101–360 |
+| Poor | >60–100 | 701–1200 | 181–280 | 361–649 |
+| VeryPoor | >100–150 | 1201–2340 | 281–565 | 650–1249 |
+| ExtremelyPoor | >150 | ≥2341 | ≥566 | ≥1250 |
+
+调用方负责平均时间。EEA 连续比较、上限包含；HJ 先修约为整数，恰好半整数按偶数修约，例如日平均 565.5 修约为 566，进入最后一档；EPA 截断为整数 ppb，日报使用当日最大一小时浓度。负值、NaN、无穷大返回 Unknown。不要将 μg/m³ 与 ppb 混用，库不进行单位换算。
+
+Web 使用 `rating.air.no2Eea()`、`no2HjHourly()`、`no2HjDaily()`、`no2Epa()`，规则与 C 相同。四语言文案 ID 为 `no2`，评级映射沿用单项六档，状态色可复用污染物六档色表。
+
+来源：[EEA 指数](https://airindex.eea.europa.eu/AQI/)、[HJ 633—2026 表 3](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/W020260225366493492011.pdf)、[EPA AQI 分界](https://aqs.epa.gov/aqsweb/documents/codetables/aqi_breakpoints.html)。
+
+外部 AQI、EEA 指数与 PSI 仅定义等级状态色，不设置图标与识别色。等级颜色按体系查询 `env_color_index()`，完整四角色色值见 [环境指标颜色说明](COLOR_STANDARD.md)。

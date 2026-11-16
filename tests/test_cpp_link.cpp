@@ -5,10 +5,12 @@
 #include "environment_color.h"
 #include "pollen_rating.h"
 #include "uv_index_rating.h"
+#include "outdoor_index_rating.h"
 #include <cstring>
 
 int main()
 {
+    if (outdoor_index_rate(OUTDOOR_INDEX_NEA_PSI, 150) != OUTDOOR_INDEX_GRADE_3) return 1;
     if (pollen_rate(POLLEN_STD_NAB, POLLEN_GRASS, 20) != POLLEN_HIGH) return 1;
     if (uv_index_rate(7.5) != UV_INDEX_VERY_HIGH) return 1;
     if (noise_rate(NOISE_SLEEP, 30) != NOISE_QUIET) return 1;

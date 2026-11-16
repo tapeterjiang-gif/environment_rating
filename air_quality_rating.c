@@ -265,6 +265,49 @@ air_quality_t air_rate_so2_epa(double one_hour, double twenty_four_hour)
     return AIR_GOOD;
 }
 
+/* Outdoor NO2: native concentration bands, not an overall AQI. */
+air_quality_t air_rate_no2_eea(double one_hour)
+{
+    static const double upper[] = {10, 25, 60, 100, 150};
+    size_t i;
+    if (!valid_value(one_hour)) return AIR_UNKNOWN;
+    for (i = 0; i < 5; ++i)
+        if (one_hour <= upper[i]) return (air_quality_t)(i + 1);
+    return AIR_EXTREMELY_POOR;
+}
+
+static air_quality_t rate_no2_hj(double value, const unsigned upper[5])
+{
+    size_t i;
+    if (!valid_value(value)) return AIR_UNKNOWN;
+    for (i = 0; i < 5; ++i)
+        if (in_rounded_integer_band(value, upper[i]))
+            return (air_quality_t)(i + 1);
+    return AIR_EXTREMELY_POOR;
+}
+
+air_quality_t air_rate_no2_hj_hourly(double one_hour)
+{
+    static const unsigned upper[] = {100, 200, 700, 1200, 2340};
+    return rate_no2_hj(one_hour, upper);
+}
+
+air_quality_t air_rate_no2_hj_daily(double twenty_four_hour)
+{
+    static const unsigned upper[] = {40, 80, 180, 280, 565};
+    return rate_no2_hj(twenty_four_hour, upper);
+}
+
+air_quality_t air_rate_no2_epa(double one_hour)
+{
+    static const double next[] = {54, 101, 361, 650, 1250};
+    size_t i;
+    if (!valid_value(one_hour)) return AIR_UNKNOWN;
+    for (i = 0; i < 5; ++i)
+        if (one_hour < next[i]) return (air_quality_t)(i + 1);
+    return AIR_EXTREMELY_POOR;
+}
+
 /* Product mapping; Matter defines the enum, not these grade conversions. */
 static air_level_t quality_to_level(air_quality_t quality)
 {

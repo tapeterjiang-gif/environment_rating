@@ -15,7 +15,10 @@ These SVG files use Google **Material Symbols Rounded** at weight 400, unfilled.
 | Outdoor O₃ | `dehaze` | `dehaze.svg` |
 | Outdoor CO | `detector_smoke` | `detector_smoke.svg` |
 | Outdoor SO₂ | `foggy` | `foggy.svg` |
+| Outdoor NO₂ | `directions_car` | `directions_car.svg` |
 | Pollen | `local_florist` | `local_florist.svg` |
 | UV Index | `flare` | `flare.svg` |
 
 The assets are licensed under Apache License 2.0; see [`LICENSE`](LICENSE). Android Vector Drawables in `android/environment-rating/src/main/res/drawable` are generated from these SVG paths.
+
+The NO₂ `directions_car` asset is from Google’s [Material Symbols Rounded](https://github.com/google/material-design-icons/blob/master/symbols/web/directions_car/materialsymbolsrounded/directions_car_24px.svg), under the same Apache-2.0 license.

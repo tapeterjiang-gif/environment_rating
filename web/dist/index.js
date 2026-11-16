@@ -36,6 +36,18 @@ export const UVIndexRating = {
     unknown: "unknown", low: "low", moderate: "moderate",
     high: "high", veryHigh: "very-high", extreme: "extreme"
 };
+/** Native published schemes; keep NEA's PSI name in the UI. */
+export const OutdoorIndexStandard = {
+    hj6332026: "hj-633-2026", epaAQI2026: "epa-aqi-2026",
+    eea2024: "eea-2024", neaPSI: "nea-psi"
+};
+/** Ordinal in the selected scheme. NEA has only five grades. */
+export const OutdoorIndexGrade = {
+    unknown: "unknown", grade1: "grade-1", grade2: "grade-2", grade3: "grade-3",
+    grade4: "grade-4", grade5: "grade-5", grade6: "grade-6"
+};
+const outdoorIndexStandards = [OutdoorIndexStandard.hj6332026, OutdoorIndexStandard.epaAQI2026, OutdoorIndexStandard.eea2024, OutdoorIndexStandard.neaPSI];
+const outdoorIndexGrades = [OutdoorIndexGrade.unknown, OutdoorIndexGrade.grade1, OutdoorIndexGrade.grade2, OutdoorIndexGrade.grade3, OutdoorIndexGrade.grade4, OutdoorIndexGrade.grade5, OutdoorIndexGrade.grade6];
 export const PMStandard = {
     eeaAQI2024: "eea-aqi-2024",
     hj6332026: "hj-633-2026",
@@ -100,6 +112,7 @@ export const EnvironmentParameter = {
     o3: "o3",
     co: "co",
     so2: "so2",
+    no2: "no2",
     pollen: "pollen",
     uvIndex: "uv-index"
 };
@@ -116,6 +129,7 @@ const materialIconNames = Object.freeze({
     [EnvironmentParameter.o3]: "dehaze",
     [EnvironmentParameter.co]: "detector_smoke",
     [EnvironmentParameter.so2]: "foggy",
+    [EnvironmentParameter.no2]: "directions_car",
     [EnvironmentParameter.pollen]: "local_florist",
     [EnvironmentParameter.uvIndex]: "flare"
 });
@@ -217,6 +231,7 @@ function environmentParameterValue(parameter) {
         case EnvironmentParameter.o3: return 9;
         case EnvironmentParameter.co: return 10;
         case EnvironmentParameter.so2: return 11;
+        case EnvironmentParameter.no2: return 14;
         case EnvironmentParameter.pollen: return 12;
         case EnvironmentParameter.uvIndex: return 13;
         default: return -1;
@@ -268,6 +283,10 @@ function createAirApi(native) {
         so2HjHourly: (oneHour) => enumValue(airQualityValues, native._air_rate_so2_hj_hourly(numeric(oneHour))),
         so2HjDaily: (twentyFourHour) => enumValue(airQualityValues, native._air_rate_so2_hj_daily(numeric(twentyFourHour))),
         so2Epa: (oneHour, twentyFourHour) => enumValue(airQualityValues, native._air_rate_so2_epa(numeric(oneHour), numeric(twentyFourHour))),
+        no2Eea: (oneHour) => enumValue(airQualityValues, native._air_rate_no2_eea(numeric(oneHour))),
+        no2HjHourly: (oneHour) => enumValue(airQualityValues, native._air_rate_no2_hj_hourly(numeric(oneHour))),
+        no2HjDaily: (twentyFourHour) => enumValue(airQualityValues, native._air_rate_no2_hj_daily(numeric(twentyFourHour))),
+        no2Epa: (oneHour) => enumValue(airQualityValues, native._air_rate_no2_epa(numeric(oneHour))),
         overall: (input = {}) => {
             const pmStandard = input.pmStandard ?? PMStandard.eeaAQI2024;
             const formaldehydeStandard = input.formaldehydeStandard
@@ -363,6 +382,7 @@ function createColorsApi(native) {
             const qualityValue = valueIndex(airQualityValues, quality);
             return stateColors((role) => native._env_color_air(parameterValue, qualityValue, role));
         },
+        index: (standard, grade) => stateColors((role) => native._env_color_index(valueIndex(outdoorIndexStandards, standard), valueIndex(outdoorIndexGrades, grade), role)),
         thermal: (sensation) => {
             const value = valueIndex(thermalSensationValues, sensation);
             return stateColors((role) => native._env_color_thermal(value, role));
@@ -400,6 +420,9 @@ export async function createEnvironmentRating(options = {}) {
         soundLight: createSoundLightApi(native),
         pollen: createPollenApi(native),
         uvIndex: createUVIndexApi(native),
+        outdoorIndex: Object.freeze({
+            rate: (value, standard) => enumValue(outdoorIndexGrades, native._outdoor_index_rate(valueIndex(outdoorIndexStandards, standard), numeric(value)))
+        }),
         colors: createColorsApi(native)
     });
 }

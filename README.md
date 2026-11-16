@@ -72,6 +72,7 @@ Apple 平台使用 SF Symbols；Android、Web、Linux 和设备屏幕使用 Mate
 | 室外环境 | 臭氧 O₃ | ![臭氧](assets/icons/material/dehaze.svg) | `sun.haze.fill` | `dehaze` |
 | 室外环境 | 一氧化碳 CO | ![一氧化碳](assets/icons/material/detector_smoke.svg) | `smoke.fill` | `detector_smoke` |
 | 室外环境 | 二氧化硫 SO₂ | ![二氧化硫](assets/icons/material/foggy.svg) | `cloud.fog.fill` | `foggy` |
+| 室外环境 | 二氧化氮 NO₂ | ![二氧化氮](assets/icons/material/directions_car.svg) | `car.side.fill` | `directions_car` |
 | 室外环境 | 花粉 | ![花粉](assets/icons/material/local_florist.svg) | `leaf.fill` | `local_florist` |
 | 室外环境 | 紫外线指数 | ![紫外线指数](assets/icons/material/flare.svg) | `sun.max.fill` | `flare` |
 
@@ -619,7 +620,7 @@ IES 照度目标通常是指定任务面上的维持照度，并可能分别规�
 
 ## 4. 室外环境
 
-室外 O₃、CO、SO₂、花粉和紫外线指数分别评级，不生成室外整体等级。花粉与紫外线指数使用独立模块；室外污染物的 C 接口仍位于 `air_quality_rating.h/.c`。
+室外 O₃、CO、SO₂、花粉和紫外线指数分别评级，不合并成室外整体等级。另可接收外部已发布的 AQI、PSI 或 EEA 原生等级，见 4.6。花粉与紫外线指数使用独立模块；室外污染物的 C 接口仍位于 `air_quality_rating.h/.c`。
 
 ### 4.1 室外 O₃ 单项评级
 
@@ -736,6 +737,54 @@ uv_index_rating_t level = uv_index_rate(7.5); /* UV_INDEX_VERY_HIGH */
 
 来源：[WHO《全球太阳紫外线指数：实用指南》，第 6 页](https://iris.who.int/bitstream/handle/10665/42459/9241590076.pdf#page=6)、[WHO 紫外线指数说明](https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-%28uv%29-index/)。
 
+### 4.6 外部空气质量指数：AQI、PSI 与 EEA
+
+新增 `outdoor_index_rating.h/.c`，只接收外部发布的指数或原生等级，不从设备的污染物浓度重新计算综合指数。调用方负责确认数据源、体系、地点、更新时间及数据时段，并区分当前值、日报和预报；已有室内综合评级与污染物接口不变。
+
+| 体系 | 输入 | 第 1–6 档的原生名称 |
+|---|---|---|
+| HJ 633—2026 | 整数 AQI 0–500 | 优、良、轻度污染、中度污染、重度污染、严重污染 |
+| US EPA AQI（2026 指南） | 整数 AQI 0–500 | Good、Moderate、Unhealthy for Sensitive Groups、Unhealthy、Very Unhealthy、Hazardous |
+| EEA（2024 分档） | 外部原生等级编码 1–6 | Good、Fair、Moderate、Poor、Very Poor、Extremely Poor |
+| NEA PSI | 非负整数 24 小时 PSI | Good、Moderate、Unhealthy、Very Unhealthy、Hazardous（只有五档） |
+
+中国与美国的输入边界为 50、100、150、200、300；NEA 为 50、100、200、300，上限包含在当前档。PSI >300 属于第 5 档，不产生第 6 档。新加坡界面名称保留 **PSI**，不得仅切换名称就将同一数值当成 AQI；1 小时 PM2.5 也不是 PSI。
+
+EEA 的 1–6 仅是本库的原生等级编码，不是官方数值型 AQI。数据源若提供“欧洲 AQI 0–100”等插值指数，须先核实其定义，不能直接传入。不同体系的同档序号不表示相同风险或浓度。
+
+```c
+#include "outdoor_index_rating.h"
+
+outdoor_index_grade_t grade = outdoor_index_rate(OUTDOOR_INDEX_NEA_PSI, 150);
+/* 第 3 档：NEA Unhealthy；不能套用 EPA 第 3 档的名称。 */
+const char *label = env_text_get_rating("zh-Hans", "psi", grade, "label");
+```
+
+接口不设默认体系。结果为 `OUTDOOR_INDEX_UNKNOWN` 或原生档序号 `OUTDOOR_INDEX_GRADE_1` 至 `GRADE_6`。小数、负数、NaN、无穷大、非法体系均返回未知；HJ/EPA 的输入范围限定为 0–500，超过范围返回未知，不静默封顶；NEA 的 >300 保留最高档。来源返回“Beyond AQI”等非数值状态时，应由上层单独展示。EEA 的 0 或 >6 也返回未知。
+
+文案 ID 分别为 `aqi_hj`、`aqi_epa`、`eea_index`、`psi`，必须与所选体系匹配。该模块不返回 Matter `AirQuality` 或 `LevelValue`，不与温湿度、花粉、紫外线合并。
+
+来源：[HJ 633—2026](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/t20260225_1144441.shtml)、[EPA AQI 技术指南](https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf)、[EEA](https://airindex.eea.europa.eu/AQI/)、[NEA PSI](https://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs)。
+
+### 4.7 室外 NO₂ 单项评级
+
+`air_rate_no2_eea()`、`air_rate_no2_hj_hourly()`、`air_rate_no2_hj_daily()`、`air_rate_no2_epa()` 返回独立单项六档，不加入室内整体评级，不重新计算外部 AQI/PSI，也不提供 Matter LevelValue 映射。
+
+| 单项等级 | EEA · 1 小时 μg/m³ | HJ 633—2026 · 1 小时 μg/m³ | HJ 633—2026 · 24 小时 μg/m³ | EPA · 1 小时 ppb |
+|---|---|---|---|---|
+| Good | 0–10 | 0–100 | 0–40 | 0–53 |
+| Fair | >10–25 | 101–200 | 41–80 | 54–100 |
+| Moderate | >25–60 | 201–700 | 81–180 | 101–360 |
+| Poor | >60–100 | 701–1200 | 181–280 | 361–649 |
+| VeryPoor | >100–150 | 1201–2340 | 281–565 | 650–1249 |
+| ExtremelyPoor | >150 | ≥2341 | ≥566 | ≥1250 |
+
+调用方负责平均时间。EEA 连续比较、上限包含；HJ 先修约为整数，恰好半整数按偶数修约，例如日平均 565.5 修约为 566，进入最后一档；EPA 截断为整数 ppb，日报使用当日最大一小时浓度。负值、NaN、无穷大返回 Unknown。不要将 μg/m³ 与 ppb 混用，库不进行单位换算。
+
+Web 使用 `rating.air.no2Eea()`、`no2HjHourly()`、`no2HjDaily()`、`no2Epa()`，规则与 C 相同。四语言文案 ID 为 `no2`，评级映射沿用单项六档，状态色可复用污染物六档色表。
+
+来源：[EEA 指数](https://airindex.eea.europa.eu/AQI/)、[HJ 633—2026 表 3](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/W020260225366493492011.pdf)、[EPA AQI 分界](https://aqs.epa.gov/aqsweb/documents/codetables/aqi_breakpoints.html)。
+
 ## 5. 代码引用的标准与指南
 
 下表只列出直接用于代码计算方法、阈值、分级或枚举映射的标准、规范和官方指南。中国标准的英文名称采用发布机构名称；国外文件的中文名称为便于阅读所作的译名。
@@ -759,3 +808,6 @@ uv_index_rating_t level = uv_index_rate(7.5); /* UV_INDEX_VERY_HIGH */
 | UBA | 住宅通风与湿度指南 | *Residential ventilation and humidity guidance* |
 | WHO 1999 | 社区噪声指南 | *Guidelines for Community Noise* |
 | ANSI/IES/ALA RP-11-26 | 室内和室外住宅环境照明推荐实践 | *Recommended Practice: Lighting for Interior and Exterior Residential Environments* |
+| NEA PSI | 污染物标准指数计算方法 | *Computation of the Pollutant Standards Index (PSI)* |
+
+外部 AQI、EEA 指数与 PSI 仅定义等级状态色，不设置图标与识别色。等级颜色按体系查询 `env_color_index()`，完整四角色色值见 [环境指标颜色说明](COLOR_STANDARD.md)。

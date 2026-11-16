@@ -166,12 +166,19 @@ CO₂ 的 Moderate 采用与 PM2.5“中等”相同的状态色、标签背景�
 | 臭氧 O₃ | ![臭氧](assets/icons/material/dehaze.svg) | `sun.haze.fill` | `dehaze` | ![#3A6EAA](assets/colors/3A6EAA.svg) | 臭氧蓝 | `#3A6EAA` | `#E8F1FB` |
 | 一氧化碳 CO | ![一氧化碳](assets/icons/material/detector_smoke.svg) | `smoke.fill` | `detector_smoke` | ![#56616D](assets/colors/56616D.svg) | 石墨灰 | `#56616D` | `#EDF0F3` |
 | 二氧化硫 SO₂ | ![二氧化硫](assets/icons/material/foggy.svg) | `cloud.fog.fill` | `foggy` | ![#9A6B0A](assets/colors/9A6B0A.svg) | 硫磺金 | `#9A6B0A` | `#FAF1D8` |
+| 二氧化氮 NO₂ | ![二氧化氮](assets/icons/material/directions_car.svg) | `car.side.fill` | `directions_car` | ![#B4533C](assets/colors/B4533C.svg) | 尾气赭红 | `#B4533C` | `#F8EAE5` |
 | 花粉 | ![花粉](assets/icons/material/local_florist.svg) | `leaf.fill` | `local_florist` | ![#3E8B5B](assets/colors/3E8B5B.svg) | 花粉草绿 | `#3E8B5B` | `#E5F4E7` |
 | 紫外线指数 | ![紫外线指数](assets/icons/material/flare.svg) | `sun.max.fill` | `flare` | ![#6853BE](assets/colors/6853BE.svg) | 紫外紫 | `#6853BE` | `#EEEAFB` |
 
 O₃、CO 和 SO₂ 使用不同图形与颜色，始终配合化学式文字，避免把图标误读为污染物分子结构或来源。紫外线指数的固定识别色为紫色，与 WHO 五档暴露等级的绿、黄、橙、红、紫状态提示用途不同。评级状态色不由本表的识别色推导；花粉分级配色见下表。
 
 室外 PM2.5、PM10 沿用第 3 节的颗粒物图标和识别色，不另设室外版本。
+
+### NO₂ 图标与配色
+
+NO₂ 识别色为尾气赭红 `#B4533C`，浅背景 `#F8EAE5`；Apple 使用 `car.side.fill`，Material Symbols Rounded 使用 `directions_car`。汽车图形提示常见交通排放来源，不表示所有 NO₂ 都来自汽车。图标需与 NO₂ 名称同时呈现。
+
+复用现有污染物六档产品配色，不是 EEA、HJ 或 EPA 指定色。C 使用 `env_color_parameter(ENV_PARAM_NO2, role)` 和 `env_color_air(ENV_PARAM_NO2, quality, role)`；Web 使用 `colors.parameter(EnvironmentParameter.no2)` 和 `colors.air(EnvironmentParameter.no2, quality)`。该色表不用于外部 AQI/PSI 原生档序号。
 
 ### 花粉等级状态色
 
@@ -236,6 +243,49 @@ env_rgb_t graphic = env_color_air(ENV_PARAM_PM25, quality,
                                   ENV_COLOR_GRAPHIC);
 ```
 
-各状态函数接收已经计算好的评级枚举，不接收原始测量值，也不重复评级阈值。`env_color_air()` 仅处理 CO₂、PM2.5、PM10 和甲醛的单项 `air_quality_t`；不处理整体空气质量、TVOC 指数或 Matter `LevelValue`。温度状态色应把 `thermal_rate()` 返回值传给 `env_color_thermal()`，相对湿度、噪声和照度同理。
+各状态函数接收已经计算好的评级枚举，不接收原始测量值，也不重复评级阈值。`env_color_air()` 处理 CO₂、PM2.5、PM10、甲醛、O₃、CO、SO₂ 和 NO₂ 的单项 `air_quality_t`；不处理整体空气质量、TVOC 指数或 Matter `LevelValue`。温度状态色应把 `thermal_rate()` 返回值传给 `env_color_thermal()`，相对湿度、噪声和照度同理。
 
 Swift 使用 `EnvironmentColors`，返回 `RGBColor`、`ParameterColors` 或 `StateColors`；`RGBColor` 提供 `rawValue`、RGB 分量和 `hex`。Web 使用 `rating.colors`，直接返回 CSS HEX 字符串。不支持的 Swift/Web 组合返回 `nil`/`null`。
+
+### 外部 AQI、EEA 指数与 PSI
+
+外部 AQI、EEA 指数与 PSI 仅定义等级状态色，不设置图标、识别色或识别色浅背景。新加坡保留 PSI 名称。
+
+以下是产品 UI 配色，不是官方指定 RGB。状态色、标签背景、图示色和文字色分别列出；未知状态统一灰色。不能将外部档序号传给 `env_color_air()`。
+
+#### AQI · HJ 633—2026 / US EPA
+
+| 原生等级 | 状态色 | 标签背景 | 图示色 | 标签文字色 |
+|---|---|---|---|---|
+| 未知 / 未知 | `#64748B` | `#F1F5F9` | `#94A3B8` | `#334155` |
+| 优 / 良好 | `#16A34A` | `#DCFCE7` | `#4ADE80` | `#14532D` |
+| 良 / 中等 | `#CA8A04` | `#FEF9C3` | `#FACC15` | `#713F12` |
+| 轻度污染 / 对敏感人群不健康 | `#EA580C` | `#FFEDD5` | `#FB923C` | `#7C2D12` |
+| 中度污染 / 不健康 | `#DC2626` | `#FEE2E2` | `#F87171` | `#7F1D1D` |
+| 重度污染 / 非常不健康 | `#7E22CE` | `#F3E8FF` | `#C084FC` | `#581C87` |
+| 严重污染 / 危险 | `#9F1239` | `#FFE4E6` | `#FB7185` | `#881337` |
+
+#### EEA
+
+| 原生等级 | 状态色 | 标签背景 | 图示色 | 标签文字色 |
+|---|---|---|---|---|
+| 未知 | `#64748B` | `#F1F5F9` | `#94A3B8` | `#334155` |
+| 好 | `#16A34A` | `#DCFCE7` | `#4ADE80` | `#14532D` |
+| 尚可 | `#65A30D` | `#ECFCCB` | `#A3E635` | `#365314` |
+| 中等 | `#CA8A04` | `#FEF9C3` | `#FACC15` | `#713F12` |
+| 差 | `#EA580C` | `#FFEDD5` | `#FB923C` | `#7C2D12` |
+| 很差 | `#DC2626` | `#FEE2E2` | `#F87171` | `#7F1D1D` |
+| 极差 | `#7E22CE` | `#F3E8FF` | `#C084FC` | `#581C87` |
+
+#### PSI · NEA
+
+| 原生等级 | 状态色 | 标签背景 | 图示色 | 标签文字色 |
+|---|---|---|---|---|
+| 未知 | `#64748B` | `#F1F5F9` | `#94A3B8` | `#334155` |
+| 良好 | `#16A34A` | `#DCFCE7` | `#4ADE80` | `#14532D` |
+| 中等 | `#CA8A04` | `#FEF9C3` | `#FACC15` | `#713F12` |
+| 不健康 | `#EA580C` | `#FFEDD5` | `#FB923C` | `#7C2D12` |
+| 非常不健康 | `#DC2626` | `#FEE2E2` | `#F87171` | `#7F1D1D` |
+| 危险 | `#9F1239` | `#FFE4E6` | `#FB7185` | `#881337` |
+
+C 用 `env_color_index(standard, grade, role)` 查询原生等级颜色；Web 用 `colors.index(standard, grade)`。NEA 第六档、非法体系、非法等级或颜色角色返回无效值（Web 为 null）；合法未知等级使用灰色。函数不重新计算指数、不做跨体系转换。

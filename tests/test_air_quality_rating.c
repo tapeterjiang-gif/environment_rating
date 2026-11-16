@@ -365,6 +365,32 @@ static void test_levels(void)
     CHECK(air_level_hcho((air_hcho_std_t)3, 0) == AIR_LEVEL_UNKNOWN);
 }
 
+
+static void test_no2(void)
+{
+    const double eea[] = {10,25,60,100,150};
+    const double hourly[] = {100.5,200.5,700.5,1200.5,2340.5};
+    const double daily[] = {40.5,80.5,180.5,280.5,565.5};
+    const double epa[] = {54,101,361,650,1250};
+    unsigned int i;
+    for (i=0;i<5;i++) {
+        CHECK(air_rate_no2_eea(eea[i]) == (air_quality_t)(i+1));
+        CHECK(air_rate_no2_eea(nextafter(eea[i],INFINITY)) == (air_quality_t)(i+2));
+        CHECK(air_rate_no2_hj_hourly(hourly[i]) == (air_quality_t)(i+1));
+        CHECK(air_rate_no2_hj_hourly(nextafter(hourly[i],INFINITY)) == (air_quality_t)(i+2));
+        CHECK(air_rate_no2_hj_daily(nextafter(daily[i],-INFINITY)) == (air_quality_t)(i+1));
+        CHECK(air_rate_no2_hj_daily(nextafter(daily[i],INFINITY)) == (air_quality_t)(i+2));
+        CHECK(air_rate_no2_epa(nextafter(epa[i],-INFINITY)) == (air_quality_t)(i+1));
+        CHECK(air_rate_no2_epa(epa[i]) == (air_quality_t)(i+2));
+    }
+    CHECK(air_rate_no2_hj_daily(565.5) == AIR_EXTREMELY_POOR);
+    CHECK(air_rate_no2_hj_daily(280.5) == AIR_POOR);
+    CHECK(air_rate_no2_eea(NAN) == AIR_UNKNOWN);
+    CHECK(air_rate_no2_hj_hourly(INFINITY) == AIR_UNKNOWN);
+    CHECK(air_rate_no2_hj_daily(-1) == AIR_UNKNOWN);
+    CHECK(air_rate_no2_epa(-INFINITY) == AIR_UNKNOWN);
+}
+
 int main(void)
 {
     /* Bind public names to distinct reference outcomes independently of
@@ -384,6 +410,7 @@ int main(void)
     test_boundaries();
     test_levels();
     test_invalid();
+    test_no2();
     test_outdoor_ozone();
     test_outdoor_carbon_monoxide();
     test_outdoor_sulfur_dioxide();

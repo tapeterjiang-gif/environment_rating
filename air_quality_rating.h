@@ -149,6 +149,19 @@ air_quality_t air_rate_so2_hj_daily(double twenty_four_hour);
 air_quality_t air_rate_so2_epa(double one_hour, double twenty_four_hour);
 
 
+/* Outdoor nitrogen dioxide, independent of indoor overall rating.
+ * EEA/HJ: ug/m3, EEA hourly; HJ hourly for real-time or 24-hour for daily.
+ * HJ integer rounding uses ties-to-even. EPA: hourly ppb, truncated to an
+ * integer; for a daily report supply the daily maximum 1-hour concentration.
+ * All six grades are possible. Negative/nonfinite inputs return UNKNOWN.
+ * These single-pollutant grades do not calculate AQI or map Matter LevelValue.
+ * Sources: EEA AQI (2024), HJ 633-2026 Table 3, EPA AQI (2026) Table 6.
+ */
+air_quality_t air_rate_no2_eea(double one_hour);
+air_quality_t air_rate_no2_hj_hourly(double one_hour);
+air_quality_t air_rate_no2_hj_daily(double twenty_four_hour);
+air_quality_t air_rate_no2_epa(double one_hour);
+
 /* CO2 bands reference UBA 2008, Health evaluation of carbon dioxide in
  * indoor air, section 6.2 and Table 4:
  * https://www.umweltbundesamt.de/system/files/medien/pdfs/kohlendioxid_2008.pdf

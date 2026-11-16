@@ -4,6 +4,7 @@
 #include <stdint.h>
 
 #include "air_quality_rating.h"
+#include "outdoor_index_rating.h"
 #include "sound_light_rating.h"
 #include "thermal_comfort.h"
 
@@ -39,7 +40,8 @@ typedef enum {
     ENV_PARAM_CO = 10,
     ENV_PARAM_SO2 = 11,
     ENV_PARAM_POLLEN = 12,
-    ENV_PARAM_UV_INDEX = 13
+    ENV_PARAM_UV_INDEX = 13,
+    ENV_PARAM_NO2 = 14 /* Appended to preserve existing numeric values. */
 } env_parameter_t;
 
 /* UI icon families. Apple platforms use SF Symbols; Android, Web, Linux,
@@ -65,14 +67,22 @@ env_rgb_t env_color_parameter(env_parameter_t parameter,
  * thresholds. A valid UNKNOWN rating returns the documented gray palette.
  * Invalid enum values or unsupported combinations return ENV_RGB_INVALID.
  *
- * env_color_air supports CO2, PM2.5, PM10, and HCHO only. CO2 accepts its
+ * env_color_air supports CO2, PM2.5, PM10, HCHO, O3, CO, SO2 and NO2. CO2 accepts its
  * actual GOOD/MODERATE/POOR results; its MODERATE result intentionally uses
- * the green-yellow palette used by FAIR for PM/HCHO. There is no overall-air,
+ * the yellow palette used by MODERATE for other pollutants. There is no overall-air,
  * tVOC, or Matter LevelValue color mapping.
  */
 env_rgb_t env_color_air(env_parameter_t parameter,
                         air_quality_t quality,
                         env_color_role_t role);
+/* External index colors require the scheme AND its native grade ordinal.
+ * EEA uses its six-band pollutant palette; HJ/EPA use green, yellow, orange,
+ * red, purple, maroon. NEA uses green, yellow, orange, red, maroon (five).
+ * Unknown is gray; NEA grade 6, invalid schemes/grades/roles are invalid.
+ * Product UI palettes, not official scheme color specifications. */
+env_rgb_t env_color_index(outdoor_index_std_t standard,
+                          outdoor_index_grade_t grade,
+                          env_color_role_t role);
 env_rgb_t env_color_thermal(thermal_sensation_t sensation,
                             env_color_role_t role);
 env_rgb_t env_color_humidity(thermal_humidity_t humidity,

@@ -91,7 +91,7 @@ const char *env_text_get_rating(const char *locale, const char *metric,
 #endif
 `);
 const cEnums = [...new Set(Object.values(manifest.metrics).flatMap(metric=>metric.ratings.map(r=>r.enum)))];
-const includes = '#include "environment_text.h"\n#include "air_quality_rating.h"\n#include "thermal_comfort.h"\n#include "sound_light_rating.h"\n#include "pollen_rating.h"\n#include "uv_index_rating.h"\n#include <stddef.h>\n#include <stdio.h>\n#include <string.h>\n';
+const includes = '#include "environment_text.h"\n#include "air_quality_rating.h"\n#include "thermal_comfort.h"\n#include "sound_light_rating.h"\n#include "pollen_rating.h"\n#include "outdoor_index_rating.h"\n#include "uv_index_rating.h"\n#include <stddef.h>\n#include <stdio.h>\n#include <string.h>\n';
 // Compile time checks keep the manifest's numeric contract aligned with C headers.
 const checks = cEnums.map((symbol,index)=>{const rule=Object.values(manifest.metrics).flatMap(m=>m.ratings).find(r=>r.enum===symbol);return `typedef char env_copy_enum_${index}[(${symbol} == ${rule.value}) ? 1 : -1];`;}).join('\n');
 const rows = keys.map(key=>`    { ${cString(key)}, { ${manifest.locales.map(locale=>cString(flat[locale][key])).join(', ')} } }`).join(',\n');
@@ -198,7 +198,7 @@ function text(key) {
   const source=flat['zh-Hans'][key];
   return `<span data-copy-key="${key}">${escape(source)}</span>`;
 }
-const displayGroups = {thermal:['temperature','humidity'],air:['co2','pm25','pm10','hcho','tvoc'],sound_light:['noise','illuminance'],outdoor:['o3','co','so2','pollen','uv_index']};
+const displayGroups = {thermal:['temperature','humidity'],air:['co2','pm25','pm10','hcho','tvoc'],sound_light:['noise','illuminance'],outdoor:['aqi_hj','aqi_epa','eea_index','psi','o3','co','so2','no2','pollen','uv_index']};
 const titles = {thermal:'热舒适度',air:'空气质量',sound_light:'声光环境',outdoor:'室外环境'};
 const sourceLinks={humidity:'https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home',pm25:'https://www.epa.gov/pm-pollution/particulate-matter-pm-basics',pm10:'https://www.epa.gov/pm-pollution/particulate-matter-pm-basics',hcho:'https://www.epa.gov/indoor-air-quality-iaq/volatile-organic-compounds-impact-indoor-air-quality',o3:'https://www.epa.gov/ground-level-ozone-pollution/ground-level-ozone-basics',co:'https://www.cdc.gov/carbon-monoxide/about/index.html',so2:'https://www.epa.gov/so2-pollution/sulfur-dioxide-basics',uv_index:'https://www.who.int/publications-detail-redirect/9241590076'};
 let html='<!-- BEGIN GENERATED METRIC COPY -->\n';

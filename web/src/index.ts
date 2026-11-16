@@ -50,6 +50,27 @@ export const UVIndexRating = {
 } as const;
 export type UVIndexRating = typeof UVIndexRating[keyof typeof UVIndexRating];
 
+/** Native published schemes; keep NEA's PSI name in the UI. */
+export const OutdoorIndexStandard = {
+  hj6332026: "hj-633-2026", epaAQI2026: "epa-aqi-2026",
+  eea2024: "eea-2024", neaPSI: "nea-psi"
+} as const;
+export type OutdoorIndexStandard = typeof OutdoorIndexStandard[keyof typeof OutdoorIndexStandard];
+/** Ordinal in the selected scheme. NEA has only five grades. */
+export const OutdoorIndexGrade = {
+  unknown: "unknown", grade1: "grade-1", grade2: "grade-2", grade3: "grade-3",
+  grade4: "grade-4", grade5: "grade-5", grade6: "grade-6"
+} as const;
+export type OutdoorIndexGrade = typeof OutdoorIndexGrade[keyof typeof OutdoorIndexGrade];
+export interface OutdoorIndexApi {
+  /** External integer AQI 0..500, nonnegative integer PSI, or EEA grade 1..6.
+   * No concentration conversion or averaging. Invalid input returns unknown.
+   * EEA numbers encode native grades only; they are not numeric AQI values. */
+  rate(value: number, standard: OutdoorIndexStandard): OutdoorIndexGrade;
+}
+const outdoorIndexStandards = [OutdoorIndexStandard.hj6332026, OutdoorIndexStandard.epaAQI2026, OutdoorIndexStandard.eea2024, OutdoorIndexStandard.neaPSI] as const;
+const outdoorIndexGrades = [OutdoorIndexGrade.unknown, OutdoorIndexGrade.grade1, OutdoorIndexGrade.grade2, OutdoorIndexGrade.grade3, OutdoorIndexGrade.grade4, OutdoorIndexGrade.grade5, OutdoorIndexGrade.grade6] as const;
+
 export const PMStandard = {
   eeaAQI2024: "eea-aqi-2024",
   hj6332026: "hj-633-2026",
@@ -135,6 +156,7 @@ export const EnvironmentParameter = {
   o3: "o3",
   co: "co",
   so2: "so2",
+  no2: "no2",
   pollen: "pollen",
   uvIndex: "uv-index"
 } as const;
@@ -155,6 +177,7 @@ const materialIconNames: Readonly<Record<EnvironmentParameter, string>> =
     [EnvironmentParameter.o3]: "dehaze",
     [EnvironmentParameter.co]: "detector_smoke",
     [EnvironmentParameter.so2]: "foggy",
+    [EnvironmentParameter.no2]: "directions_car",
     [EnvironmentParameter.pollen]: "local_florist",
     [EnvironmentParameter.uvIndex]: "flare"
   });
@@ -180,7 +203,11 @@ export type AirColorParameter =
   | typeof EnvironmentParameter.co2
   | typeof EnvironmentParameter.pm25
   | typeof EnvironmentParameter.pm10
-  | typeof EnvironmentParameter.formaldehyde;
+  | typeof EnvironmentParameter.formaldehyde
+  | typeof EnvironmentParameter.o3
+  | typeof EnvironmentParameter.co
+  | typeof EnvironmentParameter.so2
+  | typeof EnvironmentParameter.no2;
 
 const airQualityValues = [
   AirQuality.unknown,
@@ -256,6 +283,7 @@ const illuminanceRatingValues = [
 ] as const;
 
 interface NativeModule {
+  _outdoor_index_rate(standard: number, value: number): number;
   _pollen_rate(standard: number, type: number, concentration: number): number;
   _uv_index_rate(uvi: number): number;
   _air_level_co2(value: number): number;
@@ -276,6 +304,10 @@ interface NativeModule {
   _air_rate_o3_epa(eightHour: number, oneHour: number): number;
   _air_rate_co_hj(oneHour: number): number;
   _air_rate_co_epa(eightHour: number): number;
+  _air_rate_no2_eea(oneHour: number): number;
+  _air_rate_no2_hj_hourly(oneHour: number): number;
+  _air_rate_no2_hj_daily(twentyFourHour: number): number;
+  _air_rate_no2_epa(oneHour: number): number;
   _air_rate_so2_eea(oneHour: number): number;
   _air_rate_so2_hj_hourly(oneHour: number): number;
   _air_rate_so2_hj_daily(twentyFourHour: number): number;
@@ -303,6 +335,7 @@ interface NativeModule {
   _noise_rate(scene: number, noise: number): number;
   _illuminance_rate(illuminance: number): number;
   _env_color_parameter(parameter: number, role: number): number;
+  _env_color_index(standard: number, grade: number, role: number): number;
   _env_color_air(parameter: number, quality: number, role: number): number;
   _env_color_thermal(sensation: number, role: number): number;
   _env_color_humidity(rating: number, role: number): number;
@@ -374,6 +407,14 @@ export interface AirRatingApi {
   so2HjDaily(twentyFourHour: number): AirQuality;
   /** Outdoor SO₂, EPA ppb; both averaging windows are required. */
   so2Epa(oneHour: number, twentyFourHour: number): AirQuality;
+  /** Outdoor NO2, hourly μg/m³. */
+  no2Eea(oneHour: number): AirQuality;
+  /** Outdoor NO2, HJ real-time hourly μg/m³. */
+  no2HjHourly(oneHour: number): AirQuality;
+  /** Outdoor NO2, HJ daily 24-hour μg/m³. */
+  no2HjDaily(twentyFourHour: number): AirQuality;
+  /** Outdoor NO2, EPA hourly ppb; daily reports use the daily maximum hour. */
+  no2Epa(oneHour: number): AirQuality;
   overall(input?: AirOverallInput): AirQuality;
   co2Level(ppm: number): ConcentrationLevel;
   pm25Level(concentration: number, standard?: PMStandard): ConcentrationLevel;
@@ -424,6 +465,8 @@ export interface StateColors {
 export interface EnvironmentColorsApi {
   parameter(parameter: EnvironmentParameter): ParameterColors | null;
   air(parameter: AirColorParameter, quality: AirQuality): StateColors | null;
+  /** Product palette for the selected external index scheme and native ordinal. */
+  index(standard: OutdoorIndexStandard, grade: OutdoorIndexGrade): StateColors | null;
   thermal(sensation: ThermalSensation): StateColors | null;
   humidity(rating: HumidityRating): StateColors | null;
   noise(rating: NoiseRating): StateColors | null;
@@ -436,6 +479,7 @@ export interface EnvironmentRating {
   readonly soundLight: SoundLightRatingApi;
   readonly pollen: PollenRatingApi;
   readonly uvIndex: UVIndexRatingApi;
+  readonly outdoorIndex: OutdoorIndexApi;
   readonly colors: EnvironmentColorsApi;
 }
 
@@ -465,6 +509,7 @@ function environmentParameterValue(parameter: EnvironmentParameter): number {
     case EnvironmentParameter.o3: return 9;
     case EnvironmentParameter.co: return 10;
     case EnvironmentParameter.so2: return 11;
+    case EnvironmentParameter.no2: return 14;
     case EnvironmentParameter.pollen: return 12;
     case EnvironmentParameter.uvIndex: return 13;
     default: return -1;
@@ -552,6 +597,10 @@ function createAirApi(native: NativeModule): AirRatingApi {
       enumValue(airQualityValues, native._air_rate_so2_epa(
         numeric(oneHour), numeric(twentyFourHour)
       )),
+    no2Eea: (oneHour: number) => enumValue(airQualityValues, native._air_rate_no2_eea(numeric(oneHour))),
+    no2HjHourly: (oneHour: number) => enumValue(airQualityValues, native._air_rate_no2_hj_hourly(numeric(oneHour))),
+    no2HjDaily: (twentyFourHour: number) => enumValue(airQualityValues, native._air_rate_no2_hj_daily(numeric(twentyFourHour))),
+    no2Epa: (oneHour: number) => enumValue(airQualityValues, native._air_rate_no2_epa(numeric(oneHour))),
     overall: (input: AirOverallInput = {}) => {
       const pmStandard = input.pmStandard ?? PMStandard.eeaAQI2024;
       const formaldehydeStandard = input.formaldehydeStandard
@@ -717,6 +766,9 @@ function createColorsApi(native: NativeModule): EnvironmentColorsApi {
         (role) => native._env_color_air(parameterValue, qualityValue, role)
       );
     },
+    index: (standard: OutdoorIndexStandard, grade: OutdoorIndexGrade) => stateColors(
+      (role) => native._env_color_index(valueIndex(outdoorIndexStandards, standard), valueIndex(outdoorIndexGrades, grade), role)
+    ),
     thermal: (sensation: ThermalSensation) => {
       const value = valueIndex(thermalSensationValues, sensation);
       return stateColors((role) => native._env_color_thermal(value, role));
@@ -759,6 +811,12 @@ export async function createEnvironmentRating(
     soundLight: createSoundLightApi(native),
     pollen: createPollenApi(native),
     uvIndex: createUVIndexApi(native),
+    outdoorIndex: Object.freeze({
+      rate: (value: number, standard: OutdoorIndexStandard) => enumValue(
+        outdoorIndexGrades,
+        native._outdoor_index_rate(valueIndex(outdoorIndexStandards, standard), numeric(value))
+      )
+    }),
     colors: createColorsApi(native)
   });
 }

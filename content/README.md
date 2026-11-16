@@ -48,7 +48,7 @@ env_co2_rating_moderate_detail
 
 ## 评级标准说明
 
-四个语言源文件的 `standards` 节点提供 16 套标准的 `name`（名称）、`description`（简介）、`organization`（发布组织）。稳定 ID 与出处、组织官网链接见 `manifest.json` 的 `standards`。
+四个语言源文件的 `standards` 节点提供 17 套标准的 `name`（名称）、`description`（简介）、`organization`（发布组织）。稳定 ID 与出处、组织官网链接见 `manifest.json` 的 `standards`。
 
 各平台的文本键为 `env_standard_who_uv_index_name`、`env_standard_who_uv_index_description`、`env_standard_who_uv_index_organization`。多组织标准还生成带序号的 `organization_1`、`organization_2`，便于分别展示官网链接。Web 可调用 `getStandard('zh-Hans', 'who_uv_index')` 取得三项文字；固件可用 `env_text_get()` 查询相同键。
 
@@ -117,3 +117,7 @@ if (text != NULL) {
 一次更新应同时交付四个源文件、映射与生成文件。原生资源已生成并通过结构检查，但仍需开发者加入具体 App target；最终排版和字库显示需在相应设备中确认。
 
 开发参考页提供完整资源包与 iOS、Android、Web、LVGL 独立 ZIP 下载，均包含四种语言。运行 `node scripts/package-copy.mjs` 可更新 `site/dist/downloads/` 下的文件及校验清单，然后重新生成开发参考页。下载包用于集成；维护文案并重新生成资源时，请在项目仓库中执行上述命令。
+
+## 外部指数文案
+
+外部 AQI/PSI/EEA 文案分别使用 `aqi_hj`、`aqi_epa`、`eea_index`、`psi`。传入 `outdoor_index_rate()` 返回的原生档序号查询文案，不能跨体系复用名称；PSI 只有五档。Web 的 `grade-3` 对应文案 ID `grade_3`。EEA 输入 1–6 是等级编码，不是数值 AQI。本库不从现场浓度重新计算综合指数，也不映射 Matter 等级。保留来源、地点与更新时间，并区分当前数据、日报与预报。

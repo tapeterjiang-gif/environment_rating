@@ -8,6 +8,8 @@
 <script type="module">
   import {
     AirQuality,
+    OutdoorIndexStandard,
+    OutdoorIndexGrade,
     EnvironmentParameter,
     IlluminanceRating,
     PollenRating,
@@ -28,7 +30,15 @@
       met: 1.1,
       clo: 0.5
     });
-    const passed = rating.air.co2(1000) === AirQuality.moderate
+    const indexPassed = rating.outdoorIndex.rate(150, OutdoorIndexStandard.neaPSI) === OutdoorIndexGrade.grade3
+      && rating.outdoorIndex.rate(301, OutdoorIndexStandard.neaPSI) === OutdoorIndexGrade.grade5
+      && rating.outdoorIndex.rate(301, OutdoorIndexStandard.epaAQI2026) === OutdoorIndexGrade.grade6
+      && rating.outdoorIndex.rate(50, OutdoorIndexStandard.hj6332026) === OutdoorIndexGrade.grade1
+      && rating.outdoorIndex.rate(6, OutdoorIndexStandard.eea2024) === OutdoorIndexGrade.grade6;
+    const passed = indexPassed && rating.air.co2(1000) === AirQuality.moderate
+      && rating.air.no2Eea(151) === AirQuality.extremelyPoor
+      && rating.air.no2HjDaily(565.5) === AirQuality.extremelyPoor
+      && rating.air.no2Epa(54) === AirQuality.fair
       && rating.air.so2Eea(276) === AirQuality.extremelyPoor
       && rating.air.so2Epa(305, 304) === AirQuality.poor
       && rating.pollen.rate(20, PollenType.grass, PollenStandard.nab) === PollenRating.high

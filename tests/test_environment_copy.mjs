@@ -74,3 +74,11 @@ test('font character sets cover every localized text',async()=>{
     walk(source.standards);
   }
 });
+
+test('external indices keep native scheme labels and NEA has only five grades', ()=>{
+  assert.equal(getRating('en','aqi_epa','grade_3').label,'Unhealthy for Sensitive Groups');
+  assert.equal(getRating('en','psi','grade_3').label,'Unhealthy');
+  assert.equal(getRating('zh-Hans','aqi_hj','grade_3').label,'轻度污染');
+  assert.equal(getRating('en','eea_index','grade_3').label,'Moderate');
+  assert.equal(manifest.metrics.psi.ratings.some(r=>r.value===6),false);
+});

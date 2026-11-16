@@ -60,6 +60,31 @@ export declare const UVIndexRating: {
     readonly extreme: "extreme";
 };
 export type UVIndexRating = typeof UVIndexRating[keyof typeof UVIndexRating];
+/** Native published schemes; keep NEA's PSI name in the UI. */
+export declare const OutdoorIndexStandard: {
+    readonly hj6332026: "hj-633-2026";
+    readonly epaAQI2026: "epa-aqi-2026";
+    readonly eea2024: "eea-2024";
+    readonly neaPSI: "nea-psi";
+};
+export type OutdoorIndexStandard = typeof OutdoorIndexStandard[keyof typeof OutdoorIndexStandard];
+/** Ordinal in the selected scheme. NEA has only five grades. */
+export declare const OutdoorIndexGrade: {
+    readonly unknown: "unknown";
+    readonly grade1: "grade-1";
+    readonly grade2: "grade-2";
+    readonly grade3: "grade-3";
+    readonly grade4: "grade-4";
+    readonly grade5: "grade-5";
+    readonly grade6: "grade-6";
+};
+export type OutdoorIndexGrade = typeof OutdoorIndexGrade[keyof typeof OutdoorIndexGrade];
+export interface OutdoorIndexApi {
+    /** External integer AQI 0..500, nonnegative integer PSI, or EEA grade 1..6.
+     * No concentration conversion or averaging. Invalid input returns unknown.
+     * EEA numbers encode native grades only; they are not numeric AQI values. */
+    rate(value: number, standard: OutdoorIndexStandard): OutdoorIndexGrade;
+}
 export declare const PMStandard: {
     readonly eeaAQI2024: "eea-aqi-2024";
     readonly hj6332026: "hj-633-2026";
@@ -132,6 +157,7 @@ export declare const EnvironmentParameter: {
     readonly o3: "o3";
     readonly co: "co";
     readonly so2: "so2";
+    readonly no2: "no2";
     readonly pollen: "pollen";
     readonly uvIndex: "uv-index";
 };
@@ -142,7 +168,7 @@ export interface MaterialIcon {
 }
 /** Material Symbols Rounded icon used by Web and other non-Apple UIs. */
 export declare function materialIcon(parameter: EnvironmentParameter): MaterialIcon | null;
-export type AirColorParameter = typeof EnvironmentParameter.co2 | typeof EnvironmentParameter.pm25 | typeof EnvironmentParameter.pm10 | typeof EnvironmentParameter.formaldehyde;
+export type AirColorParameter = typeof EnvironmentParameter.co2 | typeof EnvironmentParameter.pm25 | typeof EnvironmentParameter.pm10 | typeof EnvironmentParameter.formaldehyde | typeof EnvironmentParameter.o3 | typeof EnvironmentParameter.co | typeof EnvironmentParameter.so2 | typeof EnvironmentParameter.no2;
 export interface CreateEnvironmentRatingOptions {
     /** Override the location of environment-rating-wasm.wasm, for example on a CDN. */
     wasmUrl?: string | URL;
@@ -193,6 +219,14 @@ export interface AirRatingApi {
     so2HjDaily(twentyFourHour: number): AirQuality;
     /** Outdoor SO₂, EPA ppb; both averaging windows are required. */
     so2Epa(oneHour: number, twentyFourHour: number): AirQuality;
+    /** Outdoor NO2, hourly μg/m³. */
+    no2Eea(oneHour: number): AirQuality;
+    /** Outdoor NO2, HJ real-time hourly μg/m³. */
+    no2HjHourly(oneHour: number): AirQuality;
+    /** Outdoor NO2, HJ daily 24-hour μg/m³. */
+    no2HjDaily(twentyFourHour: number): AirQuality;
+    /** Outdoor NO2, EPA hourly ppb; daily reports use the daily maximum hour. */
+    no2Epa(oneHour: number): AirQuality;
     overall(input?: AirOverallInput): AirQuality;
     co2Level(ppm: number): ConcentrationLevel;
     pm25Level(concentration: number, standard?: PMStandard): ConcentrationLevel;
@@ -233,6 +267,8 @@ export interface StateColors {
 export interface EnvironmentColorsApi {
     parameter(parameter: EnvironmentParameter): ParameterColors | null;
     air(parameter: AirColorParameter, quality: AirQuality): StateColors | null;
+    /** Product palette for the selected external index scheme and native ordinal. */
+    index(standard: OutdoorIndexStandard, grade: OutdoorIndexGrade): StateColors | null;
     thermal(sensation: ThermalSensation): StateColors | null;
     humidity(rating: HumidityRating): StateColors | null;
     noise(rating: NoiseRating): StateColors | null;
@@ -244,6 +280,7 @@ export interface EnvironmentRating {
     readonly soundLight: SoundLightRatingApi;
     readonly pollen: PollenRatingApi;
     readonly uvIndex: UVIndexRatingApi;
+    readonly outdoorIndex: OutdoorIndexApi;
     readonly colors: EnvironmentColorsApi;
 }
 /** Initialize the Wasm module once, then reuse the returned stateless API. */

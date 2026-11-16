@@ -82,3 +82,34 @@ npm test
 ```
 
 构建生成 ES Module、TypeScript 类型声明和独立 `.wasm` 文件。部署服务器应允许加载 `.wasm`；主流静态服务器通常会使用 `application/wasm` MIME 类型。npm 包为纯 ES Module，不依赖浏览器 DOM 或前端框架。
+
+## External air quality indices
+
+```js
+import { createEnvironmentRating, OutdoorIndexStandard } from '@tapeterjiang-gif/environment-rating';
+const rating = await createEnvironmentRating();
+const grade = rating.outdoorIndex.rate(150, OutdoorIndexStandard.neaPSI);
+// "grade-3": NEA Unhealthy, not EPA Unhealthy for Sensitive Groups.
+```
+
+`outdoorIndex.rate(value, standard)` requires an explicit scheme: `hj6332026`, `epaAQI2026`, `eea2024`, or `neaPSI`. HJ/EPA accept integer AQI 0–500; NEA accepts nonnegative integer 24-hour PSI (five categories). EEA accepts native category codes 1–6, not a numeric AQI. `OutdoorIndexGrade` returns `unknown` or `grade1`…`grade6` (string values `grade-1`…`grade-6`); NEA never returns grade6. Fractional, malformed, nonfinite, negative or unsupported values return unknown. No rounding, clamping, concentration-to-index calculation, Matter conversion or indoor aggregation occurs. Values above 500 are outside the supported HJ/EPA range; preserve any provider “Beyond AQI” status separately.
+
+Use copy metric IDs `aqi_hj`, `aqi_epa`, `eea_index`, `psi` with the matching scheme. C enum ordinals 0–6 map to these catalogs; Web strings such as `grade-3` correspond to copy rating ID `grade_3`. EEA display input should be translated explicitly from the provider’s native labels. Keep source, location, update time and current/daily/forecast context in the UI. Singapore is displayed as PSI, not AQI or one-hour PM2.5.
+
+## Outdoor nitrogen dioxide
+
+`rating.air.no2Eea(oneHour)` and `no2HjHourly(oneHour)` accept hourly μg/m³. `no2HjDaily(twentyFourHour)` accepts daily μg/m³. `no2Epa(oneHour)` accepts hourly ppb; daily reporting uses the daily maximum hour. EEA uses continuous upper-inclusive bands, HJ rounds to integer with ties to even, EPA truncates integer ppb. Invalid inputs return `AirQuality.unknown`. These are single-pollutant grades; they do not change indoor overall ratings or compute external AQI/PSI. Copy metric ID: `no2`. See the main README 4.7 for the full table.
+
+NO₂ design resources: `materialIcon(EnvironmentParameter.no2)` provides the bundled `directions_car` SVG. `colors.parameter(EnvironmentParameter.no2)` returns `#B4533C` with light background `#F8EAE5`. `colors.air(EnvironmentParameter.no2, quality)` returns the shared pollutant palette for all six ratings and Unknown, including status, background, graphic and label text. O₃, CO and SO₂ also use that palette. Do not pass external AQI/PSI ordinals as `AirQuality` values. Apple symbol name: `car.side.fill`.
+
+## External index rating colors
+
+External AQI, EEA indices and PSI have rating colors only; no icons or parameter identity colors are defined.
+
+```js
+const grade = rating.outdoorIndex.rate(150, OutdoorIndexStandard.neaPSI);
+const colors = rating.colors.index(OutdoorIndexStandard.neaPSI, grade);
+// {primary, background, graphic, text}: scheme-aware product UI colors.
+```
+
+HJ/EPA use green, yellow, orange, red, purple and maroon. EEA uses the six-band pollutant palette. PSI uses green, yellow, orange, red and maroon, with only five grades. Unknown is gray; invalid scheme/grade combinations, including PSI grade6, return null. These are product palettes, not agency-specified RGB. Always retain the native labels and index scheme; do not pass index ordinals to `colors.air()`.

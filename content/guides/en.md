@@ -115,3 +115,7 @@ Use `env_text_get("en", "env_co2_description")` for metric descriptions. Returne
 ## Release checks
 
 Deliver the four source catalogs, mapping, and generated resources together. Native resources have been generated and structurally checked; developers still need to add them to their App target and confirm layout and glyph rendering on actual devices.
+
+## External index copy
+
+Use metric IDs `aqi_hj`, `aqi_epa`, `eea_index` and `psi` with their matching schemes. Query copy using the native ordinal returned by `outdoor_index_rate()`; NEA has only five grades. The Web value `grade-3` maps to copy ID `grade_3`. EEA inputs 1–6 encode native categories, not a numeric AQI. Indices are external data, not computed from local concentrations or mapped to Matter. Retain source, location, update time and current/daily/forecast context.

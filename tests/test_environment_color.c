@@ -139,6 +139,35 @@ static void test_other_state_colors(void)
 
 int main(void)
 {
+    int q, role, standard;
+    const air_quality_t native[] = {AIR_UNKNOWN,AIR_GOOD,AIR_MODERATE,AIR_POOR,AIR_VERY_POOR,AIR_EXTREMELY_POOR};
+    const env_rgb_t maroon[] = {0x9F1239,0xFFE4E6,0xFB7185,0x881337};
+    for(role=0;role<4;role++) {
+        for(q=0;q<=6;q++) {
+            CHECK(env_color_index(OUTDOOR_INDEX_EEA_2024,(outdoor_index_grade_t)q,(env_color_role_t)role)==env_color_air(ENV_PARAM_PM25,(air_quality_t)q,(env_color_role_t)role));
+            CHECK(env_color_index(OUTDOOR_INDEX_HJ_633_2026,(outdoor_index_grade_t)q,(env_color_role_t)role)==env_color_index(OUTDOOR_INDEX_EPA_AQI_2026,(outdoor_index_grade_t)q,(env_color_role_t)role));
+            if(q<6)CHECK(env_color_index(OUTDOOR_INDEX_HJ_633_2026,(outdoor_index_grade_t)q,(env_color_role_t)role)==env_color_air(ENV_PARAM_PM25,native[q],(env_color_role_t)role));
+            if(q<5)CHECK(env_color_index(OUTDOOR_INDEX_NEA_PSI,(outdoor_index_grade_t)q,(env_color_role_t)role)==env_color_index(OUTDOOR_INDEX_EPA_AQI_2026,(outdoor_index_grade_t)q,(env_color_role_t)role));
+        }
+        CHECK(env_color_index(OUTDOOR_INDEX_NEA_PSI,OUTDOOR_INDEX_GRADE_5,(env_color_role_t)role)==maroon[role]);
+        CHECK(env_color_index(OUTDOOR_INDEX_EPA_AQI_2026,OUTDOOR_INDEX_GRADE_6,(env_color_role_t)role)==maroon[role]);
+    }
+    for(standard=0;standard<4;standard++) {
+        CHECK(env_color_index((outdoor_index_std_t)standard,(outdoor_index_grade_t)-1,ENV_COLOR_PRIMARY)==ENV_RGB_INVALID);
+        CHECK(env_color_index((outdoor_index_std_t)standard,(outdoor_index_grade_t)7,ENV_COLOR_PRIMARY)==ENV_RGB_INVALID);
+        CHECK(env_color_index((outdoor_index_std_t)standard,OUTDOOR_INDEX_GRADE_1,(env_color_role_t)99)==ENV_RGB_INVALID);
+    }
+    CHECK(env_color_index(OUTDOOR_INDEX_NEA_PSI,OUTDOOR_INDEX_GRADE_6,ENV_COLOR_PRIMARY)==ENV_RGB_INVALID);
+    CHECK(env_color_index((outdoor_index_std_t)99,OUTDOOR_INDEX_UNKNOWN,ENV_COLOR_PRIMARY)==ENV_RGB_INVALID);
+    CHECK(env_color_parameter(ENV_PARAM_NO2, ENV_COLOR_PRIMARY) == UINT32_C(0xB4533C));
+    CHECK(env_color_parameter(ENV_PARAM_NO2, ENV_COLOR_BACKGROUND) == UINT32_C(0xF8EAE5));
+    CHECK(strcmp(env_icon_name(ENV_PARAM_NO2, ENV_ICON_SF_SYMBOLS), "car.side.fill") == 0);
+    CHECK(strcmp(env_icon_name(ENV_PARAM_NO2, ENV_ICON_MATERIAL_SYMBOLS_ROUNDED), "directions_car") == 0);
+    for (q=0;q<=6;q++) for(role=0;role<=3;role++) {
+        CHECK(env_color_air(ENV_PARAM_NO2,(air_quality_t)q,(env_color_role_t)role) ==
+              env_color_air(ENV_PARAM_PM25,(air_quality_t)q,(env_color_role_t)role));
+    }
+
     test_parameter_colors();
     test_parameter_icons();
     test_air_colors();

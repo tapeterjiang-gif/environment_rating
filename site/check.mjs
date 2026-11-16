@@ -37,6 +37,7 @@ if (guide.includes('href="#standards">评级依据</a>')) {
   throw new Error("The guide navigation still links to standards");
 }
 const navigation = (page) => [...page.matchAll(/<div class="nav-links">([\s\S]*?)<\/div>/g)][0]?.[1].replace(/ aria-current="page"/g, "");
+if ((guide.match(/class="standard-metrics"/g) ?? []).length !== 17) throw new Error("A standard lacks metric associations");
 const sharedNavigation = '<a href="index.html">评级方法</a><a href="indicators.html">指标解读</a><a href="design.html">设计参考</a><a href="developer.html">开发参考</a>';
 for (const [name, page] of [["guide", guide], ["detail", detail], ["design", design], ["developer", developer]]) {
   if (navigation(page) !== sharedNavigation) throw new Error(`${name} does not use shared navigation`);
@@ -60,16 +61,18 @@ if (detail.includes('class="icon-source"') || detail.includes('id="icon-sources"
   throw new Error("Icon source information still appears in metric interpretation");
 }
 includesAll(design, "design.html", ["id=\"icon-resources\"", "id=\"color-resources\"", "id=\"rating-copy\"", "design-i18n.js", "SF Symbols", "Apache 2.0"]);
-if ((design.match(/class="resource-card"/g) ?? []).length !== 14) throw new Error("Design icon assets are incomplete");
-if ((design.match(/class="color-resource"/g) ?? []).length !== 14) throw new Error("Design identity colors are incomplete");
-if ((design.match(/class="metric-description"/g) ?? []).length !== 14) throw new Error("Design rating copy is incomplete");
+if ((design.match(/class="resource-card"/g) ?? []).length !== 15) throw new Error("Design icon assets are incomplete");
+if ((design.match(/class="color-resource"/g) ?? []).length !== 15) throw new Error("Design identity colors are incomplete");
+if ((design.match(/class="metric-description"/g) ?? []).length !== 19) throw new Error("Design rating copy is incomplete");
 for (const [group, options] of Object.entries({
+  "outdoor-index": ["hj", "epa", "eea", "nea"],
   pm: ["eea", "hj", "epa"], hcho: ["who", "gbt", "oehha"],
   o3: ["eea", "hj", "epa"], co: ["hj", "epa"],
+  no2: ["eea", "hj-hourly", "hj-daily", "epa"],
   so2: ["eea", "hj-hourly", "hj-daily", "epa"], pollen: ["nab", "meteoswiss"]
 })) {
   includesAll(detail, `${group} switcher`, [`data-standard-switcher="${group}"`, ...options.flatMap((option) => [
-    `aria-controls="${group}-${option}-panel"`, `id="${group}-${option}-panel"`,
+    `aria-controls="${group === "outdoor-index" ? "index" : group}-${option}-panel"`, `id="${group === "outdoor-index" ? "index" : group}-${option}-panel"`,
     `data-standard-panel="${option}" data-standard-group="${group}"`
   ])]);
 }
@@ -113,7 +116,7 @@ const address = server.address();
 if (typeof address === "string" || address == null) throw new Error("Preview server failed");
 const renderTargets = [
   ["index.html", ["看懂你身边的环境", "category-mosaic"]],
-  ["indicators.html", ["环境指标解读", "PMV 七点冷热感"]],
+  ["indicators.html", ["环境指标解读", "PMV 七点冷热感", "污染物标准指数 PSI · NEA"]],
   ["design.html", ["设计参考", "图标资源", "评级解读文案"]],
   ["developer.html", ["开发参考", "统一文案源", "EnvironmentCopy.xcstrings"]],
   ["developer.html?lang=zh-Hant", ["<html lang=\"zh-Hant\"", "開發參考", "韌體 / LVGL"]],

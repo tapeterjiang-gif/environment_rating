@@ -1,8 +1,8 @@
 {
   "all": {
     "file": "environment-copy-all.zip",
-    "bytes": 1547265,
-    "sha256": "a065a8cf185569349617b798f39b9f02e372111dbe1e4185567d0fa634c183c6",
+    "bytes": 2091479,
+    "sha256": "484ce1332b99f65ebd499fccbb3cf90965caa818ec89d4f1a3cf19e1a03495f2",
     "files": [
       "air_quality_rating.h",
       "content/README.md",
@@ -33,6 +33,7 @@
       "content/zh-Hant.json",
       "environment_text.c",
       "environment_text.h",
+      "outdoor_index_rating.h",
       "pollen_rating.h",
       "sound_light_rating.h",
       "thermal_comfort.h",
@@ -41,16 +42,16 @@
   },
   "ios": {
     "file": "environment-copy-ios.zip",
-    "bytes": 343145,
-    "sha256": "ab82a6b4be5aa65ac6aa130ecf4ef8ac6a4c8dc7bf473d760d59727bd8976d8d",
+    "bytes": 464161,
+    "sha256": "46f35fb49b8294a02d6f1ffd59367a2e9270cb6a45d748d426f1507144d180aa",
     "files": [
       "EnvironmentCopy.xcstrings"
     ]
   },
   "android": {
     "file": "environment-copy-android.zip",
-    "bytes": 243131,
-    "sha256": "4882119260fc839ddab9043ae224bfece7f5f8c384e77b73902e0acced5bd04f",
+    "bytes": 330125,
+    "sha256": "2144c2f05f2275ecf1e0a3842f016db5334cae5dfb3bf5748ff5150754f93f7c",
     "files": [
       "res/values-b+zh+Hans/environment_copy.xml",
       "res/values-b+zh+Hant/environment_copy.xml",
@@ -60,8 +61,8 @@
   },
   "web": {
     "file": "environment-copy-web.zip",
-    "bytes": 544073,
-    "sha256": "4ec039ae33cabec712f7a9155d529a126af4d903752a9ba31e38f8c4ed759b6c",
+    "bytes": 743672,
+    "sha256": "6abe8cb1fe9f6bce78f1cb6d2f6b117fa629d9f1418cacdcc75371471cdd5137",
     "files": [
       "en.json",
       "environment-copy.d.ts",
@@ -74,8 +75,8 @@
   },
   "lvgl": {
     "file": "environment-copy-lvgl.zip",
-    "bytes": 194554,
-    "sha256": "81fcd230b9de0cec59768755c437c769f706846674e4cb4dc33210387ded1b95",
+    "bytes": 257926,
+    "sha256": "dee324e5da4ca04fc8599940a3b6eeeea7aa5f79433bc35d5324d0dfef3ac93a",
     "files": [
       "air_quality_rating.h",
       "environment_text.c",
@@ -85,6 +86,7 @@
       "fonts/ja.txt",
       "fonts/zh-Hans.txt",
       "fonts/zh-Hant.txt",
+      "outdoor_index_rating.h",
       "pollen_rating.h",
       "sound_light_rating.h",
       "thermal_comfort.h",

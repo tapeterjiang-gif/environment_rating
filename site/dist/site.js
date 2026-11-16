@@ -1,6 +1,6 @@
 const legacyIndicatorHashes = new Set([
   "thermal", "air", "sound-light", "outdoor",
-  "pollen", "uv-index", "o3", "co", "so2"
+  "pollen", "uv-index", "o3", "co", "so2", "no2", "outdoor-index"
 ]);
 const guidePath = window.location.pathname;
 const oldHash = window.location.hash.slice(1);

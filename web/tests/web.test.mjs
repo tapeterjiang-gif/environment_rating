@@ -372,3 +372,72 @@ test("outdoor gas boundary transitions preserve all six grades", () => {
     });
   }
 });
+
+test("external indices preserve native AQI, EEA and five-grade PSI schemes", async () => {
+  const { OutdoorIndexStandard: S, OutdoorIndexGrade: G } = await import('../dist/index.js');
+  for (const standard of [S.hj6332026, S.epaAQI2026]) {
+    for (const [value,grade] of [[0,G.grade1],[50,G.grade1],[51,G.grade2],[100,G.grade2],[101,G.grade3],[150,G.grade3],[151,G.grade4],[200,G.grade4],[201,G.grade5],[300,G.grade5],[301,G.grade6],[500,G.grade6],[501,G.unknown]]) {
+      assert.equal(rating.outdoorIndex.rate(value,standard),grade);
+    }
+  }
+  for (const [value,grade] of [[0,G.grade1],[50,G.grade1],[51,G.grade2],[100,G.grade2],[101,G.grade3],[200,G.grade3],[201,G.grade4],[300,G.grade4],[301,G.grade5],[501,G.grade5]]) {
+    assert.equal(rating.outdoorIndex.rate(value,S.neaPSI),grade);
+  }
+  const grades = [G.grade1,G.grade2,G.grade3,G.grade4,G.grade5,G.grade6];
+  grades.forEach((g,i)=>assert.equal(rating.outdoorIndex.rate(i+1,S.eea2024),g));
+  for (const value of [0,7,50]) assert.equal(rating.outdoorIndex.rate(value,S.eea2024),G.unknown);
+  for (const standard of Object.values(S)) {
+    for (const value of [undefined,null,'50',{},false,-1,NaN,Infinity,-Infinity,50.5]) {
+      assert.equal(rating.outdoorIndex.rate(value,standard),G.unknown);
+    }
+  }
+  assert.equal(rating.outdoorIndex.rate(50,'invalid'),G.unknown);
+});
+
+test("NO2 uses native hourly/daily units and invalid-input rules",()=>{
+  const grades=[AirQuality.good,AirQuality.fair,AirQuality.moderate,AirQuality.poor,AirQuality.veryPoor,AirQuality.extremelyPoor];
+  for (const [method,bounds] of [['no2Eea',[10,25,60,100,150]],['no2HjHourly',[100.5,200.5,700.5,1200.5,2340.5]],['no2HjDaily',[40.5,80.5,180.5,280.5,565.5]],['no2Epa',[54,101,361,650,1250]]]) {
+    bounds.forEach((b,i)=>{
+      assert.equal(rating.air[method](b-1e-8),grades[i]);
+      assert.equal(rating.air[method](b+1e-8),grades[i+1]);
+    });
+    assert.equal(rating.air[method](0),AirQuality.good);
+    for(const invalid of [null,undefined,'10',false,{},NaN,Infinity,-Infinity,-1]) assert.equal(rating.air[method](invalid),AirQuality.unknown);
+  }
+  assert.equal(rating.air.no2HjDaily(565.5),AirQuality.extremelyPoor);
+  assert.equal(rating.air.no2HjHourly(100.5),AirQuality.good);
+  assert.equal(rating.air.no2Epa(54),AirQuality.fair);
+});
+
+test("NO2 identity, icons and all rating color roles are available", async()=>{
+  assert.deepEqual(rating.colors.parameter(EnvironmentParameter.no2),{primary:'#B4533C',background:'#F8EAE5'});
+  const icon=materialIcon(EnvironmentParameter.no2);
+  assert.equal(icon.name,'directions_car');
+  assert.match(await readFile(new URL(icon.svgUrl),'utf8'),/^<svg/);
+  for(const parameter of [EnvironmentParameter.no2,EnvironmentParameter.o3,EnvironmentParameter.co,EnvironmentParameter.so2]) {
+    for(const quality of Object.values(AirQuality)) assert.deepEqual(rating.colors.air(parameter,quality),rating.colors.air(EnvironmentParameter.pm25,quality));
+  }
+  assert.equal(rating.colors.air(EnvironmentParameter.no2,'invalid'),null);
+});
+
+test("external index colors follow scheme meanings rather than ordinal equality",async()=>{
+  const {OutdoorIndexStandard:S,OutdoorIndexGrade:G}=await import('../dist/index.js');
+  const grades=[G.grade1,G.grade2,G.grade3,G.grade4,G.grade5,G.grade6];
+  const native=[AirQuality.good,AirQuality.moderate,AirQuality.poor,AirQuality.veryPoor,AirQuality.extremelyPoor];
+  const eea=[AirQuality.good,AirQuality.fair,AirQuality.moderate,AirQuality.poor,AirQuality.veryPoor,AirQuality.extremelyPoor];
+  grades.forEach((g,i)=>{
+    assert.deepEqual(rating.colors.index(S.eea2024,g),rating.colors.air(EnvironmentParameter.pm25,eea[i]));
+    assert.deepEqual(rating.colors.index(S.hj6332026,g),rating.colors.index(S.epaAQI2026,g));
+    if(i<5)assert.deepEqual(rating.colors.index(S.epaAQI2026,g),rating.colors.air(EnvironmentParameter.pm25,native[i]));
+    if(i<4)assert.deepEqual(rating.colors.index(S.neaPSI,g),rating.colors.index(S.epaAQI2026,g));
+  });
+  const maroon={primary:'#9F1239',background:'#FFE4E6',graphic:'#FB7185',text:'#881337'};
+  assert.deepEqual(rating.colors.index(S.neaPSI,G.grade5),maroon);
+  assert.deepEqual(rating.colors.index(S.epaAQI2026,G.grade6),maroon);
+  for(const s of Object.values(S)) {
+    assert.deepEqual(rating.colors.index(s,G.unknown),rating.colors.air(EnvironmentParameter.pm25,AirQuality.unknown));
+    assert.equal(rating.colors.index(s,'invalid'),null);
+  }
+  assert.equal(rating.colors.index(S.neaPSI,G.grade6),null);
+  assert.equal(rating.colors.index('invalid',G.unknown),null);
+});
