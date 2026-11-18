@@ -188,21 +188,16 @@ env_rgb_t env_color_index(outdoor_index_std_t standard,
     static const palette_t maroon = PALETTE(9F1239, FFE4E6, FB7185, 881337);
     const palette_t *palette;
     if (standard != OUTDOOR_INDEX_HJ_633_2026 &&
-        standard != OUTDOOR_INDEX_EPA_AQI_2026 &&
-        standard != OUTDOOR_INDEX_EEA_2024 &&
-        standard != OUTDOOR_INDEX_NEA_PSI)
+        standard != OUTDOOR_INDEX_EPA_AQI_2026)
         return ENV_RGB_INVALID;
-    if ((int)grade < 0 || (int)grade > 6 ||
-        (standard == OUTDOOR_INDEX_NEA_PSI && grade == OUTDOOR_INDEX_GRADE_6))
+    if ((int)grade < 0 || (int)grade > 6)
         return ENV_RGB_INVALID;
     if (grade == OUTDOOR_INDEX_UNKNOWN) palette = &unknown_palette;
-    else if (standard == OUTDOOR_INDEX_EEA_2024)
-        palette = &air_palettes[(int)grade];
     else if (grade == OUTDOOR_INDEX_GRADE_1) palette = &air_palettes[AIR_GOOD];
     else if (grade == OUTDOOR_INDEX_GRADE_2) palette = &air_palettes[AIR_MODERATE];
     else if (grade == OUTDOOR_INDEX_GRADE_3) palette = &air_palettes[AIR_POOR];
     else if (grade == OUTDOOR_INDEX_GRADE_4) palette = &air_palettes[AIR_VERY_POOR];
-    else if (standard == OUTDOOR_INDEX_NEA_PSI || grade == OUTDOOR_INDEX_GRADE_6)
+    else if (grade == OUTDOOR_INDEX_GRADE_6)
         palette = &maroon;
     else palette = &air_palettes[AIR_EXTREMELY_POOR];
     return palette_color(palette, role);

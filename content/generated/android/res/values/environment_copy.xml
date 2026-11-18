@@ -88,30 +88,6 @@
   <string name="env_co_rating_very_poor_detail" formatted="false">At this reading, the concentration is very high. Limit time in the affected area and check local guidance or investigate sources.</string>
   <string name="env_co_rating_very_poor_label" formatted="false">Very poor</string>
   <string name="env_co_rating_very_poor_summary" formatted="false">At this reading, the concentration is very high.</string>
-  <string name="env_eea_index_advice" formatted="false">Check the source, location and update time, and follow local activity advisories. Equal numbers across schemes do not indicate equal air conditions.</string>
-  <string name="env_eea_index_description" formatted="false">Accepts an external native EEA category. Values 1–6 are API category codes, not an official European numeric AQI scale.</string>
-  <string name="env_eea_index_name" formatted="false">European Air Quality Index · EEA</string>
-  <string name="env_eea_index_rating_grade_1_detail" formatted="false">The current external data indicate “Good”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_eea_index_rating_grade_1_label" formatted="false">Good</string>
-  <string name="env_eea_index_rating_grade_1_summary" formatted="false">The current external data indicate “Good”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_eea_index_rating_grade_2_detail" formatted="false">The current external data indicate “Fair”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_eea_index_rating_grade_2_label" formatted="false">Fair</string>
-  <string name="env_eea_index_rating_grade_2_summary" formatted="false">The current external data indicate “Fair”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_eea_index_rating_grade_3_detail" formatted="false">The current external data indicate “Moderate”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_eea_index_rating_grade_3_label" formatted="false">Moderate</string>
-  <string name="env_eea_index_rating_grade_3_summary" formatted="false">The current external data indicate “Moderate”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_eea_index_rating_grade_4_detail" formatted="false">The current external data indicate “Poor”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_eea_index_rating_grade_4_label" formatted="false">Poor</string>
-  <string name="env_eea_index_rating_grade_4_summary" formatted="false">The current external data indicate “Poor”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_eea_index_rating_grade_5_detail" formatted="false">The current external data indicate “Very Poor”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_eea_index_rating_grade_5_label" formatted="false">Very Poor</string>
-  <string name="env_eea_index_rating_grade_5_summary" formatted="false">The current external data indicate “Very Poor”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_eea_index_rating_grade_6_detail" formatted="false">The current external data indicate “Extremely Poor”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_eea_index_rating_grade_6_label" formatted="false">Extremely Poor</string>
-  <string name="env_eea_index_rating_grade_6_summary" formatted="false">The current external data indicate “Extremely Poor”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_eea_index_rating_unknown_detail" formatted="false">No valid external index or category is available for this scheme. Check the source, supported range and update time.</string>
-  <string name="env_eea_index_rating_unknown_label" formatted="false">Unknown</string>
-  <string name="env_eea_index_rating_unknown_summary" formatted="false">No valid external index or category is available for this scheme. Check the source, supported range and update time.</string>
   <string name="env_hcho_advice" formatted="false">New furniture or renovation materials may keep releasing formaldehyde. If elevated, look for sources and ventilate when outdoor air is suitable. Persistent readings may warrant professional testing. No noticeable smell does not prove levels have fallen.</string>
   <string name="env_hcho_description" formatted="false">Formaldehyde is a gas that may be released by panels, furniture, and other materials. Read concentrations over the averaging period required by the selected reference. If elevated, check emission sources and ventilate when outdoor conditions allow.</string>
   <string name="env_hcho_name" formatted="false">Formaldehyde (HCHO)</string>
@@ -340,27 +316,6 @@
   <string name="env_pollen_rating_very_high_detail" formatted="false">At this reading, pollen load is extreme. Sensitive people should consider protection. If sensitive to this pollen type, reduce unnecessary exposure and use local forecasts to plan outings and ventilation.</string>
   <string name="env_pollen_rating_very_high_label" formatted="false">Extreme</string>
   <string name="env_pollen_rating_very_high_summary" formatted="false">At this reading, pollen load is extreme. If sensitive to this pollen type, reduce unnecessary exposure and use local forecasts to plan outings and ventilation.</string>
-  <string name="env_psi_advice" formatted="false">Check the source, location and update time, and follow local activity advisories. Equal numbers across schemes do not indicate equal air conditions.</string>
-  <string name="env_psi_description" formatted="false">Accepts Singapore NEA’s 24-hour PSI, retaining its name and five native categories. PSI is distinct from a one-hour PM2.5 concentration.</string>
-  <string name="env_psi_name" formatted="false">Pollutant Standards Index · NEA</string>
-  <string name="env_psi_rating_grade_1_detail" formatted="false">The current external data indicate “Good”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_psi_rating_grade_1_label" formatted="false">Good</string>
-  <string name="env_psi_rating_grade_1_summary" formatted="false">The current external data indicate “Good”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_psi_rating_grade_2_detail" formatted="false">The current external data indicate “Moderate”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_psi_rating_grade_2_label" formatted="false">Moderate</string>
-  <string name="env_psi_rating_grade_2_summary" formatted="false">The current external data indicate “Moderate”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_psi_rating_grade_3_detail" formatted="false">The current external data indicate “Unhealthy”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_psi_rating_grade_3_label" formatted="false">Unhealthy</string>
-  <string name="env_psi_rating_grade_3_summary" formatted="false">The current external data indicate “Unhealthy”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_psi_rating_grade_4_detail" formatted="false">The current external data indicate “Very Unhealthy”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_psi_rating_grade_4_label" formatted="false">Very Unhealthy</string>
-  <string name="env_psi_rating_grade_4_summary" formatted="false">The current external data indicate “Very Unhealthy”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_psi_rating_grade_5_detail" formatted="false">The current external data indicate “Hazardous”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_psi_rating_grade_5_label" formatted="false">Hazardous</string>
-  <string name="env_psi_rating_grade_5_summary" formatted="false">The current external data indicate “Hazardous”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.</string>
-  <string name="env_psi_rating_unknown_detail" formatted="false">No valid external index or category is available for this scheme. Check the source, supported range and update time.</string>
-  <string name="env_psi_rating_unknown_label" formatted="false">Unknown</string>
-  <string name="env_psi_rating_unknown_summary" formatted="false">No valid external index or category is available for this scheme. Check the source, supported range and update time.</string>
   <string name="env_so2_advice" formatted="false">When outdoor SO₂ is high, spend less time in affected places and move outdoor activities to a cleaner-air period. Consider outdoor readings before ventilating; opening windows may not help when levels are high.</string>
   <string name="env_so2_description" formatted="false">Sulfur dioxide is mainly associated with sulfur-containing fuel combustion and some industrial emissions, and can affect breathing. Interpret readings over the selected reference’s averaging period. At elevated levels, follow local guidance to reduce exposure.</string>
   <string name="env_so2_name" formatted="false">Sulfur dioxide SO₂</string>
@@ -427,10 +382,6 @@
   <string name="env_standard_nab_pollen_name" formatted="false">NAB pollen levels</string>
   <string name="env_standard_nab_pollen_organization" formatted="false">U.S. National Allergy Bureau (NAB)</string>
   <string name="env_standard_nab_pollen_organization_1" formatted="false">U.S. National Allergy Bureau (NAB)</string>
-  <string name="env_standard_nea_psi_description" formatted="false">Singapore’s National Environment Agency reports 24-hour PSI with five native categories. The project classifies external PSI values while retaining the PSI name; it is not US AQI or a one-hour PM2.5 concentration.</string>
-  <string name="env_standard_nea_psi_name" formatted="false">NEA Pollutant Standards Index (PSI)</string>
-  <string name="env_standard_nea_psi_organization" formatted="false">National Environment Agency (NEA)</string>
-  <string name="env_standard_nea_psi_organization_1" formatted="false">National Environment Agency (NEA)</string>
   <string name="env_standard_oehha_hcho_2008_description" formatted="false">California OEHHA’s reference exposure levels support health risk assessment. Its one-hour acute formaldehyde reference is 0.055 mg/m³. The project offers this option with six product-defined bands. It is a California health reference, not a nationwide US legal limit.</string>
   <string name="env_standard_oehha_hcho_2008_name" formatted="false">California OEHHA 2008</string>
   <string name="env_standard_oehha_hcho_2008_organization" formatted="false">California Office of Environmental Health Hazard Assessment (OEHHA)</string>

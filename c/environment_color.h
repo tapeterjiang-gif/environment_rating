@@ -75,10 +75,9 @@ env_rgb_t env_color_parameter(env_parameter_t parameter,
 env_rgb_t env_color_air(env_parameter_t parameter,
                         air_quality_t quality,
                         env_color_role_t role);
-/* External index colors require the scheme AND its native grade ordinal.
- * EEA uses its six-band pollutant palette; HJ/EPA use green, yellow, orange,
- * red, purple, maroon. NEA uses green, yellow, orange, red, maroon (five).
- * Unknown is gray; NEA grade 6, invalid schemes/grades/roles are invalid.
+/* External HJ/EPA AQI colors require the scheme and native grade ordinal.
+ * Six grades: green, yellow, orange, red, purple, maroon; Unknown is gray.
+ * Invalid schemes/grades/roles return ENV_RGB_INVALID.
  * Product UI palettes, not official scheme color specifications. */
 env_rgb_t env_color_index(outdoor_index_std_t standard,
                           outdoor_index_grade_t grade,
@@ -93,7 +92,7 @@ env_rgb_t env_color_illuminance(illuminance_level_t level,
                                 env_color_role_t role);
 
 /* Pure, reentrant C99 lookups with no initialization or allocation. The
- * palettes are product UI rules documented in COLOR_STANDARD.md; they are not
+ * palettes are product UI rules documented in docs/COLOR_STANDARD.md; they are not
  * colors prescribed by Matter or the referenced environmental standards.
  */
 

@@ -36,17 +36,16 @@ export const UVIndexRating = {
     unknown: "unknown", low: "low", moderate: "moderate",
     high: "high", veryHigh: "very-high", extreme: "extreme"
 };
-/** Native published schemes; keep NEA's PSI name in the UI. */
+/** Supported external numeric AQI schemes. */
 export const OutdoorIndexStandard = {
-    hj6332026: "hj-633-2026", epaAQI2026: "epa-aqi-2026",
-    eea2024: "eea-2024", neaPSI: "nea-psi"
+    hj6332026: "hj-633-2026", epaAQI2026: "epa-aqi-2026"
 };
-/** Ordinal in the selected scheme. NEA has only five grades. */
+/** Six native grade ordinals within the selected AQI scheme. */
 export const OutdoorIndexGrade = {
     unknown: "unknown", grade1: "grade-1", grade2: "grade-2", grade3: "grade-3",
     grade4: "grade-4", grade5: "grade-5", grade6: "grade-6"
 };
-const outdoorIndexStandards = [OutdoorIndexStandard.hj6332026, OutdoorIndexStandard.epaAQI2026, OutdoorIndexStandard.eea2024, OutdoorIndexStandard.neaPSI];
+const outdoorIndexStandards = [OutdoorIndexStandard.hj6332026, OutdoorIndexStandard.epaAQI2026];
 const outdoorIndexGrades = [OutdoorIndexGrade.unknown, OutdoorIndexGrade.grade1, OutdoorIndexGrade.grade2, OutdoorIndexGrade.grade3, OutdoorIndexGrade.grade4, OutdoorIndexGrade.grade5, OutdoorIndexGrade.grade6];
 export const PMStandard = {
     eeaAQI2024: "eea-aqi-2024",

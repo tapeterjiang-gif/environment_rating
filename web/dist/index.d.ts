@@ -60,15 +60,13 @@ export declare const UVIndexRating: {
     readonly extreme: "extreme";
 };
 export type UVIndexRating = typeof UVIndexRating[keyof typeof UVIndexRating];
-/** Native published schemes; keep NEA's PSI name in the UI. */
+/** Supported external numeric AQI schemes. */
 export declare const OutdoorIndexStandard: {
     readonly hj6332026: "hj-633-2026";
     readonly epaAQI2026: "epa-aqi-2026";
-    readonly eea2024: "eea-2024";
-    readonly neaPSI: "nea-psi";
 };
 export type OutdoorIndexStandard = typeof OutdoorIndexStandard[keyof typeof OutdoorIndexStandard];
-/** Ordinal in the selected scheme. NEA has only five grades. */
+/** Six native grade ordinals within the selected AQI scheme. */
 export declare const OutdoorIndexGrade: {
     readonly unknown: "unknown";
     readonly grade1: "grade-1";
@@ -80,9 +78,8 @@ export declare const OutdoorIndexGrade: {
 };
 export type OutdoorIndexGrade = typeof OutdoorIndexGrade[keyof typeof OutdoorIndexGrade];
 export interface OutdoorIndexApi {
-    /** External integer AQI 0..500, nonnegative integer PSI, or EEA grade 1..6.
-     * No concentration conversion or averaging. Invalid input returns unknown.
-     * EEA numbers encode native grades only; they are not numeric AQI values. */
+    /** External integer AQI 0..500. No concentration conversion or averaging.
+     * Invalid input returns unknown. */
     rate(value: number, standard: OutdoorIndexStandard): OutdoorIndexGrade;
 }
 export declare const PMStandard: {

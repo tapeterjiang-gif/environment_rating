@@ -17,10 +17,10 @@ let package = Package(
             name: "CEnvironmentRating",
             path: ".",
             sources: [
-                "air_quality_rating.c",
-                "thermal_comfort.c",
-                "sound_light_rating.c",
-                "environment_color.c"
+                "c/air_quality_rating.c",
+                "c/thermal_comfort.c",
+                "c/sound_light_rating.c",
+                "c/environment_color.c"
             ],
             publicHeadersPath: "apple/include"
         ),

@@ -88,30 +88,6 @@
   <string name="env_co_rating_very_poor_detail" formatted="false">目前濃度很高，盡量減少停留，並關注當地提示或進一步排查來源。</string>
   <string name="env_co_rating_very_poor_label" formatted="false">很差</string>
   <string name="env_co_rating_very_poor_summary" formatted="false">目前濃度很高，盡量減少停留，並關注當地提示或進一步排查來源。</string>
-  <string name="env_eea_index_advice" formatted="false">請參考資料來源、地點與更新時間理解目前結果，並遵循當地發布的活動建議；不同體系的相同數值不代表相同空氣狀況。</string>
-  <string name="env_eea_index_description" formatted="false">接收外部提供的 EEA 原生六檔。1–6 僅是介面對等級的編碼，不是歐洲官方的數值型 AQI。</string>
-  <string name="env_eea_index_name" formatted="false">歐洲空氣品質指數 · EEA</string>
-  <string name="env_eea_index_rating_grade_1_detail" formatted="false">目前外部資料對應「好」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_eea_index_rating_grade_1_label" formatted="false">好</string>
-  <string name="env_eea_index_rating_grade_1_summary" formatted="false">目前外部資料對應「好」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_eea_index_rating_grade_2_detail" formatted="false">目前外部資料對應「尚可」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_eea_index_rating_grade_2_label" formatted="false">尚可</string>
-  <string name="env_eea_index_rating_grade_2_summary" formatted="false">目前外部資料對應「尚可」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_eea_index_rating_grade_3_detail" formatted="false">目前外部資料對應「中等」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_eea_index_rating_grade_3_label" formatted="false">中等</string>
-  <string name="env_eea_index_rating_grade_3_summary" formatted="false">目前外部資料對應「中等」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_eea_index_rating_grade_4_detail" formatted="false">目前外部資料對應「差」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_eea_index_rating_grade_4_label" formatted="false">差</string>
-  <string name="env_eea_index_rating_grade_4_summary" formatted="false">目前外部資料對應「差」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_eea_index_rating_grade_5_detail" formatted="false">目前外部資料對應「很差」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_eea_index_rating_grade_5_label" formatted="false">很差</string>
-  <string name="env_eea_index_rating_grade_5_summary" formatted="false">目前外部資料對應「很差」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_eea_index_rating_grade_6_detail" formatted="false">目前外部資料對應「極差」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_eea_index_rating_grade_6_label" formatted="false">極差</string>
-  <string name="env_eea_index_rating_grade_6_summary" formatted="false">目前外部資料對應「極差」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_eea_index_rating_unknown_detail" formatted="false">目前沒有符合所選體系的有效指數或等級，請檢查資料來源、數值範圍與更新時間。</string>
-  <string name="env_eea_index_rating_unknown_label" formatted="false">未知</string>
-  <string name="env_eea_index_rating_unknown_summary" formatted="false">目前沒有符合所選體系的有效指數或等級，請檢查資料來源、數值範圍與更新時間。</string>
   <string name="env_hcho_advice" formatted="false">新家具或裝修材料可能持續釋放甲醛。讀數偏高時，先找來源，並在室外空氣合適時通風；如果持續偏高，可以安排專業檢測。只聞不到氣味，不能說明甲醛已經降低。</string>
   <string name="env_hcho_description" formatted="false">甲醛是可能由板材、家具等材料釋放的氣體。應依所選標準要求的平均時間觀察濃度；讀數較高時，優先排查釋放源，並在室外條件允許時通風。</string>
   <string name="env_hcho_name" formatted="false">甲醛 HCHO</string>
@@ -340,27 +316,6 @@
   <string name="env_pollen_rating_very_high_detail" formatted="false">目前讀數顯示：花粉負荷極高，敏感者應留意防護。對該類型花粉敏感時，盡量減少不必要的接觸，依當地預報調整出行與開窗安排。</string>
   <string name="env_pollen_rating_very_high_label" formatted="false">極高</string>
   <string name="env_pollen_rating_very_high_summary" formatted="false">目前讀數顯示：花粉負荷極高，敏感者應留意防護。對該類型花粉敏感時，盡量減少不必要的接觸，依當地預報調整出行與開窗安排。</string>
-  <string name="env_psi_advice" formatted="false">請參考資料來源、地點與更新時間理解目前結果，並遵循當地發布的活動建議；不同體系的相同數值不代表相同空氣狀況。</string>
-  <string name="env_psi_description" formatted="false">接收新加坡 NEA 的 24 小時 PSI，保留官方名稱與五檔。PSI 與 1 小時 PM2.5 濃度是不同指標。</string>
-  <string name="env_psi_name" formatted="false">污染物標準指數 PSI · NEA</string>
-  <string name="env_psi_rating_grade_1_detail" formatted="false">目前外部資料對應「良好」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_psi_rating_grade_1_label" formatted="false">良好</string>
-  <string name="env_psi_rating_grade_1_summary" formatted="false">目前外部資料對應「良好」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_psi_rating_grade_2_detail" formatted="false">目前外部資料對應「中等」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_psi_rating_grade_2_label" formatted="false">中等</string>
-  <string name="env_psi_rating_grade_2_summary" formatted="false">目前外部資料對應「中等」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_psi_rating_grade_3_detail" formatted="false">目前外部資料對應「不健康」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_psi_rating_grade_3_label" formatted="false">不健康</string>
-  <string name="env_psi_rating_grade_3_summary" formatted="false">目前外部資料對應「不健康」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_psi_rating_grade_4_detail" formatted="false">目前外部資料對應「非常不健康」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_psi_rating_grade_4_label" formatted="false">非常不健康</string>
-  <string name="env_psi_rating_grade_4_summary" formatted="false">目前外部資料對應「非常不健康」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_psi_rating_grade_5_detail" formatted="false">目前外部資料對應「危險」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_psi_rating_grade_5_label" formatted="false">危險</string>
-  <string name="env_psi_rating_grade_5_summary" formatted="false">目前外部資料對應「危險」。請參考當地提示與個人情況安排活動；這不是由本裝置現場讀數計算的結果。</string>
-  <string name="env_psi_rating_unknown_detail" formatted="false">目前沒有符合所選體系的有效指數或等級，請檢查資料來源、數值範圍與更新時間。</string>
-  <string name="env_psi_rating_unknown_label" formatted="false">未知</string>
-  <string name="env_psi_rating_unknown_summary" formatted="false">目前沒有符合所選體系的有效指數或等級，請檢查資料來源、數值範圍與更新時間。</string>
   <string name="env_so2_advice" formatted="false">室外 SO₂ 偏高時，可以少在污染較重的地方停留，把戶外活動改到空氣較好的時段。是否通風也要結合室外讀數，濃度高時不要盲目開窗。</string>
   <string name="env_so2_description" formatted="false">二氧化硫主要與含硫燃料燃燒及部分工業排放有關，也可能影響呼吸道。讀數應依所選標準的平均時間理解；濃度較高時，可結合當地提示減少相關暴露。</string>
   <string name="env_so2_name" formatted="false">二氧化硫 SO₂</string>
@@ -427,10 +382,6 @@
   <string name="env_standard_nab_pollen_name" formatted="false">NAB 花粉等級</string>
   <string name="env_standard_nab_pollen_organization" formatted="false">美國國家過敏局（NAB）</string>
   <string name="env_standard_nab_pollen_organization_1" formatted="false">美國國家過敏局（NAB）</string>
-  <string name="env_standard_nea_psi_description" formatted="false">新加坡國家環境局以 24 小時 PSI 和原生五檔提供空氣品質提示。本專案接收外部 PSI 並判斷等級，保留 PSI 名稱，不將它當作美國 AQI 或 1 小時 PM2.5 濃度。</string>
-  <string name="env_standard_nea_psi_name" formatted="false">NEA 污染物標準指數（PSI）</string>
-  <string name="env_standard_nea_psi_organization" formatted="false">新加坡國家環境局（NEA）</string>
-  <string name="env_standard_nea_psi_organization_1" formatted="false">新加坡國家環境局（NEA）</string>
   <string name="env_standard_oehha_hcho_2008_description" formatted="false">加州 OEHHA 的參考暴露水平用於評估空氣污染物的健康風險，甲醛的 1 小時急性參考值為 0.055 mg/m³。本專案提供此可選依據；它並非全美通用的法規限值，六檔提示也屬於產品映射。</string>
   <string name="env_standard_oehha_hcho_2008_name" formatted="false">加州 OEHHA 2008</string>
   <string name="env_standard_oehha_hcho_2008_organization" formatted="false">加利福尼亞州環境健康危害評估辦公室（OEHHA）</string>

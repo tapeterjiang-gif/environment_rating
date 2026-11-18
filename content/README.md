@@ -5,7 +5,7 @@
 - `zh-Hans.json` 等四个 JSON：人工维护的名称、说明、解读、分档标签、简短建议与完整建议。
 - `manifest.json`：指标分类、适用评级及对应的 **C 枚举符号和数值**。
 - `generated/`：自动生成的 iOS、Android、Web 和字库资源。
-- 根目录 `environment_text.h/.c`：自动生成的固件文案查询接口。
+- `c/environment_text.h/.c`：自动生成的固件文案查询接口。
 
 JSON 结构为 `metrics.co2.name / description / advice / ratings.moderate.label / summary / detail`。`description` 称为“说明”，展示于指标名称下方；`advice` 称为“解读”，展示于“分档提示”内的总述卡片；各档位后的 `summary` / `detail` 称为“建议”，分别用于简短与完整展示。小屏优先使用简短建议，详情界面显示说明、解读及完整建议。不要在运行时截断长段落来制作短文案。
 
@@ -48,7 +48,7 @@ env_co2_rating_moderate_detail
 
 ## 评级标准说明
 
-四个语言源文件的 `standards` 节点提供 17 套标准的 `name`（名称）、`description`（简介）、`organization`（发布组织）。稳定 ID 与出处、组织官网链接见 `manifest.json` 的 `standards`。
+四个语言源文件的 `standards` 节点提供 16 套标准的 `name`（名称）、`description`（简介）、`organization`（发布组织）。稳定 ID 与出处、组织官网链接见 `manifest.json` 的 `standards`。
 
 各平台的文本键为 `env_standard_who_uv_index_name`、`env_standard_who_uv_index_description`、`env_standard_who_uv_index_organization`。多组织标准还生成带序号的 `organization_1`、`organization_2`，便于分别展示官网链接。Web 可调用 `getStandard('zh-Hans', 'who_uv_index')` 取得三项文字；固件可用 `env_text_get()` 查询相同键。
 
@@ -94,7 +94,7 @@ const name = getText('zh-Hans', 'env_co2_name');
 
 ## 固件 / LVGL
 
-将根目录 `environment_text.c` 加入工程源码；它依赖本项目各评级头文件做枚举编译检查，不依赖 LVGL、不分配堆内存。CMake 工程可以链接 `environment_text` target；ESP-IDF 工程需要将该 `.c` 文件加入自己的组件 `SRCS`。
+将 `c/environment_text.c` 加入工程源码，并将 `c/` 加入头文件搜索路径；它依赖本项目各评级头文件做枚举编译检查，不依赖 LVGL、不分配堆内存。CMake 工程可以链接 `environment_text` target；ESP-IDF 工程需要将该 `.c` 文件加入自己的组件 `SRCS`。
 
 ```c
 #include "air_quality_rating.h"
@@ -120,4 +120,6 @@ if (text != NULL) {
 
 ## 外部指数文案
 
-外部 AQI/PSI/EEA 文案分别使用 `aqi_hj`、`aqi_epa`、`eea_index`、`psi`。传入 `outdoor_index_rate()` 返回的原生档序号查询文案，不能跨体系复用名称；PSI 只有五档。Web 的 `grade-3` 对应文案 ID `grade_3`。EEA 输入 1–6 是等级编码，不是数值 AQI。本库不从现场浓度重新计算综合指数，也不映射 Matter 等级。保留来源、地点与更新时间，并区分当前数据、日报与预报。
+外部 AQI 文案仅使用 `aqi_hj`（中国）和 `aqi_epa`（美国）。按 `outdoor_index_rate()` 返回的档序号查询，不跨体系复用名称。Web 的 `grade-3` 对应文案 ID `grade_3`。指数来自外部，不从现场浓度重新计算，也不映射 Matter。保留来源、地点、更新时间及当前值、日报或预报类型。
+
+完整资源包与 LVGL 下载包中的 C 文件位于 `c/`，将该目录加入头文件搜索路径。

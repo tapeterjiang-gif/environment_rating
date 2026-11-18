@@ -5,7 +5,7 @@
 - 四個語言 JSON：維護名稱、說明、解讀、分檔標籤、簡短建議與完整建議。
 - `manifest.json`：指標分類、適用評級及對應的 C 列舉符號與數值。
 - `generated/`：自動產生的 iOS、Android、Web 與字庫資源。
-- 根目錄 `environment_text.h/.c`：韌體文字查詢介面。
+- `c/environment_text.h/.c`：韌體文字查詢介面。
 
 資料結構為 `metrics.co2.name / description / advice / ratings.moderate.label / summary / detail`。`description` 稱為「說明」，顯示於指標名稱下方；`advice` 稱為「解讀」，顯示於「分檔提示」內的總述卡片；各檔位的 `summary` / `detail` 稱為「建議」，分別提供簡短與完整版本。小螢幕優先使用獨立編寫的簡短建議。不要在執行時截斷長段落來製作短文字。
 
@@ -94,7 +94,7 @@ const name = getText('zh-Hant', 'env_co2_name');
 
 ## 韌體 / LVGL
 
-將根目錄 `environment_text.c` 加入工程。它使用評級標頭進行列舉編譯檢查，不依賴 LVGL，也不配置堆積記憶體。CMake 可連結 `environment_text`；ESP-IDF 應將此 `.c` 加入元件的 `SRCS`。
+將 `c/environment_text.c` 加入工程，並將 `c/` 加入標頭搜尋路徑。它使用評級標頭進行列舉編譯檢查，不依賴 LVGL，也不配置堆積記憶體。CMake 可連結 `environment_text`；ESP-IDF 應將此 `.c` 加入元件的 `SRCS`。
 
 ```c
 #include "air_quality_rating.h"
@@ -118,4 +118,6 @@ if (text != NULL) {
 
 ## 外部指數文案
 
-外部 AQI/PSI/EEA 分別使用 `aqi_hj`、`aqi_epa`、`eea_index`、`psi`，須配合相同體系。以 `outdoor_index_rate()` 返回的原生檔序號查詢，PSI 只有五檔。Web 的 `grade-3` 對應文案 ID `grade_3`。EEA 的 1–6 是等級編碼，不是數值 AQI。指數來自外部，不依現場濃度重算，也不映射 Matter。請保留來源、地點、更新時間及目前、日報或預報的資料類型。
+外部 AQI 文案僅使用 `aqi_hj`（中國）與 `aqi_epa`（美國）。以 `outdoor_index_rate()` 的檔序號查詢，不跨體系套用名稱。Web 的 `grade-3` 對應文案 ID `grade_3`。指數來自外部，不依現場濃度重算，也不映射 Matter。保留來源、地點、更新時間及目前值、日報或預報類型。
+
+完整資源包與 LVGL ZIP 內的 C 檔案位於 `c/`，請將該目錄加入標頭搜尋路徑。

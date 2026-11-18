@@ -5,7 +5,7 @@ The `content/` directory is the single source for metric descriptions and rating
 - The four locale JSON files contain editable names, descriptions, interpretations, rating labels, short advice, and full advice.
 - `manifest.json` defines categories, available ratings, and their C enum symbols and numeric values.
 - `generated/` contains generated iOS, Android, Web, and font character resources.
-- Root-level `environment_text.h/.c` provides generated firmware lookup functions.
+- `c/environment_text.h/.c` provides generated firmware lookup functions.
 
 Fields follow `metrics.co2.name / description / advice / ratings.moderate.label / summary / detail`. Call `description` “Description” below the metric name, `advice` “Interpretation” in the general card inside the rating section, and rating `summary` / `detail` “Advice”. The latter provide short and full versions respectively; write the short version independently for small screens. Do not truncate a long paragraph to create a short message at runtime.
 
@@ -94,7 +94,7 @@ The module includes `.d.ts` declarations and returns read-only data. Invalid met
 
 ## Firmware / LVGL
 
-Compile root-level `environment_text.c` into your project. It uses the rating headers to check enum compatibility, has no LVGL dependency, and allocates no heap memory. CMake projects can link `environment_text`; ESP-IDF projects should add this `.c` file to their component's `SRCS`.
+Compile `c/environment_text.c` into your project and add `c/` to the header search path. It uses the rating headers to check enum compatibility, has no LVGL dependency, and allocates no heap memory. CMake projects can link `environment_text`; ESP-IDF projects should add this `.c` file to their component's `SRCS`.
 
 ```c
 #include "air_quality_rating.h"
@@ -118,4 +118,6 @@ Deliver the four source catalogs, mapping, and generated resources together. Nat
 
 ## External index copy
 
-Use metric IDs `aqi_hj`, `aqi_epa`, `eea_index` and `psi` with their matching schemes. Query copy using the native ordinal returned by `outdoor_index_rate()`; NEA has only five grades. The Web value `grade-3` maps to copy ID `grade_3`. EEA inputs 1–6 encode native categories, not a numeric AQI. Indices are external data, not computed from local concentrations or mapped to Matter. Retain source, location, update time and current/daily/forecast context.
+External AQI copy uses only `aqi_hj` (China) and `aqi_epa` (US). Query the ordinal returned by `outdoor_index_rate()` using the matching scheme. Web `grade-3` maps to copy ID `grade_3`. Indices come from external providers; no local concentration-to-index calculation or Matter mapping occurs. Retain source, location, update time and current/daily/forecast context.
+
+C files in the complete and LVGL ZIP packages are under `c/`; add that directory to your header search path.

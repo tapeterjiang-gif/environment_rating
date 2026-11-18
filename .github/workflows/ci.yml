@@ -121,7 +121,7 @@ jobs:
         working-directory: web
         run: npm run test:browser
       - name: Test environment guide pages
-        run: node site/check.mjs
+        run: node scripts/check-site.mjs
       - name: Check npm package contents
         working-directory: web
         run: npm pack --dry-run --ignore-scripts

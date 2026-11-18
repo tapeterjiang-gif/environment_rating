@@ -21,7 +21,7 @@ function entries(zip){
   assert.equal(zip.readUInt16LE(zip.length-12),files.size);
   return files;
 }
-const required={all:'content/zh-Hans.json',ios:'EnvironmentCopy.xcstrings',android:'res/values/environment_copy.xml',web:'environment-copy.mjs',lvgl:'environment_text.c'};
+const required={all:'content/zh-Hans.json',ios:'EnvironmentCopy.xcstrings',android:'res/values/environment_copy.xml',web:'environment-copy.mjs',lvgl:'c/environment_text.c'};
 for(const [id,item] of Object.entries(index))test(`${id}: ZIP matches every current source file and its download metadata`,async()=>{
   const zip=await read('site/dist/downloads/'+item.file);
   assert.equal(zip.length,item.bytes);

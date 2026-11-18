@@ -11,12 +11,41 @@
 
 | 模块 | 文件 |
 | --- | --- |
-| 热舒适度 | [thermal_comfort.h](thermal_comfort.h) / [thermal_comfort.c](thermal_comfort.c) |
-| 空气质量 | [air_quality_rating.h](air_quality_rating.h) / [air_quality_rating.c](air_quality_rating.c) |
-| 室外花粉 | [pollen_rating.h](pollen_rating.h) / [pollen_rating.c](pollen_rating.c) |
-| 紫外线指数 | [uv_index_rating.h](uv_index_rating.h) / [uv_index_rating.c](uv_index_rating.c) |
-| 声光 | [sound_light_rating.h](sound_light_rating.h) / [sound_light_rating.c](sound_light_rating.c) |
-| 界面颜色 | [environment_color.h](environment_color.h) / [environment_color.c](environment_color.c) |
+| 热舒适度 | [thermal_comfort.h](c/thermal_comfort.h) / [thermal_comfort.c](c/thermal_comfort.c) |
+| 空气质量 | [air_quality_rating.h](c/air_quality_rating.h) / [air_quality_rating.c](c/air_quality_rating.c) |
+| 室外花粉 | [pollen_rating.h](c/pollen_rating.h) / [pollen_rating.c](c/pollen_rating.c) |
+| 紫外线指数 | [uv_index_rating.h](c/uv_index_rating.h) / [uv_index_rating.c](c/uv_index_rating.c) |
+| 声光 | [sound_light_rating.h](c/sound_light_rating.h) / [sound_light_rating.c](c/sound_light_rating.c) |
+| 界面颜色 | [environment_color.h](c/environment_color.h) / [environment_color.c](c/environment_color.c) |
+
+### 项目目录
+
+| 位置 | 用途 |
+|---|---|
+| `c/`、根目录 `CMakeLists.txt` | 公共 C 算法、颜色与文案接口；根目录保留 CMake 构建入口 |
+| `docs/` | 评级标准表和颜色说明；项目入口与接入说明在本 README |
+| `assets/` | 图标与文档色样原文件，包含来源及许可证 |
+| `content/` | 四语言文案源、评级映射和文案接入说明 |
+| `content/generated/` | 从文案源生成的各平台资源，勿直接编辑 |
+| `scripts/` | 文案生成、下载打包、网页生成、资源版本和网页检查 |
+| `tests/` | 公共 C/C++ 与跨平台资源测试 |
+| `apple/`、`android/` | 原生平台封装及各自测试 |
+| `web/` | TypeScript/WebAssembly 接入库；`src/` 是源码，`dist/` 是发布产物 |
+| `site/` | 网站说明；`dist/` 是 GitHub Pages 静态发布目录 |
+| `.github/workflows/` | 构建、检查及网页部署 |
+
+`site/dist/downloads/` 是网页下载包，`content/generated/` 是可直接集成的文案资源，两者用途不同。图标原文件在 `assets/icons/material/`；网站和 Web 包内的副本用于独立发布，不应仅因内容相同而删除。
+
+文案更新后依次运行：
+
+```sh
+node scripts/generate-copy.mjs
+node scripts/package-copy.mjs
+node scripts/generate-developer-page.mjs
+node scripts/version-site-assets.mjs
+```
+
+网页检查运行 `node scripts/check-site.mjs`。Web 库通过 `npm run build --prefix web` 生成；构建依赖、临时目录均由 `.gitignore` 排除，发布产物仍需保留。
 
 ### 相关文档
 
@@ -27,8 +56,8 @@
 | [设计参考网页](site/dist/design.html) | 图标资源、颜色值和各等级的建议说明文案 |
 | [开发参考网页](site/dist/developer.html) | 文案资源结构、生成流程与 iOS / Android / Web / LVGL 接入说明 |
 | [跨平台文案资源](content/README.md) | 四语言 JSON 文案源、iOS / Android / Web / LVGL 资源与接入示例 |
-| [环境评级标准](rating.md) | 热舒适度、空气质量、声光和室外环境的评级依据与分级表 |
-| [环境指标颜色说明](COLOR_STANDARD.md) | 参数识别色、等级状态色、实际色样和可访问性规则 |
+| [环境评级标准](docs/rating.md) | 热舒适度、空气质量、声光和室外环境的评级依据与分级表 |
+| [环境指标颜色说明](docs/COLOR_STANDARD.md) | 参数识别色、等级状态色、实际色样和可访问性规则 |
 | [Android 使用指南](android/README.md) | Android AAR、Kotlin/Java、JNI 与 NDK/CMake 接入方法 |
 | [Web 使用指南](web/README.md) | 浏览器、Web Worker 和 Node.js 的 Wasm/TypeScript 接入方法 |
 
@@ -121,7 +150,7 @@ cd android
 
 ### 平台集成
 
-按需将上表中模块的 `.c` 文件加入工程，把根目录加入头文件搜索路径，包含对应 `.h` 即可调用。接口和参数说明以头文件注释为准。
+按需将上表中模块的 `.c` 文件加入工程，把 `c/` 加入头文件搜索路径，包含对应 `.h` 即可调用。接口和参数说明以头文件注释为准。
 
 - **ESP-IDF**：将项目放入 `components/environment_rating`，在调用组件中添加 `REQUIRES environment_rating`，会编译全部评级模块和颜色模块。
 - **Linux**：使用本项目 CMake，按需链接 `air_quality_rating`、`thermal_comfort`、`sound_light_rating`、`pollen_rating`、`uv_index_rating`、`environment_color`；也可直接编译所需源文件，使用数学函数的模块需链接 `-lm`。只构建库可设置 `-DBUILD_TESTING=OFF`，无需 C++ 编译器。
@@ -236,7 +265,7 @@ env_rgb_t graphic = env_color_air(ENV_PARAM_PM25, quality,
                                   ENV_COLOR_GRAPHIC);
 ```
 
-颜色函数只读取评级枚举，不再次接收评级标准或原始测量值，因此不会重复评级阈值。空气质量颜色只支持 CO₂、PM2.5、PM10 和甲醛的单项 `air_quality_t`；不提供整体空气质量、tVOC 或 Matter `LevelValue` 的颜色。tVOC 仍可调用 `env_color_parameter()` 取得参数识别色。完整色值与使用方式见 [环境指标颜色说明](COLOR_STANDARD.md)。
+颜色函数只读取评级枚举，不再次接收评级标准或原始测量值，因此不会重复评级阈值。空气质量颜色只支持 CO₂、PM2.5、PM10 和甲醛的单项 `air_quality_t`；不提供整体空气质量、tVOC 或 Matter `LevelValue` 的颜色。tVOC 仍可调用 `env_color_parameter()` 取得参数识别色。完整色值与使用方式见 [环境指标颜色说明](docs/COLOR_STANDARD.md)。
 
 ## 1. 热舒适度
 
@@ -246,7 +275,7 @@ env_rgb_t graphic = env_color_air(ENV_PARAM_PM25, quality,
 
 ### 1.1 使用方式
 
-接口见 [thermal_comfort.h](thermal_comfort.h)。先计算 PMV，再由 PMV 得到 PPD 和冷热提示；湿度可独立评级。以下示例假设辐射温度等于气温、相对风速 0.1 m/s、活动强度 1.1 met、衣着热阻 0.7 clo，作为不区分季节时的全年估计，结果应标为“估算”。
+接口见 [thermal_comfort.h](c/thermal_comfort.h)。先计算 PMV，再由 PMV 得到 PPD 和冷热提示；湿度可独立评级。以下示例假设辐射温度等于气温、相对风速 0.1 m/s、活动强度 1.1 met、衣着热阻 0.7 clo，作为不区分季节时的全年估计，结果应标为“估算”。
 
 ```c
 /* 包含 thermal_comfort.h 后，在函数内调用。 */
@@ -559,7 +588,7 @@ Air Quality Cluster 启用 FAIR、MOD、VPOOR、XPOOR 四个特性（`FeatureMap
 | PM10 | `air_level_pm10(pm_std, pm10)` | LevelIndication、MediumLevel、CriticalLevel |
 | 甲醛 | `air_level_hcho(hcho_std, hcho)` | LevelIndication、MediumLevel、CriticalLevel |
 
-将函数返回值写入对应浓度 Cluster 的 `LevelValue`（`0x000A`）。单项与整体计算使用同一份有效数据和相同标准；`air_level_t` 与 `air_quality_t` 是不同枚举，不可混用。LevelValue 的分档映射与接口说明见 [air_quality_rating.h](air_quality_rating.h)。
+将函数返回值写入对应浓度 Cluster 的 `LevelValue`（`0x000A`）。单项与整体计算使用同一份有效数据和相同标准；`air_level_t` 与 `air_quality_t` 是不同枚举，不可混用。LevelValue 的分档映射与接口说明见 [air_quality_rating.h](c/air_quality_rating.h)。
 
 来源：[Matter 1.6 Air Quality 数据模型](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/clusters/AirQuality.xml)、[浓度测量数据模型](https://github.com/project-chip/connectedhomeip/blob/master/data_model/1.6/clusters/ConcentrationMeasurement.xml)。
 
@@ -567,7 +596,7 @@ Air Quality Cluster 启用 FAIR、MOD、VPOOR、XPOOR 四个特性（`FeatureMap
 
 ### 3.1 噪声
 
-根目录 `sound_light_rating.h/.c` 包含噪声提示与照度活动参考，两者独立评价。噪声只参考 WHO《社区噪声指南》（1999），无需标准参数，不生成声光综合等级。
+`c/sound_light_rating.h/.c` 包含噪声提示与照度活动参考，两者独立评价。噪声只参考 WHO《社区噪声指南》（1999），无需标准参数，不生成声光综合等级。
 
 接口：`noise_level_t noise_rate(noise_scene_t scene, double noise)`。
 
@@ -620,7 +649,7 @@ IES 照度目标通常是指定任务面上的维持照度，并可能分别规�
 
 ## 4. 室外环境
 
-室外 O₃、CO、SO₂、花粉和紫外线指数分别评级，不合并成室外整体等级。另可接收外部已发布的 AQI、PSI 或 EEA 原生等级，见 4.6。花粉与紫外线指数使用独立模块；室外污染物的 C 接口仍位于 `air_quality_rating.h/.c`。
+室外 O₃、CO、SO₂、花粉和紫外线指数分别评级，不合并成室外整体等级。另可接收外部已发布的中国或美国 AQI，见 4.6。花粉与紫外线指数使用独立模块；室外污染物的 C 接口仍位于 `air_quality_rating.h/.c`。
 
 ### 4.1 室外 O₃ 单项评级
 
@@ -737,38 +766,36 @@ uv_index_rating_t level = uv_index_rate(7.5); /* UV_INDEX_VERY_HIGH */
 
 来源：[WHO《全球太阳紫外线指数：实用指南》，第 6 页](https://iris.who.int/bitstream/handle/10665/42459/9241590076.pdf#page=6)、[WHO 紫外线指数说明](https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-%28uv%29-index/)。
 
-### 4.6 外部空气质量指数：AQI、PSI 与 EEA
+### 4.6 外部空气质量指数：AQI
 
-新增 `outdoor_index_rating.h/.c`，只接收外部发布的指数或原生等级，不从设备的污染物浓度重新计算综合指数。调用方负责确认数据源、体系、地点、更新时间及数据时段，并区分当前值、日报和预报；已有室内综合评级与污染物接口不变。
+`outdoor_index_rating.h/.c` 只接收外部按中国 HJ 633—2026 或美国 EPA AQI 发布的整数指数，不从设备污染物浓度重新计算综合指数。调用方负责确认来源、地点、更新时间和时段，并区分当前值、日报与预报。
 
-| 体系 | 输入 | 第 1–6 档的原生名称 |
+| AQI 数值 | HJ 633—2026 | US EPA AQI（2026 指南） |
 |---|---|---|
-| HJ 633—2026 | 整数 AQI 0–500 | 优、良、轻度污染、中度污染、重度污染、严重污染 |
-| US EPA AQI（2026 指南） | 整数 AQI 0–500 | Good、Moderate、Unhealthy for Sensitive Groups、Unhealthy、Very Unhealthy、Hazardous |
-| EEA（2024 分档） | 外部原生等级编码 1–6 | Good、Fair、Moderate、Poor、Very Poor、Extremely Poor |
-| NEA PSI | 非负整数 24 小时 PSI | Good、Moderate、Unhealthy、Very Unhealthy、Hazardous（只有五档） |
+| 0–50 | 优 | Good |
+| 51–100 | 良 | Moderate |
+| 101–150 | 轻度污染 | Unhealthy for Sensitive Groups |
+| 151–200 | 中度污染 | Unhealthy |
+| 201–300 | 重度污染 | Very Unhealthy |
+| 301–500 | 严重污染 | Hazardous |
 
-中国与美国的输入边界为 50、100、150、200、300；NEA 为 50、100、200、300，上限包含在当前档。PSI >300 属于第 5 档，不产生第 6 档。新加坡界面名称保留 **PSI**，不得仅切换名称就将同一数值当成 AQI；1 小时 PM2.5 也不是 PSI。
-
-EEA 的 1–6 仅是本库的原生等级编码，不是官方数值型 AQI。数据源若提供“欧洲 AQI 0–100”等插值指数，须先核实其定义，不能直接传入。不同体系的同档序号不表示相同风险或浓度。
+接口不设默认体系。输入范围为整数 0–500，返回 `OUTDOOR_INDEX_UNKNOWN` 或 `OUTDOOR_INDEX_GRADE_1` 至 `GRADE_6`。小数、负数、NaN、无穷大、超范围和非法体系返回未知，不自动修约或封顶。“Beyond AQI”等非数值状态由上层单独展示。
 
 ```c
 #include "outdoor_index_rating.h"
+#include "environment_text.h"
 
-outdoor_index_grade_t grade = outdoor_index_rate(OUTDOOR_INDEX_NEA_PSI, 150);
-/* 第 3 档：NEA Unhealthy；不能套用 EPA 第 3 档的名称。 */
-const char *label = env_text_get_rating("zh-Hans", "psi", grade, "label");
+outdoor_index_grade_t grade = outdoor_index_rate(OUTDOOR_INDEX_EPA_AQI_2026, 150);
+const char *label = env_text_get_rating("zh-Hans", "aqi_epa", grade, "label");
 ```
 
-接口不设默认体系。结果为 `OUTDOOR_INDEX_UNKNOWN` 或原生档序号 `OUTDOOR_INDEX_GRADE_1` 至 `GRADE_6`。小数、负数、NaN、无穷大、非法体系均返回未知；HJ/EPA 的输入范围限定为 0–500，超过范围返回未知，不静默封顶；NEA 的 >300 保留最高档。来源返回“Beyond AQI”等非数值状态时，应由上层单独展示。EEA 的 0 或 >6 也返回未知。
+中国和美国分别使用文案 ID `aqi_hj`、`aqi_epa`，同档序号不表示相同浓度。该模块不返回 Matter `AirQuality` 或 `LevelValue`，也不参与室内整体评级。AQI 仅有等级状态色，不设置图标和识别色；颜色使用 `env_color_index()` 按体系查询，见 [环境指标颜色说明](docs/COLOR_STANDARD.md)。
 
-文案 ID 分别为 `aqi_hj`、`aqi_epa`、`eea_index`、`psi`，必须与所选体系匹配。该模块不返回 Matter `AirQuality` 或 `LevelValue`，不与温湿度、花粉、紫外线合并。
-
-来源：[HJ 633—2026](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/t20260225_1144441.shtml)、[EPA AQI 技术指南](https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf)、[EEA](https://airindex.eea.europa.eu/AQI/)、[NEA PSI](https://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs)。
+来源：[HJ 633—2026](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202602/t20260225_1144441.shtml)、[EPA AQI 技术指南](https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf)。
 
 ### 4.7 室外 NO₂ 单项评级
 
-`air_rate_no2_eea()`、`air_rate_no2_hj_hourly()`、`air_rate_no2_hj_daily()`、`air_rate_no2_epa()` 返回独立单项六档，不加入室内整体评级，不重新计算外部 AQI/PSI，也不提供 Matter LevelValue 映射。
+`air_rate_no2_eea()`、`air_rate_no2_hj_hourly()`、`air_rate_no2_hj_daily()`、`air_rate_no2_epa()` 返回独立单项六档，不加入室内整体评级，不重新计算外部 AQI，也不提供 Matter LevelValue 映射。
 
 | 单项等级 | EEA · 1 小时 μg/m³ | HJ 633—2026 · 1 小时 μg/m³ | HJ 633—2026 · 24 小时 μg/m³ | EPA · 1 小时 ppb |
 |---|---|---|---|---|
@@ -808,6 +835,3 @@ Web 使用 `rating.air.no2Eea()`、`no2HjHourly()`、`no2HjDaily()`、`no2Epa()`
 | UBA | 住宅通风与湿度指南 | *Residential ventilation and humidity guidance* |
 | WHO 1999 | 社区噪声指南 | *Guidelines for Community Noise* |
 | ANSI/IES/ALA RP-11-26 | 室内和室外住宅环境照明推荐实践 | *Recommended Practice: Lighting for Interior and Exterior Residential Environments* |
-| NEA PSI | 污染物标准指数计算方法 | *Computation of the Pollutant Standards Index (PSI)* |
-
-外部 AQI、EEA 指数与 PSI 仅定义等级状态色，不设置图标与识别色。等级颜色按体系查询 `env_color_index()`，完整四角色色值见 [环境指标颜色说明](COLOR_STANDARD.md)。

@@ -88,30 +88,6 @@
   <string name="env_co_rating_very_poor_detail" formatted="false">現在の測定値では、濃度が非常に高い状態です。その場所での滞在を減らし、地域の案内や発生源を確認しましょう。</string>
   <string name="env_co_rating_very_poor_label" formatted="false">非常に悪い</string>
   <string name="env_co_rating_very_poor_summary" formatted="false">現在の測定値では、濃度が非常に高い状態です。</string>
-  <string name="env_eea_index_advice" formatted="false">情報源、場所、更新時刻を確認し、地域の活動案内を参考にしてください。異なる体系の同じ数値は同じ大気の状態を意味しません。</string>
-  <string name="env_eea_index_description" formatted="false">外部のEEAの6区分を受け取ります。1～6はAPIでの等級コードであり、欧州公式の数値AQIではありません。</string>
-  <string name="env_eea_index_name" formatted="false">欧州大気質指数 · EEA</string>
-  <string name="env_eea_index_rating_grade_1_detail" formatted="false">現在の外部データは「良好」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_eea_index_rating_grade_1_label" formatted="false">良好</string>
-  <string name="env_eea_index_rating_grade_1_summary" formatted="false">現在の外部データは「良好」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_eea_index_rating_grade_2_detail" formatted="false">現在の外部データは「まずまず」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_eea_index_rating_grade_2_label" formatted="false">まずまず</string>
-  <string name="env_eea_index_rating_grade_2_summary" formatted="false">現在の外部データは「まずまず」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_eea_index_rating_grade_3_detail" formatted="false">現在の外部データは「中程度」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_eea_index_rating_grade_3_label" formatted="false">中程度</string>
-  <string name="env_eea_index_rating_grade_3_summary" formatted="false">現在の外部データは「中程度」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_eea_index_rating_grade_4_detail" formatted="false">現在の外部データは「悪い」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_eea_index_rating_grade_4_label" formatted="false">悪い</string>
-  <string name="env_eea_index_rating_grade_4_summary" formatted="false">現在の外部データは「悪い」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_eea_index_rating_grade_5_detail" formatted="false">現在の外部データは「非常に悪い」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_eea_index_rating_grade_5_label" formatted="false">非常に悪い</string>
-  <string name="env_eea_index_rating_grade_5_summary" formatted="false">現在の外部データは「非常に悪い」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_eea_index_rating_grade_6_detail" formatted="false">現在の外部データは「極めて悪い」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_eea_index_rating_grade_6_label" formatted="false">極めて悪い</string>
-  <string name="env_eea_index_rating_grade_6_summary" formatted="false">現在の外部データは「極めて悪い」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_eea_index_rating_unknown_detail" formatted="false">現在、選択した体系の有効な指数や等級がありません。情報源、対応範囲、更新時刻を確認してください。</string>
-  <string name="env_eea_index_rating_unknown_label" formatted="false">不明</string>
-  <string name="env_eea_index_rating_unknown_summary" formatted="false">現在、選択した体系の有効な指数や等級がありません。情報源、対応範囲、更新時刻を確認してください。</string>
   <string name="env_hcho_advice" formatted="false">新しい家具や内装材からはホルムアルデヒドが放散し続けることがあります。高い場合は発生源を探し、外気が適切なら換気しましょう。高い値が続く場合は専門測定を検討してください。においがしないことは、濃度が下がった証拠にはなりません。</string>
   <string name="env_hcho_description" formatted="false">ホルムアルデヒドは建材や家具などから放散されることがある気体です。選択した基準の平均時間に沿って濃度を確認し、高い場合は発生源を調べ、屋外の状況が許せば換気します。</string>
   <string name="env_hcho_name" formatted="false">ホルムアルデヒド HCHO</string>
@@ -340,27 +316,6 @@
   <string name="env_pollen_rating_very_high_detail" formatted="false">現在の測定値では、花粉量が極めて高い状態です。敏感な方は対策に注意してください。この種類に敏感な場合は不要な接触を減らし、地域の予報に合わせて外出や換気を調整しましょう。</string>
   <string name="env_pollen_rating_very_high_label" formatted="false">極めて高い</string>
   <string name="env_pollen_rating_very_high_summary" formatted="false">現在の測定値では、花粉量が極めて高い状態です。この種類に敏感な場合は不要な接触を減らし、地域の予報に合わせて外出や換気を調整しましょう。</string>
-  <string name="env_psi_advice" formatted="false">情報源、場所、更新時刻を確認し、地域の活動案内を参考にしてください。異なる体系の同じ数値は同じ大気の状態を意味しません。</string>
-  <string name="env_psi_description" formatted="false">シンガポールNEAの24時間PSIを受け取り、公式の名称と5区分を保ちます。1時間PM2.5濃度とは別の指標です。</string>
-  <string name="env_psi_name" formatted="false">汚染物質標準指数 PSI · NEA</string>
-  <string name="env_psi_rating_grade_1_detail" formatted="false">現在の外部データは「良好」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_psi_rating_grade_1_label" formatted="false">良好</string>
-  <string name="env_psi_rating_grade_1_summary" formatted="false">現在の外部データは「良好」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_psi_rating_grade_2_detail" formatted="false">現在の外部データは「中程度」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_psi_rating_grade_2_label" formatted="false">中程度</string>
-  <string name="env_psi_rating_grade_2_summary" formatted="false">現在の外部データは「中程度」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_psi_rating_grade_3_detail" formatted="false">現在の外部データは「不健康」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_psi_rating_grade_3_label" formatted="false">不健康</string>
-  <string name="env_psi_rating_grade_3_summary" formatted="false">現在の外部データは「不健康」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_psi_rating_grade_4_detail" formatted="false">現在の外部データは「非常に不健康」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_psi_rating_grade_4_label" formatted="false">非常に不健康</string>
-  <string name="env_psi_rating_grade_4_summary" formatted="false">現在の外部データは「非常に不健康」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_psi_rating_grade_5_detail" formatted="false">現在の外部データは「危険」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_psi_rating_grade_5_label" formatted="false">危険</string>
-  <string name="env_psi_rating_grade_5_summary" formatted="false">現在の外部データは「危険」に該当します。地域の案内と自身の状況に合わせて活動を決めましょう。本機の現地測定から算出した結果ではありません。</string>
-  <string name="env_psi_rating_unknown_detail" formatted="false">現在、選択した体系の有効な指数や等級がありません。情報源、対応範囲、更新時刻を確認してください。</string>
-  <string name="env_psi_rating_unknown_label" formatted="false">不明</string>
-  <string name="env_psi_rating_unknown_summary" formatted="false">現在、選択した体系の有効な指数や等級がありません。情報源、対応範囲、更新時刻を確認してください。</string>
   <string name="env_so2_advice" formatted="false">屋外のSO₂が高いときは、汚染の多い場所での滞在を減らし、空気の良い時間に活動しましょう。換気も屋外の値を踏まえ、高濃度のときはむやみに窓を開けないでください。</string>
   <string name="env_so2_description" formatted="false">二酸化硫黄は主に硫黄を含む燃料の燃焼や一部の工業排出に関係し、呼吸に影響することがあります。基準の平均時間に沿って読み取り、高い場合は地域の案内に応じて曝露を減らします。</string>
   <string name="env_so2_name" formatted="false">二酸化硫黄 SO₂</string>
@@ -427,10 +382,6 @@
   <string name="env_standard_nab_pollen_name" formatted="false">NAB 花粉レベル</string>
   <string name="env_standard_nab_pollen_organization" formatted="false">米国 National Allergy Bureau（NAB）</string>
   <string name="env_standard_nab_pollen_organization_1" formatted="false">米国 National Allergy Bureau（NAB）</string>
-  <string name="env_standard_nea_psi_description" formatted="false">シンガポール国家環境庁は24時間PSIを5区分で報告します。本製品は外部PSIを分類し、PSIの名称を保ちます。米国AQIや1時間PM2.5濃度とは区別します。</string>
-  <string name="env_standard_nea_psi_name" formatted="false">NEA 汚染物質標準指数（PSI）</string>
-  <string name="env_standard_nea_psi_organization" formatted="false">シンガポール国家環境庁（NEA）</string>
-  <string name="env_standard_nea_psi_organization_1" formatted="false">シンガポール国家環境庁（NEA）</string>
   <string name="env_standard_oehha_hcho_2008_description" formatted="false">カリフォルニア州OEHHAの参考曝露レベルは健康リスク評価に用いられ、ホルムアルデヒドの1時間急性参考値は0.055 mg/m³です。本製品は選択肢として提供します。米国全体の法的限度値ではなく、6段階も製品の対応付けです。</string>
   <string name="env_standard_oehha_hcho_2008_name" formatted="false">カリフォルニア OEHHA 2008</string>
   <string name="env_standard_oehha_hcho_2008_organization" formatted="false">カリフォルニア州環境健康有害性評価局（OEHHA）</string>

@@ -592,83 +592,6 @@
         }
       ]
     },
-    "eea_index": {
-      "group": "outdoor",
-      "enumType": "outdoor_index_grade_t",
-      "ratings": [
-        {
-          "id": "unknown",
-          "enum": "OUTDOOR_INDEX_UNKNOWN",
-          "value": 0
-        },
-        {
-          "id": "grade_1",
-          "enum": "OUTDOOR_INDEX_GRADE_1",
-          "value": 1
-        },
-        {
-          "id": "grade_2",
-          "enum": "OUTDOOR_INDEX_GRADE_2",
-          "value": 2
-        },
-        {
-          "id": "grade_3",
-          "enum": "OUTDOOR_INDEX_GRADE_3",
-          "value": 3
-        },
-        {
-          "id": "grade_4",
-          "enum": "OUTDOOR_INDEX_GRADE_4",
-          "value": 4
-        },
-        {
-          "id": "grade_5",
-          "enum": "OUTDOOR_INDEX_GRADE_5",
-          "value": 5
-        },
-        {
-          "id": "grade_6",
-          "enum": "OUTDOOR_INDEX_GRADE_6",
-          "value": 6
-        }
-      ]
-    },
-    "psi": {
-      "group": "outdoor",
-      "enumType": "outdoor_index_grade_t",
-      "ratings": [
-        {
-          "id": "unknown",
-          "enum": "OUTDOOR_INDEX_UNKNOWN",
-          "value": 0
-        },
-        {
-          "id": "grade_1",
-          "enum": "OUTDOOR_INDEX_GRADE_1",
-          "value": 1
-        },
-        {
-          "id": "grade_2",
-          "enum": "OUTDOOR_INDEX_GRADE_2",
-          "value": 2
-        },
-        {
-          "id": "grade_3",
-          "enum": "OUTDOOR_INDEX_GRADE_3",
-          "value": 3
-        },
-        {
-          "id": "grade_4",
-          "enum": "OUTDOOR_INDEX_GRADE_4",
-          "value": 4
-        },
-        {
-          "id": "grade_5",
-          "enum": "OUTDOOR_INDEX_GRADE_5",
-          "value": 5
-        }
-      ]
-    },
     "no2": {
       "group": "outdoor",
       "enumType": "air_quality_t",
@@ -877,16 +800,6 @@
         {
           "name": "世界卫生组织（WHO）",
           "url": "https://www.who.int/"
-        }
-      ]
-    },
-    "nea_psi": {
-      "group": "outdoor",
-      "url": "https://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs",
-      "organizations": [
-        {
-          "name": "NEA",
-          "url": "https://www.nea.gov.sg/"
         }
       ]
     }

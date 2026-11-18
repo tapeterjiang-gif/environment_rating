@@ -5,7 +5,7 @@
 - 各言語のJSON：名称、説明、解説、評価ラベル、短いアドバイスと詳しいアドバイスを編集します。
 - `manifest.json`：分類、利用できる評価、対応するCの列挙定数と数値を定義します。
 - `generated/`：iOS、Android、Web、フォント用文字一覧の生成結果です。
-- ルートの `environment_text.h/.c`：ファームウェア用の生成されたテキスト取得関数です。
+- `c/environment_text.h/.c`：ファームウェア用の生成されたテキスト取得関数です。
 
 構造は `metrics.co2.name / description / advice / ratings.moderate.label / summary / detail` です。`description` は指標名の下の「説明」、`advice` は区分別案内内の総説カードの「解説」、各区分の `summary` / `detail` は「アドバイス」と呼びます。後者は短い版と詳しい版に対応し、小さい画面向けの短い版は独立して編集します。長文を実行時に切り詰めて短文にしないでください。
 
@@ -94,7 +94,7 @@ const name = getText('ja', 'env_co2_name');
 
 ## ファームウェア / LVGL
 
-ルートの `environment_text.c` をプロジェクトに追加します。評価ヘッダーで列挙値をコンパイル時に確認し、LVGL依存やヒープ確保はありません。CMakeでは `environment_text` をリンクでき、ESP-IDFではコンポーネントの `SRCS` にこの `.c` を追加します。
+`c/environment_text.c` を追加し、ヘッダー検索パスに `c/` を設定します。評価ヘッダーで列挙値をコンパイル時に確認し、LVGL依存やヒープ確保はありません。CMakeでは `environment_text` をリンクでき、ESP-IDFではコンポーネントの `SRCS` にこの `.c` を追加します。
 
 ```c
 #include "air_quality_rating.h"
@@ -118,4 +118,6 @@ if (text != NULL) {
 
 ## 外部指数のテキスト
 
-体系に合わせて `aqi_hj`、`aqi_epa`、`eea_index`、`psi` を使います。`outdoor_index_rate()` の区分番号で照会し、NEAは5区分のみです。Webの `grade-3` はテキストID `grade_3` に対応します。EEAの1～6は等級コードで、数値AQIではありません。外部指数は現地濃度から再計算せず、Matterにも変換しません。情報源、場所、更新時刻、現在値・日報・予報の区別を保持してください。
+外部AQIは中国の `aqi_hj` と米国の `aqi_epa` のみを使います。`outdoor_index_rate()` の区分番号を対応する体系で照会します。Webの `grade-3` はテキストID `grade_3` に対応します。外部指数を現地濃度から再計算せず、Matterにも変換しません。情報源、場所、更新時刻、現在値・日報・予報の区別を保持してください。
+
+完全版とLVGLのZIPではCファイルは `c/` にあります。このディレクトリをヘッダー検索パスに追加してください。

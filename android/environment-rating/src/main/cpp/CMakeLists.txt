@@ -5,14 +5,14 @@ set(ENVIRONMENT_RATING_ROOT "${CMAKE_CURRENT_LIST_DIR}/../../../../..")
 
 add_library(environment_rating SHARED
     environment_rating_jni.c
-    "${ENVIRONMENT_RATING_ROOT}/air_quality_rating.c"
-    "${ENVIRONMENT_RATING_ROOT}/thermal_comfort.c"
-    "${ENVIRONMENT_RATING_ROOT}/sound_light_rating.c"
-    "${ENVIRONMENT_RATING_ROOT}/environment_color.c"
+    "${ENVIRONMENT_RATING_ROOT}/c/air_quality_rating.c"
+    "${ENVIRONMENT_RATING_ROOT}/c/thermal_comfort.c"
+    "${ENVIRONMENT_RATING_ROOT}/c/sound_light_rating.c"
+    "${ENVIRONMENT_RATING_ROOT}/c/environment_color.c"
 )
 
 target_include_directories(environment_rating PRIVATE
-    "${ENVIRONMENT_RATING_ROOT}"
+    "${ENVIRONMENT_RATING_ROOT}/c"
 )
 target_compile_features(environment_rating PRIVATE c_std_99)
 target_compile_options(environment_rating PRIVATE

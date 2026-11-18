@@ -5,7 +5,7 @@ import { dirname, extname, resolve } from "node:path";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), "dist");
+const root = resolve(dirname(fileURLToPath(import.meta.url)), "../site/dist");
 const read = (file) => readFile(resolve(root, file), "utf8");
 const [guide, detail, design, developer, oldColors] = await Promise.all([
   read("index.html"), read("indicators.html"), read("design.html"), read("developer.html"), read("colors.html")
@@ -37,7 +37,7 @@ if (guide.includes('href="#standards">评级依据</a>')) {
   throw new Error("The guide navigation still links to standards");
 }
 const navigation = (page) => [...page.matchAll(/<div class="nav-links">([\s\S]*?)<\/div>/g)][0]?.[1].replace(/ aria-current="page"/g, "");
-if ((guide.match(/class="standard-metrics"/g) ?? []).length !== 17) throw new Error("A standard lacks metric associations");
+if ((guide.match(/class="standard-metrics"/g) ?? []).length !== 16) throw new Error("A standard lacks metric associations");
 const sharedNavigation = '<a href="index.html">评级方法</a><a href="indicators.html">指标解读</a><a href="design.html">设计参考</a><a href="developer.html">开发参考</a>';
 for (const [name, page] of [["guide", guide], ["detail", detail], ["design", design], ["developer", developer]]) {
   if (navigation(page) !== sharedNavigation) throw new Error(`${name} does not use shared navigation`);
@@ -63,9 +63,9 @@ if (detail.includes('class="icon-source"') || detail.includes('id="icon-sources"
 includesAll(design, "design.html", ["id=\"icon-resources\"", "id=\"color-resources\"", "id=\"rating-copy\"", "design-i18n.js", "SF Symbols", "Apache 2.0"]);
 if ((design.match(/class="resource-card"/g) ?? []).length !== 15) throw new Error("Design icon assets are incomplete");
 if ((design.match(/class="color-resource"/g) ?? []).length !== 15) throw new Error("Design identity colors are incomplete");
-if ((design.match(/class="metric-description"/g) ?? []).length !== 19) throw new Error("Design rating copy is incomplete");
+if ((design.match(/class="metric-description"/g) ?? []).length !== 17) throw new Error("Design rating copy is incomplete");
 for (const [group, options] of Object.entries({
-  "outdoor-index": ["hj", "epa", "eea", "nea"],
+  "outdoor-index": ["hj", "epa"],
   pm: ["eea", "hj", "epa"], hcho: ["who", "gbt", "oehha"],
   o3: ["eea", "hj", "epa"], co: ["hj", "epa"],
   no2: ["eea", "hj-hourly", "hj-daily", "epa"],
@@ -75,6 +75,9 @@ for (const [group, options] of Object.entries({
     `aria-controls="${group === "outdoor-index" ? "index" : group}-${option}-panel"`, `id="${group === "outdoor-index" ? "index" : group}-${option}-panel"`,
     `data-standard-panel="${option}" data-standard-group="${group}"`
   ])]);
+}
+if (detail.includes('id="index-eea-tab"') || detail.includes('id="index-nea-tab"') || guide.includes('env_standard_nea_psi')) {
+  throw new Error("Removed external index schemes remain in the guide");
 }
 includesAll(oldColors, "colors.html", ["design.html#color-resources", "favicon.svg"]);
 if (oldColors.includes("index.html#color-principles")) throw new Error("Old color redirect points to the guide");
@@ -116,7 +119,7 @@ const address = server.address();
 if (typeof address === "string" || address == null) throw new Error("Preview server failed");
 const renderTargets = [
   ["index.html", ["看懂你身边的环境", "category-mosaic"]],
-  ["indicators.html", ["环境指标解读", "PMV 七点冷热感", "污染物标准指数 PSI · NEA"]],
+  ["indicators.html", ["环境指标解读", "PMV 七点冷热感"]],
   ["design.html", ["设计参考", "图标资源", "评级解读文案"]],
   ["developer.html", ["开发参考", "统一文案源", "EnvironmentCopy.xcstrings"]],
   ["developer.html?lang=zh-Hant", ["<html lang=\"zh-Hant\"", "開發參考", "韌體 / LVGL"]],

@@ -35,7 +35,7 @@ val cssHex = colors?.graphic?.hex
 
 每个 `EnvironmentParameter` 同时提供 `materialSymbolName` 和可直接使用的 `iconResource`。图标采用 Material Symbols Rounded，例如 `EnvironmentParameter.CO2.iconResource`；View 可设置给 `ImageView`，Compose 可通过 `painterResource()` 加载并着参数识别色。PM2.5 与 PM10 共用同一个 `blur_on` Vector Drawable。
 
-空气质量的默认标准、输入单位、无效值规则和颜色限制与根目录 [README](../README.md) 及 [环境指标颜色说明](../COLOR_STANDARD.md) 一致。不支持的颜色组合返回 `null`。
+空气质量的默认标准、输入单位、无效值规则和颜色限制与根目录 [README](../README.md) 及 [环境指标颜色说明](../docs/COLOR_STANDARD.md) 一致。不支持的颜色组合返回 `null`。
 
 ## 构建与测试
 

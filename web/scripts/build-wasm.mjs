@@ -86,13 +86,13 @@ rmSync(temporaryDirectory, { recursive: true, force: true });
 mkdirSync(temporaryDirectory, { recursive: true });
 
 const args = [
-  join(projectDirectory, "air_quality_rating.c"),
-  join(projectDirectory, "thermal_comfort.c"),
-  join(projectDirectory, "sound_light_rating.c"),
-  join(projectDirectory, "environment_color.c"),
-  join(projectDirectory, "pollen_rating.c"),
-  join(projectDirectory, "uv_index_rating.c"),
-  join(projectDirectory, "outdoor_index_rating.c"),
+  join(projectDirectory, "c", "air_quality_rating.c"),
+  join(projectDirectory, "c", "thermal_comfort.c"),
+  join(projectDirectory, "c", "sound_light_rating.c"),
+  join(projectDirectory, "c", "environment_color.c"),
+  join(projectDirectory, "c", "pollen_rating.c"),
+  join(projectDirectory, "c", "uv_index_rating.c"),
+  join(projectDirectory, "c", "outdoor_index_rating.c"),
   "-O3",
   "-flto",
   "-std=c99",

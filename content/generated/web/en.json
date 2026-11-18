@@ -603,85 +603,6 @@
         }
       }
     },
-    "eea_index": {
-      "name": "European Air Quality Index · EEA",
-      "description": "Accepts an external native EEA category. Values 1–6 are API category codes, not an official European numeric AQI scale.",
-      "advice": "Check the source, location and update time, and follow local activity advisories. Equal numbers across schemes do not indicate equal air conditions.",
-      "ratings": {
-        "unknown": {
-          "label": "Unknown",
-          "summary": "No valid external index or category is available for this scheme. Check the source, supported range and update time.",
-          "detail": "No valid external index or category is available for this scheme. Check the source, supported range and update time."
-        },
-        "grade_1": {
-          "label": "Good",
-          "summary": "The current external data indicate “Good”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.",
-          "detail": "The current external data indicate “Good”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings."
-        },
-        "grade_2": {
-          "label": "Fair",
-          "summary": "The current external data indicate “Fair”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.",
-          "detail": "The current external data indicate “Fair”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings."
-        },
-        "grade_3": {
-          "label": "Moderate",
-          "summary": "The current external data indicate “Moderate”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.",
-          "detail": "The current external data indicate “Moderate”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings."
-        },
-        "grade_4": {
-          "label": "Poor",
-          "summary": "The current external data indicate “Poor”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.",
-          "detail": "The current external data indicate “Poor”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings."
-        },
-        "grade_5": {
-          "label": "Very Poor",
-          "summary": "The current external data indicate “Very Poor”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.",
-          "detail": "The current external data indicate “Very Poor”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings."
-        },
-        "grade_6": {
-          "label": "Extremely Poor",
-          "summary": "The current external data indicate “Extremely Poor”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.",
-          "detail": "The current external data indicate “Extremely Poor”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings."
-        }
-      }
-    },
-    "psi": {
-      "name": "Pollutant Standards Index · NEA",
-      "description": "Accepts Singapore NEA’s 24-hour PSI, retaining its name and five native categories. PSI is distinct from a one-hour PM2.5 concentration.",
-      "advice": "Check the source, location and update time, and follow local activity advisories. Equal numbers across schemes do not indicate equal air conditions.",
-      "ratings": {
-        "unknown": {
-          "label": "Unknown",
-          "summary": "No valid external index or category is available for this scheme. Check the source, supported range and update time.",
-          "detail": "No valid external index or category is available for this scheme. Check the source, supported range and update time."
-        },
-        "grade_1": {
-          "label": "Good",
-          "summary": "The current external data indicate “Good”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.",
-          "detail": "The current external data indicate “Good”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings."
-        },
-        "grade_2": {
-          "label": "Moderate",
-          "summary": "The current external data indicate “Moderate”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.",
-          "detail": "The current external data indicate “Moderate”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings."
-        },
-        "grade_3": {
-          "label": "Unhealthy",
-          "summary": "The current external data indicate “Unhealthy”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.",
-          "detail": "The current external data indicate “Unhealthy”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings."
-        },
-        "grade_4": {
-          "label": "Very Unhealthy",
-          "summary": "The current external data indicate “Very Unhealthy”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.",
-          "detail": "The current external data indicate “Very Unhealthy”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings."
-        },
-        "grade_5": {
-          "label": "Hazardous",
-          "summary": "The current external data indicate “Hazardous”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings.",
-          "detail": "The current external data indicate “Hazardous”. Plan activities with local advisories and personal circumstances in mind; this is not calculated from this device’s local readings."
-        }
-      }
-    },
     "no2": {
       "name": "Nitrogen dioxide NO₂",
       "description": "Nitrogen dioxide is associated with traffic and combustion emissions. Interpret the current concentration using the selected averaging period; a concentration is not an AQI value.",
@@ -805,11 +726,6 @@
       "name": "WHO Global Solar UV Index",
       "description": "The WHO Global Solar UV Index guide uses five exposure levels to explain potential effects on skin and eyes and guide sun protection. The project adopts these levels and WHO’s RGB colors. Check whether readings show the current index or daily maximum; UV Index differs from illuminance.",
       "organization": "World Health Organization (WHO)"
-    },
-    "nea_psi": {
-      "name": "NEA Pollutant Standards Index (PSI)",
-      "description": "Singapore’s National Environment Agency reports 24-hour PSI with five native categories. The project classifies external PSI values while retaining the PSI name; it is not US AQI or a one-hour PM2.5 concentration.",
-      "organization": "National Environment Agency (NEA)"
     }
   }
 }

@@ -10,17 +10,6 @@ outdoor_index_grade_t outdoor_index_rate(outdoor_index_std_t standard,
 {
     if (!isfinite(value) || value < 0 || floor(value) != value)
         return OUTDOOR_INDEX_UNKNOWN;
-    if (standard == OUTDOOR_INDEX_EEA_2024) {
-        return value >= 1 && value <= 6 ? (outdoor_index_grade_t)(int)value
-                                      : OUTDOOR_INDEX_UNKNOWN;
-    }
-    if (standard == OUTDOOR_INDEX_NEA_PSI) {
-        if (value <= 50) return OUTDOOR_INDEX_GRADE_1;
-        if (value <= 100) return OUTDOOR_INDEX_GRADE_2;
-        if (value <= 200) return OUTDOOR_INDEX_GRADE_3;
-        if (value <= 300) return OUTDOOR_INDEX_GRADE_4;
-        return OUTDOOR_INDEX_GRADE_5;
-    }
     if ((standard != OUTDOOR_INDEX_HJ_633_2026 &&
          standard != OUTDOOR_INDEX_EPA_AQI_2026) || value > 500)
         return OUTDOOR_INDEX_UNKNOWN;

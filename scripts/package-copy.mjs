@@ -38,8 +38,8 @@ async function zip(files){
   return Buffer.concat([...locals,directory,end]);
 }
 const locales=['zh-Hans','zh-Hant','en','ja'];
-const enumHeaders=['air_quality_rating.h','thermal_comfort.h','sound_light_rating.h','pollen_rating.h','uv_index_rating.h','outdoor_index_rating.h'];
-const firmware=['environment_text.c','environment_text.h',...enumHeaders];
+const enumHeaders=['air_quality_rating.h','thermal_comfort.h','sound_light_rating.h','pollen_rating.h','uv_index_rating.h','outdoor_index_rating.h'].map(name => `c/${name}`);
+const firmware=['c/environment_text.c','c/environment_text.h',...enumHeaders];
 const generated=await tree('content/generated');
 const shared=['content/README.md','content/manifest.json',...locales.map(l=>`content/${l}.json`),...await tree('content/guides')];
 const items={
